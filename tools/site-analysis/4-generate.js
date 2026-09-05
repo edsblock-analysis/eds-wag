@@ -45,6 +45,29 @@ const origin = S.origin || (UT[0] && new URL(UT[0].url).origin) || '';
 const host = origin.replace(/^https?:\/\//, '');
 const DATE = process.env.ANALYSIS_DATE || 'the analysis date';
 
+// Single source of truth for the top navigation (dashboard tabs + report hub).
+// Used by both the dashboard (client-side tab switch, hash-aware) and every report
+// page (static links back to the dashboard tab / hub) so the nav is identical everywhere.
+const NAV = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'templates', label: 'Templates' },
+  { id: 'blocks', label: 'Blocks & Variations' },
+  { id: 'mapping', label: 'Template → Block Map' },
+  { id: 'journeys', label: 'Journeys & Forms' },
+  { id: 'behaviors', label: 'Observed Behaviors' },
+  { id: 'integrations', label: 'Integrations' },
+  { id: 'urls', label: 'All URLs (' + S.totalUrls + ')' },
+  { id: 'reports', label: 'Detailed Reports', href: 'reports/index.html' },
+];
+// Static nav bar for report pages (prefix points back up to the dashboard).
+function reportNav(activeReportsHubHref) {
+  return `<nav class="topnav">${NAV.map(t => {
+    const href = t.id === 'reports' ? (activeReportsHubHref || 'index.html') : `../dashboard.html#${t.id}`;
+    const active = t.id === 'reports' ? ' class="active"' : '';
+    return `<a href="${href}"${active}>${esc(t.label)}</a>`;
+  }).join('')}</nav>`;
+}
+
 /* ---------------- shared CSS (light theme, blue header) ---------------- */
 const CSS = `
 :root{--bg:#f4f7fb;--panel:#ffffff;--panel2:#eef3f9;--line:#d9e1ec;--txt:#1a2432;--mut:#5c6b80;--brand:#1560bd;--accent:#1560bd;--hi:#c0392b;--me:#9a6a00;--lo:#1e8f5b}
@@ -83,10 +106,16 @@ ul.f{margin:6px 0 12px;padding-left:18px}ul.f li{margin:4px 0}
 .nav-blocks a{font-size:12px;text-decoration:none;background:var(--panel2);border:1px solid var(--line);padding:4px 9px;border-radius:16px;color:var(--txt)}
 .nav-blocks a:hover{border-color:var(--accent)}
 footer{padding:18px 28px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);margin-top:30px}
+nav.topnav,nav#nav{display:flex;gap:2px;background:var(--panel);border-bottom:1px solid var(--line);padding:0 12px;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+nav.topnav a,nav#nav button{background:none;border:none;color:var(--mut);padding:12px 16px;cursor:pointer;font-size:13px;border-bottom:2px solid transparent;text-decoration:none;display:inline-block}
+nav.topnav a:hover,nav#nav button:hover{color:var(--txt)}
+nav.topnav a.active,nav#nav button.active{color:var(--txt);border-bottom-color:var(--brand)}
 `;
-function shell(title, crumbs, body) {
+function shell(title, crumbs, body, opts) {
+  opts = opts || {};
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><style>${CSS}</style></head><body>
 <header class="top"><h1>${esc(title)}</h1><p>${esc(host)} → Edge Delivery Services · evidence-based analysis · ${esc(DATE)}</p></header>
+${reportNav(opts.hubHref)}
 <div class="crumbs">${crumbs}</div>
 <main>${body}</main>
 <footer>Generated from live-crawl evidence (all ${S.totalUrls} URLs). See <a href="../dashboard.html">dashboard</a> · <a href="index.html">report hub</a>.</footer>
@@ -300,9 +329,6 @@ function genDashboard() {
   };
   const maxTpl = Math.max(...data.templates.map(t => t.count), 1);
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(host)} — EDS Migration Analysis</title><style>${CSS}
-nav{display:flex;gap:2px;background:var(--panel);border-bottom:1px solid var(--line);padding:0 12px;position:sticky;top:0;z-index:10;flex-wrap:wrap}
-nav button{background:none;border:none;color:var(--mut);padding:12px 16px;cursor:pointer;font-size:13px;border-bottom:2px solid transparent}
-nav button:hover{color:var(--txt)}nav button.active{color:var(--txt);border-bottom-color:var(--brand)}
 .view{display:none}.view.active{display:block}
 details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:4px 14px}
 details summary{cursor:pointer;padding:10px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
@@ -319,7 +345,12 @@ select{padding:8px;border-radius:8px;border:1px solid var(--line);background:var
 const D=${JSON.stringify(data)};const maxTpl=${maxTpl};
 const TABS=[['overview','Overview'],['templates','Templates'],['blocks','Blocks & Variations'],['mapping','Template → Block Map'],['journeys','Journeys & Forms'],['behaviors','Observed Behaviors'],['integrations','Integrations'],['urls','All URLs ('+D.totals.urls+')']];
 const nav=document.getElementById('nav');
-TABS.forEach(([id,lab],i)=>{const b=document.createElement('button');b.textContent=lab;b.className=i===0?'active':'';b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('v-'+id).classList.add('active');window.scrollTo(0,0);};nav.appendChild(b);});
+function showTab(id){const ids=TABS.map(t=>t[0]);if(!ids.includes(id))id='overview';document.querySelectorAll('nav#nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));const el=document.getElementById('v-'+id);if(el)el.classList.add('active');}
+TABS.forEach(([id,lab])=>{const b=document.createElement('button');b.textContent=lab;b.dataset.tab=id;b.onclick=()=>{history.replaceState(null,'','#'+id);showTab(id);window.scrollTo(0,0);};nav.appendChild(b);});
+// Detailed Reports link sits in the same nav bar (navigates to the report hub).
+const rl=document.createElement('a');rl.href='reports/index.html';rl.textContent='Detailed Reports';rl.style.cssText='color:var(--mut);padding:12px 16px;font-size:13px;text-decoration:none;border-bottom:2px solid transparent';nav.appendChild(rl);
+showTab((location.hash||'').replace('#',''));
+window.addEventListener('hashchange',()=>showTab((location.hash||'').replace('#','')));
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 document.getElementById('v-overview').innerHTML=\`<div class="grid g4"><div class="stat"><div class="n">\${D.totals.urls}</div><div class="l">URLs analyzed</div></div><div class="stat"><div class="n">\${D.totals.templates}</div><div class="l">Templates</div></div><div class="stat"><div class="n">\${D.totals.blocks}</div><div class="l">Blocks</div></div><div class="stat"><div class="n">\${D.totals.variations}</div><div class="l">Variations</div></div></div>
 <div class="grid g4" style="margin-top:14px"><div class="stat"><div class="n" style="color:var(--hi)">\${D.totals.high}</div><div class="l">High</div></div><div class="stat"><div class="n" style="color:var(--me)">\${D.totals.medium}</div><div class="l">Medium</div></div><div class="stat"><div class="n" style="color:var(--lo)">\${D.totals.low}</div><div class="l">Low</div></div><div class="stat"><div class="n">\${D.totals.mirror}+\${D.totals.spanish}</div><div class="l">Mirror + non-EN</div></div></div>
