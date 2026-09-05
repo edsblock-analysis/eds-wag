@@ -14,9 +14,10 @@
 |---|---|
 | Total URLs analyzed | **804** |
 | Unique templates | **7** |
-| EDS blocks to develop | **27** |
-| Block variations | **32** |
-| High / Medium / Low complexity | 8 / 7 / 12 |
+| EDS blocks to develop | **21** |
+| Block variations | **28** |
+| EDS default content (not blocks) | 4 |
+| High / Medium / Low complexity | 8 / 6 / 7 |
 | Forms | 804 |
 | Third-party integrations | 9 |
 | Unrecognized 3rd-party hosts (review) | 0 |
@@ -40,22 +41,18 @@
 
 ## 3. Block Inventory
 
+21 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
+
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
 | **Header / Navigation** | `header (nav)` | High | 804 | default (804) |
 | **Predictive Search** | `search` | High | 804 | default (804) |
 | **Footer** | `footer` | Medium | 804 | default (804) |
 | **Social Media Links** | `social-media` | Low | 804 | default (804) |
-| **Button / CTA** | `default content (button)` | Low | 804 | default (804) |
-| **Title** | `default content (heading)` | Low | 792 | default (792) |
 | **Breadcrumb** | `breadcrumb` | Low | 763 | default (763) |
-| **Article Card** | `cards` | Medium | 743 | hero (30); medium (732); small (32); video (28) |
-| **Separator** | `default content (hr)` | Low | 723 | red (722) |
-| **Explore More (related)** | `explore-more` | Low | 714 | default (714) |
-| **Image** | `default content (image)` | Low | 707 | default (707) |
+| **Article Card** | `cards` | Medium | 743 | hero (30); medium (732); small (32); video (28); hero-container (32); related (714) |
 | **Scroll to Top** | `scroll-to-top` | Low | 702 | default (702) |
-| **Content Carousel** | `carousel` | High | 53 | default (53) |
-| **Category Hero Card Container** | `card-container-hero` | Medium | 32 | default (32) |
+| **Carousel** | `carousel` | High | 53 | content (53) |
 | **Explore (category tiles)** | `explore` | Low | 32 | default (32) |
 | **Promo Blocks** | `promo-blocks` | Low | 29 | default (29) |
 | **Article Listing + Pagination** | `article-list (paginate)` | High | 27 | default (27) |
@@ -64,11 +61,13 @@
 | **Background Container** | `section-metadata (background)` | Low | 21 | navy-blue (20); gray (3) |
 | **Watch Videos (gallery)** | `watch-videos` | High | 20 | default (20) |
 | **Jump to Section** | `jump-to-section (TOC)` | Medium | 8 | default (8) |
-| **Section Hero** | `hero` | Low | 4 | default (4) |
+| **Hero** | `hero` | Low | 4 | section (4) |
 | **Editor's Pick / Featured Teaser** | `editors-pick (teaser)` | Medium | 3 | default (3) |
 | **Series List / Teaser** | `series-list` | Medium | 3 | default (3) |
 | **Hero Carousel** | `hero-carousel` | High | 2 | default (2) |
 | **Trending Articles** | `trending-articles` | Medium | 2 | default (2) |
+
+**EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Button / CTA (804), Title (792), Separator (723), Image (707).
 
 ---
 
@@ -82,13 +81,8 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
 | Breadcrumb | default | Low |
-| Article Card | hero, medium, small, video | Medium |
-| Separator | red | Low |
-| Explore More (related) | default | Low |
-| Image | default | Low |
+| Article Card | hero, medium, small, video, hero-container, related | Medium |
 | Scroll to Top | default | Low |
 | Video / Media Embed | spotify, youtube | High |
 | Background Container | navy-blue, gray | Low |
@@ -102,13 +96,8 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
-| Article Card | hero, medium, small, video | Medium |
-| Separator | red | Low |
-| Image | default | Low |
-| Content Carousel | default | High |
-| Category Hero Card Container | default | Medium |
+| Article Card | hero, medium, small, video, hero-container, related | Medium |
+| Carousel | content | High |
 | Explore (category tiles) | default | Low |
 | Promo Blocks | default | Low |
 | Article Listing + Pagination | default | High |
@@ -123,14 +112,9 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
 | Breadcrumb | default | Low |
-| Article Card | hero, medium, small, video | Medium |
-| Separator | red | Low |
-| Explore More (related) | default | Low |
-| Image | default | Low |
-| Content Carousel | default | High |
+| Article Card | hero, medium, small, video, hero-container, related | Medium |
+| Carousel | content | High |
 | Video / Media Embed | spotify, youtube | High |
 | Episode Container (series) | default | High |
 
@@ -142,11 +126,7 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
 | Breadcrumb | default | Low |
-| Separator | red | Low |
-| Image | default | Low |
 | Scroll to Top | default | Low |
 
 ### Buying Guide (`buying-guide-article`) — 7 pages
@@ -157,13 +137,8 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
 | Breadcrumb | default | Low |
-| Article Card | hero, medium, small, video | Medium |
-| Separator | red | Low |
-| Explore More (related) | default | Low |
-| Image | default | Low |
+| Article Card | hero, medium, small, video, hero-container, related | Medium |
 | Scroll to Top | default | Low |
 
 ### Category Listing (`category-listing`) — 7 pages
@@ -174,14 +149,9 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
-| Article Card | hero, medium, small, video | Medium |
-| Separator | red | Low |
-| Explore More (related) | default | Low |
-| Image | default | Low |
+| Article Card | hero, medium, small, video, hero-container, related | Medium |
 | Explore (category tiles) | default | Low |
-| Section Hero | default | Low |
+| Hero | section | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 | Series List / Teaser | default | Medium |
 
@@ -193,10 +163,6 @@
 | Predictive Search | default | High |
 | Footer | default | Medium |
 | Social Media Links | default | Low |
-| Button / CTA | default | Low |
-| Title | default | Low |
-| Separator | red | Low |
-| Image | default | Low |
 | Scroll to Top | default | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 | Hero Carousel | default | High |
@@ -247,20 +213,6 @@
 
 - Row of social icon links opening brand profiles.
 
-### Button / CTA (`default content (button)`)
-
-- **Pages:** 804 · **Templates:** all
-- **Variations:** default (804)
-
-- Renders a CTA link styled as a button.
-
-### Title (`default content (heading)`)
-
-- **Pages:** 792 · **Templates:** all
-- **Variations:** default (792)
-
-- Renders a heading at the configured level.
-
 ### Breadcrumb (`breadcrumb`)
 
 - **Pages:** 763 · **Templates:** article, buying-guide-article, video-episode, video-transcript
@@ -271,32 +223,11 @@
 ### Article Card (`cards`)
 
 - **Pages:** 743 · **Templates:** article, buying-guide-article, category-hub, category-listing, video-episode
-- **Variations:** hero (30); medium (732); small (32); video (28)
+- **Variations:** hero (30); medium (732); small (32); video (28); hero-container (32); related (714)
 
 - Card is clickable to its target.
 - Shows image, category eyebrow, title, meta (read-time/byline/date) per variation.
 - Video variation overlays play icon + duration.
-
-### Separator (`default content (hr)`)
-
-- **Pages:** 723 · **Templates:** all
-- **Variations:** red (722)
-
-- Renders a divider between content.
-
-### Explore More (related) (`explore-more`)
-
-- **Pages:** 714 · **Templates:** article, buying-guide-article, category-listing, video-episode
-- **Variations:** default (714)
-
-- Row of related items as cards below the main content.
-
-### Image (`default content (image)`)
-
-- **Pages:** 707 · **Templates:** all
-- **Variations:** default (707)
-
-- Renders a responsive image with alt text.
 
 ### Scroll to Top (`scroll-to-top`)
 
@@ -305,21 +236,11 @@
 
 - Button appears after scrolling; clicking smooth-scrolls to top.
 
-### Content Carousel (`carousel`)
+### Carousel (`carousel`)
 
 - **Pages:** 53 · **Templates:** category-hub, video-episode
-- **Variations:** default (53)
+- **Variations:** content (53)
 
-- Horizontal carousel of cards with Previous/Next.
-- Previous disabled at start, Next disabled at end.
-- Optional 'see all' link.
-
-### Category Hero Card Container (`card-container-hero`)
-
-- **Pages:** 32 · **Templates:** category-hub
-- **Variations:** default (32)
-
-- Presents featured articles as a hero card plus supporting cards.
 
 ### Explore (category tiles) (`explore`)
 
@@ -384,12 +305,11 @@
 - Button toggles a dropdown of section links.
 - Selecting an item scrolls to the in-page anchor.
 
-### Section Hero (`hero`)
+### Hero (`hero`)
 
 - **Pages:** 4 · **Templates:** category-listing
-- **Variations:** default (4)
+- **Variations:** section (4)
 
-- Hero banner (image + title) introducing a section.
 
 ### Editor's Pick / Featured Teaser (`editors-pick (teaser)`)
 
@@ -448,14 +368,6 @@
 
 - [ ] Each social icon links to the correct external profile.
 
-### Button / CTA
-
-- [ ] Button navigates to its target.
-
-### Title
-
-- [ ] Heading renders with correct level and text.
-
 ### Breadcrumb
 
 - [ ] Breadcrumb reflects the page path; ancestors navigate.
@@ -466,31 +378,12 @@
 - [ ] Category eyebrow links to the category.
 - [ ] Cards reflow responsively.
 
-### Separator
-
-- [ ] Separator renders between sections.
-
-### Explore More (related)
-
-- [ ] Related-item row shows cards linking to their targets.
-
-### Image
-
-- [ ] Image renders responsively with alt text.
-
 ### Scroll to Top
 
 - [ ] After scrolling the button is visible; clicking returns to top.
 
-### Content Carousel
+### Carousel
 
-- [ ] At the first position Previous is disabled.
-- [ ] Next advances items; at the end Next is disabled.
-- [ ] 'see all' navigates to the full listing.
-
-### Category Hero Card Container
-
-- [ ] Hero container shows the featured article prominently with supporting cards linking out.
 
 ### Explore (category tiles)
 
@@ -530,9 +423,8 @@
 - [ ] Clicking toggles the list open/closed.
 - [ ] Selecting a section scrolls to the matching anchor.
 
-### Section Hero
+### Hero
 
-- [ ] The section hero shows image and title.
 
 ### Editor's Pick / Featured Teaser
 
@@ -1423,7 +1315,7 @@ Capabilities detected across the site (page counts). These indicate the interact
 |---|---|---|
 | **Header / Navigation** | High | Off-canvas / multi-level navigation with active-state tracking, integrated search toggle, and responsive desktop-bar vs mobile-drawer. Usually a shared Experience Fragment. |
 | **Predictive Search** | High | AJAX predictive/typeahead search with min-length gating, loading/empty/results states and keyboard a11y; on EDS must be rebuilt against an index (query-index.json). |
-| **Content Carousel** | High | Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts. |
+| **Carousel** | High | Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts. |
 | **Article Listing + Pagination** | High | Client-side paginated grid: numbered pages, prev/next bound states, jump-to-page, no reload; data-driven from a category index. |
 | **Video / Media Embed** | High | Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links. |
 | **Episode Container (series)** | High | Series episode navigation: current-episode player, more-episodes carousel with S:E badges, transcript link. |
@@ -1431,23 +1323,17 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Hero Carousel** | High | Auto-rotating multi-slide carousel with dot/arrow nav, per-slide media + CTA, pause/resume. |
 | **Footer** | Medium | Large multi-column link structure + social + legal + disclaimer, content-driven; usually a shared Experience Fragment. |
 | **Article Card** | Medium | Core reusable listing unit with multiple visual variations; drives listings, related content and carousels. |
-| **Category Hero Card Container** | Medium | Featured cluster: one hero card + supporting cards atop category hubs. |
 | **Jump to Section** | Medium | Dropdown TOC expanding to in-page anchor links; requires generating/binding anchors. |
 | **Editor's Pick / Featured Teaser** | Medium | Teaser promoting a single curated item: media + eyebrow + title + byline. |
 | **Series List / Teaser** | Medium | Landing structure listing series + teaser cards. |
 | **Trending Articles** | Medium | Curated lead item + secondary list; content-driven. |
 | **Social Media Links** | Low | Static row of social icon links (usually in the footer XF). |
-| **Button / CTA** | Low | Link styled as a button; maps to EDS button autoblocking. |
-| **Title** | Low | Heading component; maps to default content. |
 | **Breadcrumb** | Low | Hierarchical trail derived from page path. |
-| **Separator** | Low | Horizontal rule / divider. |
-| **Explore More (related)** | Low | Row of related-item cards at the foot of detail pages; reuses the Card block. |
-| **Image** | Low | Responsive image; maps to EDS optimized picture. |
 | **Scroll to Top** | Low | Floating button appearing after scroll; returns to top. |
 | **Explore (category tiles)** | Low | Grid of category tiles (image + name), sometimes with live article counts. |
 | **Promo Blocks** | Low | Static promotional image tiles with title + link. |
 | **Background Container** | Low | Section wrapper applying a themed background; maps to EDS section metadata. |
-| **Section Hero** | Low | Static section hero banner (image + title). |
+| **Hero** | Low | Static section hero banner (image + title). |
 
 ---
 

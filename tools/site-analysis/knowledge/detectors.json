@@ -73,6 +73,43 @@
     "cmp-subcategory-list": "explore",
     "cmp-header-nav": "header"
   },
+  "_defaultContentDoc": "Block ids that are NOT authored EDS blocks — they are EDS default content (paragraphs, headings, images, buttons, lists, rules) produced by core decoration / autoblocking. Excluded from the block catalog and the dev estimate; reported separately as 'default content / core features'.",
+  "defaultContent": ["text", "title", "image", "button", "separator", "list", "teaser"],
+  "_consolidateDoc": "Consolidate components that share a common DOM structure into a single EDS block whose differences become VARIATIONS. Key = block id from the catalog; value = {into: canonical block id, as: variation name}. This reduces block count to reflect real reuse: one block built, N variations authored. Only consolidate when the DOM/decoration is genuinely shared (e.g. all section heroes, all card sliders).",
+  "consolidate": {
+    "about-hero":            { "into": "hero", "as": "about" },
+    "approach-hero":         { "into": "hero", "as": "approach" },
+    "careers-hero":          { "into": "hero", "as": "careers" },
+    "insight-hero":          { "into": "hero", "as": "insight" },
+    "results-hero":          { "into": "hero", "as": "results" },
+    "solutions-hero":        { "into": "hero", "as": "solutions" },
+    "solutions-detail-hero": { "into": "hero", "as": "solutions-detail" },
+    "homepage-hero":         { "into": "hero", "as": "homepage" },
+    "section-hero":          { "into": "hero", "as": "section" },
+    "contact-hero":          { "into": "hero", "as": "contact-with-form" },
+
+    "people-slider":     { "into": "carousel", "as": "people" },
+    "logo-slider":       { "into": "carousel", "as": "logos" },
+    "card-carousel":     { "into": "carousel", "as": "cards" },
+    "solution-carousel": { "into": "carousel", "as": "solutions" },
+    "icon-carousel":     { "into": "carousel", "as": "icon-steps" },
+    "slick-carousel":    { "into": "carousel", "as": "content" },
+
+    "case-studies-cards":     { "into": "card", "as": "case-study" },
+    "results-cards":          { "into": "card", "as": "results-load-more" },
+    "instore-solution-cards": { "into": "card", "as": "solution" },
+    "about-people":           { "into": "card", "as": "team" },
+    "card-container-hero":    { "into": "card", "as": "hero-container" },
+    "explore-more":           { "into": "card", "as": "related" },
+
+    "featured-circles":     { "into": "feature-columns", "as": "circles" },
+    "text-circle-images":   { "into": "feature-columns", "as": "stat-tiles" },
+    "featured-solutions":   { "into": "feature-columns", "as": "solutions-tabbed" },
+    "image-with-text":      { "into": "feature-columns", "as": "media-text" },
+
+    "footer-teaser":   { "into": "callout", "as": "cta-band" },
+    "featured-button": { "into": "callout", "as": "resource" }
+  },
   "templateLabels": {
     "article": "Article",
     "category-hub": "Category Hub",

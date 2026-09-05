@@ -1,0 +1,26 @@
+[
+ {
+  "id": "button",
+  "name": "Button / CTA",
+  "edsBlock": "default content (button)",
+  "pages": 804
+ },
+ {
+  "id": "title",
+  "name": "Title",
+  "edsBlock": "default content (heading)",
+  "pages": 792
+ },
+ {
+  "id": "separator",
+  "name": "Separator",
+  "edsBlock": "default content (hr)",
+  "pages": 723
+ },
+ {
+  "id": "image",
+  "name": "Image",
+  "edsBlock": "default content (image)",
+  "pages": 707
+ }
+]

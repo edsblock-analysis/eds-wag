@@ -151,66 +151,6 @@
   ]
  },
  {
-  "id": "button",
-  "name": "Button / CTA",
-  "edsBlock": "default content (button)",
-  "complexity": "Low",
-  "complexityReason": "Link styled as a button; maps to EDS button autoblocking.",
-  "templates": [
-   "all"
-  ],
-  "pages": 804,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Button / CTA",
-    "pages": 804
-   }
-  ],
-  "functional": [
-   "Renders a CTA link styled as a button."
-  ],
-  "acceptance": [
-   "Button navigates to its target."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-button"
-  ]
- },
- {
-  "id": "title",
-  "name": "Title",
-  "edsBlock": "default content (heading)",
-  "complexity": "Low",
-  "complexityReason": "Heading component; maps to default content.",
-  "templates": [
-   "all"
-  ],
-  "pages": 792,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Title",
-    "pages": 792
-   }
-  ],
-  "functional": [
-   "Renders a heading at the configured level."
-  ],
-  "acceptance": [
-   "Heading renders with correct level and text."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-title"
-  ]
- },
- {
   "id": "breadcrumb",
   "name": "Breadcrumb",
   "edsBlock": "breadcrumb",
@@ -279,6 +219,16 @@
     "name": "video",
     "pages": 28,
     "desc": "video card variation"
+   },
+   {
+    "name": "hero-container",
+    "desc": "Category Hero Card Container",
+    "pages": 32
+   },
+   {
+    "name": "related",
+    "desc": "Explore More (related)",
+    "pages": 714
    }
   ],
   "functional": [
@@ -297,102 +247,9 @@
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
-   "cmp-card"
-  ]
- },
- {
-  "id": "separator",
-  "name": "Separator",
-  "edsBlock": "default content (hr)",
-  "complexity": "Low",
-  "complexityReason": "Horizontal rule / divider.",
-  "templates": [
-   "all"
-  ],
-  "pages": 723,
-  "variations": [
-   {
-    "name": "red",
-    "pages": 722,
-    "desc": "red variation"
-   }
-  ],
-  "functional": [
-   "Renders a divider between content."
-  ],
-  "acceptance": [
-   "Separator renders between sections."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-separator"
-  ]
- },
- {
-  "id": "explore-more",
-  "name": "Explore More (related)",
-  "edsBlock": "explore-more",
-  "complexity": "Low",
-  "complexityReason": "Row of related-item cards at the foot of detail pages; reuses the Card block.",
-  "templates": [
-   "article",
-   "buying-guide-article",
-   "category-listing",
-   "video-episode"
-  ],
-  "pages": 714,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Explore More (related)",
-    "pages": 714
-   }
-  ],
-  "functional": [
-   "Row of related items as cards below the main content."
-  ],
-  "acceptance": [
-   "Related-item row shows cards linking to their targets."
-  ],
-  "verify": [
-   "Confirm related row renders and links resolve."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
+   "cmp-card",
+   "cmp-card-container-hero",
    "cmp-explore-more"
-  ]
- },
- {
-  "id": "image",
-  "name": "Image",
-  "edsBlock": "default content (image)",
-  "complexity": "Low",
-  "complexityReason": "Responsive image; maps to EDS optimized picture.",
-  "templates": [
-   "all"
-  ],
-  "pages": 707,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Image",
-    "pages": 707
-   }
-  ],
-  "functional": [
-   "Renders a responsive image with alt text."
-  ],
-  "acceptance": [
-   "Image renders responsively with alt text."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-image"
   ]
  },
  {
@@ -431,8 +288,8 @@
   ]
  },
  {
-  "id": "slick-carousel",
-  "name": "Content Carousel",
+  "id": "carousel",
+  "name": "Carousel",
   "edsBlock": "carousel",
   "complexity": "High",
   "complexityReason": "Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts.",
@@ -443,61 +300,20 @@
   "pages": 53,
   "variations": [
    {
-    "name": "default",
+    "name": "content",
     "desc": "Content Carousel",
     "pages": 53
    }
   ],
-  "functional": [
-   "Horizontal carousel of cards with Previous/Next.",
-   "Previous disabled at start, Next disabled at end.",
-   "Optional 'see all' link."
-  ],
-  "acceptance": [
-   "At the first position Previous is disabled.",
-   "Next advances items; at the end Next is disabled.",
-   "'see all' navigates to the full listing."
-  ],
-  "verify": [
-   "Click Next/Previous; confirm items scroll and bound states toggle."
-  ],
+  "functional": [],
+  "acceptance": [],
+  "verify": [],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
    "cmp-slick-carousel"
-  ]
- },
- {
-  "id": "card-container-hero",
-  "name": "Category Hero Card Container",
-  "edsBlock": "card-container-hero",
-  "complexity": "Medium",
-  "complexityReason": "Featured cluster: one hero card + supporting cards atop category hubs.",
-  "templates": [
-   "category-hub"
   ],
-  "pages": 32,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Category Hero Card Container",
-    "pages": 32
-   }
-  ],
-  "functional": [
-   "Presents featured articles as a hero card plus supporting cards."
-  ],
-  "acceptance": [
-   "Hero container shows the featured article prominently with supporting cards linking out."
-  ],
-  "verify": [
-   "Confirm the featured cluster renders atop the hub."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-card-container-hero"
-  ]
+  "_consolidated": true
  },
  {
   "id": "explore",
@@ -785,8 +601,8 @@
   ]
  },
  {
-  "id": "section-hero",
-  "name": "Section Hero",
+  "id": "hero",
+  "name": "Hero",
   "edsBlock": "hero",
   "complexity": "Low",
   "complexityReason": "Static section hero banner (image + title).",
@@ -796,25 +612,20 @@
   "pages": 4,
   "variations": [
    {
-    "name": "default",
+    "name": "section",
     "desc": "Section Hero",
     "pages": 4
    }
   ],
-  "functional": [
-   "Hero banner (image + title) introducing a section."
-  ],
-  "acceptance": [
-   "The section hero shows image and title."
-  ],
-  "verify": [
-   "Confirm banner renders."
-  ],
+  "functional": [],
+  "acceptance": [],
+  "verify": [],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
    "cmp-hero"
-  ]
+  ],
+  "_consolidated": true
  },
  {
   "id": "editors-pick",

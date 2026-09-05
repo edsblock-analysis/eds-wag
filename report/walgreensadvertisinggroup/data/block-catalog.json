@@ -42,76 +42,6 @@
   ]
  },
  {
-  "id": "image",
-  "name": "Image",
-  "edsBlock": "default content (image)",
-  "complexity": "Low",
-  "complexityReason": "Responsive image; maps to EDS optimized picture.",
-  "templates": [
-   "all"
-  ],
-  "pages": 13,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Image",
-    "pages": 13
-   }
-  ],
-  "functional": [
-   "Renders a responsive image with alt text."
-  ],
-  "acceptance": [
-   "Image renders responsively with alt text."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-image"
-  ]
- },
- {
-  "id": "button",
-  "name": "Button / CTA",
-  "edsBlock": "default content (button)",
-  "complexity": "Low",
-  "complexityReason": "Link styled as a button; maps to EDS button autoblocking.",
-  "templates": [
-   "all"
-  ],
-  "pages": 13,
-  "variations": [
-   {
-    "name": "primary",
-    "pages": 13,
-    "desc": "primary variation"
-   },
-   {
-    "name": "tertiary",
-    "pages": 11,
-    "desc": "tertiary variation"
-   },
-   {
-    "name": "secondary",
-    "pages": 12,
-    "desc": "secondary variation"
-   }
-  ],
-  "functional": [
-   "Renders a CTA link styled as a button."
-  ],
-  "acceptance": [
-   "Button navigates to its target."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-button"
-  ]
- },
- {
   "id": "footer",
   "name": "Footer",
   "edsBlock": "footer",
@@ -149,41 +79,11 @@
   ]
  },
  {
-  "id": "separator",
-  "name": "Separator",
-  "edsBlock": "default content (hr)",
+  "id": "callout",
+  "name": "Callout (results band)",
+  "edsBlock": "callout",
   "complexity": "Low",
-  "complexityReason": "Horizontal rule / divider.",
-  "templates": [
-   "all"
-  ],
-  "pages": 13,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Separator",
-    "pages": 13
-   }
-  ],
-  "functional": [
-   "Renders a divider between content."
-  ],
-  "acceptance": [
-   "Separator renders between sections."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-separator"
-  ]
- },
- {
-  "id": "footer-teaser",
-  "name": "Footer Teaser (CTA band)",
-  "edsBlock": "callout (cta-band)",
-  "complexity": "Low",
-  "complexityReason": "Pre-footer CTA band: heading, supporting copy, imagery and CTA button(s) driving conversion.",
+  "complexityReason": "Promotional callout band with heading, stat/claim and CTA link(s); a background variation exists.",
   "templates": [
    "home-landing",
    "page-about",
@@ -198,75 +98,19 @@
   "pages": 12,
   "variations": [
    {
-    "name": "default",
-    "desc": "Footer Teaser (CTA band)",
-    "pages": 12
-   }
-  ],
-  "functional": [
-   "Heading + copy + CTA button(s) in a full-width band above the footer."
-  ],
-  "acceptance": [
-   "Renders heading and CTA(s); each CTA navigates to its target (e.g. contact)."
-  ],
-  "verify": [
-   "Confirm CTA links resolve."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-footer-teaser"
-  ]
- },
- {
-  "id": "text",
-  "name": "Rich Text",
-  "edsBlock": "default content (rich text)",
-  "complexity": "Low",
-  "complexityReason": "Rich-text body (paragraphs, lists, inline links); maps to EDS default content.",
-  "templates": [
-   "all"
-  ],
-  "pages": 6,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Rich Text",
-    "pages": 6
-   }
-  ],
-  "functional": [
-   "Renders formatted rich-text content (paragraphs, lists, links)."
-  ],
-  "acceptance": [
-   "Rich text renders with correct formatting and working inline links."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-text"
-  ]
- },
- {
-  "id": "callout",
-  "name": "Callout (results band)",
-  "edsBlock": "callout",
-  "complexity": "Low",
-  "complexityReason": "Promotional callout band with heading, stat/claim and CTA link(s); a background variation exists.",
-  "templates": [
-   "home-landing",
-   "page-about",
-   "page-approach",
-   "page-results",
-   "page-solutions"
-  ],
-  "pages": 5,
-  "variations": [
-   {
     "name": "background",
     "pages": 1,
     "desc": "background variation"
+   },
+   {
+    "name": "cta-band",
+    "desc": "Footer Teaser (CTA band)",
+    "pages": 12
+   },
+   {
+    "name": "resource",
+    "desc": "Featured Button / Resource Band",
+    "pages": 4
    }
   ],
   "functional": [
@@ -283,219 +127,199 @@
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
-   "cmp-callout"
-  ]
- },
- {
-  "id": "featured-button",
-  "name": "Featured Button / Resource Band",
-  "edsBlock": "callout (resource)",
-  "complexity": "Low",
-  "complexityReason": "Resource band with heading and prominent button(s) linking to an external portal/resource.",
-  "templates": [
-   "page-approach",
-   "page-solutions-detail"
-  ],
-  "pages": 4,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Featured Button / Resource Band",
-    "pages": 4
-   }
-  ],
-  "functional": [
-   "Heading + description + prominent CTA button(s) to a resource/portal (often external)."
-  ],
-  "acceptance": [
-   "Renders heading and button(s); button navigates to the resource."
-  ],
-  "verify": [
-   "Confirm button target (may be external)."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
+   "cmp-callout",
+   "cmp-footer-teaser",
    "cmp-featured-button"
   ]
  },
  {
-  "id": "solutions-detail-hero",
-  "name": "Solution Detail Hero",
-  "edsBlock": "hero (tabbed detail)",
+  "id": "carousel",
+  "name": "Carousel",
+  "edsBlock": "carousel",
   "complexity": "High",
-  "complexityReason": "Large solution-detail hero with H1, sub-sections (H2/H3) and many links/buttons (43 observed) — likely tabbed/anchored navigation into solution offerings.",
+  "complexityReason": "Large multi-panel slider of audience/feature stories with imagery, headings, copy and many CTAs; prev/next navigation.",
   "templates": [
+   "home-landing",
+   "page-approach",
+   "page-solutions",
    "page-solutions-detail"
   ],
   "pages": 3,
   "variations": [
    {
-    "name": "default",
-    "desc": "Solution Detail Hero",
+    "name": "people",
+    "desc": "People / Audience Slider",
+    "pages": 1
+   },
+   {
+    "name": "logos",
+    "desc": "Logo Slider (partners)",
+    "pages": 1
+   },
+   {
+    "name": "cards",
+    "desc": "Card Carousel",
+    "pages": 1
+   },
+   {
+    "name": "icon-steps",
+    "desc": "Icon Carousel (steps)",
     "pages": 3
+   },
+   {
+    "name": "solutions",
+    "desc": "Solution Carousel",
+    "pages": 1
    }
   ],
-  "functional": [
-   "H1 + supporting copy.",
-   "Multiple solution offerings presented as sub-sections with links/CTAs.",
-   "May include tab or anchor navigation between offerings.",
-   "Rich media/imagery per offering."
-  ],
-  "acceptance": [
-   "Renders the H1 and all solution offerings.",
-   "Navigation/links between offerings work.",
-   "Each CTA navigates correctly."
-  ],
-  "verify": [
-   "Check whether offerings switch via tabs/anchors; interact to confirm.",
-   "Confirm CTA/link targets."
-  ],
+  "functional": [],
+  "acceptance": [],
+  "verify": [],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
-   "cmp-solutions-detail-hero"
-  ]
+   "cmp-people-slider",
+   "cmp-logo-slider",
+   "cmp-card-carousel",
+   "cmp-icon-carousel",
+   "cmp-solution-carousel"
+  ],
+  "_consolidated": true
  },
  {
-  "id": "instore-solution-cards",
-  "name": "Solution Cards (grouped)",
+  "id": "card",
+  "name": "Article Card",
   "edsBlock": "cards",
   "complexity": "Medium",
-  "complexityReason": "Grouped solution cards (e.g. wagDSP, DSP & SSP, CTV) with headings and descriptions under a section header.",
+  "complexityReason": "Core reusable listing unit with multiple visual variations; drives listings, related content and carousels.",
   "templates": [
+   "home-landing",
+   "page-about",
+   "page-results",
+   "page-solutions",
    "page-solutions-detail"
   ],
   "pages": 3,
   "variations": [
    {
-    "name": "default",
+    "name": "case-study",
+    "desc": "Case Study Cards",
+    "pages": 2
+   },
+   {
+    "name": "team",
+    "desc": "About People (team)",
+    "pages": 1
+   },
+   {
+    "name": "results-load-more",
+    "desc": "Results Cards (load more)",
+    "pages": 1
+   },
+   {
+    "name": "solution",
     "desc": "Solution Cards (grouped)",
     "pages": 3
    }
   ],
   "functional": [
-   "Section header + a grid of solution cards each with heading and description."
+   "Card is clickable to its target.",
+   "Shows image, category eyebrow, title, meta (read-time/byline/date) per variation.",
+   "Video variation overlays play icon + duration."
   ],
   "acceptance": [
-   "Renders each solution card with heading and description.",
-   "Any card links navigate correctly."
+   "Each card navigates to its target when clicked.",
+   "Category eyebrow links to the category.",
+   "Cards reflow responsively."
   ],
   "verify": [
-   "Confirm card links (if any) resolve."
+   "Confirm card click navigates; check variation classes (small/medium/hero/video)."
   ],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
+   "cmp-case-studies-cards",
+   "cmp-about-people",
+   "cmp-results-cards",
    "cmp-instore-solution-cards"
-  ]
+  ],
+  "_consolidated": true
  },
  {
-  "id": "icon-carousel",
-  "name": "Icon Carousel (steps)",
-  "edsBlock": "carousel (steps)",
+  "id": "hero",
+  "name": "Hero",
+  "edsBlock": "hero",
   "complexity": "High",
-  "complexityReason": "Horizontal step/process carousel with icons, step headings and copy, plus a CTA; prev/next navigation.",
+  "complexityReason": "Static section hero (heading + copy + imagery) introducing the About page.",
   "templates": [
+   "page-about",
+   "page-approach",
+   "page-careers",
+   "page-contact",
+   "page-insight",
+   "page-results",
+   "page-solutions",
    "page-solutions-detail"
   ],
   "pages": 3,
   "variations": [
    {
-    "name": "default",
-    "desc": "Icon Carousel (steps)",
+    "name": "about",
+    "desc": "About Hero",
+    "pages": 1
+   },
+   {
+    "name": "approach",
+    "desc": "Approach Hero (stat hero)",
+    "pages": 1
+   },
+   {
+    "name": "careers",
+    "desc": "Careers Hero",
+    "pages": 1
+   },
+   {
+    "name": "contact-with-form",
+    "desc": "Contact Hero + Form",
+    "pages": 1
+   },
+   {
+    "name": "insight",
+    "desc": "Insights Hero (featured)",
+    "pages": 1
+   },
+   {
+    "name": "results",
+    "desc": "Results Hero (stats)",
+    "pages": 1
+   },
+   {
+    "name": "solutions-detail",
+    "desc": "Solution Detail Hero",
     "pages": 3
-   }
-  ],
-  "functional": [
-   "Horizontal carousel of steps (icon + heading + copy).",
-   "Prev/next controls advance steps.",
-   "A CTA button (e.g. Let's go)."
-  ],
-  "acceptance": [
-   "Steps render in sequence.",
-   "Prev/next advances the visible step(s).",
-   "The CTA navigates correctly."
-  ],
-  "verify": [
-   "Click prev/next; confirm steps advance.",
-   "Confirm the CTA target."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-icon-carousel"
-  ]
- },
- {
-  "id": "image-with-text",
-  "name": "Image with Text",
-  "edsBlock": "columns (media+text)",
-  "complexity": "Medium",
-  "complexityReason": "Alternating media + text blocks; observed as a horizontal scroller/slider of feature panels.",
-  "templates": [
-   "home-landing",
-   "page-approach"
-  ],
-  "pages": 2,
-  "variations": [
+   },
    {
-    "name": "default",
-    "desc": "Image with Text",
-    "pages": 2
+    "name": "solutions",
+    "desc": "Solutions Hero",
+    "pages": 1
    }
   ],
-  "functional": [
-   "Pairs media with heading + copy in alternating layout.",
-   "May scroll/slide through multiple feature panels."
-  ],
-  "acceptance": [
-   "Each panel renders media + heading + copy.",
-   "If a slider, prev/next or scroll advances panels."
-  ],
-  "verify": [
-   "Confirm whether panels are static or a slider; interact if a slider."
-  ],
+  "functional": [],
+  "acceptance": [],
+  "verify": [],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
-   "cmp-image-with-text"
-  ]
- },
- {
-  "id": "case-studies-cards",
-  "name": "Case Study Cards",
-  "edsBlock": "cards",
-  "complexity": "Medium",
-  "complexityReason": "Grid of case-study cards (category eyebrow + title + KPI + CTA) linking to case-study pages.",
-  "templates": [
-   "home-landing",
-   "page-solutions"
+   "cmp-about-hero",
+   "cmp-approach-hero",
+   "cmp-careers-hero",
+   "cmp-contact-hero",
+   "cmp-insight-hero",
+   "cmp-results-hero",
+   "cmp-solutions-detail-hero",
+   "cmp-solutions-hero"
   ],
-  "pages": 2,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Case Study Cards",
-    "pages": 2
-   }
-  ],
-  "functional": [
-   "Section header + grid of case-study cards (category, title, KPI/result, CTA).",
-   "Each card links to its case-study page."
-  ],
-  "acceptance": [
-   "Renders each case-study card with its result.",
-   "Each card navigates to its case study."
-  ],
-  "verify": [
-   "Confirm card links resolve."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-case-studies-cards"
-  ]
+  "_consolidated": true
  },
  {
   "id": "testimonial",
@@ -627,229 +451,51 @@
   ]
  },
  {
-  "id": "people-slider",
-  "name": "People / Audience Slider",
-  "edsBlock": "carousel (feature)",
+  "id": "feature-columns",
+  "name": "Feature columns",
+  "edsBlock": "feature-columns",
   "complexity": "High",
-  "complexityReason": "Large multi-panel slider of audience/feature stories with imagery, headings, copy and many CTAs; prev/next navigation.",
+  "complexityReason": "Alternating media + text blocks; observed as a horizontal scroller/slider of feature panels.",
   "templates": [
-   "home-landing"
+   "home-landing",
+   "page-approach",
+   "page-solutions"
   ],
-  "pages": 1,
+  "pages": 2,
   "variations": [
    {
-    "name": "default",
-    "desc": "People / Audience Slider",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Slider of feature/audience panels (imagery + heading + copy + CTA).",
-   "Prev/next controls advance panels."
-  ],
-  "acceptance": [
-   "Panels render; prev/next advances them.",
-   "Each CTA navigates correctly."
-  ],
-  "verify": [
-   "Click prev/next; confirm advance; confirm CTA targets."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-people-slider"
-  ]
- },
- {
-  "id": "featured-solutions",
-  "name": "Featured Solutions (tabbed)",
-  "edsBlock": "tabs (solutions)",
-  "complexity": "High",
-  "complexityReason": "Grouped solution showcase (In-store / Onsite & Owned / Offsite) with many links (12 buttons) — tab/segment switching between solution groups.",
-  "templates": [
-   "home-landing"
-  ],
-  "pages": 1,
-  "variations": [
+    "name": "media-text",
+    "desc": "Image with Text",
+    "pages": 2
+   },
    {
-    "name": "default",
+    "name": "solutions-tabbed",
     "desc": "Featured Solutions (tabbed)",
     "pages": 1
-   }
-  ],
-  "functional": [
-   "Presents solution groups (In-store, Onsite & Owned, Offsite Digital).",
-   "Tabs/segments switch the visible solution group.",
-   "Each solution links to its detail page."
-  ],
-  "acceptance": [
-   "All solution groups are reachable via the tabs/segments.",
-   "Switching a tab shows that group's solutions.",
-   "Each solution link navigates to its detail page."
-  ],
-  "verify": [
-   "Click each tab/segment; confirm the content switches.",
-   "Confirm solution links resolve."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-featured-solutions"
-  ]
- },
- {
-  "id": "logo-slider",
-  "name": "Logo Slider (partners)",
-  "edsBlock": "carousel (logos)",
-  "complexity": "Medium",
-  "complexityReason": "Auto-scrolling/marquee band of partner logos under a heading.",
-  "templates": [
-   "home-landing"
-  ],
-  "pages": 1,
-  "variations": [
+   },
    {
-    "name": "default",
-    "desc": "Logo Slider (partners)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + a row/marquee of partner logos.",
-   "Logos may auto-scroll or be swipeable."
-  ],
-  "acceptance": [
-   "Logos render under the heading.",
-   "If auto-scrolling, the marquee animates; if swipeable, drag/prev-next works."
-  ],
-  "verify": [
-   "Observe whether logos auto-scroll or require interaction."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-logo-slider"
-  ]
- },
- {
-  "id": "about-hero",
-  "name": "About Hero",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Static section hero (heading + copy + imagery) introducing the About page.",
-  "templates": [
-   "page-about"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "About Hero",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + narrative copy + supporting imagery introducing the page."
-  ],
-  "acceptance": [
-   "Renders heading, copy and imagery."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-about-hero"
-  ]
- },
- {
-  "id": "about-people",
-  "name": "About People (team)",
-  "edsBlock": "cards (team)",
-  "complexity": "Low",
-  "complexityReason": "Team grid: heading + member cards (name/role/photo/blurb).",
-  "templates": [
-   "page-about"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "About People (team)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + a grid of team-member cards (photo, name, role, blurb)."
-  ],
-  "acceptance": [
-   "Renders each team member with photo, name, role and blurb."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-about-people"
-  ]
- },
- {
-  "id": "approach-hero",
-  "name": "Approach Hero (stat hero)",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Section hero highlighting a headline plus a large stat/number and imagery.",
-  "templates": [
-   "page-approach"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Approach Hero (stat hero)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading, supporting copy and a prominent stat/figure with imagery."
-  ],
-  "acceptance": [
-   "Renders heading, stat and imagery."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-approach-hero"
-  ]
- },
- {
-  "id": "text-circle-images",
-  "name": "Text + Circle Images (category stats)",
-  "edsBlock": "columns (stat tiles)",
-  "complexity": "Low",
-  "complexityReason": "Category stat tiles (e.g. Beauty, Health, Household) with figures and circular imagery.",
-  "templates": [
-   "page-approach"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
+    "name": "stat-tiles",
     "desc": "Text + Circle Images (category stats)",
     "pages": 1
+   },
+   {
+    "name": "circles",
+    "desc": "Featured Circles (differentiators)",
+    "pages": 1
    }
   ],
-  "functional": [
-   "Displays category tiles with a figure/stat, label and circular image."
-  ],
-  "acceptance": [
-   "Renders each category tile with its stat and image."
-  ],
+  "functional": [],
+  "acceptance": [],
   "verify": [],
   "integrations": [],
   "needsReview": false,
   "rawKeys": [
-   "cmp-text-circle-images"
-  ]
+   "cmp-image-with-text",
+   "cmp-featured-solutions",
+   "cmp-text-circle-images",
+   "cmp-featured-circles"
+  ],
+  "_consolidated": true
  },
  {
   "id": "flip-circles",
@@ -953,144 +599,6 @@
   ]
  },
  {
-  "id": "card-carousel",
-  "name": "Card Carousel",
-  "edsBlock": "carousel (cards)",
-  "complexity": "High",
-  "complexityReason": "Horizontal carousel of content cards (heading + copy + CTA) with prev/next navigation.",
-  "templates": [
-   "page-approach"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Card Carousel",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Horizontal carousel of cards (heading + copy + CTA).",
-   "Prev/next controls advance cards.",
-   "Each card CTA links out."
-  ],
-  "acceptance": [
-   "Cards render; prev/next advances them.",
-   "Each CTA navigates correctly."
-  ],
-  "verify": [
-   "Click prev/next; confirm advance; confirm CTA targets."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-card-carousel"
-  ]
- },
- {
-  "id": "careers-hero",
-  "name": "Careers Hero",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Section hero for careers with heading, copy, imagery and CTA(s) (e.g. explore jobs).",
-  "templates": [
-   "page-careers"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Careers Hero",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + copy + imagery + CTA button(s) linking to jobs/apply."
-  ],
-  "acceptance": [
-   "Renders heading and imagery; CTA(s) navigate to jobs/apply."
-  ],
-  "verify": [
-   "Confirm CTA links resolve (may be external ATS)."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-careers-hero"
-  ]
- },
- {
-  "id": "contact-hero",
-  "name": "Contact Hero + Form",
-  "edsBlock": "form (contact)",
-  "complexity": "High",
-  "complexityReason": "Contact page hero containing a multi-field lead form (13 inputs observed) plus an embedded video and testimonial; requires form handling, validation and a submit endpoint. On EDS this is a form block wired to a form service.",
-  "templates": [
-   "page-contact"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Contact Hero + Form",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + intro copy.",
-   "Multi-field contact/lead form (name, email, company, message, etc.).",
-   "Client-side validation + submit to a form endpoint.",
-   "Includes an embedded video and a testimonial/quote.",
-   "Links to LinkedIn and jobs."
-  ],
-  "acceptance": [
-   "The form renders all fields and validates required inputs.",
-   "Submitting with valid data posts to the endpoint and shows a success state.",
-   "Submitting with invalid data shows validation errors.",
-   "The embedded video plays."
-  ],
-  "verify": [
-   "Inspect the form fields and submit action.",
-   "Attempt an invalid submit to observe validation; observe success behavior.",
-   "Confirm the video embed provider/player."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-contact-hero"
-  ]
- },
- {
-  "id": "insight-hero",
-  "name": "Insights Hero (featured)",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Featured insight hero: heading, copy, imagery and CTA(s) to the featured article.",
-  "templates": [
-   "page-insight"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Insights Hero (featured)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + copy + imagery promoting a featured insight with CTA(s)."
-  ],
-  "acceptance": [
-   "Renders heading/imagery; CTA links to the featured insight."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-insight-hero"
-  ]
- },
- {
   "id": "insight-search",
   "name": "Insights Filter + Search",
   "edsBlock": "search (filtered list)",
@@ -1129,165 +637,6 @@
   "needsReview": false,
   "rawKeys": [
    "cmp-insight-search"
-  ]
- },
- {
-  "id": "results-hero",
-  "name": "Results Hero (stats)",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Hero with headline and prominent KPI stats (e.g. $5 ROAS, 3.4%).",
-  "templates": [
-   "page-results"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Results Hero (stats)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + supporting copy + a row of prominent KPI stats with footnotes."
-  ],
-  "acceptance": [
-   "Renders heading and the stat figures."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-results-hero"
-  ]
- },
- {
-  "id": "results-cards",
-  "name": "Results Cards (load more)",
-  "edsBlock": "cards (load-more)",
-  "complexity": "Medium",
-  "complexityReason": "Grid of result/case-study cards with a 'Load more' control that reveals additional cards.",
-  "templates": [
-   "page-results"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Results Cards (load more)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Grid of result cards (title + KPI + CTA).",
-   "'Load more' reveals additional cards."
-  ],
-  "acceptance": [
-   "Initial cards render.",
-   "Clicking 'Load more' appends more cards.",
-   "Each card links to its detail."
-  ],
-  "verify": [
-   "Click 'Load more'; confirm additional cards append."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-results-cards"
-  ]
- },
- {
-  "id": "solutions-hero",
-  "name": "Solutions Hero",
-  "edsBlock": "hero",
-  "complexity": "Low",
-  "complexityReason": "Section hero for the solutions overview: heading, copy, imagery.",
-  "templates": [
-   "page-solutions"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Solutions Hero",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Heading + copy + imagery introducing solutions."
-  ],
-  "acceptance": [
-   "Renders heading and imagery."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-solutions-hero"
-  ]
- },
- {
-  "id": "featured-circles",
-  "name": "Featured Circles (differentiators)",
-  "edsBlock": "columns (feature)",
-  "complexity": "Low",
-  "complexityReason": "Static set of circular feature callouts (Your Customer / Your Choices) with headings and copy.",
-  "templates": [
-   "page-solutions"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Featured Circles (differentiators)",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Circular feature callouts each with a heading and supporting copy."
-  ],
-  "acceptance": [
-   "Renders each circle with heading and copy."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-featured-circles"
-  ]
- },
- {
-  "id": "solution-carousel",
-  "name": "Solution Carousel",
-  "edsBlock": "carousel (solutions)",
-  "complexity": "High",
-  "complexityReason": "Horizontal carousel of solution channels (in-store/onsite/offsite) with imagery, headings and links; prev/next navigation.",
-  "templates": [
-   "page-solutions"
-  ],
-  "pages": 1,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Solution Carousel",
-    "pages": 1
-   }
-  ],
-  "functional": [
-   "Carousel of solution channels each with imagery, heading, copy and link.",
-   "Prev/next controls advance slides."
-  ],
-  "acceptance": [
-   "Slides render; prev/next advances them.",
-   "Each slide link navigates to its solution detail."
-  ],
-  "verify": [
-   "Click prev/next; confirm advance; confirm links resolve."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "cmp-solution-carousel"
   ]
  }
 ]
