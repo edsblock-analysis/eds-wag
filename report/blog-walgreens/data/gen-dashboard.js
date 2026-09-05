@@ -64,7 +64,7 @@ header h1{margin:0;font-size:20px;letter-spacing:.2px}
 header p{margin:6px 0 0;opacity:.9;font-size:13px}
 nav{display:flex;gap:2px;background:var(--panel);border-bottom:1px solid var(--line);padding:0 12px;position:sticky;top:0;z-index:10;flex-wrap:wrap}
 nav button{background:none;border:none;color:var(--mut);padding:12px 16px;cursor:pointer;font-size:13px;border-bottom:2px solid transparent}
-nav button:hover{color:var(--txt)}nav button.active{color:#fff;border-bottom-color:var(--brand)}
+nav button:hover{color:var(--txt)}nav button.active{color:var(--txt);border-bottom-color:var(--brand)}
 main{padding:22px 28px;max-width:1200px;margin:0 auto}
 .view{display:none}.view.active{display:block}
 .grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
