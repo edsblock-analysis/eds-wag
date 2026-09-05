@@ -1,0 +1,56 @@
+{
+  "verifiedVia": "Playwright live interaction on blog.walgreens.com (2026-09-05)",
+  "pagesInteracted": [
+    "https://blog.walgreens.com/ (home-landing)",
+    "https://blog.walgreens.com/health/allergy.html (category-hub)",
+    "https://blog.walgreens.com/community-stories/your-voices/feel-more-like-you/beauty-is-more-than-makeup.html (video-episode, Spotify)",
+    "https://blog.walgreens.com/wellness/diet-fitness/take-and-go-egg-biscuits.html (article + jump-to-section)",
+    "https://blog.walgreens.com/beauty/beauty-101/how-to-get-retro-waves.html (video-article, YouTube + featured products + transcript)"
+  ],
+  "behaviors": {
+    "header-navigation": {
+      "observed": "Hamburger 'Menu button' opens an off-canvas drawer showing 5 top-level categories (Health, Wellness, Beauty, Community Stories, Buying Guides). Clicking a top-level item drills down to reveal its child categories inline with a 'Back' button to return to the top level. 'Close button' dismisses the drawer. 110 nav items across 2 levels (level-0, level-1).",
+      "states": ["closed", "open (level-0 list)", "drilled-down (level-1 list + Back)", "active item highlight"]
+    },
+    "search": {
+      "observed": "Header search icon toggles a search field (role=search, name=fulltext). Predictive search: min 3 chars (data-cmp-min-length=3), 10 results (data-cmp-results-size=10). AJAX GET to /content/content-hub/us/en/homepage.searchresults.json/_jcr_content/root/customheader/search?fulltext=<q>. Verified endpoint returns JSON array of {title, description, url, lastModified}. Loading indicator + Clear button present.",
+      "states": ["collapsed", "expanded", "loading", "results", "cleared"]
+    },
+    "hero-carousel": {
+      "observed": "Homepage hero auto-advances between 5 slides (the 'Viewing' dot indicator moved from slide 0 to 3 to 4 without interaction). Dot navigation links (#carousel-0..4). Custom JS (no jQuery/slick on this component). Each slide = image + headline + CTA link.",
+      "states": ["auto-rotating", "dot-selected", "hover-pause (typical)"]
+    },
+    "category-hub": {
+      "observed": "Featured hero cards at top; 'The latest' horizontal carousel with disabled/enabled Previous/Next buttons + 'see all' link; main article grid; client-side pagination (numbered page buttons, prev/next enable-disable at bounds, 'Jump to page' spinbutton). Clicking page 2 swapped grid content in place WITHOUT URL change or reload; prev enabled, next disabled, spinbutton synced to 2. Promo blocks (2 image tiles). 'Explore more' subcategory tiles with live 'N New articles' counts.",
+      "states": ["page-N active", "prev disabled at page 1", "next disabled at last page", "carousel start (prev disabled)"]
+    },
+    "article": {
+      "observed": "Breadcrumb, category eyebrow, H1, date + read-time meta, rich-text body with headings/lists/images, red separators. 'Explore more' related-article cards (medium variation) at foot.",
+      "states": ["static"]
+    },
+    "jump-to-section": {
+      "observed": "On recipe/step articles, a 'Jump to section' dropdown button expands a list of anchor links pointing to in-page section IDs (#Ingredients, #step1..#step5). Toggles open/closed.",
+      "states": ["collapsed", "expanded"]
+    },
+    "video-article-youtube": {
+      "observed": "Article whose lead media is a YouTube iframe embed (play button, channel link). Includes optional 'Featured products' block linking out to walgreens.com store PDPs, and a 'Transcript' section. Explore-more cards show video duration badges + play-icon overlays.",
+      "states": ["poster", "playing (YouTube-native)"]
+    },
+    "video-episode-theater": {
+      "observed": "Podcast/video episode pages embed either Scene7 VideoViewer (s7d6.scene7.com/s7viewers) or a Spotify podcast iframe. 'More episodes' opens an episode carousel (S1:E1..E10 thumbnails with season/episode badges) with Previous/Next slide buttons. 'Read transcript' link points to a paired transcript page.",
+      "states": ["poster/thumb", "playing", "episode-carousel scroll"]
+    },
+    "video-transcript": {
+      "observed": "Plain rich-text transcript page paired 1:1 with a video-episode page (linked via 'Read transcript'). No media player.",
+      "states": ["static"]
+    },
+    "scroll-to-top": {
+      "observed": "Floating scroll-to-top button present on article/category pages (cmp-scroll-to-top-button).",
+      "states": ["hidden near top", "visible after scroll"]
+    },
+    "footer": {
+      "observed": "Mega-footer: Walgreens logo (home link), social links (Pinterest, Facebook, Twitter/X, Instagram), 'Visit Walgreens.com', full category link columns (Health, Wellness, Beauty, Community Stories), legal links (Online Privacy & Security, Your Privacy Choices -> walgreens.com donotsell), medical disclaimer, copyright. Delivered as an Experience Fragment (cmp-experiencefragment--footer).",
+      "states": ["static"]
+    }
+  }
+}
