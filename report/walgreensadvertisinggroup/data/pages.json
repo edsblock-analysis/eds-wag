@@ -1,0 +1,932 @@
+[
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/",
+  "status": 200,
+  "template": "page-content",
+  "title": "Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 8,
+   "cmp-header-nav": 1,
+   "cmp-button": 23,
+   "cmp-image-with-text": 1,
+   "cmp-people-slider": 1,
+   "cmp-featured-solutions": 1,
+   "cmp-callout": 1,
+   "cmp-case-studies-cards": 1,
+   "cmp-logo-slider": 1,
+   "cmp-text": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 9,
+   "cmp-button--tertiary": 15,
+   "cmp-callout--background": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/about.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "About | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 5,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 8,
+   "cmp-header-nav": 1,
+   "cmp-button": 5,
+   "cmp-about-hero": 1,
+   "cmp-text": 1,
+   "cmp-about-people": 1,
+   "cmp-callout": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-button--tertiary": 2,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 0
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/approach.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "Approach | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 6,
+   "cmp-header-nav": 1,
+   "cmp-button": 11,
+   "cmp-approach-hero": 1,
+   "cmp-text-circle-images": 1,
+   "cmp-flip-circles": 1,
+   "cmp-feature-text": 2,
+   "cmp-featured-people": 1,
+   "cmp-image-with-text": 1,
+   "cmp-card-carousel": 1,
+   "cmp-featured-button": 1,
+   "cmp-callout": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-feature-text--reveal": 6,
+   "cmp-button--tertiary": 8,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 0
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/careers.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "Careers | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 6,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 5,
+   "cmp-careers-hero": 1,
+   "cmp-testimonial": 1,
+   "cmp-text": 4,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 3,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/ai.html",
+  "status": 200,
+  "template": "page-case-studies",
+  "title": "Leading Cough Cold and Flu Taps into AI | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 6,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 3,
+   "cmp-case-studies": 1,
+   "cmp-social-media": 1,
+   "cmp-text": 1,
+   "cmp-related-reads": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 0
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/beauty.html",
+  "status": 200,
+  "template": "page-case-studies",
+  "title": "The Value of First Party Data | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 6,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 3,
+   "cmp-case-studies": 1,
+   "cmp-social-media": 1,
+   "cmp-text": 1,
+   "cmp-related-reads": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 0
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/contact.html",
+  "status": 200,
+  "template": "page-contact",
+  "title": "Contact | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 6,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 5,
+   "cmp-contact-hero": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 3,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM",
+   "Salesforce Web-to-Lead (form)"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights.html",
+  "status": 200,
+  "template": "page-insight",
+  "title": "Insights | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 5,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 8,
+   "cmp-insight-hero": 1,
+   "cmp-insight-search": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-button--tertiary": 3,
+   "cmp-button--secondary": 2,
+   "cmp-experiencefragment--footer": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/iab.html",
+  "status": 200,
+  "template": null,
+  "title": "Retail Media Report Card: 2Q 2023 - Mars United",
+  "description": "The latest edition of The Mars Agency's industry scorecard evaluates 14 top platforms across 65 criteria in five critical performance areas.",
+  "lang": "en-US",
+  "blocks": {},
+  "variations": {},
+  "custom": {},
+  "integrations": [
+   "OneTrust (cookie consent)",
+   "Google Tag Manager",
+   "Google Analytics",
+   "HubSpot (form)",
+   "Typekit / Adobe Fonts",
+   "Google Fonts"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+   "https://www.marsunited.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+   "https://www.marsunited.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+   "https://www.marsunited.com/wp-content/themes/Free-DIVI-Child-Theme-by-Pee-Aye-Creative/js/custom-scripts.js?ver=1769199594",
+   "https://www.marsunited.com/wp-content/themes/Free-DIVI-Child-Theme-by-Pee-Aye-Creative/js/posts-scripts.js?ver=1724980904",
+   "https://www.googletagmanager.com/gtag/js?id=G-ETXJZB0KRF",
+   "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "//js.hs-scripts.com/5572605.js",
+   "https://js.hs-scripts.com/8717401.js?integration=WordPress&businessUnitId=1353520&ver=11.3.71",
+   "https://www.marsunited.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.3",
+   "https://www.marsunited.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/jquery.fitvids.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/frontend-bundle.min.js?ver=2.6.5",
+   "https://www.marsunited.com/wp-content/plugins/divi-blog-extras/scripts/frontend-bundle.min.js?ver=2.7.0",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/assets/libs/slick/slick.min.js?ver=3.2.1",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/assets/libs/magnific/magnific-popup.min.js?ver=3.2.1",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/dist/divi4/frontend.js?ver=bfb440b2a6ef21fa0e66",
+   "https://www.marsunited.com/wp-content/themes/Divi/core/admin/js/common.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/isotope.pkgd.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/imagesloaded.pkgd.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/lazyload.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/magnific-popup.min.js?ver=1.3.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/functions.min.js?ver=2.6.5",
+   "https://js.hsforms.net/forms/embed/v2.js?ver=11.3.71",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=7.0.4",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=7.0.4"
+  ],
+  "isRedirect": true
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/mars.html",
+  "status": 200,
+  "template": null,
+  "title": "Retail Media Report Card: 2Q 2023 - Mars United",
+  "description": "The latest edition of The Mars Agency's industry scorecard evaluates 14 top platforms across 65 criteria in five critical performance areas.",
+  "lang": "en-US",
+  "blocks": {},
+  "variations": {},
+  "custom": {},
+  "integrations": [
+   "OneTrust (cookie consent)",
+   "Google Tag Manager",
+   "Google Analytics",
+   "HubSpot (form)",
+   "Typekit / Adobe Fonts",
+   "Google Fonts"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+   "https://www.marsunited.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+   "https://www.marsunited.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+   "https://www.marsunited.com/wp-content/themes/Free-DIVI-Child-Theme-by-Pee-Aye-Creative/js/custom-scripts.js?ver=1769199594",
+   "https://www.marsunited.com/wp-content/themes/Free-DIVI-Child-Theme-by-Pee-Aye-Creative/js/posts-scripts.js?ver=1724980904",
+   "https://www.googletagmanager.com/gtag/js?id=G-ETXJZB0KRF",
+   "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "//js.hs-scripts.com/5572605.js",
+   "https://js.hs-scripts.com/8717401.js?integration=WordPress&businessUnitId=1353520&ver=11.3.71",
+   "https://www.marsunited.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.3",
+   "https://www.marsunited.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/jquery.fitvids.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/frontend-bundle.min.js?ver=2.6.5",
+   "https://www.marsunited.com/wp-content/plugins/divi-blog-extras/scripts/frontend-bundle.min.js?ver=2.7.0",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/assets/libs/slick/slick.min.js?ver=3.2.1",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/assets/libs/magnific/magnific-popup.min.js?ver=3.2.1",
+   "https://www.marsunited.com/wp-content/plugins/wow-carousel-for-divi-lite/dist/divi4/frontend.js?ver=bfb440b2a6ef21fa0e66",
+   "https://www.marsunited.com/wp-content/themes/Divi/core/admin/js/common.js?ver=4.27.4",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/isotope.pkgd.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/imagesloaded.pkgd.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/lazyload.min.js?ver=1.0.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/magnific-popup.min.js?ver=1.3.0",
+   "https://www.marsunited.com/wp-content/plugins/destaca-masonry-gallery/scripts/functions.min.js?ver=2.6.5",
+   "https://js.hsforms.net/forms/embed/v2.js?ver=11.3.71",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=7.0.4",
+   "https://www.marsunited.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=7.0.4"
+  ],
+  "isRedirect": true
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/jsp-redirect.html",
+  "status": 200,
+  "template": null,
+  "title": "Online Privacy and Security Policy",
+  "description": "Walgreens. Trusted Since 1901.",
+  "lang": "en",
+  "blocks": {},
+  "variations": {},
+  "custom": {},
+  "integrations": [
+   "Adobe Launch/DTM (Analytics tag mgmt)",
+   "Adobe Target",
+   "OneTrust (cookie consent)",
+   "Google Analytics"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "/dthandler/ruxitagentjs_ICA15789NPRTUVXfghqrux_10333260303165926.js",
+   "https://www.wag-static.com/common/react/assets/client_bundle_header_lsg4-c39404d164f0e597bc07.js?o=acs",
+   "https://www.wag-static.com/topic/react/assets/client_bundle-26d90a104a15405fb9c5.js?o=acs",
+   "https://www.wag-static.com/common/react/assets/client_bundle_footer_lsg4-c96206a11498c9cf11cb.js?o=acs",
+   "https://www.wag-static.com/common/react/assets/script.min.js?o=acs",
+   "https://assets.adobedtm.com/launch-ENdd5c82450e4a478ba693752c21000d75.min.js",
+   "/paCYdH/cd/v7/qPJL/8B8OwIHtSQ/iNuQmr6XrpmShJLi/DVxdSAE/fVtgR/lw6SVwB"
+  ],
+  "isRedirect": true
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/results.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "Results | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 7,
+   "cmp-results-hero": 1,
+   "cmp-text": 1,
+   "cmp-results-cards": 1,
+   "cmp-callout": 1,
+   "cmp-testimonial": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 3,
+   "cmp-button--tertiary": 3,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "In-Store Solutions | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 12,
+   "cmp-solutions-detail-hero": 1,
+   "cmp-instore-solution-cards": 1,
+   "cmp-icon-carousel": 1,
+   "cmp-featured-button": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-button--tertiary": 8,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail1.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "O & O Solutions | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 12,
+   "cmp-solutions-detail-hero": 1,
+   "cmp-instore-solution-cards": 1,
+   "cmp-icon-carousel": 1,
+   "cmp-featured-button": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-button--tertiary": 8,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail11.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "Offsite Solutions | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 7,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 16,
+   "cmp-solutions-detail-hero": 1,
+   "cmp-instore-solution-cards": 1,
+   "cmp-icon-carousel": 1,
+   "cmp-featured-button": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 2,
+   "cmp-button--tertiary": 12,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solutions.html",
+  "status": 200,
+  "template": "page-content",
+  "title": "Solutions | Walgreens Advertising Group",
+  "description": null,
+  "lang": "en",
+  "blocks": {
+   "cmp-container": 6,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 1,
+   "cmp-image": 2,
+   "cmp-header-nav": 1,
+   "cmp-button": 13,
+   "cmp-solutions-hero": 1,
+   "cmp-featured-circles": 1,
+   "cmp-solution-carousel": 1,
+   "cmp-callout": 1,
+   "cmp-case-studies-cards": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "variations": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 8,
+   "cmp-button--tertiary": 6,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "custom": {},
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "embeds": [],
+  "meta": {
+   "h1": 1
+  },
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "media": {
+   "scene7Viewer": false,
+   "videoTag": 0,
+   "theaterThumbs": 0
+  },
+  "scriptSrcs": [
+   "https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js",
+   "/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub",
+   "/etc.clientlibs/wag/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
+   "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
+  ],
+  "isRedirect": false
+ }
+]

@@ -1,0 +1,593 @@
+{
+ "slug": "walgreensadvertisinggroup",
+ "origin": "https://www.walgreensadvertisinggroup.com",
+ "totalUrls": 16,
+ "ok": 16,
+ "templateCounts": {
+  "home-landing": 1,
+  "page-about": 1,
+  "page-approach": 1,
+  "page-careers": 1,
+  "page-case-studies": 2,
+  "page-contact": 1,
+  "page-insight": 1,
+  "redirect-stub": 3,
+  "page-results": 1,
+  "page-solutions-detail": 3,
+  "page-solutions": 1
+ },
+ "templates": {
+  "home-landing": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-callout",
+    "cmp-case-studies-cards",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-featured-solutions",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-image-with-text",
+    "cmp-logo-slider",
+    "cmp-people-slider",
+    "cmp-separator",
+    "cmp-text"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-callout--background",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-about": {
+   "count": 1,
+   "blocks": [
+    "cmp-about-hero",
+    "cmp-about-people",
+    "cmp-button",
+    "cmp-callout",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-separator",
+    "cmp-text"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-approach": {
+   "count": 1,
+   "blocks": [
+    "cmp-approach-hero",
+    "cmp-button",
+    "cmp-callout",
+    "cmp-card-carousel",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-feature-text",
+    "cmp-featured-button",
+    "cmp-featured-people",
+    "cmp-flip-circles",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-image-with-text",
+    "cmp-separator",
+    "cmp-text-circle-images"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header",
+    "cmp-feature-text--reveal"
+   ],
+   "custom": []
+  },
+  "page-careers": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-careers-hero",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-separator",
+    "cmp-testimonial",
+    "cmp-text"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-case-studies": {
+   "count": 2,
+   "blocks": [
+    "cmp-button",
+    "cmp-case-studies",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-related-reads",
+    "cmp-separator",
+    "cmp-social-media",
+    "cmp-text"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-contact": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-contact-hero",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-separator"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-insight": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-insight-hero",
+    "cmp-insight-search",
+    "cmp-separator"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "redirect-stub": {
+   "count": 3,
+   "blocks": [],
+   "variations": [],
+   "custom": []
+  },
+  "page-results": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-callout",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-results-cards",
+    "cmp-results-hero",
+    "cmp-separator",
+    "cmp-testimonial",
+    "cmp-text"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-solutions-detail": {
+   "count": 3,
+   "blocks": [
+    "cmp-button",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-featured-button",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-icon-carousel",
+    "cmp-image",
+    "cmp-instore-solution-cards",
+    "cmp-separator",
+    "cmp-solutions-detail-hero"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  },
+  "page-solutions": {
+   "count": 1,
+   "blocks": [
+    "cmp-button",
+    "cmp-callout",
+    "cmp-case-studies-cards",
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-featured-circles",
+    "cmp-footer",
+    "cmp-footer-teaser",
+    "cmp-header",
+    "cmp-header-nav",
+    "cmp-image",
+    "cmp-separator",
+    "cmp-solution-carousel",
+    "cmp-solutions-hero"
+   ],
+   "variations": [
+    "cmp-button--primary",
+    "cmp-button--secondary",
+    "cmp-button--tertiary",
+    "cmp-experiencefragment--footer",
+    "cmp-experiencefragment--header"
+   ],
+   "custom": []
+  }
+ },
+ "blockPageCounts": {
+  "cmp-container": 13,
+  "cmp-experiencefragment": 13,
+  "cmp-header": 13,
+  "cmp-image": 13,
+  "cmp-header-nav": 13,
+  "cmp-button": 13,
+  "cmp-image-with-text": 2,
+  "cmp-people-slider": 1,
+  "cmp-featured-solutions": 1,
+  "cmp-callout": 5,
+  "cmp-case-studies-cards": 2,
+  "cmp-logo-slider": 1,
+  "cmp-text": 6,
+  "cmp-footer-teaser": 12,
+  "cmp-footer": 13,
+  "cmp-separator": 13,
+  "cmp-about-hero": 1,
+  "cmp-about-people": 1,
+  "cmp-approach-hero": 1,
+  "cmp-text-circle-images": 1,
+  "cmp-flip-circles": 1,
+  "cmp-feature-text": 1,
+  "cmp-featured-people": 1,
+  "cmp-card-carousel": 1,
+  "cmp-featured-button": 4,
+  "cmp-careers-hero": 1,
+  "cmp-testimonial": 2,
+  "cmp-case-studies": 2,
+  "cmp-social-media": 2,
+  "cmp-related-reads": 2,
+  "cmp-contact-hero": 1,
+  "cmp-insight-hero": 1,
+  "cmp-insight-search": 1,
+  "cmp-results-hero": 1,
+  "cmp-results-cards": 1,
+  "cmp-solutions-detail-hero": 3,
+  "cmp-instore-solution-cards": 3,
+  "cmp-icon-carousel": 3,
+  "cmp-solutions-hero": 1,
+  "cmp-featured-circles": 1,
+  "cmp-solution-carousel": 1
+ },
+ "variationPageCounts": {
+  "cmp-experiencefragment--header": 13,
+  "cmp-button--primary": 13,
+  "cmp-button--tertiary": 11,
+  "cmp-callout--background": 1,
+  "cmp-experiencefragment--footer": 13,
+  "cmp-button--secondary": 12,
+  "cmp-feature-text--reveal": 1
+ },
+ "customPageCounts": {},
+ "cardVariationPageCounts": {
+  "hero": 0,
+  "small": 0,
+  "medium": 0,
+  "video": 0
+ },
+ "integrationPageCounts": {
+  "Adobe Helix RUM": 13,
+  "Salesforce Web-to-Lead (form)": 1,
+  "OneTrust (cookie consent)": 3,
+  "Google Tag Manager": 2,
+  "Google Analytics": 3,
+  "HubSpot (form)": 2,
+  "Typekit / Adobe Fonts": 2,
+  "Google Fonts": 2,
+  "Adobe Launch/DTM (Analytics tag mgmt)": 1,
+  "Adobe Target": 1
+ },
+ "embedHosts": {},
+ "tplBlock": {
+  "home-landing": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-image-with-text": 1,
+   "cmp-people-slider": 1,
+   "cmp-featured-solutions": 1,
+   "cmp-callout": 1,
+   "cmp-case-studies-cards": 1,
+   "cmp-logo-slider": 1,
+   "cmp-text": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-about": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-about-hero": 1,
+   "cmp-text": 1,
+   "cmp-about-people": 1,
+   "cmp-callout": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-approach": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-approach-hero": 1,
+   "cmp-text-circle-images": 1,
+   "cmp-flip-circles": 1,
+   "cmp-feature-text": 1,
+   "cmp-featured-people": 1,
+   "cmp-image-with-text": 1,
+   "cmp-card-carousel": 1,
+   "cmp-featured-button": 1,
+   "cmp-callout": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-careers": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-careers-hero": 1,
+   "cmp-testimonial": 1,
+   "cmp-text": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-case-studies": {
+   "cmp-container": 2,
+   "cmp-experiencefragment": 2,
+   "cmp-header": 2,
+   "cmp-image": 2,
+   "cmp-header-nav": 2,
+   "cmp-button": 2,
+   "cmp-case-studies": 2,
+   "cmp-social-media": 2,
+   "cmp-text": 2,
+   "cmp-related-reads": 2,
+   "cmp-footer-teaser": 2,
+   "cmp-footer": 2,
+   "cmp-separator": 2
+  },
+  "page-contact": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-contact-hero": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-insight": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-insight-hero": 1,
+   "cmp-insight-search": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "redirect-stub": {},
+  "page-results": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-results-hero": 1,
+   "cmp-text": 1,
+   "cmp-results-cards": 1,
+   "cmp-callout": 1,
+   "cmp-testimonial": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  },
+  "page-solutions-detail": {
+   "cmp-container": 3,
+   "cmp-experiencefragment": 3,
+   "cmp-header": 3,
+   "cmp-image": 3,
+   "cmp-header-nav": 3,
+   "cmp-button": 3,
+   "cmp-solutions-detail-hero": 3,
+   "cmp-instore-solution-cards": 3,
+   "cmp-icon-carousel": 3,
+   "cmp-featured-button": 3,
+   "cmp-footer-teaser": 3,
+   "cmp-footer": 3,
+   "cmp-separator": 3
+  },
+  "page-solutions": {
+   "cmp-container": 1,
+   "cmp-experiencefragment": 1,
+   "cmp-header": 1,
+   "cmp-image": 1,
+   "cmp-header-nav": 1,
+   "cmp-button": 1,
+   "cmp-solutions-hero": 1,
+   "cmp-featured-circles": 1,
+   "cmp-solution-carousel": 1,
+   "cmp-callout": 1,
+   "cmp-case-studies-cards": 1,
+   "cmp-footer-teaser": 1,
+   "cmp-footer": 1,
+   "cmp-separator": 1
+  }
+ },
+ "tplVariation": {
+  "home-landing": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-callout--background": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "page-about": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "page-approach": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-feature-text--reveal": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "page-careers": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "page-case-studies": {
+   "cmp-experiencefragment--header": 2,
+   "cmp-button--primary": 2,
+   "cmp-experiencefragment--footer": 2,
+   "cmp-button--secondary": 2
+  },
+  "page-contact": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1
+  },
+  "page-insight": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-button--secondary": 1,
+   "cmp-experiencefragment--footer": 1
+  },
+  "redirect-stub": {},
+  "page-results": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  },
+  "page-solutions-detail": {
+   "cmp-experiencefragment--header": 3,
+   "cmp-button--primary": 3,
+   "cmp-button--tertiary": 3,
+   "cmp-experiencefragment--footer": 3,
+   "cmp-button--secondary": 3
+  },
+  "page-solutions": {
+   "cmp-experiencefragment--header": 1,
+   "cmp-button--primary": 1,
+   "cmp-button--tertiary": 1,
+   "cmp-experiencefragment--footer": 1,
+   "cmp-button--secondary": 1
+  }
+ },
+ "mirrorCount": 0,
+ "spanishCount": 0
+}

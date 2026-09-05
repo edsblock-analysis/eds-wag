@@ -1,0 +1,304 @@
+[
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/",
+  "template": "home-landing",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/about.html",
+  "template": "page-about",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/approach.html",
+  "template": "page-approach",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/careers.html",
+  "template": "page-careers",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/ai.html",
+  "template": "page-case-studies",
+  "metaTemplate": "page-case-studies",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/beauty.html",
+  "template": "page-case-studies",
+  "metaTemplate": "page-case-studies",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/contact.html",
+  "template": "page-contact",
+  "metaTemplate": "page-contact",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM",
+   "Salesforce Web-to-Lead (form)"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights.html",
+  "template": "page-insight",
+  "metaTemplate": "page-insight",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/iab.html",
+  "template": "redirect-stub",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "OneTrust (cookie consent)",
+   "Google Tag Manager",
+   "Google Analytics",
+   "HubSpot (form)",
+   "Typekit / Adobe Fonts",
+   "Google Fonts"
+  ],
+  "lang": "en-US"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/mars.html",
+  "template": "redirect-stub",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "OneTrust (cookie consent)",
+   "Google Tag Manager",
+   "Google Analytics",
+   "HubSpot (form)",
+   "Typekit / Adobe Fonts",
+   "Google Fonts"
+  ],
+  "lang": "en-US"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/jsp-redirect.html",
+  "template": "redirect-stub",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Launch/DTM (Analytics tag mgmt)",
+   "Adobe Target",
+   "OneTrust (cookie consent)",
+   "Google Analytics"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/results.html",
+  "template": "page-results",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail.html",
+  "template": "page-solutions-detail",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail1.html",
+  "template": "page-solutions-detail",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail11.html",
+  "template": "page-solutions-detail",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ },
+ {
+  "url": "https://www.walgreensadvertisinggroup.com/home/solutions.html",
+  "template": "page-solutions",
+  "metaTemplate": "page-content",
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [],
+  "integrations": [
+   "Adobe Helix RUM"
+  ],
+  "lang": "en"
+ }
+]

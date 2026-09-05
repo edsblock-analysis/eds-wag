@@ -1,0 +1,112 @@
+{
+  "verifiedVia": "Playwright live interaction on www.walgreensadvertisinggroup.com (2026-09-05)",
+  "pagesInteracted": [
+    "/ (home-landing)",
+    "/home/solutions.html (page-solutions)",
+    "/home/insights.html (page-insight — filter+search)",
+    "/home/contact.html (page-contact — Salesforce form)",
+    "/home/approach.html (page-approach — flip-circles, carousels)"
+  ],
+  "behaviors": {
+    "header": {
+      "observed": "Desktop: persistent top bar with logo (links home), primary nav (Approach, Solutions, Results, About) and a 'Get started' button. Mobile/narrow: a hamburger 'Open Menu' button toggles the nav; it becomes a 'Close Menu' button when open. Nav links are simple top-level links (no mega-menu/flyout observed).",
+      "states": ["desktop-bar", "mobile-collapsed", "mobile-open"]
+    },
+    "homepage-hero": {
+      "observed": "Static hero: H1 'Harness the power of 101M+ loyalty members', eyebrow, supporting copy and a 'Get Started Now' CTA linking to /home/contact.html. Layered logo/media imagery. No rotation.",
+      "states": ["static"]
+    },
+    "people-slider": {
+      "observed": "Audience/feature carousel with pagination dots ('Carousel Page 1/2/3') and a 'slide N of 3' live-region. Auto-advances on load (observed it move to slide 2 unprompted). Clicking a pagination dot moves the track and marks that page current. Each panel has an eyebrow, heading, bullet list and a 'See <name>'s Story' CTA.",
+      "states": ["auto-rotating", "dot-selected", "slide-1", "slide-2", "slide-3"]
+    },
+    "featured-solutions": {
+      "observed": "On the homepage renders as three static solution columns (In-store, Onsite & Owned, Offsite Digital), each with image, heading, copy and a 'View ... Solutions' link to the relevant solution-detail page. No tab switching observed on the homepage instance.",
+      "states": ["static-columns"]
+    },
+    "callout": {
+      "observed": "Results band: eyebrow + bold claim ('Delivering 20% average incremental sales lift...') with 'See more results' and 'See our insights' links. A background variation is used for emphasis.",
+      "states": ["default", "background"]
+    },
+    "case-studies-cards": {
+      "observed": "Case-study card carousel ('slide N of 2') — cards show category eyebrow, title and a KPI pill (e.g. '23x performance'); each links to a case-study page (/home/case-studies/beauty.html, /ai.html).",
+      "states": ["carousel", "card-hover"]
+    },
+    "logo-slider": {
+      "observed": "Partner-logo band under a heading ('Offering best-in-class media, tech and data abilities'); a row of provider logos.",
+      "states": ["static-or-marquee"]
+    },
+    "footer-teaser": {
+      "observed": "Pre-footer CTA band: 'Build your brand and boost your SALES' with a \"Let's go\" button (opens the contact flow).",
+      "states": ["static"]
+    },
+    "footer": {
+      "observed": "Mega-footer: logo (home), tagline, LinkedIn link, nav column (Approach/Insights/Solutions/About/Results/Careers), a 'contact us' button, copyright, and legal links (Notice of Privacy Practices → jsp-redirect, Terms of Use). Present on every page.",
+      "states": ["static"]
+    },
+    "solutions-hero": {
+      "observed": "Solutions overview hero with H1 and an auto-animating image slider ('slide N of 3') plus a 'stop animation' toggle button to pause the animation.",
+      "states": ["auto-animating", "paused"]
+    },
+    "featured-circles": {
+      "observed": "Three static circular feature callouts (Your Customer / Your Choices / Your Results) under a heading — informational, no interaction.",
+      "states": ["static"]
+    },
+    "solution-carousel": {
+      "observed": "Carousel of solution channels (In-store / O&O / Offsite) each with imagery, heading, copy and a 'See ... Solutions' link to the matching solution-detail page.",
+      "states": ["carousel"]
+    },
+    "insight-search": {
+      "observed": "Filterable insights list. Left rail has checkbox filters grouped by Types / Topics / Solutions, plus 'Apply filters' and 'Clear all'. Filtering is CLIENT-SIDE: checking 'Measurement' and clicking Apply narrowed the results grid from 3 cards to 1 ('Pioneering change with programmatic leaders') with NO page reload (URL unchanged). Result cards link to insight articles.",
+      "states": ["unfiltered", "filter-checked", "applied-filtered", "cleared"]
+    },
+    "insight-hero": {
+      "observed": "Featured-insight hero: heading, 'Featured' badge and a CTA to the featured article.",
+      "states": ["static"]
+    },
+    "contact-hero": {
+      "observed": "Contact page with a lead form of 7 fields (First name, Last name, Company, Brand, Email, Phone — all required; Message — optional) and a 'SUBMIT FORM' button. Client-side validation: submitting empty shows per-field 'X is required' errors. The form POSTs to Salesforce Web-to-Lead (https://webto.salesforce.com/servlet/servlet.WebToLead). Also shows a testimonial quote and links to LinkedIn and the external jobs site.",
+      "states": ["empty", "validation-error", "valid-submit"]
+    },
+    "approach-hero": {
+      "observed": "Approach hero with heading + a prominent stat (101,000,000+ members) and a category-stat carousel ('slide N of 3', pagination dots) cycling category figures (Household & Grocery, Beauty, Health & Wellness). Auto-advances.",
+      "states": ["auto-rotating", "dot-selected"]
+    },
+    "flip-circles": {
+      "observed": "Grid of circular audience-segment tiles (Shaving Needs, Beauty, Skin Care, Acne, New Parents, etc.). Each circle shows a label + image; interacting (hover) surfaces the segment. Interactive card grid.",
+      "states": ["default", "hover/flip"]
+    },
+    "featured-people": {
+      "observed": "Persona narrative ('Meet Maria') — a sequence of stacked panels (photo + heading + copy) telling one customer's shopping story; scroll-driven sequential reveal.",
+      "states": ["static/scroll-reveal"]
+    },
+    "card-carousel": {
+      "observed": "Carousel of content cards (heading + 'Contact us to get started' CTA to /home/contact.html) with pagination dots ('slide N of 3'); auto-advances.",
+      "states": ["auto-rotating", "dot-selected"]
+    },
+    "icon-carousel": {
+      "observed": "Process/steps carousel (Identify goals → Understand your customers → Plan your campaign) with step icons and a 'Let's go' CTA; prev/next style navigation.",
+      "states": ["step-1", "advance"]
+    },
+    "feature-text": {
+      "observed": "Large statement text ('The Walgreens customer is everyone...') with a scroll-triggered 'reveal' animation variation and a 'Read their stories' CTA.",
+      "states": ["pre-reveal", "revealed"]
+    },
+    "results-cards": {
+      "observed": "Grid of result/case-study cards (title + KPI like 'Over 6x ROAS') with a 'Load more' control to reveal additional cards; each links to a case study.",
+      "states": ["initial", "load-more-expanded"]
+    },
+    "results-hero": {
+      "observed": "Hero with H1 'Proven effectiveness' and prominent KPI stats ($5 avg ROAS, 3.4% ...) with footnotes.",
+      "states": ["static"]
+    },
+    "solutions-detail-hero": {
+      "observed": "Large solution-detail hero (H1 + multiple offering sub-sections with many links/CTAs). Offerings presented with anchored navigation into offsite/onsite solutions.",
+      "states": ["static", "anchor-nav"]
+    },
+    "testimonial": {
+      "observed": "Quote block with attribution (name/role); multiple testimonials present (careers page shows several employee quotes).",
+      "states": ["static-or-rotating"]
+    }
+  }
+}

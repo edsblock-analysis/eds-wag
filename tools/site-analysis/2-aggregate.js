@@ -7,34 +7,61 @@ const L = require('./lib.js');
 
 // Heuristic template classifier. Primary signal: <meta name="template">, refined by structure.
 // Generic enough for AEM content sites; falls back to metaTemplate value when unknown.
+// Order of precedence: explicit meta-template families (blog/content) > named-hero page
+// types (bespoke marketing sites) > structural fallback.
+const blockKeys = (p) => Object.keys(p.blocks || {});
+// A named hero like cmp-about-hero / cmp-solutions-detail-hero strongly identifies a page
+// type on bespoke AEM sites. Return a normalized template id derived from it, else null.
+function heroPageType(p) {
+  const named = blockKeys(p).filter(k => /^cmp-[a-z0-9-]+-hero$/.test(k) && !['cmp-hero-carousel'].includes(k));
+  if (!named.length) return null;
+  // e.g. cmp-solutions-detail-hero -> "solutions-detail"; cmp-about-hero -> "about"
+  const base = named.sort((a, b) => b.length - a.length)[0].replace(/^cmp-/, '').replace(/-hero$/, '');
+  return 'page-' + base;
+}
 function classify(p) {
   const t = p.template || 'unknown';
   const url = p.url;
   const isTranscript = /transcript/i.test(url);
   const has = (b) => p.blocks && p.blocks[b];
   const cards = p.cards || {};
+  const notableCount = blockKeys(p).filter(k => !/^cmp-(container|experiencefragment|button|image|text|title|list|separator|header|footer|social-media)/.test(k)).length;
   const hasTheater = (p.custom && p.custom.theater) || (p.media && p.media.theaterThumbs) || has('cmp-episode-container');
   const heroCarousel = has('cmp-hero-carousel');
   const richHub = has('cmp-card-container-hero') || has('cmp-slick-carousel') || has('cmp-promo-blocks');
 
+  // Redirect / external-stub pages (no authored AEM components)
+  if (p.isRedirect || (t === 'unknown' && notableCount === 0)) return 'redirect-stub';
+
+  // Blog-style meta template families (keeps blog.walgreens.com behavior intact)
   if (t === 'blank-page-template') {
     if (heroCarousel) return 'home-landing';
     if (richHub) return 'category-hub';
     return 'buying-guide-article';
   }
-  if (t === 'page-content') return richHub ? 'category-hub' : 'category-listing';
   if (t === 'article-page') {
     if (isTranscript) return 'video-transcript';
     if (hasTheater) return 'video-episode';
     return 'article';
   }
-  // Fallback for unknown/custom templates: infer from structure
+  // Bespoke marketing sites: many pages share meta=page-content but are distinct layouts.
+  // Prefer an explicit non-generic meta template, else derive the type from the named hero.
+  if (t && !['page-content', 'unknown', 'article-page', 'blank-page-template'].includes(t)) {
+    return t; // explicit custom template (e.g. page-case-studies, page-contact, page-insight)
+  }
+  // Homepage: root URL with a rich composition but no single named hero → home-landing
+  try { if (new URL(url).pathname.replace(/\/$/, '') === '' && notableCount >= 4) return 'home-landing'; } catch (e) {}
+  const ht = heroPageType(p);
+  if (ht) return ht;
   if (heroCarousel) return 'home-landing';
+
+  // Structural fallback (blog-style content sites)
   if (richHub && (cards.total || 0) >= 5) return 'category-hub';
   if ((cards.total || 0) >= 5) return 'category-listing';
   if (isTranscript) return 'video-transcript';
   if (hasTheater) return 'video-episode';
-  if (t === 'unknown') return 'article'; // most content pages are articles
+  if (t === 'page-content') return 'category-listing';
+  if (t === 'unknown') return 'article';
   return t;
 }
 

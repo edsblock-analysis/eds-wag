@@ -13,6 +13,12 @@ function extract(url, html, status) {
   const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [] };
 
   rec.template = $('meta[name="template"]').attr('content') || null;
+  // Redirect / external-stub detection: meta-refresh, JS location change, or a page with
+  // no AEM components (cmp-*) at all.
+  const metaRefresh = $('meta[http-equiv="refresh" i]').attr('content') || '';
+  const hasJsRedirect = /(window\.location|location\.href|location\.replace)\s*[=(]/.test($('script:not([src])').text());
+  const cmpCount = $('[class*="cmp-"]').length;
+  rec.isRedirect = /url=/i.test(metaRefresh) || (hasJsRedirect && cmpCount < 3) || cmpCount === 0;
   rec.title = ($('title').first().text() || '').trim().replace(/instagram-logo.*$/i, '').slice(0, 200);
   rec.description = $('meta[name="description"]').attr('content') || $('meta[property="og:description"]').attr('content') || null;
   rec.lang = $('html').attr('lang') || null;

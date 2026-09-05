@@ -14,6 +14,9 @@
     { "name": "Spotify embed", "re": "open\\.spotify\\.com" },
     { "name": "Wistia", "re": "wistia\\.(com|net)" },
     { "name": "Brightcove", "re": "players\\.brightcove\\.net|bcove" },
+    { "name": "Salesforce Web-to-Lead (form)", "re": "webto\\.salesforce\\.com|servlet\\.WebToLead" },
+    { "name": "Marketo (form)", "re": "marketo|mktoForm" },
+    { "name": "HubSpot (form)", "re": "hsforms\\.com|hs-scripts\\.com|hubspot" },
     { "name": "Bazaarvoice (ratings/reviews)", "re": "bazaarvoice" },
     { "name": "Brightcove/Kaltura", "re": "kaltura" },
     { "name": "Typekit / Adobe Fonts", "re": "use\\.typekit|typekit\\.net" },
@@ -37,7 +40,8 @@
     "cmp-trending-articles-main": "trending-articles",
     "cmp-series-teaser": "series-list",
     "cmp-series-teaser-card": "series-list",
-    "cmp-subcategory-list": "explore"
+    "cmp-subcategory-list": "explore",
+    "cmp-header-nav": "header"
   },
   "templateLabels": {
     "article": "Article",
@@ -47,6 +51,16 @@
     "video-transcript": "Video Transcript",
     "home-landing": "Home / Landing",
     "buying-guide-article": "Buying Guide",
+    "redirect-stub": "Redirect / External Stub",
+    "page-case-studies": "Case Study",
+    "page-contact": "Contact",
+    "page-insight": "Insights Landing",
+    "page-about": "About",
+    "page-approach": "Approach",
+    "page-careers": "Careers",
+    "page-results": "Results",
+    "page-solutions": "Solutions",
+    "page-solutions-detail": "Solution Detail",
     "unknown": "Unclassified"
   }
 }
