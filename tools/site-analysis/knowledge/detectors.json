@@ -1,0 +1,52 @@
+{
+  "_comment": "Reusable detection rules for third-party integrations and template classification. Extend as new platforms/integrations are encountered. Regex tested against combined (allScriptSrc + rawHtml) unless noted.",
+  "integrations": [
+    { "name": "Adobe Launch/DTM (Analytics tag mgmt)", "re": "assets\\.adobedtm\\.com|launch-[A-Za-z0-9]+\\.min\\.js" },
+    { "name": "Adobe Client Data Layer", "re": "adobe-client-data-layer|adobeDataLayer" },
+    { "name": "Adobe Helix RUM", "re": "rum\\.hlx\\.page|helix-rum" },
+    { "name": "Adobe Scene7 / Dynamic Media (video)", "re": "s7viewers|scene7\\.com" },
+    { "name": "Adobe Target", "re": "at\\.js|adobe.*target|mbox" },
+    { "name": "OneTrust (cookie consent)", "re": "cookielaw\\.org|onetrust" },
+    { "name": "Google Tag Manager", "re": "googletagmanager\\.com" },
+    { "name": "Google Analytics", "re": "google-analytics\\.com|gtag/js|ga\\.js" },
+    { "name": "YouTube embed", "re": "youtube\\.com/embed|youtu\\.be|youtube-nocookie" },
+    { "name": "Vimeo embed", "re": "player\\.vimeo\\.com" },
+    { "name": "Spotify embed", "re": "open\\.spotify\\.com" },
+    { "name": "Wistia", "re": "wistia\\.(com|net)" },
+    { "name": "Brightcove", "re": "players\\.brightcove\\.net|bcove" },
+    { "name": "Bazaarvoice (ratings/reviews)", "re": "bazaarvoice" },
+    { "name": "Brightcove/Kaltura", "re": "kaltura" },
+    { "name": "Typekit / Adobe Fonts", "re": "use\\.typekit|typekit\\.net" },
+    { "name": "Google Fonts", "re": "fonts\\.googleapis\\.com|fonts\\.gstatic\\.com" },
+    { "name": "Facebook Pixel", "re": "connect\\.facebook\\.net|fbevents" },
+    { "name": "Hotjar", "re": "hotjar" },
+    { "name": "Qualtrics", "re": "qualtrics" },
+    { "name": "Medallia", "re": "medallia" }
+  ],
+  "socialHosts": ["facebook.com", "twitter.com", "x.com", "instagram.com", "pinterest.com", "linkedin.com", "youtube.com", "tiktok.com"],
+  "_ignoreDoc": "Structural/layout wrappers that are NOT authored blocks — excluded from the catalog. Match is exact against the cmp-* class.",
+  "ignoreComponents": ["cmp-container", "cmp-experiencefragment", "cmp-navigation", "cmp-list", "cmp-tabs", "cmp-accordion-panel"],
+  "_foldDoc": "Sub-part components folded into their parent block id (composite blocks). Key = discovered cmp-* class, value = parent block id already defined in aem-wcm-blocks.json.",
+  "foldInto": {
+    "cmp-hero-carousel-wrapper": "hero-carousel",
+    "cmp-hero-carousel-main": "hero-carousel",
+    "cmp-editors-pick-main": "editors-pick",
+    "cmp-editors-pick": "editors-pick",
+    "cmp-teaser-card": "editors-pick",
+    "cmp-teaser-card-list": "editors-pick",
+    "cmp-trending-articles-main": "trending-articles",
+    "cmp-series-teaser": "series-list",
+    "cmp-series-teaser-card": "series-list",
+    "cmp-subcategory-list": "explore"
+  },
+  "templateLabels": {
+    "article": "Article",
+    "category-hub": "Category Hub",
+    "category-listing": "Category Listing",
+    "video-episode": "Video / Podcast Episode",
+    "video-transcript": "Video Transcript",
+    "home-landing": "Home / Landing",
+    "buying-guide-article": "Buying Guide",
+    "unknown": "Unclassified"
+  }
+}
