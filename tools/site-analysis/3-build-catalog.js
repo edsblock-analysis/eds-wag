@@ -55,6 +55,17 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
     }
   }
 
+  // Generic (non-AEM) blocks: only surface if the site has essentially no cmp-* blocks,
+  // so AEM sites are unaffected. Each becomes a needsReview stub for the agent.
+  const gb = S.genericBlockPageCounts || {};
+  if (Object.keys(byId).length < 3 && Object.keys(gb).length) {
+    for (const [key, count] of Object.entries(gb)) {
+      const id = 'generic-' + key.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+      const rec = ensure(id, null); rec.needsReview = true; rec.rawKeys.push(key);
+      idPages[id] = Math.max(idPages[id] || 0, count);
+    }
+  }
+
   // Card variations are special (single cmp-card, 4 visual variants)
   if (byId['card']) {
     idVariations['card'] = ['hero', 'medium', 'small', 'video'].filter(k => (cvp[k] || 0) > 0).map(k => ({ name: k, pages: cvp[k], desc: `${k} card variation` }));

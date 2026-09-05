@@ -12,11 +12,14 @@ const L = require('./lib.js');
 const blockKeys = (p) => Object.keys(p.blocks || {});
 // A named hero like cmp-about-hero / cmp-solutions-detail-hero strongly identifies a page
 // type on bespoke AEM sites. Return a normalized template id derived from it, else null.
+const HERO_NOT_PAGETYPE = new Set(['cmp-hero-carousel', 'cmp-card-container-hero', 'cmp-hero']);
 function heroPageType(p) {
-  const named = blockKeys(p).filter(k => /^cmp-[a-z0-9-]+-hero$/.test(k) && !['cmp-hero-carousel'].includes(k));
-  if (!named.length) return null;
-  // e.g. cmp-solutions-detail-hero -> "solutions-detail"; cmp-about-hero -> "about"
-  const base = named.sort((a, b) => b.length - a.length)[0].replace(/^cmp-/, '').replace(/-hero$/, '');
+  // Only treat *named* section heroes (cmp-<name>-hero) as page-type signals, and only
+  // when there is exactly one — this is the bespoke-marketing-site pattern. Generic heroes
+  // (hero-carousel, card-container-hero, plain hero) are NOT page-type markers.
+  const named = blockKeys(p).filter(k => /^cmp-[a-z0-9-]+-hero$/.test(k) && !HERO_NOT_PAGETYPE.has(k));
+  if (named.length !== 1) return null;
+  const base = named[0].replace(/^cmp-/, '').replace(/-hero$/, '');
   return 'page-' + base;
 }
 function classify(p) {
@@ -44,6 +47,11 @@ function classify(p) {
     if (hasTheater) return 'video-episode';
     return 'article';
   }
+  // meta=page-content on a content site is a curated hub when it has hub components
+  // (card-container-hero / slick-carousel / promo-blocks) — classify before hero-derivation
+  // so blog category hubs stay 'category-hub' regardless of card count.
+  if (t === 'page-content' && richHub) return 'category-hub';
+
   // Bespoke marketing sites: many pages share meta=page-content but are distinct layouts.
   // Prefer an explicit non-generic meta template, else derive the type from the named hero.
   if (t && !['page-content', 'unknown', 'article-page', 'blank-page-template'].includes(t)) {
@@ -70,9 +78,14 @@ function classify(p) {
   const dataDir = path.join(args.out, 'data');
   const pages = L.loadJSON(path.join(dataDir, 'pages.json'));
 
+  const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
+  const intgCategory = Object.fromEntries((DET.integrations || []).map(d => [d.name, d.category || 'Other']));
+
   const templates = {}, blockPages = {}, variationPages = {}, customPages = {}, integrationPages = {}, embedHosts = {};
+  const genericBlockPages = {}, unknownHostPages = {}, formKindPages = {}, formActionHosts = {}, journeyPages = {};
   const tplBlock = {}, tplVariation = {};
   const cardVarPages = { hero: new Set(), small: new Set(), medium: new Set(), video: new Set() };
+  const allForms = [];
 
   for (const p of pages) {
     const tpl = classify(p); p._tpl = tpl; p._mirror = /\/content\/[a-z-]+\/[a-z]{2}\/[a-z]{2}\//i.test(p.url) || p.url.includes('/content/content-hub/');
@@ -83,27 +96,52 @@ function classify(p) {
     Object.keys(p.blocks || {}).forEach(b => { (blockPages[b] = blockPages[b] || new Set()).add(p.url); templates[tpl].blocks.add(b); tplBlock[tpl][b] = (tplBlock[tpl][b] || 0) + 1; });
     Object.keys(p.variations || {}).forEach(v => { (variationPages[v] = variationPages[v] || new Set()).add(p.url); templates[tpl].variations.add(v); tplVariation[tpl][v] = (tplVariation[tpl][v] || 0) + 1; });
     Object.keys(p.custom || {}).forEach(c => { (customPages[c] = customPages[c] || new Set()).add(p.url); templates[tpl].custom.add(c); });
+    Object.keys(p.genericBlocks || {}).forEach(g => { (genericBlockPages[g] = genericBlockPages[g] || new Set()).add(p.url); });
     (p.integrations || []).forEach(intg => (integrationPages[intg] = integrationPages[intg] || new Set()).add(p.url));
+    (p.unknownScriptHosts || []).forEach(h => (unknownHostPages[h] = unknownHostPages[h] || new Set()).add(p.url));
     (p.embeds || []).forEach(src => { try { const h = new URL(src, p.url).host; embedHosts[h] = (embedHosts[h] || 0) + 1; } catch (e) {} });
+    (p.forms || []).forEach(f => {
+      allForms.push({ url: p.url, template: tpl, kind: f.kind, fieldCount: f.fieldCount, actionHost: f.actionHost, method: f.method, submitText: f.submitText, fields: (f.fields || []).map(x => x.name || x.label || x.type) });
+      (formKindPages[f.kind] = formKindPages[f.kind] || new Set()).add(p.url);
+      if (f.actionHost) (formActionHosts[f.actionHost] = formActionHosts[f.actionHost] || new Set()).add(p.url);
+    });
+    const jr = p.journey || {};
+    Object.keys(jr).forEach(k => { if (jr[k] === true) (journeyPages[k] = journeyPages[k] || new Set()).add(p.url); });
     const c = p.cards || {}; ['hero', 'small', 'medium', 'video'].forEach(k => { if (c[k] > 0) cardVarPages[k].add(p.url); });
   }
 
   const setCount = o => { const r = {}; for (const k in o) r[k] = o[k].size; return r; };
+  // integration counts grouped by category
+  const integrationCategories = {};
+  Object.keys(integrationPages).forEach(name => {
+    const cat = intgCategory[name] || 'Other';
+    (integrationCategories[cat] = integrationCategories[cat] || {})[name] = integrationPages[name].size;
+  });
+
   const summary = {
     slug: args.slug, origin: L.originOf(pages.map(p => p.url)), totalUrls: pages.length, ok: pages.filter(p => p.status === 200).length,
     templateCounts: Object.fromEntries(Object.entries(templates).map(([k, v]) => [k, v.count])),
     templates: Object.fromEntries(Object.entries(templates).map(([k, v]) => [k, { count: v.count, blocks: [...v.blocks].sort(), variations: [...v.variations].sort(), custom: [...v.custom].sort() }])),
     blockPageCounts: setCount(blockPages), variationPageCounts: setCount(variationPages), customPageCounts: setCount(customPages),
-    cardVariationPageCounts: setCount(cardVarPages), integrationPageCounts: setCount(integrationPages), embedHosts, tplBlock, tplVariation,
+    genericBlockPageCounts: setCount(genericBlockPages),
+    cardVariationPageCounts: setCount(cardVarPages), integrationPageCounts: setCount(integrationPages), integrationCategories,
+    unknownScriptHostCounts: setCount(unknownHostPages),
+    formKindCounts: setCount(formKindPages), formActionHostCounts: setCount(formActionHosts), forms: allForms,
+    journeyCapabilityCounts: setCount(journeyPages),
+    embedHosts, tplBlock, tplVariation,
     mirrorCount: pages.filter(p => p._mirror).length,
     spanishCount: pages.filter(p => (p.lang || '').startsWith('es')).length,
   };
   L.writeJSON(path.join(dataDir, 'summary.json'), summary);
-  L.writeJSON(path.join(dataDir, 'url-templates.json'), pages.map(p => ({ url: p.url, template: p._tpl, metaTemplate: p.template, mirror: !!p._mirror, cards: p.cards, embeds: p.embeds, integrations: p.integrations, lang: p.lang || 'en' })));
+  L.writeJSON(path.join(dataDir, 'url-templates.json'), pages.map(p => ({ url: p.url, template: p._tpl, metaTemplate: p.template, mirror: !!p._mirror, cards: p.cards, embeds: p.embeds, integrations: p.integrations, lang: p.lang || 'en', forms: (p.forms || []).length, journey: p.journey || {} })));
 
   console.log('[2-aggregate] templates:');
   Object.entries(summary.templateCounts).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => console.log(`  ${String(v).padStart(4)}  ${k}`));
   console.log('[2-aggregate] top components:');
   Object.entries(summary.blockPageCounts).sort((a, b) => b[1] - a[1]).slice(0, 20).forEach(([k, v]) => console.log(`  ${String(v).padStart(4)}  ${k}`));
+  if (Object.keys(summary.genericBlockPageCounts).length) console.log('[2-aggregate] generic (non-AEM) blocks:', Object.keys(summary.genericBlockPageCounts).length);
   console.log('[2-aggregate] integrations:', Object.keys(summary.integrationPageCounts).join(', ') || '(none)');
+  console.log('[2-aggregate] forms:', allForms.length, 'kinds:', Object.keys(summary.formKindCounts).join(', ') || '(none)');
+  console.log('[2-aggregate] journey capabilities:', Object.keys(summary.journeyCapabilityCounts).join(', ') || '(none)');
+  if (Object.keys(summary.unknownScriptHostCounts).length) console.log('[2-aggregate] ⚠︎ UNKNOWN 3rd-party hosts (agent review):', Object.keys(summary.unknownScriptHostCounts).join(', '));
 })();

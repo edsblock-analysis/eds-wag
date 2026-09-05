@@ -59,6 +59,33 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get Started Now",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "author-walgreens-aem65-dev.betterdigital.io:4502": 18,
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -117,6 +144,32 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "jobs.walgreens.com": 1,
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -181,6 +234,34 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Contact us to get started",
+    "Contact us to get started",
+    "Contact us to get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -238,6 +319,32 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "jobs.walgreens.com": 2,
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -295,6 +402,31 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -352,6 +484,31 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -406,6 +563,92 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [
+   {
+    "action": "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8",
+    "actionHost": "webto.salesforce.com",
+    "method": "post",
+    "fieldCount": 8,
+    "hiddenCount": 4,
+    "fields": [
+     {
+      "name": "first_name",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "last_name",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "company",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "00N5f00000hNaju",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "email",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "phone",
+      "type": "text",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "description",
+      "type": "textarea",
+      "required": false,
+      "label": ""
+     },
+     {
+      "name": "submit",
+      "type": "submit",
+      "required": false,
+      "label": ""
+     }
+    ],
+    "submitText": "",
+    "kind": "lead-gen (CRM)"
+   }
+  ],
+  "journey": {
+   "hasForm": true,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 2,
+    "jobs.walgreens.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -462,6 +705,32 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": true,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": true,
+   "hasPagination": true,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Apply filters",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -475,10 +744,10 @@
   "variations": {},
   "custom": {},
   "integrations": [
-   "OneTrust (cookie consent)",
    "Google Tag Manager",
-   "Google Analytics",
-   "HubSpot (form)",
+   "Google Analytics / GA4",
+   "OneTrust (consent)",
+   "HubSpot (form/CRM)",
    "Typekit / Adobe Fonts",
    "Google Fonts"
   ],
@@ -526,6 +795,34 @@
    "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17",
    "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=7.0.4",
    "https://www.marsunited.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=7.0.4"
+  ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [],
+   "externalLinkHosts": {
+    "www.marsunited.com": 30,
+    "www.linkedin.com": 2,
+    "www.instagram.com": 2
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [
+   "www.marsunited.com",
+   "js.hs-scripts.com",
+   "js.hsforms.net"
   ],
   "isRedirect": true
  },
@@ -540,10 +837,10 @@
   "variations": {},
   "custom": {},
   "integrations": [
-   "OneTrust (cookie consent)",
    "Google Tag Manager",
-   "Google Analytics",
-   "HubSpot (form)",
+   "Google Analytics / GA4",
+   "OneTrust (consent)",
+   "HubSpot (form/CRM)",
    "Typekit / Adobe Fonts",
    "Google Fonts"
   ],
@@ -592,6 +889,34 @@
    "https://www.marsunited.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=7.0.4",
    "https://www.marsunited.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=7.0.4"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [],
+   "externalLinkHosts": {
+    "www.marsunited.com": 30,
+    "www.linkedin.com": 2,
+    "www.instagram.com": 2
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [
+   "www.marsunited.com",
+   "js.hs-scripts.com",
+   "js.hsforms.net"
+  ],
   "isRedirect": true
  },
  {
@@ -605,10 +930,14 @@
   "variations": {},
   "custom": {},
   "integrations": [
-   "Adobe Launch/DTM (Analytics tag mgmt)",
-   "Adobe Target",
-   "OneTrust (cookie consent)",
-   "Google Analytics"
+   "Adobe Launch/DTM (tag mgmt)",
+   "Google Analytics / GA4",
+   "Adobe Analytics (AppMeasurement)",
+   "Adobe Target (A/B)",
+   "Monetate",
+   "OneTrust (consent)",
+   "TrustArc (consent)",
+   "Google Maps"
   ],
   "embeds": [],
   "meta": {
@@ -634,6 +963,56 @@
    "https://www.wag-static.com/common/react/assets/script.min.js?o=acs",
    "https://assets.adobedtm.com/launch-ENdd5c82450e4a478ba693752c21000d75.min.js",
    "/paCYdH/cd/v7/qPJL/8B8OwIHtSQ/iNuQmr6XrpmShJLi/DVxdSAE/fVtgR/lw6SVwB"
+  ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": true,
+   "hasCart": true,
+   "hasCheckout": true,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Buy It Again",
+    "Buy It Again",
+    "Request new Rx",
+    "Contact Lenses",
+    "Shop All Contact Lenses",
+    "Shop Contact Lenses",
+    "Shop",
+    "Shop All",
+    "Contact Lenses",
+    "Shop by Brand",
+    "Buy Again",
+    "Buy It Again"
+   ],
+   "externalLinkHosts": {
+    "www.walgreens.com": 4,
+    "blog.walgreens.com": 1,
+    "photo.walgreens.com": 21,
+    "walgreens.corporate.thegiftcardshop.com": 1,
+    "www.macromedia.com": 1,
+    "www.optoutprescreen.com": 1,
+    "youradchoices.com": 1,
+    "thenai.org": 1,
+    "datatrust.walgreens.com": 1,
+    "privacyportal.onetrust.com": 2,
+    "walgreens.syf.com": 1,
+    "corporate.walgreens.com": 4,
+    "jobs.walgreens.com": 1,
+    "signup.cj.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [
+   "www.wag-static.com"
   ],
   "isRedirect": true
  },
@@ -694,6 +1073,31 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -727,7 +1131,8 @@
   },
   "custom": {},
   "integrations": [
-   "Adobe Helix RUM"
+   "Adobe Helix RUM",
+   "TrustArc (consent)"
   ],
   "embeds": [],
   "meta": {
@@ -752,6 +1157,38 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": true,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -810,6 +1247,38 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -868,6 +1337,38 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  },
  {
@@ -927,6 +1428,31 @@
    "/etc.clientlibs/wag/clientlibs/clientlib-site.min.277f56d7d7a37094acedd30f394fc180.js",
    "/etc.clientlibs/wag/clientlibs/clientlib-base.min.d05025b207bba72df31c34e969931a07.js"
   ],
+  "forms": [],
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  },
+  "genericBlocks": {},
+  "unknownScriptHosts": [],
   "isRedirect": false
  }
 ]

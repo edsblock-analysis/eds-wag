@@ -15,7 +15,32 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get Started Now",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "author-walgreens-aem65-dev.betterdigital.io:4502": 18,
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/about.html",
@@ -33,7 +58,31 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "jobs.walgreens.com": 1,
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/approach.html",
@@ -51,7 +100,33 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Contact us to get started",
+    "Contact us to get started",
+    "Contact us to get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/careers.html",
@@ -69,7 +144,31 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "jobs.walgreens.com": 2,
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/ai.html",
@@ -87,7 +186,30 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/case-studies/beauty.html",
@@ -105,7 +227,30 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/contact.html",
@@ -124,7 +269,31 @@
    "Adobe Helix RUM",
    "Salesforce Web-to-Lead (form)"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 1,
+  "journey": {
+   "hasForm": true,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 2,
+    "jobs.walgreens.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/insights.html",
@@ -142,7 +311,31 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": true,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": true,
+   "hasPagination": true,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Apply filters",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/iab.html",
@@ -158,14 +351,36 @@
   },
   "embeds": [],
   "integrations": [
-   "OneTrust (cookie consent)",
    "Google Tag Manager",
-   "Google Analytics",
-   "HubSpot (form)",
+   "Google Analytics / GA4",
+   "OneTrust (consent)",
+   "HubSpot (form/CRM)",
    "Typekit / Adobe Fonts",
    "Google Fonts"
   ],
-  "lang": "en-US"
+  "lang": "en-US",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [],
+   "externalLinkHosts": {
+    "www.marsunited.com": 30,
+    "www.linkedin.com": 2,
+    "www.instagram.com": 2
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/insights/for-demo/mars.html",
@@ -181,14 +396,36 @@
   },
   "embeds": [],
   "integrations": [
-   "OneTrust (cookie consent)",
    "Google Tag Manager",
-   "Google Analytics",
-   "HubSpot (form)",
+   "Google Analytics / GA4",
+   "OneTrust (consent)",
+   "HubSpot (form/CRM)",
    "Typekit / Adobe Fonts",
    "Google Fonts"
   ],
-  "lang": "en-US"
+  "lang": "en-US",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [],
+   "externalLinkHosts": {
+    "www.marsunited.com": 30,
+    "www.linkedin.com": 2,
+    "www.instagram.com": 2
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/jsp-redirect.html",
@@ -204,12 +441,62 @@
   },
   "embeds": [],
   "integrations": [
-   "Adobe Launch/DTM (Analytics tag mgmt)",
-   "Adobe Target",
-   "OneTrust (cookie consent)",
-   "Google Analytics"
+   "Adobe Launch/DTM (tag mgmt)",
+   "Google Analytics / GA4",
+   "Adobe Analytics (AppMeasurement)",
+   "Adobe Target (A/B)",
+   "Monetate",
+   "OneTrust (consent)",
+   "TrustArc (consent)",
+   "Google Maps"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": true,
+   "hasCart": true,
+   "hasCheckout": true,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": true,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Buy It Again",
+    "Buy It Again",
+    "Request new Rx",
+    "Contact Lenses",
+    "Shop All Contact Lenses",
+    "Shop Contact Lenses",
+    "Shop",
+    "Shop All",
+    "Contact Lenses",
+    "Shop by Brand",
+    "Buy Again",
+    "Buy It Again"
+   ],
+   "externalLinkHosts": {
+    "www.walgreens.com": 4,
+    "blog.walgreens.com": 1,
+    "photo.walgreens.com": 21,
+    "walgreens.corporate.thegiftcardshop.com": 1,
+    "www.macromedia.com": 1,
+    "www.optoutprescreen.com": 1,
+    "youradchoices.com": 1,
+    "thenai.org": 1,
+    "datatrust.walgreens.com": 1,
+    "privacyportal.onetrust.com": 2,
+    "walgreens.syf.com": 1,
+    "corporate.walgreens.com": 4,
+    "jobs.walgreens.com": 1,
+    "signup.cj.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/results.html",
@@ -227,7 +514,30 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail.html",
@@ -243,9 +553,40 @@
   },
   "embeds": [],
   "integrations": [
-   "Adobe Helix RUM"
+   "Adobe Helix RUM",
+   "TrustArc (consent)"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": true,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail1.html",
@@ -263,7 +604,37 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/solution-detail11.html",
@@ -281,7 +652,37 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "Get Started",
+    "Get started",
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  },
  {
   "url": "https://www.walgreensadvertisinggroup.com/home/solutions.html",
@@ -299,6 +700,29 @@
   "integrations": [
    "Adobe Helix RUM"
   ],
-  "lang": "en"
+  "lang": "en",
+  "forms": 0,
+  "journey": {
+   "hasForm": false,
+   "hasSearch": false,
+   "hasLogin": false,
+   "hasCart": false,
+   "hasCheckout": false,
+   "hasFilters": false,
+   "hasPagination": false,
+   "hasTabs": false,
+   "hasAccordion": false,
+   "hasModal": false,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Get started",
+    "contact us"
+   ],
+   "externalLinkHosts": {
+    "www.linkedin.com": 1
+   }
+  }
  }
 ]

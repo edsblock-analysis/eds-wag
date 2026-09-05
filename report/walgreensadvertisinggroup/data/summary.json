@@ -340,6 +340,7 @@
   "cmp-feature-text--reveal": 1
  },
  "customPageCounts": {},
+ "genericBlockPageCounts": {},
  "cardVariationPageCounts": {
   "hero": 0,
   "small": 0,
@@ -349,14 +350,89 @@
  "integrationPageCounts": {
   "Adobe Helix RUM": 13,
   "Salesforce Web-to-Lead (form)": 1,
-  "OneTrust (cookie consent)": 3,
   "Google Tag Manager": 2,
-  "Google Analytics": 3,
-  "HubSpot (form)": 2,
+  "Google Analytics / GA4": 3,
+  "OneTrust (consent)": 3,
+  "HubSpot (form/CRM)": 2,
   "Typekit / Adobe Fonts": 2,
   "Google Fonts": 2,
-  "Adobe Launch/DTM (Analytics tag mgmt)": 1,
-  "Adobe Target": 1
+  "Adobe Launch/DTM (tag mgmt)": 1,
+  "Adobe Analytics (AppMeasurement)": 1,
+  "Adobe Target (A/B)": 1,
+  "Monetate": 1,
+  "TrustArc (consent)": 2,
+  "Google Maps": 1
+ },
+ "integrationCategories": {
+  "Analytics/Tag Mgmt": {
+   "Adobe Helix RUM": 13,
+   "Google Tag Manager": 2,
+   "Google Analytics / GA4": 3,
+   "Adobe Launch/DTM (tag mgmt)": 1,
+   "Adobe Analytics (AppMeasurement)": 1
+  },
+  "Forms/CRM": {
+   "Salesforce Web-to-Lead (form)": 1,
+   "HubSpot (form/CRM)": 2
+  },
+  "Consent/Privacy": {
+   "OneTrust (consent)": 3,
+   "TrustArc (consent)": 2
+  },
+  "Fonts": {
+   "Typekit / Adobe Fonts": 2,
+   "Google Fonts": 2
+  },
+  "Personalization/AB": {
+   "Adobe Target (A/B)": 1,
+   "Monetate": 1
+  },
+  "Maps/Location": {
+   "Google Maps": 1
+  }
+ },
+ "unknownScriptHostCounts": {
+  "www.marsunited.com": 2,
+  "js.hs-scripts.com": 2,
+  "js.hsforms.net": 2,
+  "www.wag-static.com": 1
+ },
+ "formKindCounts": {
+  "lead-gen (CRM)": 1
+ },
+ "formActionHostCounts": {
+  "webto.salesforce.com": 1
+ },
+ "forms": [
+  {
+   "url": "https://www.walgreensadvertisinggroup.com/home/contact.html",
+   "template": "page-contact",
+   "kind": "lead-gen (CRM)",
+   "fieldCount": 8,
+   "actionHost": "webto.salesforce.com",
+   "method": "post",
+   "submitText": "",
+   "fields": [
+    "first_name",
+    "last_name",
+    "company",
+    "00N5f00000hNaju",
+    "email",
+    "phone",
+    "description",
+    "submit"
+   ]
+  }
+ ],
+ "journeyCapabilityCounts": {
+  "hasAccordion": 3,
+  "hasForm": 1,
+  "hasSearch": 1,
+  "hasFilters": 1,
+  "hasPagination": 1,
+  "hasLogin": 1,
+  "hasCart": 1,
+  "hasCheckout": 2
  },
  "embedHosts": {},
  "tplBlock": {

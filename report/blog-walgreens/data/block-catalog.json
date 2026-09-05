@@ -3,757 +3,959 @@
   "id": "header",
   "name": "Header / Navigation",
   "edsBlock": "header (nav)",
-  "pages": 804,
   "complexity": "High",
-  "complexityReason": "Off-canvas drawer with 2-level drill-down + Back, active-state tracking, integrated predictive search toggle, and responsive (desktop bar vs mobile drawer). Delivered as an Experience Fragment shared across all pages.",
+  "complexityReason": "Off-canvas / multi-level navigation with active-state tracking, integrated search toggle, and responsive desktop-bar vs mobile-drawer. Usually a shared Experience Fragment.",
   "templates": [
    "all"
   ],
+  "pages": 804,
   "variations": [
    {
     "name": "default",
-    "desc": "Logo + hamburger + search toggle; off-canvas category drawer.",
+    "desc": "Header / Navigation",
     "pages": 804
    }
   ],
   "functional": [
-   "Hamburger \"Menu button\" opens an off-canvas navigation drawer.",
-   "Drawer shows 5 top-level categories: Health, Wellness, Beauty, Community Stories, Buying Guides.",
-   "Clicking a top-level category drills down to reveal its child links inline; a \"Back\" button returns to the top level.",
-   "Active category is highlighted (cmp-navigation__item--active).",
-   "Logo links to the homepage (content-hub homepage path).",
-   "Search icon toggles the predictive search field (see Search block).",
-   "110 navigation items across 2 levels sourced from the site structure (cmp-list driven)."
+   "Logo links to the homepage.",
+   "Primary navigation exposes top-level categories; sub-navigation reveals child links.",
+   "Active category is highlighted.",
+   "Search entry point toggles the search field.",
+   "Responsive: persistent bar on desktop, drawer/hamburger on mobile."
   ],
   "acceptance": [
-   "Given any page, when the user clicks the Menu button, the navigation drawer opens showing the 5 top-level categories.",
-   "Given the drawer is open, when the user clicks a top-level category, its subcategories are revealed and a Back button appears.",
-   "Given a drilled-down state, when the user clicks Back, the top-level list is restored.",
-   "Given the drawer is open, when the user clicks Close, the drawer dismisses.",
-   "The category matching the current page is visually marked active.",
-   "On desktop widths the navigation renders as a persistent bar; on mobile as the drawer."
+   "Navigation renders the full category tree on every page.",
+   "Selecting a top-level category reveals or navigates to its children.",
+   "The category matching the current page is marked active.",
+   "On mobile the menu button opens/closes the drawer."
   ],
-  "integrations": []
+  "verify": [
+   "Click the menu/hamburger button; confirm drawer opens.",
+   "Click a top-level item; confirm sub-items reveal or navigation occurs.",
+   "Confirm active-state highlight on the current section."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-header"
+  ]
  },
  {
   "id": "search",
   "name": "Predictive Search",
   "edsBlock": "search",
-  "pages": 804,
   "complexity": "High",
-  "complexityReason": "AJAX predictive search against a JSON servlet, min-length gating, debounced typeahead, loading + empty + results states, keyboard accessibility. In EDS this must be reimplemented against an index (e.g. a query-index.json).",
+  "complexityReason": "AJAX predictive/typeahead search with min-length gating, loading/empty/results states and keyboard a11y; on EDS must be rebuilt against an index (query-index.json).",
   "templates": [
    "all"
   ],
+  "pages": 804,
   "variations": [
    {
-    "name": "header-search",
-    "desc": "Predictive typeahead in the header.",
+    "name": "default",
+    "desc": "Predictive Search",
     "pages": 804
    }
   ],
   "functional": [
-   "Search field with role=\"search\", input name \"fulltext\".",
-   "Minimum query length 3 characters (data-cmp-min-length=\"3\") before a request fires.",
-   "Returns up to 10 results (data-cmp-results-size=\"10\").",
-   "Performs AJAX GET to a .searchresults.json endpoint; verified response is a JSON array of {title, description, url, lastModified}.",
-   "Shows a loading indicator while fetching and a Clear button to reset the field.",
-   "Each result links to the article page."
+   "Search field (role=search).",
+   "Minimum query length gates the request (check data-cmp-min-length).",
+   "Returns a capped number of results (check data-cmp-results-size).",
+   "AJAX request to a search endpoint returning JSON results.",
+   "Loading indicator + clear button.",
+   "Each result links to a page."
   ],
   "acceptance": [
-   "Given the search field, when fewer than 3 characters are typed, no request is made and no results show.",
-   "Given 3+ characters, when the user types, matching results (max 10) render as a typeahead list.",
-   "Given results are shown, when the user clicks a result, they navigate to that article.",
-   "Given text in the field, when the user clicks Clear, the field empties and results close.",
-   "A loading indicator is shown while results are being fetched."
+   "Below the min length, no request fires and no results show.",
+   "At/above min length, matching results render as a typeahead list.",
+   "Clicking a result navigates to that page.",
+   "Clear empties the field and closes results."
   ],
-  "integrations": [
-   "AEM search servlet (to be replaced by an EDS index query)"
+  "verify": [
+   "Inspect .cmp-search for data-cmp-min-length / data-cmp-results-size and the form action.",
+   "Hit the search JSON endpoint with a sample query and confirm the response shape."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-search"
   ]
  },
  {
   "id": "footer",
-  "name": "Footer (mega)",
+  "name": "Footer",
   "edsBlock": "footer",
-  "pages": 804,
   "complexity": "Medium",
-  "complexityReason": "Large multi-column link structure + social + legal + disclaimer, sourced from site structure. Mostly static but content-driven; delivered as an Experience Fragment.",
+  "complexityReason": "Large multi-column link structure + social + legal + disclaimer, content-driven; usually a shared Experience Fragment.",
   "templates": [
    "all"
   ],
+  "pages": 804,
   "variations": [
    {
     "name": "default",
-    "desc": "Mega footer with category columns, social, legal, disclaimer.",
+    "desc": "Footer",
     "pages": 804
    }
   ],
   "functional": [
-   "Walgreens logo linking to homepage.",
-   "Social links: Pinterest, Facebook, Twitter/X, Instagram (external).",
-   "\"Visit Walgreens.com\" link (external commerce site).",
-   "Full category link columns (Health, Wellness, Beauty, Community Stories) mirroring nav.",
-   "Legal links: \"Online Privacy & Security\" and \"Your Privacy Choices\" (walgreens.com do-not-sell).",
-   "Medical disclaimer paragraph and copyright line."
+   "Logo linking home.",
+   "Social profile links (external).",
+   "Category link columns mirroring nav.",
+   "Legal/privacy links.",
+   "Disclaimer + copyright."
   ],
   "acceptance": [
-   "The footer renders category columns, social icons, legal links, disclaimer and copyright on every page.",
-   "Social icons open the respective external profiles in the browser.",
-   "\"Your Privacy Choices\" links to the walgreens.com do-not-sell page."
+   "Footer renders columns, social, legal and copyright on every page.",
+   "Social icons open the correct external profiles."
   ],
-  "integrations": [
-   "Social platforms (Pinterest/Facebook/X/Instagram)",
-   "walgreens.com (privacy)"
+  "verify": [
+   "Confirm footer is present on multiple templates and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-footer"
   ]
  },
  {
-  "id": "hero-carousel",
-  "name": "Hero Carousel (homepage)",
-  "edsBlock": "hero-carousel",
-  "pages": 2,
-  "complexity": "High",
-  "complexityReason": "Auto-rotating multi-slide carousel with dot navigation, per-slide background image + overlay + CTA, and pause/resume. Custom JS.",
+  "id": "social-media",
+  "name": "Social Media Links",
+  "edsBlock": "social-media",
+  "complexity": "Low",
+  "complexityReason": "Static row of social icon links (usually in the footer XF).",
   "templates": [
-   "home-landing"
+   "all"
   ],
+  "pages": 804,
   "variations": [
    {
     "name": "default",
-    "desc": "5-slide auto-rotating hero with dot indicators.",
-    "pages": 2
+    "desc": "Social Media Links",
+    "pages": 804
    }
   ],
   "functional": [
-   "Auto-advances through 5 slides (verified: \"Viewing\" indicator advanced without user action).",
-   "Dot navigation (#carousel-0..4) jumps to a specific slide.",
-   "Each slide: background image + overlay + featured title + description + CTA link."
+   "Row of social icon links opening brand profiles."
   ],
   "acceptance": [
-   "On load, the hero auto-rotates through all slides.",
-   "When a dot is clicked, the corresponding slide is shown and marked \"Viewing\".",
-   "Each slide CTA navigates to the linked article."
+   "Each social icon links to the correct external profile."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm social links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-social-media"
+  ]
  },
  {
-  "id": "trending-articles",
-  "name": "Trending Articles",
-  "edsBlock": "trending-articles",
-  "pages": 2,
-  "complexity": "Medium",
-  "complexityReason": "Curated list of trending links with a lead item + secondary list; content-driven layout.",
+  "id": "button",
+  "name": "Button / CTA",
+  "edsBlock": "default content (button)",
+  "complexity": "Low",
+  "complexityReason": "Link styled as a button; maps to EDS button autoblocking.",
   "templates": [
-   "home-landing"
+   "all"
   ],
+  "pages": 804,
   "variations": [
    {
     "name": "default",
-    "desc": "Lead trending article + list of secondary trending links.",
-    "pages": 2
+    "desc": "Button / CTA",
+    "pages": 804
    }
   ],
   "functional": [
-   "Displays a \"Trending\" heading, one lead article, and a list of additional article links with titles + descriptions."
+   "Renders a CTA link styled as a button."
   ],
   "acceptance": [
-   "The Trending section lists the lead + secondary articles; each links to its article."
+   "Button navigates to its target."
   ],
-  "integrations": []
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-button"
+  ]
  },
  {
-  "id": "editors-pick",
-  "name": "Editor's Pick / Featured Teaser",
-  "edsBlock": "editors-pick (teaser)",
-  "pages": 3,
-  "complexity": "Medium",
-  "complexityReason": "Composite of teaser + teaser-card-list; image + eyebrow + title + byline promoting a single curated article.",
+  "id": "title",
+  "name": "Title",
+  "edsBlock": "default content (heading)",
+  "complexity": "Low",
+  "complexityReason": "Heading component; maps to default content.",
   "templates": [
-   "home-landing"
+   "all"
   ],
+  "pages": 792,
   "variations": [
    {
-    "name": "featured-teaser",
-    "desc": "FEATURED eyebrow + large teaser card.",
-    "pages": 3
-   },
-   {
-    "name": "editors-pick",
-    "desc": "Editor's pick article promo with image + type label + byline.",
-    "pages": 2
-   },
-   {
-    "name": "teaser-card-list",
-    "desc": "List of teaser cards.",
-    "pages": 2
+    "name": "default",
+    "desc": "Title",
+    "pages": 792
    }
   ],
   "functional": [
-   "Promotes one or more curated articles with image, eyebrow/type label, title, byline, and link."
+   "Renders a heading at the configured level."
   ],
   "acceptance": [
-   "The Editor's pick / Featured area shows the curated article(s) with image and byline, each linking to the article."
+   "Heading renders with correct level and text."
   ],
-  "integrations": []
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-title"
+  ]
+ },
+ {
+  "id": "breadcrumb",
+  "name": "Breadcrumb",
+  "edsBlock": "breadcrumb",
+  "complexity": "Low",
+  "complexityReason": "Hierarchical trail derived from page path.",
+  "templates": [
+   "article",
+   "buying-guide-article",
+   "video-episode",
+   "video-transcript"
+  ],
+  "pages": 763,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Breadcrumb",
+    "pages": 763
+   }
+  ],
+  "functional": [
+   "Shows Home > ... > current; ancestors are links."
+  ],
+  "acceptance": [
+   "Breadcrumb reflects the page path; ancestors navigate."
+  ],
+  "verify": [
+   "Confirm the trail matches the URL hierarchy."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-breadcrumb"
+  ]
  },
  {
   "id": "card",
   "name": "Article Card",
   "edsBlock": "cards",
-  "pages": 743,
   "complexity": "Medium",
-  "complexityReason": "Core reusable listing unit with 4 visual variations; drives listings, related content and carousels. Medium because variations + video badge + responsive grid, but no complex state.",
+  "complexityReason": "Core reusable listing unit with multiple visual variations; drives listings, related content and carousels.",
   "templates": [
-   "category-hub",
    "article",
    "buying-guide-article",
-   "category-listing"
+   "category-hub",
+   "category-listing",
+   "video-episode"
   ],
+  "pages": 743,
   "variations": [
    {
     "name": "hero",
-    "desc": "Large featured card (image + category + title + read-time + byline + date).",
-    "pages": 30
+    "pages": 30,
+    "desc": "hero card variation"
    },
    {
     "name": "medium",
-    "desc": "Standard grid/related card (image + category + title + read-time + byline + date).",
-    "pages": 732
+    "pages": 732,
+    "desc": "medium card variation"
    },
    {
     "name": "small",
-    "desc": "Compact card (image + title + byline + date), used in \"recommended\"/sidebar rails.",
-    "pages": 32
+    "pages": 32,
+    "desc": "small card variation"
    },
    {
     "name": "video",
-    "desc": "Card with video duration badge + play-icon overlay for video content.",
-    "pages": 28
+    "pages": 28,
+    "desc": "video card variation"
    }
   ],
   "functional": [
-   "Card is fully clickable to the target article.",
-   "Displays image, category eyebrow (links to category), title, read-time, byline and date depending on variation.",
-   "Video variation overlays a play icon and duration badge."
+   "Card is clickable to its target.",
+   "Shows image, category eyebrow, title, meta (read-time/byline/date) per variation.",
+   "Video variation overlays play icon + duration."
   ],
   "acceptance": [
-   "Each card navigates to its article when clicked.",
-   "The category eyebrow links to the category hub.",
-   "Video-variation cards show a duration badge and play icon.",
-   "Cards reflow responsively (multi-column desktop, single column mobile)."
+   "Each card navigates to its target when clicked.",
+   "Category eyebrow links to the category.",
+   "Cards reflow responsively."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm card click navigates; check variation classes (small/medium/hero/video)."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-card"
+  ]
+ },
+ {
+  "id": "separator",
+  "name": "Separator",
+  "edsBlock": "default content (hr)",
+  "complexity": "Low",
+  "complexityReason": "Horizontal rule / divider.",
+  "templates": [
+   "all"
+  ],
+  "pages": 723,
+  "variations": [
+   {
+    "name": "red",
+    "pages": 722,
+    "desc": "red variation"
+   }
+  ],
+  "functional": [
+   "Renders a divider between content."
+  ],
+  "acceptance": [
+   "Separator renders between sections."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-separator"
+  ]
+ },
+ {
+  "id": "explore-more",
+  "name": "Explore More (related)",
+  "edsBlock": "explore-more",
+  "complexity": "Low",
+  "complexityReason": "Row of related-item cards at the foot of detail pages; reuses the Card block.",
+  "templates": [
+   "article",
+   "buying-guide-article",
+   "category-listing",
+   "video-episode"
+  ],
+  "pages": 714,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Explore More (related)",
+    "pages": 714
+   }
+  ],
+  "functional": [
+   "Row of related items as cards below the main content."
+  ],
+  "acceptance": [
+   "Related-item row shows cards linking to their targets."
+  ],
+  "verify": [
+   "Confirm related row renders and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-explore-more"
+  ]
+ },
+ {
+  "id": "image",
+  "name": "Image",
+  "edsBlock": "default content (image)",
+  "complexity": "Low",
+  "complexityReason": "Responsive image; maps to EDS optimized picture.",
+  "templates": [
+   "all"
+  ],
+  "pages": 707,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Image",
+    "pages": 707
+   }
+  ],
+  "functional": [
+   "Renders a responsive image with alt text."
+  ],
+  "acceptance": [
+   "Image renders responsively with alt text."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-image"
+  ]
+ },
+ {
+  "id": "scroll-to-top",
+  "name": "Scroll to Top",
+  "edsBlock": "scroll-to-top",
+  "complexity": "Low",
+  "complexityReason": "Floating button appearing after scroll; returns to top.",
+  "templates": [
+   "article",
+   "buying-guide-article",
+   "home-landing",
+   "video-transcript"
+  ],
+  "pages": 702,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Scroll to Top",
+    "pages": 702
+   }
+  ],
+  "functional": [
+   "Button appears after scrolling; clicking smooth-scrolls to top."
+  ],
+  "acceptance": [
+   "After scrolling the button is visible; clicking returns to top."
+  ],
+  "verify": [
+   "Scroll down; confirm the button appears and works."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-scroll-to-top-button"
+  ]
+ },
+ {
+  "id": "slick-carousel",
+  "name": "Content Carousel",
+  "edsBlock": "carousel",
+  "complexity": "High",
+  "complexityReason": "Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts.",
+  "templates": [
+   "category-hub",
+   "video-episode"
+  ],
+  "pages": 53,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Content Carousel",
+    "pages": 53
+   }
+  ],
+  "functional": [
+   "Horizontal carousel of cards with Previous/Next.",
+   "Previous disabled at start, Next disabled at end.",
+   "Optional 'see all' link."
+  ],
+  "acceptance": [
+   "At the first position Previous is disabled.",
+   "Next advances items; at the end Next is disabled.",
+   "'see all' navigates to the full listing."
+  ],
+  "verify": [
+   "Click Next/Previous; confirm items scroll and bound states toggle."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-slick-carousel"
+  ]
  },
  {
   "id": "card-container-hero",
   "name": "Category Hero Card Container",
   "edsBlock": "card-container-hero",
-  "pages": 32,
   "complexity": "Medium",
-  "complexityReason": "Featured cluster at the top of category hubs combining one hero card with several medium cards.",
+  "complexityReason": "Featured cluster: one hero card + supporting cards atop category hubs.",
   "templates": [
    "category-hub"
   ],
+  "pages": 32,
   "variations": [
    {
     "name": "default",
-    "desc": "Hero card + supporting medium cards row.",
+    "desc": "Category Hero Card Container",
     "pages": 32
    }
   ],
   "functional": [
-   "Presents the top/featured articles of a category as a hero card plus supporting cards."
+   "Presents featured articles as a hero card plus supporting cards."
   ],
   "acceptance": [
-   "The hero container shows the featured article prominently with supporting cards, each linking to its article."
+   "Hero container shows the featured article prominently with supporting cards linking out."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm the featured cluster renders atop the hub."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-card-container-hero"
+  ]
  },
  {
-  "id": "slick-carousel",
-  "name": "Content Carousel (\"The latest\" / episodes)",
-  "edsBlock": "carousel",
-  "pages": 53,
-  "complexity": "High",
-  "complexityReason": "Horizontal scroller with prev/next controls, disabled states at bounds, \"see all\" link, responsive item counts. Used for latest articles and episode rails.",
-  "templates": [
-   "category-hub",
-   "video-episode"
-  ],
-  "variations": [
-   {
-    "name": "latest-articles",
-    "desc": "\"The latest\" horizontal article carousel with prev/next + see all.",
-    "pages": 30
-   },
-   {
-    "name": "episode-rail",
-    "desc": "Episode thumbnail carousel on video pages.",
-    "pages": 23
-   }
-  ],
-  "functional": [
-   "Horizontal carousel of cards with Previous/Next buttons.",
-   "Previous is disabled at the start; Next disabled at the end (verified).",
-   "Optional \"see all\" link to the full category."
-  ],
-  "acceptance": [
-   "At the first position the Previous button is disabled.",
-   "Clicking Next advances the visible cards; at the end Next is disabled.",
-   "\"see all\" navigates to the full category listing."
-  ],
-  "integrations": []
- },
- {
-  "id": "paginate",
-  "name": "Article Listing + Pagination",
-  "edsBlock": "article-list (paginate)",
-  "pages": 27,
-  "complexity": "High",
-  "complexityReason": "Client-side paginated grid: numbered pages, prev/next bound states, \"Jump to page\" spinbutton, no reload. Data-driven from the category index.",
+  "id": "explore",
+  "name": "Explore (category tiles)",
+  "edsBlock": "explore",
+  "complexity": "Low",
+  "complexityReason": "Grid of category tiles (image + name), sometimes with live article counts.",
   "templates": [
    "category-hub",
    "category-listing"
   ],
+  "pages": 32,
   "variations": [
    {
     "name": "default",
-    "desc": "Paginated article grid with numbered pages + jump-to-page.",
-    "pages": 27
+    "desc": "Explore (category tiles)",
+    "pages": 32
    }
   ],
   "functional": [
-   "Renders the category article grid in pages.",
-   "Numbered page buttons; Previous disabled on page 1, Next disabled on last page.",
-   "\"Jump to page\" spinbutton navigates directly to a page.",
-   "Pagination is client-side: verified that clicking page 2 swapped content in place with NO URL change or reload; controls and spinbutton updated accordingly."
+   "Grid of category tiles; may show a live article count per tile."
   ],
   "acceptance": [
-   "On page 1 the Previous button is disabled.",
-   "Clicking a page number swaps the grid to that page without a full reload.",
-   "On the last page the Next button is disabled.",
-   "Entering a number in \"Jump to page\" navigates to that page."
+   "Each tile links to its category; counts (if present) are shown."
   ],
-  "integrations": [
-   "Category content index (to be an EDS index query)"
+  "verify": [
+   "Confirm tiles link to categories; note any live counts."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-subcategory-list",
+   "cmp-explore"
   ]
  },
  {
   "id": "promo-blocks",
   "name": "Promo Blocks",
   "edsBlock": "promo-blocks",
-  "pages": 29,
   "complexity": "Low",
-  "complexityReason": "Static promotional image tiles with title + link. Simple content-driven layout.",
+  "complexityReason": "Static promotional image tiles with title + link.",
   "templates": [
    "category-hub"
   ],
+  "pages": 29,
   "variations": [
    {
     "name": "default",
-    "desc": "Two promotional tiles (image + title) linking to featured articles.",
+    "desc": "Promo Blocks",
     "pages": 29
    }
   ],
   "functional": [
-   "Displays promotional tiles (image + title) that link to featured content."
+   "Promotional tiles (image + title) linking to featured content."
   ],
   "acceptance": [
-   "Each promo tile links to its target article and shows its image + title."
+   "Each promo tile links to its target and shows image + title."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm tiles link correctly."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-promo-blocks"
+  ]
  },
  {
-  "id": "explore",
-  "name": "Explore (category tiles)",
-  "edsBlock": "explore",
-  "pages": 32,
-  "complexity": "Low",
-  "complexityReason": "Grid of category tiles (image + name). On category hubs, tiles show live \"N New articles\" counts.",
+  "id": "paginate",
+  "name": "Article Listing + Pagination",
+  "edsBlock": "article-list (paginate)",
+  "complexity": "High",
+  "complexityReason": "Client-side paginated grid: numbered pages, prev/next bound states, jump-to-page, no reload; data-driven from a category index.",
   "templates": [
-   "home-landing",
    "category-hub"
   ],
+  "pages": 27,
   "variations": [
    {
     "name": "default",
-    "desc": "Category tiles with image + name (+ article count on hubs).",
-    "pages": 32
+    "desc": "Article Listing + Pagination",
+    "pages": 27
    }
   ],
   "functional": [
-   "Shows a grid of category tiles; on category hubs each tile displays a live count of articles (\"N New articles\")."
+   "Renders the category grid in pages.",
+   "Numbered page buttons; Previous disabled on page 1, Next on last page.",
+   "Jump-to-page control.",
+   "Verify whether pagination is client-side (no reload) or server-side."
   ],
   "acceptance": [
-   "Each explore tile links to its category; on hubs it shows the article count."
+   "On page 1 Previous is disabled.",
+   "Clicking a page shows that page's items.",
+   "On the last page Next is disabled."
   ],
-  "integrations": []
- },
- {
-  "id": "explore-more",
-  "name": "Explore More (related articles)",
-  "edsBlock": "explore-more",
-  "pages": 714,
-  "complexity": "Low",
-  "complexityReason": "Row of related-article cards at the foot of articles. Reuses the Card block.",
-  "templates": [
-   "article",
-   "buying-guide-article",
-   "category-hub",
-   "category-listing"
+  "verify": [
+   "Click page 2; confirm whether the URL changes / page reloads or content swaps in place.",
+   "Confirm prev/next disabled states at bounds."
   ],
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Related-article card row (medium/video cards).",
-    "pages": 714
-   }
-  ],
-  "functional": [
-   "Displays a row of related articles as cards below the main content."
-  ],
-  "acceptance": [
-   "The \"Explore more\" row shows related article cards, each linking to its article."
-  ],
-  "integrations": []
- },
- {
-  "id": "breadcrumb",
-  "name": "Breadcrumb",
-  "edsBlock": "breadcrumb",
-  "pages": 763,
-  "complexity": "Low",
-  "complexityReason": "Hierarchical trail derived from page path; standard EDS breadcrumb.",
-  "templates": [
-   "article",
-   "video-episode",
-   "video-transcript",
-   "category-hub"
-  ],
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Home > Category > Subcategory > Page trail.",
-    "pages": 763
-   }
-  ],
-  "functional": [
-   "Shows the page hierarchy from Home to the current page; ancestor items are links."
-  ],
-  "acceptance": [
-   "The breadcrumb reflects the page path; each ancestor link navigates to that level."
-  ],
-  "integrations": []
- },
- {
-  "id": "article-body",
-  "name": "Article Body (rich text + title + meta)",
-  "edsBlock": "default content + section-metadata",
-  "pages": 740,
-  "complexity": "Low",
-  "complexityReason": "Standard rich text: headings, lists, images, links, separators, title + date/read-time meta. Maps to EDS default content.",
-  "templates": [
-   "article",
-   "buying-guide-article",
-   "video-transcript"
-  ],
-  "variations": [
-   {
-    "name": "standard-article",
-    "desc": "Eyebrow + H1 + date/read-time + rich body + separators.",
-    "pages": 710
-   },
-   {
-    "name": "recipe",
-    "desc": "Recipe article with Ingredients / step-by-step Directions + jump-to-section.",
-    "pages": 8
-   },
-   {
-    "name": "transcript",
-    "desc": "Plain transcript body paired with a video episode.",
-    "pages": 23
-   }
-  ],
-  "functional": [
-   "Renders eyebrow category, H1 title, publish date + read-time, and rich-text body (headings, paragraphs, lists, images, links).",
-   "Red separators divide sections."
-  ],
-  "acceptance": [
-   "Article renders title, date, read-time and full body content with correct heading hierarchy and inline links."
-  ],
-  "integrations": []
- },
- {
-  "id": "jump-to-section",
-  "name": "Jump to Section",
-  "edsBlock": "jump-to-section (TOC)",
-  "pages": 8,
-  "complexity": "Medium",
-  "complexityReason": "Dropdown table-of-contents that expands to anchor links to in-page section IDs; requires generating/binding anchors.",
-  "templates": [
-   "article"
-  ],
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Dropdown listing in-page section anchors (e.g. recipe steps).",
-    "pages": 8
-   }
-  ],
-  "functional": [
-   "A \"Jump to section\" button toggles a dropdown of section links.",
-   "Verified: expands to anchor links pointing at in-page IDs (#Ingredients, #step1..#step5).",
-   "Selecting an item scrolls to that section."
-  ],
-  "acceptance": [
-   "Clicking the button expands the section list; clicking again collapses it.",
-   "Selecting a section scrolls the page to the matching anchor."
-  ],
-  "integrations": []
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-paginate"
+  ]
  },
  {
   "id": "video-embed",
   "name": "Video / Media Embed",
   "edsBlock": "embed (video)",
-  "pages": 23,
   "complexity": "High",
-  "complexityReason": "Multiple providers (Scene7 VideoViewer, YouTube, Spotify) with poster/lazy-load, transcript pairing and optional \"Featured products\" commerce links. Provider-specific players.",
+  "complexityReason": "Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links.",
   "templates": [
    "article",
-   "category-hub",
    "video-episode"
   ],
+  "pages": 23,
   "variations": [
    {
-    "name": "scene7",
-    "desc": "Adobe Scene7/Dynamic Media VideoViewer player.",
-    "pages": 20
+    "name": "spotify",
+    "pages": 10
    },
    {
     "name": "youtube",
-    "desc": "YouTube iframe embed (in-article video).",
     "pages": 13
-   },
-   {
-    "name": "spotify",
-    "desc": "Spotify podcast episode iframe.",
-    "pages": 10
    }
   ],
   "functional": [
-   "Embeds a video/podcast player from Scene7, YouTube or Spotify.",
-   "Video-article variant may add a \"Featured products\" block deep-linking to walgreens.com PDPs and a \"Transcript\" section."
+   "Embeds a video/podcast player from the detected provider.",
+   "May add a related products/links block and a transcript section."
   ],
   "acceptance": [
    "The embedded player loads and is playable.",
-   "Where present, \"Featured products\" links navigate to the walgreens.com product pages and the transcript text is shown."
+   "Any related links navigate correctly; transcript text is shown where present."
   ],
-  "integrations": [
-   "Adobe Scene7 / Dynamic Media",
-   "YouTube",
-   "Spotify",
-   "walgreens.com (Featured products)"
-  ]
- },
- {
-  "id": "watch-videos",
-  "name": "Watch Videos (video gallery)",
-  "edsBlock": "watch-videos",
-  "pages": 20,
-  "complexity": "High",
-  "complexityReason": "Gallery of video cards each launching a Scene7 player; combines card grid with the video embed lifecycle.",
-  "templates": [
-   "category-hub"
+  "verify": [
+   "Identify the provider(s) via iframe src / player script.",
+   "Confirm the player renders."
   ],
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Grid of video cards launching Scene7 players.",
-    "pages": 20
-   }
-  ],
-  "functional": [
-   "Displays a gallery of video cards; selecting one plays the video (Scene7 VideoViewer)."
-  ],
-  "acceptance": [
-   "Each video card shows a thumbnail + duration and plays the video when selected."
-  ],
-  "integrations": [
-   "Adobe Scene7 / Dynamic Media"
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-embed",
+   "cmp-spotify",
+   "cmp-youtube"
   ]
  },
  {
   "id": "episode-container",
   "name": "Episode Container (series)",
   "edsBlock": "episode-container",
-  "pages": 23,
   "complexity": "High",
-  "complexityReason": "Series episode navigation with a \"More episodes\" carousel (S:E badges), current-episode player, and transcript link. Series-aware.",
+  "complexityReason": "Series episode navigation: current-episode player, more-episodes carousel with S:E badges, transcript link.",
   "templates": [
    "video-episode"
   ],
+  "pages": 23,
   "variations": [
    {
     "name": "default",
-    "desc": "Current episode player + \"More episodes\" carousel + Read transcript link.",
+    "desc": "Episode Container (series)",
     "pages": 23
    }
   ],
   "functional": [
    "Shows the current episode player.",
-   "\"More episodes\" reveals an episode carousel (S1:E1..E10 thumbnails with season/episode badges) with Previous/Next.",
-   "\"Read transcript\" links to the paired transcript page."
+   "'More episodes' reveals an episode carousel with prev/next.",
+   "'Read transcript' links to the paired transcript page."
   ],
   "acceptance": [
-   "\"More episodes\" reveals the episode carousel; prev/next scroll episodes.",
-   "Each episode thumbnail navigates to that episode page.",
-   "\"Read transcript\" opens the paired transcript page."
+   "More-episodes reveals the carousel; prev/next scroll episodes.",
+   "Each thumbnail navigates to that episode.",
+   "Transcript link opens the paired page."
   ],
-  "integrations": [
-   "Adobe Scene7 / Spotify (player)"
+  "verify": [
+   "Open 'More episodes'; scroll the carousel; follow the transcript link."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-episode-container"
   ]
  },
  {
-  "id": "series-list",
-  "name": "Series List / Series Teaser",
-  "edsBlock": "series-list",
-  "pages": 3,
-  "complexity": "Medium",
-  "complexityReason": "Landing structure for community-story series (list of series + teaser cards). Content-driven with a distinctive teaser variation.",
+  "id": "background-container",
+  "name": "Background Container",
+  "edsBlock": "section-metadata (background)",
+  "complexity": "Low",
+  "complexityReason": "Section wrapper applying a themed background; maps to EDS section metadata.",
   "templates": [
-   "category-listing"
+   "article",
+   "category-hub"
   ],
+  "pages": 21,
   "variations": [
    {
-    "name": "series-list",
-    "desc": "List of series within a community-stories section.",
-    "pages": 3
+    "name": "navy-blue",
+    "pages": 20,
+    "desc": "navy-blue variation"
    },
    {
-    "name": "series-teaser",
-    "desc": "Series teaser card (incl. right-aligned variation).",
-    "pages": 1
+    "name": "gray",
+    "pages": 3,
+    "desc": "gray variation"
    }
   ],
   "functional": [
-   "Presents community-story series as a list and/or teaser cards linking to each series."
+   "Wraps a section to apply a themed background."
   ],
   "acceptance": [
-   "Each series entry links to its series landing/episode; teaser shows image + title."
+   "Wrapped sections render with the specified background."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm background variations render."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-background-container"
+  ]
  },
  {
-  "id": "section-hero",
-  "name": "Section Hero (community landing)",
-  "edsBlock": "hero",
-  "pages": 4,
-  "complexity": "Low",
-  "complexityReason": "Static section hero banner (image + title) on community-stories landing pages.",
+  "id": "watch-videos",
+  "name": "Watch Videos (gallery)",
+  "edsBlock": "watch-videos",
+  "complexity": "High",
+  "complexityReason": "Gallery of video cards each launching a player; combines a card grid with the video embed lifecycle.",
   "templates": [
-   "category-listing"
+   "category-hub"
   ],
+  "pages": 20,
   "variations": [
    {
     "name": "default",
-    "desc": "Section hero banner with image + title.",
+    "desc": "Watch Videos (gallery)",
+    "pages": 20
+   }
+  ],
+  "functional": [
+   "Gallery of video cards; selecting one plays the video."
+  ],
+  "acceptance": [
+   "Each video card shows a thumbnail + duration and plays when selected."
+  ],
+  "verify": [
+   "Click a video card; confirm the player launches."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-watch-videos"
+  ]
+ },
+ {
+  "id": "jump-to-section",
+  "name": "Jump to Section",
+  "edsBlock": "jump-to-section (TOC)",
+  "complexity": "Medium",
+  "complexityReason": "Dropdown TOC expanding to in-page anchor links; requires generating/binding anchors.",
+  "templates": [
+   "article"
+  ],
+  "pages": 8,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Jump to Section",
+    "pages": 8
+   }
+  ],
+  "functional": [
+   "Button toggles a dropdown of section links.",
+   "Selecting an item scrolls to the in-page anchor."
+  ],
+  "acceptance": [
+   "Clicking toggles the list open/closed.",
+   "Selecting a section scrolls to the matching anchor."
+  ],
+  "verify": [
+   "Click the button; confirm it expands and anchors point to in-page IDs."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-jump-to-section"
+  ]
+ },
+ {
+  "id": "section-hero",
+  "name": "Section Hero",
+  "edsBlock": "hero",
+  "complexity": "Low",
+  "complexityReason": "Static section hero banner (image + title).",
+  "templates": [
+   "category-listing"
+  ],
+  "pages": 4,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Section Hero",
     "pages": 4
    }
   ],
   "functional": [
-   "Displays a hero banner (image + title) introducing a community-stories section."
+   "Hero banner (image + title) introducing a section."
   ],
   "acceptance": [
-   "The section hero shows the section image and title."
+   "The section hero shows image and title."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm banner renders."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-hero"
+  ]
  },
  {
-  "id": "scroll-to-top",
-  "name": "Scroll to Top",
-  "edsBlock": "scroll-to-top",
-  "pages": 702,
-  "complexity": "Low",
-  "complexityReason": "Floating button that appears after scroll and returns to top. Trivial JS.",
+  "id": "editors-pick",
+  "name": "Editor's Pick / Featured Teaser",
+  "edsBlock": "editors-pick (teaser)",
+  "complexity": "Medium",
+  "complexityReason": "Teaser promoting a single curated item: media + eyebrow + title + byline.",
   "templates": [
-   "article",
-   "category-hub",
-   "home-landing",
-   "video-episode"
+   "category-listing",
+   "home-landing"
   ],
+  "pages": 3,
   "variations": [
    {
     "name": "default",
-    "desc": "Floating back-to-top button.",
-    "pages": 702
-   }
-  ],
-  "functional": [
-   "A floating button appears after scrolling; clicking it smooth-scrolls to the top."
-  ],
-  "acceptance": [
-   "After scrolling down, the button is visible; clicking it returns the viewport to the top."
-  ],
-  "integrations": []
- },
- {
-  "id": "background-container",
-  "name": "Background Container (section styling)",
-  "edsBlock": "section-metadata (background)",
-  "pages": 21,
-  "complexity": "Low",
-  "complexityReason": "Section wrapper applying a background colour (navy-blue / gray). Maps to EDS section metadata / styling.",
-  "templates": [
-   "category-hub",
-   "article"
-  ],
-  "variations": [
-   {
-    "name": "navy-blue",
-    "desc": "Navy-blue section background.",
-    "pages": 20
-   },
-   {
-    "name": "gray",
-    "desc": "Gray section background.",
+    "desc": "Editor's Pick / Featured Teaser",
     "pages": 3
    }
   ],
   "functional": [
-   "Wraps a section to apply a themed background colour."
+   "Promotes curated item(s) with media, eyebrow, title, byline and link."
   ],
   "acceptance": [
-   "Sections wrapped in the container render with the specified background colour."
+   "The teaser shows the curated item with media and links to it."
   ],
-  "integrations": []
+  "verify": [
+   "Confirm teaser renders and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-teaser",
+   "cmp-editors-pick-main",
+   "cmp-editors-pick",
+   "cmp-teaser-card",
+   "cmp-teaser-card-list"
+  ]
  },
  {
-  "id": "social-media",
-  "name": "Social Media Links",
-  "edsBlock": "social-media",
-  "pages": 804,
-  "complexity": "Low",
-  "complexityReason": "Static row of social icons (part of the footer XF).",
+  "id": "series-list",
+  "name": "Series List / Teaser",
+  "edsBlock": "series-list",
+  "complexity": "Medium",
+  "complexityReason": "Landing structure listing series + teaser cards.",
   "templates": [
-   "all"
+   "category-listing"
   ],
+  "pages": 3,
   "variations": [
    {
     "name": "default",
-    "desc": "Pinterest / Facebook / X / Instagram icon links.",
-    "pages": 804
+    "desc": "Series List / Teaser",
+    "pages": 3
    }
   ],
   "functional": [
-   "Row of social icon links opening the brand profiles."
+   "Presents series as a list and/or teaser cards linking to each."
   ],
   "acceptance": [
-   "Each social icon links to the correct external profile."
+   "Each series entry links to its landing; teaser shows image + title."
   ],
-  "integrations": [
-   "Pinterest",
-   "Facebook",
-   "X/Twitter",
-   "Instagram"
+  "verify": [
+   "Confirm series list renders and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-series-teaser",
+   "cmp-series-teaser-card",
+   "cmp-series-list"
+  ]
+ },
+ {
+  "id": "hero-carousel",
+  "name": "Hero Carousel",
+  "edsBlock": "hero-carousel",
+  "complexity": "High",
+  "complexityReason": "Auto-rotating multi-slide carousel with dot/arrow nav, per-slide media + CTA, pause/resume.",
+  "templates": [
+   "home-landing"
+  ],
+  "pages": 2,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Hero Carousel",
+    "pages": 2
+   }
+  ],
+  "functional": [
+   "Auto-advances through slides.",
+   "Dot/arrow navigation jumps to a slide.",
+   "Each slide: media + headline + CTA link."
+  ],
+  "acceptance": [
+   "On load the hero auto-rotates.",
+   "Selecting a dot shows that slide.",
+   "Each slide CTA navigates correctly."
+  ],
+  "verify": [
+   "Load page, observe whether the active-slide indicator advances without interaction.",
+   "Click a dot/arrow and confirm the slide changes."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-hero-carousel-wrapper",
+   "cmp-hero-carousel-main",
+   "cmp-hero-carousel"
+  ]
+ },
+ {
+  "id": "trending-articles",
+  "name": "Trending Articles",
+  "edsBlock": "trending-articles",
+  "complexity": "Medium",
+  "complexityReason": "Curated lead item + secondary list; content-driven.",
+  "templates": [
+   "home-landing"
+  ],
+  "pages": 2,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Trending Articles",
+    "pages": 2
+   }
+  ],
+  "functional": [
+   "Heading + lead item + list of secondary links with titles/descriptions."
+  ],
+  "acceptance": [
+   "Lists lead + secondary articles; each links to its article."
+  ],
+  "verify": [
+   "Confirm the trending list renders and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-trending-articles"
   ]
  }
 ]

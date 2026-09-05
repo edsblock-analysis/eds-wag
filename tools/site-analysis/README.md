@@ -21,13 +21,32 @@ First run auto-installs `cheerio` into this folder.
 ## What it produces (`report/<slug>/`)
 
 ```
-dashboard.html         interactive dashboard (tabs, searchable URL list)
+dashboard.html         interactive dashboard (Overview, Templates, Blocks, Map,
+                       Journeys & Forms, Behaviors, Integrations, All URLs)
 estimates.html         dev-only effort estimate (hours)
 REPORT.md              full written report
-reports/index.html     report hub → full report, per-block, per-template, behaviors, integrations
+reports/index.html     report hub → full report, per-block, per-template, behaviors,
+                       journeys & forms, integrations (by category), needs-review
 pages/                 raw HTML evidence cache (one file per URL)
-data/                  pages.json, summary.json, block-catalog.json, url-templates.json, (observed-behaviors.json)
+data/                  pages.json, summary.json, block-catalog.json, url-templates.json,
+                       (observed-behaviors.json — written by the agent after Playwright)
 ```
+
+## What it captures (analyse, don't assume)
+
+- **Blocks & variations** — AEM WCM `cmp-*` components, plus a generic `data-block`/
+  section fallback for non-AEM sites. Unknown components are flagged `needsReview`.
+- **Templates** — from `<meta name="template">`, refined for blog-style content sites,
+  bespoke marketing sites (named-hero page types), and redirect stubs.
+- **User journeys** — per-page capability signals (forms, search, login, cart, checkout,
+  filtering, pagination, tabs, accordion/flip, modal, video, map, chat) → the journeys
+  to walk & verify.
+- **Forms** — every form's field count, method, kind (lead-gen/search/newsletter/login/
+  checkout/contact) and where it posts (e.g. Salesforce/Marketo/HubSpot).
+- **Integrations** — 50+ detectors grouped by category (analytics, consent, media,
+  forms/CRM, chat, personalization/AB, maps, payments, auth, pixels…). **Any external
+  script host not matched is surfaced as an unknown host for agent review** — nothing is
+  silently dropped.
 
 ## Pipeline (each step is runnable on its own)
 

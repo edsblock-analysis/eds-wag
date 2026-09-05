@@ -10,7 +10,7 @@ const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
 
 function extract(url, html, status) {
   const $ = cheerio.load(html);
-  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [] };
+  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [], forms: [], journey: {}, genericBlocks: {}, unknownScriptHosts: [] };
 
   rec.template = $('meta[name="template"]').attr('content') || null;
   // Redirect / external-stub detection: meta-refresh, JS location change, or a page with
@@ -65,7 +65,80 @@ function extract(url, html, status) {
   const hay = scripts.join(' ') + ' ' + html;
   DET.integrations.forEach(d => { if (new RegExp(d.re, 'i').test(hay)) rec.integrations.push(d.name); });
 
+  // ---- Forms (lead-gen / contact / search / newsletter / checkout) ----
+  rec.forms = [];
+  $('form').each((i, el) => {
+    const $f = $(el);
+    const fields = $f.find('input:not([type=hidden]),select,textarea').map((j, e) => {
+      const $e = $(e);
+      return { name: $e.attr('name') || $e.attr('id') || null, type: ($e.attr('type') || e.tagName || '').toLowerCase(), required: $e.attr('required') != null || /required/i.test($e.attr('class') || ''), label: ($e.attr('placeholder') || $e.attr('aria-label') || '').slice(0, 40) };
+    }).get();
+    const action = $f.attr('action') || '';
+    let actionHost = null; try { actionHost = action ? new URL(action, url).host : null; } catch (e) {}
+    const submitText = ($f.find('[type=submit],button').first().text() || '').trim().slice(0, 40);
+    rec.forms.push({
+      action: action || '(js-handled)', actionHost, method: ($f.attr('method') || 'get').toLowerCase(),
+      fieldCount: fields.length, hiddenCount: $f.find('input[type=hidden]').length,
+      fields: fields.slice(0, 25), submitText,
+      kind: classifyForm($f, fields, action, url),
+    });
+  });
+
+  // ---- User-journey signals (what a visitor can DO) ----
+  const bodyTxt = ($('body').text() || '').toLowerCase();
+  const linkHosts = {};
+  $('a[href]').each((i, el) => { try { const h = new URL($(el).attr('href'), url).host; if (h && h !== new URL(url).host) linkHosts[h] = (linkHosts[h] || 0) + 1; } catch (e) {} });
+  rec.journey = {
+    hasForm: rec.forms.length > 0,
+    hasSearch: $('input[type=search], [role=search], [class*="search" i] input, form[action*="search" i]').length > 0,
+    hasLogin: /\b(log ?in|sign ?in|my account|register|create account)\b/i.test(bodyTxt) || $('a[href*="login" i],a[href*="signin" i],a[href*="account" i]').length > 0,
+    hasCart: $('[class*="cart" i],[href*="cart" i],[class*="basket" i],[aria-label*="cart" i]').length > 0,
+    hasCheckout: /\b(checkout|add to cart|add to bag|buy now|place order)\b/i.test(bodyTxt),
+    hasFilters: $('[class*="filter" i] input, [class*="facet" i], input[type=checkbox]').length > 0,
+    hasPagination: $('[class*="paginat" i], [aria-label*="pagination" i], [class*="load-more" i]').length > 0,
+    hasTabs: $('[role=tab], [class*="tab" i][class*="nav" i], .cmp-tabs').length > 0,
+    hasAccordion: $('[class*="accordion" i], [class*="flip" i], details').length > 0,
+    hasModal: $('[class*="modal" i], [role=dialog], [class*="popup" i], [class*="lightbox" i]').length > 0,
+    hasVideo: $('video, iframe[src*="youtube" i], iframe[src*="vimeo" i], iframe[src*="spotify" i], [class*="s7video" i]').length > 0,
+    hasMap: $('iframe[src*="google.com/maps" i], [class*="map" i][id], .mapboxgl-map').length > 0,
+    hasChat: /(intercom|drift|zendesk|livechat|tidio|hubspot.*conversations)/i.test(hay),
+    ctas: $('a,button').map((i, el) => ($(el).text() || '').trim()).get().filter(t => /^(get started|contact|sign up|subscribe|request|book|demo|apply|download|learn more|buy|shop|register|log ?in|start|try)/i.test(t)).slice(0, 12),
+    externalLinkHosts: linkHosts,
+  };
+
+  // ---- Unknown third-party script hosts (integrations we don't yet name) ----
+  const knownHostFrag = /(walgreens|hlx\.page|adobedtm|scene7|cookielaw|googletagmanager|google-analytics|typekit|gstatic|googleapis|salesforce|clientlibs|jsdelivr|jquery|fonts)/i;
+  const unknownHosts = {};
+  scripts.forEach(s => { try { const h = new URL(s, url).host; if (h && h !== new URL(url).host && !knownHostFrag.test(h)) unknownHosts[h] = (unknownHosts[h] || 0) + 1; } catch (e) {} });
+  rec.unknownScriptHosts = Object.keys(unknownHosts);
+
+  // ---- Generic (non-AEM) block fallback ----
+  // If the page has few/no cmp-* components, capture data-block / BEM-ish top-level
+  // section classes so non-AEM sites still yield a block inventory instead of nothing.
+  rec.genericBlocks = {};
+  if (Object.keys(base).length < 3) {
+    $('[data-block], [data-component], main section[class], main > div[class], [class*="block-"], [class*="section-"]').each((i, el) => {
+      let key = $(el).attr('data-block') || $(el).attr('data-component');
+      if (!key) { const c = ($(el).attr('class') || '').split(/\s+/).find(x => /^(block|section|component|c-|o-|b-)[-_]?[a-z]/i.test(x)); key = c; }
+      if (key) { key = key.toLowerCase().slice(0, 40); rec.genericBlocks[key] = (rec.genericBlocks[key] || 0) + 1; }
+    });
+  }
+
   return rec;
+}
+
+// Heuristically label a form's purpose from its fields/action/context.
+function classifyForm($f, fields, action, url) {
+  const names = fields.map(x => (x.name || '') + ' ' + (x.label || '')).join(' ').toLowerCase();
+  const a = (action || '').toLowerCase();
+  const ctx = ($f.text() || '').toLowerCase();
+  if (/salesforce|webtolead|marketo|hubspot|pardot|eloqua/.test(a)) return 'lead-gen (CRM)';
+  if (/search/.test(a) || fields.some(x => (x.type === 'search'))) return 'search';
+  if (/newsletter|subscribe|signup|email.?only/.test(names + a + ctx) && fields.length <= 2) return 'newsletter';
+  if (/login|signin|password/.test(names + a) || fields.some(x => x.type === 'password')) return 'login/auth';
+  if (/checkout|payment|billing|card|order/.test(names + a + ctx)) return 'checkout/payment';
+  if (/contact|message|inquiry|company|brand|phone/.test(names + ctx)) return 'contact/lead';
+  return 'generic';
 }
 
 (async () => {
@@ -84,8 +157,9 @@ function extract(url, html, status) {
     if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).size > 500) { html = fs.readFileSync(htmlPath, 'utf8'); status = 200; }
     else { const r = await L.get(url); status = r.statusCode; html = r.body || ''; if (status === 200 && html.length > 500) fs.writeFileSync(htmlPath, html); }
     let rec;
-    try { rec = (status === 200 && html.length > 200) ? extract(url, html, status) : { url, status, error: 'non-200 or empty', blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {} }; }
-    catch (e) { rec = { url, status, error: 'parse:' + e.message, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {} }; }
+    const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, unknownScriptHosts: [] };
+    try { rec = (status === 200 && html.length > 200) ? extract(url, html, status) : { url, status, error: 'non-200 or empty', ...empty }; }
+    catch (e) { rec = { url, status, error: 'parse:' + e.message, ...empty }; }
     if (++done % 50 === 0) process.stderr.write(`  ...${done}/${urls.length}\n`);
     return rec;
   });

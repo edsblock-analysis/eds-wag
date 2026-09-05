@@ -15,7 +15,10 @@
 | EDS blocks to develop | **38** |
 | Block variations | **40** |
 | High / Medium / Low complexity | 10 / 8 / 20 |
-| Third-party integrations | 10 |
+| Forms | 1 |
+| Third-party integrations | 14 |
+| Unrecognized 3rd-party hosts (review) | 4 |
+| Blocks needing agent review | 0 |
 
 ---
 
@@ -755,24 +758,93 @@
 
 ---
 
-## 7. Third-Party Integrations
+## 7. User Journeys & Interactions
+
+Capabilities detected across the site (page counts). These indicate the interactive journeys to design & test.
+
+| Capability | Pages |
+|---|---|
+| Accordion / flip | 3 |
+| Checkout / buy | 2 |
+| Forms | 1 |
+| Search | 1 |
+| Filtering | 1 |
+| Pagination / load-more | 1 |
+| Login / account | 1 |
+| Cart | 1 |
+
+> Journeys should be walked end-to-end with Playwright and documented in `data/observed-behaviors.json`. Multi-step flows (form → validation → submit → confirmation; filter → results; login → gated content) are called out per block in §5.
+
+---
+
+## 8. Forms
+
+1 form instance(s) found. Kinds: lead-gen (CRM) (1).
+
+| Page | Kind | Fields | Method | Posts to |
+|---|---|---|---|---|
+| /home/contact.html | lead-gen (CRM) | 8 | post | webto.salesforce.com |
+
+---
+
+## 9. Third-Party Integrations
+
+**Analytics/Tag Mgmt**
 
 | Integration | Pages |
 |---|---|
 | Adobe Helix RUM | 13 |
-| OneTrust (cookie consent) | 3 |
-| Google Analytics | 3 |
+| Google Analytics / GA4 | 3 |
 | Google Tag Manager | 2 |
-| HubSpot (form) | 2 |
+| Adobe Launch/DTM (tag mgmt) | 1 |
+| Adobe Analytics (AppMeasurement) | 1 |
+
+**Consent/Privacy**
+
+| Integration | Pages |
+|---|---|
+| OneTrust (consent) | 3 |
+| TrustArc (consent) | 2 |
+
+**Fonts**
+
+| Integration | Pages |
+|---|---|
 | Typekit / Adobe Fonts | 2 |
 | Google Fonts | 2 |
+
+**Forms/CRM**
+
+| Integration | Pages |
+|---|---|
+| HubSpot (form/CRM) | 2 |
 | Salesforce Web-to-Lead (form) | 1 |
-| Adobe Launch/DTM (Analytics tag mgmt) | 1 |
-| Adobe Target | 1 |
+
+**Maps/Location**
+
+| Integration | Pages |
+|---|---|
+| Google Maps | 1 |
+
+**Personalization/AB**
+
+| Integration | Pages |
+|---|---|
+| Adobe Target (A/B) | 1 |
+| Monetate | 1 |
+
+**⚠︎ Unrecognized third-party hosts (need agent review — could be complex integrations):**
+
+| Host | Pages |
+|---|---|
+| www.marsunited.com | 2 |
+| js.hs-scripts.com | 2 |
+| js.hsforms.net | 2 |
+| www.wag-static.com | 1 |
 
 ---
 
-## 8. Block Complexity
+## 10. Block Complexity
 
 | Block | Complexity | Reason |
 |---|---|---|

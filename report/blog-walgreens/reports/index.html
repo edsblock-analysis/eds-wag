@@ -2,8 +2,8 @@
 :root{--bg:#f4f7fb;--panel:#ffffff;--panel2:#eef3f9;--line:#d9e1ec;--txt:#1a2432;--mut:#5c6b80;--brand:#1560bd;--accent:#1560bd;--hi:#c0392b;--me:#9a6a00;--lo:#1e8f5b}
 *{box-sizing:border-box}body{margin:0;font:14px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt)}
 a{color:var(--accent)}
-header.top{padding:20px 28px;background:linear-gradient(90deg,#0b3d91,#1560bd 55%,#2f80ed);color:#fff}
-header.top h1{margin:0;font-size:19px}header.top p{margin:6px 0 0;opacity:.9;font-size:13px}
+header.top,header{padding:20px 28px;background:linear-gradient(90deg,#0b3d91,#1560bd 55%,#2f80ed);color:#fff}
+header h1,header.top h1{margin:0;font-size:19px}header p,header.top p{margin:6px 0 0;opacity:.92;font-size:13px}
 .crumbs{padding:12px 28px;background:var(--panel);border-bottom:1px solid var(--line);font-size:13px}
 .crumbs a{text-decoration:none}.crumbs span{color:var(--mut)}
 main{padding:24px 28px;max-width:1080px;margin:0 auto}
@@ -12,22 +12,23 @@ h3{font-size:14px;margin:18px 0 6px}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
 th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--mut);font-weight:600}
+td.h,th.h{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 tr:hover td{background:var(--panel2)}
+tfoot td{font-weight:700;border-top:2px solid var(--line);background:var(--panel)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0}
 .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
-.High{background:rgba(255,107,107,.16);color:var(--hi)}.Medium{background:rgba(255,203,94,.16);color:var(--me)}.Low{background:rgba(90,209,155,.16);color:var(--lo)}
+.High{background:rgba(192,57,43,.12);color:var(--hi)}.Medium{background:rgba(154,106,0,.14);color:var(--me)}.Low{background:rgba(30,143,91,.14);color:var(--lo)}
 .tag{font-family:ui-monospace,Menlo,monospace;font-size:11px;background:var(--panel2);padding:1px 6px;border-radius:4px;color:var(--accent)}
-.muted{color:var(--mut)}
+.muted{color:var(--mut)}.warn{color:var(--hi);font-weight:600}
 ul.f{margin:6px 0 12px;padding-left:18px}ul.f li{margin:4px 0}
+.chk{list-style:none;padding-left:0}.chk li{margin:6px 0;padding-left:26px;position:relative}.chk li:before{content:"\2610";position:absolute;left:0;color:var(--accent)}
 .varbox{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:8px 0}
 .grid{display:grid;gap:12px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
 @media(max-width:760px){.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
 .stat{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
 .stat .n{font-size:26px;font-weight:700}.stat .l{color:var(--mut);font-size:12px;margin-top:3px}
-.chk{list-style:none;padding-left:0}.chk li{margin:6px 0;padding-left:26px;position:relative}
-.chk li:before{content:"☐";position:absolute;left:0;color:var(--accent)}
 .urllist{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px}
-.urllist a{display:block;padding:6px 12px;border-bottom:1px solid var(--line);text-decoration:none;font-size:12px;color:var(--accent)}
+.urllist a{display:block;padding:6px 12px;border-bottom:1px solid var(--line);text-decoration:none;font-size:12px}
 .urllist a:hover{background:var(--panel2)}
 .backlink{display:inline-block;margin:0 0 6px;font-size:13px;text-decoration:none}
 .nav-blocks{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
@@ -37,24 +38,17 @@ footer{padding:18px 28px;color:var(--mut);font-size:12px;border-top:1px solid va
 </style></head><body>
 <header class="top"><h1>EDS Migration — Report Hub</h1><p>blog.walgreens.com → Edge Delivery Services · evidence-based analysis · 2026-09-05</p></header>
 <div class="crumbs">Report Hub</div>
-<main><div class="grid g4">
-    <div class="stat"><div class="n">804</div><div class="l">URLs analyzed</div></div>
-    <div class="stat"><div class="n">7</div><div class="l">Templates</div></div>
-    <div class="stat"><div class="n">24</div><div class="l">Blocks</div></div>
-    <div class="stat"><div class="n">36</div><div class="l">Variations</div></div>
-  </div>
-  <h2>Reports</h2>
-  <div class="grid g3">
-    <a class="card" style="text-decoration:none;color:inherit" href="../dashboard.html"><b>📊 Interactive Dashboard</b><div class="muted" style="margin-top:6px">Tabbed overview with charts, searchable URL list & expandable blocks.</div></a>
-    <a class="card" style="text-decoration:none;color:inherit" href="full-report.html"><b>📄 Full Consolidated Report</b><div class="muted" style="margin-top:6px">The complete written analysis (all sections) as one page.</div></a>
-    <a class="card" style="text-decoration:none;color:inherit" href="blocks.html"><b>🧩 Blocks & Variations</b><div class="muted" style="margin-top:6px">24 blocks — each with a detailed spec page.</div></a>
-    <a class="card" style="text-decoration:none;color:inherit" href="templates.html"><b>🗂️ Templates</b><div class="muted" style="margin-top:6px">7 templates — blocks used + page lists.</div></a>
-    <a class="card" style="text-decoration:none;color:inherit" href="behaviors.html"><b>🎬 Observed Behaviors</b><div class="muted" style="margin-top:6px">Playwright-verified interactive behavior per block.</div></a>
-    <a class="card" style="text-decoration:none;color:inherit" href="integrations.html"><b>🔌 Integrations</b><div class="muted" style="margin-top:6px">Third-party services & migration notes.</div></a>
-  </div>
-  <h2>All block spec pages</h2>
-  <div class="nav-blocks"><a href="block-header.html">Header / Navigation <span class="pill High" style="margin-left:4px">H</span></a><a href="block-search.html">Predictive Search <span class="pill High" style="margin-left:4px">H</span></a><a href="block-footer.html">Footer (mega) <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-hero-carousel.html">Hero Carousel (homepage) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-trending-articles.html">Trending Articles <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-editors-pick.html">Editor's Pick / Featured Teaser <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-card.html">Article Card <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-card-container-hero.html">Category Hero Card Container <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-slick-carousel.html">Content Carousel ("The latest" / episodes) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-paginate.html">Article Listing + Pagination <span class="pill High" style="margin-left:4px">H</span></a><a href="block-promo-blocks.html">Promo Blocks <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-explore.html">Explore (category tiles) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-explore-more.html">Explore More (related articles) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-breadcrumb.html">Breadcrumb <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-article-body.html">Article Body (rich text + title + meta) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-jump-to-section.html">Jump to Section <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-video-embed.html">Video / Media Embed <span class="pill High" style="margin-left:4px">H</span></a><a href="block-watch-videos.html">Watch Videos (video gallery) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-episode-container.html">Episode Container (series) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-series-list.html">Series List / Series Teaser <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-section-hero.html">Section Hero (community landing) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-scroll-to-top.html">Scroll to Top <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-background-container.html">Background Container (section styling) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-social-media.html">Social Media Links <span class="pill Low" style="margin-left:4px">L</span></a></div>
-  <h2>All template pages</h2>
-  <div class="nav-blocks"><a href="template-article.html">Article (710)</a><a href="template-category-hub.html">Category Hub (32)</a><a href="template-video-episode.html">Video / Podcast Episode (23)</a><a href="template-video-transcript.html">Video Transcript (23)</a><a href="template-buying-guide-article.html">Buying Guide (7)</a><a href="template-category-listing.html">Category Listing (Community) (7)</a><a href="template-home-landing.html">Home / Landing (2)</a></div></main>
-<footer>Generated from live-crawl evidence (all 804 URLs) + Playwright-verified behavior. See <a href="../dashboard.html">dashboard</a> · <a href="index.html">report hub</a>.</footer>
+<main><div class="grid g4"><div class="stat"><div class="n">804</div><div class="l">URLs</div></div><div class="stat"><div class="n">7</div><div class="l">Templates</div></div><div class="stat"><div class="n">27</div><div class="l">Blocks</div></div><div class="stat"><div class="n">32</div><div class="l">Variations</div></div></div>
+  <h2>Reports</h2><div class="grid g3">
+  <a class="card" style="text-decoration:none;color:inherit" href="../dashboard.html"><b>📊 Interactive Dashboard</b><div class="muted" style="margin-top:6px">Tabbed overview + searchable URL list.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="full-report.html"><b>📄 Full Report</b><div class="muted" style="margin-top:6px">Complete written analysis.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="blocks.html"><b>🧩 Blocks</b><div class="muted" style="margin-top:6px">27 blocks, each with a spec page.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="templates.html"><b>🗂️ Templates</b><div class="muted" style="margin-top:6px">7 templates.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="behaviors.html"><b>🎬 Observed Behaviors</b><div class="muted" style="margin-top:6px">Playwright-verified.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="journeys.html"><b>🧭 Journeys & Forms</b><div class="muted" style="margin-top:6px">Interactive capabilities + form inventory.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="integrations.html"><b>🔌 Integrations</b><div class="muted" style="margin-top:6px">Third-party services (by category) + unknown hosts.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="needs-review.html"><b>✓ Needs Review</b><div class="muted" style="margin-top:6px">0 unresolved component(s).</div></a></div>
+  <h2>All blocks</h2><div class="nav-blocks"><a href="block-header.html">Header / Navigation <span class="pill High" style="margin-left:4px">H</span></a><a href="block-search.html">Predictive Search <span class="pill High" style="margin-left:4px">H</span></a><a href="block-footer.html">Footer <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-social-media.html">Social Media Links <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-button.html">Button / CTA <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-title.html">Title <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-breadcrumb.html">Breadcrumb <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-card.html">Article Card <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-separator.html">Separator <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-explore-more.html">Explore More (related) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-image.html">Image <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-scroll-to-top.html">Scroll to Top <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-slick-carousel.html">Content Carousel <span class="pill High" style="margin-left:4px">H</span></a><a href="block-card-container-hero.html">Category Hero Card Container <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-explore.html">Explore (category tiles) <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-promo-blocks.html">Promo Blocks <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-paginate.html">Article Listing + Pagination <span class="pill High" style="margin-left:4px">H</span></a><a href="block-video-embed.html">Video / Media Embed <span class="pill High" style="margin-left:4px">H</span></a><a href="block-episode-container.html">Episode Container (series) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-background-container.html">Background Container <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-watch-videos.html">Watch Videos (gallery) <span class="pill High" style="margin-left:4px">H</span></a><a href="block-jump-to-section.html">Jump to Section <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-section-hero.html">Section Hero <span class="pill Low" style="margin-left:4px">L</span></a><a href="block-editors-pick.html">Editor's Pick / Featured Teaser <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-series-list.html">Series List / Teaser <span class="pill Medium" style="margin-left:4px">M</span></a><a href="block-hero-carousel.html">Hero Carousel <span class="pill High" style="margin-left:4px">H</span></a><a href="block-trending-articles.html">Trending Articles <span class="pill Medium" style="margin-left:4px">M</span></a></div>
+  <h2>All templates</h2><div class="nav-blocks"><a href="template-article.html">Article (710)</a><a href="template-category-hub.html">Category Hub (32)</a><a href="template-video-episode.html">Video / Podcast Episode (23)</a><a href="template-video-transcript.html">Video Transcript (23)</a><a href="template-buying-guide-article.html">Buying Guide (7)</a><a href="template-category-listing.html">Category Listing (7)</a><a href="template-home-landing.html">Home / Landing (2)</a></div></main>
+<footer>Generated from live-crawl evidence (all 804 URLs). See <a href="../dashboard.html">dashboard</a> · <a href="index.html">report hub</a>.</footer>
 </body></html>

@@ -99,7 +99,7 @@ function genMarkdown() {
   md += `**Method:** Every one of the ${S.totalUrls} URLs was fetched (HTTP 200: ${S.ok}) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.\n\n`;
   if (totals.mirror || totals.spanish) md += `> ${totals.mirror} URLs are content mirror/duplicate paths; ${totals.spanish} are non-English (es) variants — same templates/blocks, content only.\n\n`;
   md += `---\n\n## 1. Executive Summary\n\n| Metric | Value |\n|---|---|\n`;
-  md += `| Total URLs analyzed | **${S.totalUrls}** |\n| Unique templates | **${totalTemplates}** |\n| EDS blocks to develop | **${catalog.length}** |\n| Block variations | **${totals.variations}** |\n| High / Medium / Low complexity | ${totals.high} / ${totals.medium} / ${totals.low} |\n| Third-party integrations | ${Object.keys(S.integrationPageCounts).length} |\n\n`;
+  md += `| Total URLs analyzed | **${S.totalUrls}** |\n| Unique templates | **${totalTemplates}** |\n| EDS blocks to develop | **${catalog.length}** |\n| Block variations | **${totals.variations}** |\n| High / Medium / Low complexity | ${totals.high} / ${totals.medium} / ${totals.low} |\n| Forms | ${(S.forms || []).length} |\n| Third-party integrations | ${Object.keys(S.integrationPageCounts).length} |\n| Unrecognized 3rd-party hosts (review) | ${Object.keys(S.unknownScriptHostCounts || {}).length} |\n| Blocks needing agent review | ${catalog.filter(b => b.needsReview).length} |\n\n`;
   md += `---\n\n## 2. Templates\n\n| # | Template | Pages |\n|---|---|---|\n`;
   tplCounts.forEach(([t, c], i) => md += `| ${i + 1} | **${tplLabel(t)}** (\`${t}\`) | ${c} |\n`);
   md += `\n---\n\n## 3. Block Inventory\n\n| Block | EDS name | Complexity | Pages | Variations |\n|---|---|---|---|---|\n`;
@@ -114,10 +114,45 @@ function genMarkdown() {
   catalog.forEach(b => { md += `### ${b.name} (\`${b.edsBlock}\`)\n\n- **Pages:** ${b.pages} · **Templates:** ${b.templates.join(', ')}\n- **Variations:** ${b.variations.map(v => `${v.name} (${v.pages})`).join('; ')}\n\n`; b.functional.forEach(f => md += `- ${f}\n`); md += `\n`; });
   md += `---\n\n## 6. Acceptance Criteria\n\n`;
   catalog.forEach(b => { md += `### ${b.name}\n\n`; b.acceptance.forEach(a => md += `- [ ] ${a}\n`); md += `\n`; });
-  md += `---\n\n## 7. Third-Party Integrations\n\n| Integration | Pages |\n|---|---|\n`;
-  Object.entries(S.integrationPageCounts).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => md += `| ${k} | ${v} |\n`);
-  md += `\n---\n\n## 8. Block Complexity\n\n| Block | Complexity | Reason |\n|---|---|---|\n`;
-  ['High', 'Medium', 'Low'].forEach(lv => catalog.filter(b => b.complexity === lv).forEach(b => md += `| **${b.name}** | ${lv} | ${b.complexityReason} |\n`));
+  // 7. User journeys
+  const jc = S.journeyCapabilityCounts || {};
+  const jLabels = { hasForm: 'Forms', hasSearch: 'Search', hasLogin: 'Login / account', hasCart: 'Cart', hasCheckout: 'Checkout / buy', hasFilters: 'Filtering', hasPagination: 'Pagination / load-more', hasTabs: 'Tabs', hasAccordion: 'Accordion / flip', hasModal: 'Modal / popup', hasVideo: 'Video', hasMap: 'Map', hasChat: 'Live chat' };
+  md += `---\n\n## 7. User Journeys & Interactions\n\nCapabilities detected across the site (page counts). These indicate the interactive journeys to design & test.\n\n| Capability | Pages |\n|---|---|\n`;
+  Object.entries(jc).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => md += `| ${jLabels[k] || k} | ${v} |\n`);
+  if (!Object.keys(jc).length) md += `| (none detected) | 0 |\n`;
+  md += `\n> Journeys should be walked end-to-end with Playwright and documented in \`data/observed-behaviors.json\`. Multi-step flows (form → validation → submit → confirmation; filter → results; login → gated content) are called out per block in §5.\n`;
+
+  // 8. Forms
+  const forms = S.forms || [];
+  md += `\n---\n\n## 8. Forms\n\n`;
+  if (forms.length) {
+    md += `${forms.length} form instance(s) found. Kinds: ${Object.entries(S.formKindCounts || {}).map(([k, v]) => `${k} (${v})`).join(', ')}.\n\n| Page | Kind | Fields | Method | Posts to |\n|---|---|---|---|---|\n`;
+    forms.forEach(f => md += `| ${f.url.replace(origin, '')} | ${f.kind} | ${f.fieldCount} | ${f.method} | ${f.actionHost || '(js-handled)'} |\n`);
+  } else md += `No forms detected.\n`;
+
+  // 9. Integrations (by category)
+  md += `\n---\n\n## 9. Third-Party Integrations\n\n`;
+  const cats = S.integrationCategories || {};
+  Object.keys(cats).sort().forEach(cat => {
+    md += `**${cat}**\n\n| Integration | Pages |\n|---|---|\n`;
+    Object.entries(cats[cat]).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => md += `| ${k} | ${v} |\n`);
+    md += `\n`;
+  });
+  const unk = S.unknownScriptHostCounts || {};
+  if (Object.keys(unk).length) {
+    md += `**⚠︎ Unrecognized third-party hosts (need agent review — could be complex integrations):**\n\n| Host | Pages |\n|---|---|\n`;
+    Object.entries(unk).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => md += `| ${k} | ${v} |\n`);
+    md += `\n`;
+  }
+
+  md += `---\n\n## 10. Block Complexity\n\n| Block | Complexity | Reason |\n|---|---|---|\n`;
+  ['High', 'Medium', 'Low'].forEach(lv => catalog.filter(b => b.complexity === lv).forEach(b => md += `| **${b.name}**${b.needsReview ? ' ⚠︎' : ''} | ${lv} | ${b.complexityReason} |\n`));
+
+  const stubs = catalog.filter(b => b.needsReview);
+  if (stubs.length) {
+    md += `\n---\n\n## 11. ⚠︎ Needs Review (not assumed)\n\nThe following were auto-detected but not in the knowledge base — the agent must inspect the live pages and complete their spec rather than assume:\n\n`;
+    stubs.forEach(b => md += `- **${b.name}** (\`${b.rawKeys.join(', ')}\`, ${b.pages} pages)\n`);
+  }
   md += `\n---\n\n*Generated by tools/site-analysis. Data: data/*.json. Dashboard: dashboard.html. Detailed: reports/index.html.*\n`;
   fs.writeFileSync(path.join(OUT, 'REPORT.md'), md);
 }
@@ -188,9 +223,31 @@ function genDetailed() {
   tplCounts.forEach(([t, c], i) => ti += `<tr><td>${i + 1}</td><td><a href="template-${t}.html">${esc(tplLabel(t))}</a> <span class="tag">${esc(t)}</span></td><td><b>${c}</b></td></tr>`);
   ti += `</tbody></table>`;
   fs.writeFileSync(path.join(REP, 'templates.html'), shell('Templates', `<a href="index.html">Report Hub</a> <span>›</span> Templates`, ti));
-  // integrations
-  let ig = `<a class="backlink" href="index.html">← Report hub</a><h2>Third-party integrations</h2><table><thead><tr><th>Integration</th><th>Pages</th></tr></thead><tbody>${Object.entries(S.integrationPageCounts).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`;
+  // integrations (grouped by category + unknown hosts)
+  const cats = S.integrationCategories || {};
+  let ig = `<a class="backlink" href="index.html">← Report hub</a><h2>Third-party integrations</h2>`;
+  Object.keys(cats).sort().forEach(cat => {
+    ig += `<h3>${esc(cat)}</h3><table><thead><tr><th>Integration</th><th>Pages</th></tr></thead><tbody>${Object.entries(cats[cat]).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`;
+  });
+  const unk = S.unknownScriptHostCounts || {};
+  if (Object.keys(unk).length) {
+    ig += `<h3 class="warn">⚠︎ Unrecognized third-party hosts — need agent review</h3><div class="muted" style="margin-bottom:6px">External script hosts not matched by any detector. Investigate: these may be complex/custom integrations. If real, add a detector to tools/site-analysis/knowledge/detectors.json.</div><table><thead><tr><th>Host</th><th>Pages</th></tr></thead><tbody>${Object.entries(unk).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`;
+  }
   fs.writeFileSync(path.join(REP, 'integrations.html'), shell('Third-Party Integrations', `<a href="index.html">Report Hub</a> <span>›</span> Integrations`, ig));
+  // journeys & forms
+  const jc = S.journeyCapabilityCounts || {};
+  const jLabels = { hasForm: 'Forms', hasSearch: 'Search', hasLogin: 'Login / account', hasCart: 'Cart', hasCheckout: 'Checkout / buy', hasFilters: 'Filtering', hasPagination: 'Pagination / load-more', hasTabs: 'Tabs', hasAccordion: 'Accordion / flip', hasModal: 'Modal / popup', hasVideo: 'Video', hasMap: 'Map', hasChat: 'Live chat' };
+  let jr = `<a class="backlink" href="index.html">← Report hub</a><h2>User journeys & interactions</h2><div class="muted" style="margin-bottom:8px">Interactive capabilities detected across the site — the journeys to design and test end-to-end.</div>`;
+  jr += `<table><thead><tr><th>Capability</th><th>Pages</th></tr></thead><tbody>${Object.entries(jc).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(jLabels[k] || k)}</td><td>${v}</td></tr>`).join('') || '<tr><td class="muted">none detected</td><td>0</td></tr>'}</tbody></table>`;
+  const forms = S.forms || [];
+  jr += `<h2>Forms (${forms.length})</h2>`;
+  jr += forms.length ? `<table><thead><tr><th>Page</th><th>Kind</th><th>Fields</th><th>Method</th><th>Posts to</th></tr></thead><tbody>${forms.map(f => `<tr><td><a href="${esc(f.url)}" target="_blank">${esc(f.url.replace(origin, ''))}</a></td><td>${esc(f.kind)}</td><td>${f.fieldCount}</td><td>${esc(f.method)}</td><td class="muted">${esc(f.actionHost || '(js-handled)')}</td></tr>`).join('')}</tbody></table>` : `<p class="muted">No forms detected.</p>`;
+  fs.writeFileSync(path.join(REP, 'journeys.html'), shell('User Journeys & Forms', `<a href="index.html">Report Hub</a> <span>›</span> Journeys & Forms`, jr));
+  // needs-review page
+  const stubs = catalog.filter(b => b.needsReview);
+  let nr = `<a class="backlink" href="index.html">← Report hub</a><h2>⚠︎ Needs review — not assumed</h2><div class="muted" style="margin-bottom:8px">Auto-detected but not in the knowledge base. The agent must inspect the live pages (interact with Playwright) and complete each spec, then add it to the knowledge base for future runs.</div>`;
+  nr += stubs.length ? `<table><thead><tr><th>Block</th><th>Raw markers</th><th>Pages</th></tr></thead><tbody>${stubs.map(b => `<tr><td><a href="block-${b.id}.html">${esc(b.name)}</a></td><td><span class="tag">${esc((b.rawKeys || []).join(', '))}</span></td><td>${b.pages}</td></tr>`).join('')}</tbody></table>` : `<p class="lo">✓ All detected components matched the knowledge base — nothing pending review.</p>`;
+  fs.writeFileSync(path.join(REP, 'needs-review.html'), shell('Needs Review', `<a href="index.html">Report Hub</a> <span>›</span> Needs Review`, nr));
   // behaviors
   let bh = `<a class="backlink" href="index.html">← Report hub</a><h2>Observed interactive behaviors</h2>`;
   const bhKeys = Object.keys(BEH.behaviors || {});
@@ -207,7 +264,9 @@ function genDetailed() {
   <a class="card" style="text-decoration:none;color:inherit" href="blocks.html"><b>🧩 Blocks</b><div class="muted" style="margin-top:6px">${totals.blocks} blocks, each with a spec page.</div></a>
   <a class="card" style="text-decoration:none;color:inherit" href="templates.html"><b>🗂️ Templates</b><div class="muted" style="margin-top:6px">${totals.templates} templates.</div></a>
   <a class="card" style="text-decoration:none;color:inherit" href="behaviors.html"><b>🎬 Observed Behaviors</b><div class="muted" style="margin-top:6px">Playwright-verified.</div></a>
-  <a class="card" style="text-decoration:none;color:inherit" href="integrations.html"><b>🔌 Integrations</b><div class="muted" style="margin-top:6px">Third-party services.</div></a></div>
+  <a class="card" style="text-decoration:none;color:inherit" href="journeys.html"><b>🧭 Journeys & Forms</b><div class="muted" style="margin-top:6px">Interactive capabilities + form inventory.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="integrations.html"><b>🔌 Integrations</b><div class="muted" style="margin-top:6px">Third-party services (by category) + unknown hosts.</div></a>
+  <a class="card" style="text-decoration:none;color:inherit" href="needs-review.html"><b>${catalog.filter(b => b.needsReview).length ? '⚠︎' : '✓'} Needs Review</b><div class="muted" style="margin-top:6px">${catalog.filter(b => b.needsReview).length} unresolved component(s).</div></a></div>
   <h2>All blocks</h2><div class="nav-blocks">${catalog.map(b => `<a href="block-${b.id}.html">${esc(b.name)} <span class="pill ${b.complexity}" style="margin-left:4px">${b.complexity[0]}</span></a>`).join('')}</div>
   <h2>All templates</h2><div class="nav-blocks">${tplCounts.map(([t, c]) => `<a href="template-${t}.html">${esc(tplLabel(t))} (${c})</a>`).join('')}</div>`;
   fs.writeFileSync(path.join(REP, 'index.html'), shell('EDS Migration — Report Hub', `Report Hub`, hub));
@@ -215,10 +274,15 @@ function genDetailed() {
 
 /* ================= dashboard.html ================= */
 function genDashboard() {
+  const jLabels = { hasForm: 'Forms', hasSearch: 'Search', hasLogin: 'Login / account', hasCart: 'Cart', hasCheckout: 'Checkout / buy', hasFilters: 'Filtering', hasPagination: 'Pagination / load-more', hasTabs: 'Tabs', hasAccordion: 'Accordion / flip', hasModal: 'Modal / popup', hasVideo: 'Video', hasMap: 'Map', hasChat: 'Live chat' };
   const data = {
     totals, host, origin,
     templates: tplCounts.map(([t, c]) => ({ id: t, label: tplLabel(t), count: c })),
     catalog, integrations: Object.entries(S.integrationPageCounts).sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, v]),
+    integrationCategories: S.integrationCategories || {}, unknownHosts: S.unknownScriptHostCounts || {},
+    journeys: Object.entries(S.journeyCapabilityCounts || {}).map(([k, v]) => [jLabels[k] || k, v]).sort((a, b) => b[1] - a[1]),
+    forms: (S.forms || []).map(f => ({ url: f.url, kind: f.kind, fieldCount: f.fieldCount, method: f.method, actionHost: f.actionHost })),
+    needsReview: catalog.filter(b => b.needsReview).map(b => ({ id: b.id, name: b.name, raw: (b.rawKeys || []).join(', '), pages: b.pages })),
     behaviors: BEH.behaviors || {}, urlList: UT.map(u => ({ url: u.url, t: u.template, m: u.mirror ? 1 : 0, lang: u.lang || 'en' })),
   };
   const maxTpl = Math.max(...data.templates.map(t => t.count), 1);
@@ -236,22 +300,23 @@ select{padding:8px;border-radius:8px;border:1px solid var(--line);background:var
 </style></head><body>
 <header><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap"><div><h1>${esc(host)} — EDS Migration Functional Analysis</h1><p>${esc(origin)} → Edge Delivery Services · ${totals.urls} URLs · ${esc(DATE)}</p></div><a href="reports/index.html" style="flex:none;background:#fff;color:#0b3d91;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px">📑 Detailed Reports →</a></div></header>
 <nav id="nav"></nav><main>
-<section class="view active" id="v-overview"></section><section class="view" id="v-templates"></section><section class="view" id="v-blocks"></section><section class="view" id="v-mapping"></section><section class="view" id="v-behaviors"></section><section class="view" id="v-integrations"></section><section class="view" id="v-urls"></section>
+<section class="view active" id="v-overview"></section><section class="view" id="v-templates"></section><section class="view" id="v-blocks"></section><section class="view" id="v-mapping"></section><section class="view" id="v-journeys"></section><section class="view" id="v-behaviors"></section><section class="view" id="v-integrations"></section><section class="view" id="v-urls"></section>
 </main><footer>Evidence-based analysis. Detailed reports: <a href="reports/index.html">hub</a> · <a href="reports/full-report.html">full report</a>.</footer>
 <script>
 const D=${JSON.stringify(data)};const maxTpl=${maxTpl};
-const TABS=[['overview','Overview'],['templates','Templates'],['blocks','Blocks & Variations'],['mapping','Template → Block Map'],['behaviors','Observed Behaviors'],['integrations','Integrations'],['urls','All URLs ('+D.totals.urls+')']];
+const TABS=[['overview','Overview'],['templates','Templates'],['blocks','Blocks & Variations'],['mapping','Template → Block Map'],['journeys','Journeys & Forms'],['behaviors','Observed Behaviors'],['integrations','Integrations'],['urls','All URLs ('+D.totals.urls+')']];
 const nav=document.getElementById('nav');
 TABS.forEach(([id,lab],i)=>{const b=document.createElement('button');b.textContent=lab;b.className=i===0?'active':'';b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('v-'+id).classList.add('active');window.scrollTo(0,0);};nav.appendChild(b);});
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 document.getElementById('v-overview').innerHTML=\`<div class="grid g4"><div class="stat"><div class="n">\${D.totals.urls}</div><div class="l">URLs analyzed</div></div><div class="stat"><div class="n">\${D.totals.templates}</div><div class="l">Templates</div></div><div class="stat"><div class="n">\${D.totals.blocks}</div><div class="l">Blocks</div></div><div class="stat"><div class="n">\${D.totals.variations}</div><div class="l">Variations</div></div></div>
 <div class="grid g4" style="margin-top:14px"><div class="stat"><div class="n" style="color:var(--hi)">\${D.totals.high}</div><div class="l">High</div></div><div class="stat"><div class="n" style="color:var(--me)">\${D.totals.medium}</div><div class="l">Medium</div></div><div class="stat"><div class="n" style="color:var(--lo)">\${D.totals.low}</div><div class="l">Low</div></div><div class="stat"><div class="n">\${D.totals.mirror}+\${D.totals.spanish}</div><div class="l">Mirror + non-EN</div></div></div>
-<h2>Pages per template</h2><div class="card">\${D.templates.map(t=>\`<div class="barrow"><div class="lab">\${esc(t.label)}</div><div class="bar" style="width:\${Math.max(2,t.count/maxTpl*620)}px"></div><div class="val">\${t.count}</div></div>\`).join('')}</div>\`;
+<h2>Pages per template</h2><div class="card">\${D.templates.map(t=>\`<div class="barrow"><div class="lab">\${esc(t.label)}</div><div class="bar" style="width:\${Math.max(2,t.count/maxTpl*620)}px"></div><div class="val">\${t.count}</div></div>\`).join('')}</div>\${(D.needsReview&&D.needsReview.length)?'<div class="card" style="border-color:var(--hi)"><b class="warn">⚠︎ '+D.needsReview.length+' component(s) need agent review</b><div class="muted" style="margin-top:6px">Auto-detected but not in the knowledge base — inspect the live pages and complete their spec (do not assume): '+D.needsReview.map(r=>esc(r.name)).join(', ')+'. See <a href="reports/needs-review.html">Needs Review</a>.</div></div>':''}\${(D.unknownHosts&&Object.keys(D.unknownHosts).length)?'<div class="card" style="border-color:var(--me)"><b style="color:var(--me)">⚠︎ '+Object.keys(D.unknownHosts).length+' unrecognized third-party host(s)</b><div class="muted" style="margin-top:6px">Possible complex integrations — review in the Integrations tab.</div></div>':''}\`;
 document.getElementById('v-templates').innerHTML='<h2>'+D.totals.templates+' templates</h2><table><thead><tr><th>#</th><th>Template</th><th>Pages</th><th></th></tr></thead><tbody>'+D.templates.map((t,i)=>'<tr><td>'+(i+1)+'</td><td><a href="reports/template-'+esc(t.id)+'.html">'+esc(t.label)+'</a> <span class="tag">'+esc(t.id)+'</span></td><td><b>'+t.count+'</b></td><td><a href="reports/template-'+esc(t.id)+'.html">detail →</a></td></tr>').join('')+'</tbody></table>';
 document.getElementById('v-blocks').innerHTML='<h2>'+D.catalog.length+' blocks · '+D.totals.variations+' variations</h2>'+D.catalog.map(b=>\`<details><summary><span>\${esc(b.name)} <span class="tag">\${esc(b.edsBlock)}</span></span><span><span class="pill \${b.complexity}">\${b.complexity}</span> <span class="muted">\${b.pages} pages</span></span></summary><p style="margin:10px 0 4px"><a href="reports/block-\${esc(b.id)}.html">📄 Detailed report →</a></p><p class="muted">\${esc(b.complexityReason)}</p><h3>Variations (\${b.variations.length})</h3>\${b.variations.map(v=>'<div class="varbox" style="background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:6px 0"><b>'+esc(v.name)+'</b> <span class="muted">('+v.pages+' pages)</span></div>').join('')}<h3>Functionality</h3><ul class="f">\${b.functional.map(f=>'<li>'+esc(f)+'</li>').join('')}</ul></details>\`).join('');
 document.getElementById('v-mapping').innerHTML='<h2>Template → Block → Variation</h2>'+D.templates.map(t=>{const bl=D.catalog.filter(b=>b.templates.includes(t.id)||b.templates.includes('all'));return '<details open><summary><span><a href="reports/template-'+esc(t.id)+'.html">'+esc(t.label)+'</a></span><span class="muted">'+t.count+' pages · '+bl.length+' blocks</span></summary><table><thead><tr><th>Block</th><th>Variations</th><th>Complexity</th></tr></thead><tbody>'+bl.map(b=>'<tr><td><a href="reports/block-'+esc(b.id)+'.html">'+esc(b.name)+'</a></td><td class="muted">'+b.variations.map(v=>esc(v.name)).join(', ')+'</td><td><span class="pill '+b.complexity+'">'+b.complexity+'</span></td></tr>').join('')+'</tbody></table></details>';}).join('');
+document.getElementById('v-journeys').innerHTML='<h2>User journeys & interactions</h2><div class="muted" style="margin-bottom:8px">Interactive capabilities detected across the site — the journeys to design & test end-to-end.</div>'+(D.journeys.length?'<table><thead><tr><th>Capability</th><th>Pages</th></tr></thead><tbody>'+D.journeys.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+r[1]+'</td></tr>').join('')+'</tbody></table>':'<p class="muted">None detected.</p>')+'<h2>Forms ('+D.forms.length+')</h2>'+(D.forms.length?'<table><thead><tr><th>Page</th><th>Kind</th><th>Fields</th><th>Method</th><th>Posts to</th></tr></thead><tbody>'+D.forms.map(f=>'<tr><td><a href="'+esc(f.url)+'" target="_blank">'+esc(f.url.replace(D.origin,''))+'</a></td><td>'+esc(f.kind)+'</td><td>'+f.fieldCount+'</td><td>'+esc(f.method)+'</td><td class="muted">'+esc(f.actionHost||'(js-handled)')+'</td></tr>').join('')+'</tbody></table>':'<p class="muted">No forms detected.</p>');
 const bk=Object.keys(D.behaviors);document.getElementById('v-behaviors').innerHTML='<h2>Observed behaviors</h2>'+(bk.length?bk.map(k=>{const v=D.behaviors[k];return '<details><summary><span>'+esc(k)+'</span><span class="muted">'+((v.states||[]).length)+' states</span></summary><p>'+esc(v.observed)+'</p></details>';}).join(''):'<p class="muted">No observed-behaviors.json supplied.</p>');
-document.getElementById('v-integrations').innerHTML='<h2>Third-party integrations</h2><table><thead><tr><th>Integration</th><th>Pages</th></tr></thead><tbody>'+D.integrations.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+r[1]+'</td></tr>').join('')+'</tbody></table>';
+const cats=D.integrationCategories;let ightml='<h2>Third-party integrations</h2>';Object.keys(cats).sort().forEach(cat=>{ightml+='<h3>'+esc(cat)+'</h3><table><thead><tr><th>Integration</th><th>Pages</th></tr></thead><tbody>'+Object.entries(cats[cat]).sort((a,b)=>b[1]-a[1]).map(([k,v])=>'<tr><td>'+esc(k)+'</td><td>'+v+'</td></tr>').join('')+'</tbody></table>';});const uh=Object.entries(D.unknownHosts||{});if(uh.length){ightml+='<h3 class="warn">⚠︎ Unrecognized third-party hosts — review</h3><table><thead><tr><th>Host</th><th>Pages</th></tr></thead><tbody>'+uh.sort((a,b)=>b[1]-a[1]).map(([k,v])=>'<tr><td>'+esc(k)+'</td><td>'+v+'</td></tr>').join('')+'</tbody></table>';}document.getElementById('v-integrations').innerHTML=ightml;
 const v=document.getElementById('v-urls');v.innerHTML='<h2>All '+D.totals.urls+' URLs</h2><input id="us" placeholder="Filter URLs…"> <select id="tf"><option value="">All templates</option>'+D.templates.map(t=>'<option value="'+t.id+'">'+esc(t.label)+' ('+t.count+')</option>').join('')+'</select> <span class="muted" id="uc"></span><div style="max-height:70vh;overflow:auto;margin-top:10px"><table><thead><tr><th>#</th><th>URL</th><th>Template</th><th>Lang</th></tr></thead><tbody id="ur"></tbody></table></div>';
 function ru(){const q=(document.getElementById('us').value||'').toLowerCase();const tf=document.getElementById('tf').value;const rows=D.urlList.filter(u=>(!tf||u.t===tf)&&(!q||u.url.toLowerCase().includes(q)));document.getElementById('uc').textContent=rows.length+' shown';document.getElementById('ur').innerHTML=rows.map((u,i)=>'<tr><td class="muted">'+(i+1)+'</td><td><a href="'+esc(u.url)+'" target="_blank">'+esc(u.url.replace(D.origin,''))+'</a></td><td><span class="tag">'+esc(u.t)+'</span></td><td class="muted">'+esc(u.lang)+'</td></tr>').join('');}
 document.getElementById('us').oninput=ru;document.getElementById('tf').onchange=ru;ru();
