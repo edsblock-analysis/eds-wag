@@ -86,9 +86,9 @@ const contingency = Math.round(grand * 0.15);
 const grandWithCont = grand + contingency;
 
 const CSS = `
-:root{--bg:#0e1420;--panel:#182233;--panel2:#1f2c42;--line:#2c3a54;--txt:#e7edf6;--mut:#9db0cc;--brand:#e01a2b;--accent:#4da3ff;--hi:#ff6b6b;--me:#ffcb5e;--lo:#5ad19b}
+:root{--bg:#f4f7fb;--panel:#ffffff;--panel2:#eef3f9;--line:#d9e1ec;--txt:#1a2432;--mut:#5c6b80;--brand:#1560bd;--accent:#1560bd;--hi:#c0392b;--me:#9a6a00;--lo:#1e8f5b}
 *{box-sizing:border-box}body{margin:0;font:14px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt)}
-header.top{padding:22px 28px;background:linear-gradient(90deg,#7a0f18,#c8121f 55%,#e01a2b);color:#fff}
+header.top{padding:22px 28px;background:linear-gradient(90deg,#0b3d91,#1560bd 55%,#2f80ed);color:#fff}
 header.top h1{margin:0;font-size:20px}header.top p{margin:6px 0 0;opacity:.9;font-size:13px}
 main{padding:24px 28px;max-width:1080px;margin:0 auto}
 h2{font-size:16px;margin:30px 0 6px;border-left:3px solid var(--brand);padding-left:10px}

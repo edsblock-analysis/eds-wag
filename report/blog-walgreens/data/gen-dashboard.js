@@ -57,9 +57,9 @@ const html = `<!doctype html>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>blog.walgreens.com — EDS Migration Analysis Dashboard</title>
 <style>
-:root{--bg:#0e1420;--panel:#182233;--panel2:#1f2c42;--line:#2c3a54;--txt:#e7edf6;--mut:#9db0cc;--brand:#e01a2b;--accent:#4da3ff;--hi:#ff6b6b;--me:#ffcb5e;--lo:#5ad19b}
+:root{--bg:#f4f7fb;--panel:#ffffff;--panel2:#eef3f9;--line:#d9e1ec;--txt:#1a2432;--mut:#5c6b80;--brand:#1560bd;--accent:#1560bd;--hi:#c0392b;--me:#9a6a00;--lo:#1e8f5b}
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt)}
-header{padding:22px 28px;background:linear-gradient(90deg,#7a0f18,#c8121f 55%,#e01a2b);color:#fff}
+header{padding:22px 28px;background:linear-gradient(90deg,#0b3d91,#1560bd 55%,#2f80ed);color:#fff}
 header h1{margin:0;font-size:20px;letter-spacing:.2px}
 header p{margin:6px 0 0;opacity:.9;font-size:13px}
 nav{display:flex;gap:2px;background:var(--panel);border-bottom:1px solid var(--line);padding:0 12px;position:sticky;top:0;z-index:10;flex-wrap:wrap}
@@ -104,7 +104,7 @@ footer{padding:18px 28px;color:var(--mut);font-size:12px;border-top:1px solid va
       <h1>blog.walgreens.com — EDS Migration Functional Analysis</h1>
       <p>"The Thread" by Walgreens · Adobe AEM (WCM Core Components) → Edge Delivery Services · ${data.totals.urls} URLs analyzed individually · verified with live Playwright interaction · 2026-09-05</p>
     </div>
-    <a href="reports/index.html" style="flex:none;background:#fff;color:#c8121f;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;white-space:nowrap">📑 Detailed Reports →</a>
+    <a href="reports/index.html" style="flex:none;background:#fff;color:#0b3d91;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;white-space:nowrap">📑 Detailed Reports →</a>
   </div>
 </header>
 <nav id="nav"></nav>
