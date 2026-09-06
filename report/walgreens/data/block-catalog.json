@@ -1,0 +1,397 @@
+[
+ {
+  "id": "account-auth",
+  "name": "Account / Authentication",
+  "edsBlock": "account-auth (app)",
+  "complexity": "High",
+  "complexityReason": "Sign in / register / password reset / order lookup and account menus. Auth-gated flows with validation and session; typically integrated with an identity service.",
+  "templates": [],
+  "pages": 783,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Account / Authentication",
+    "pages": 783
+   }
+  ],
+  "functional": [
+   "Sign in (email/password) and create-account.",
+   "Password reset and guest order-lookup (order number, last name, phone).",
+   "Account menu exposes orders, refills, rewards, saved items.",
+   "Form validation on all inputs."
+  ],
+  "acceptance": [
+   "Sign-in validates credentials and errors on invalid input.",
+   "Order lookup accepts order number + last name.",
+   "Account menu links resolve to account sections."
+  ],
+  "verify": [
+   "Open sign-in; submit invalid → validation.",
+   "Open the account menu; check links."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:account-auth"
+  ]
+ },
+ {
+  "id": "cart",
+  "name": "Cart",
+  "edsBlock": "cart (commerce)",
+  "complexity": "High",
+  "complexityReason": "Cart view/mini-cart: line items, quantities, fulfillment, price summary, promo code, checkout entry. Commerce, stateful, tied to session + catalog/pricing APIs.",
+  "templates": [],
+  "pages": 778,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Cart",
+    "pages": 778
+   }
+  ],
+  "functional": [
+   "Line items with image, title, price, quantity controls.",
+   "Fulfillment per item; price/summary totals.",
+   "Promo/rewards application; proceed-to-checkout.",
+   "Mini-cart icon reflects item count."
+  ],
+  "acceptance": [
+   "Cart lists items with quantities and totals.",
+   "Changing quantity updates totals.",
+   "Cart icon shows the current count.",
+   "Checkout entry proceeds to the checkout flow."
+  ],
+  "verify": [
+   "Add an item and open the cart.",
+   "Change a quantity; confirm totals update."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cart"
+  ]
+ },
+ {
+  "id": "header",
+  "name": "Global Header / Nav",
+  "edsBlock": "header (app nav)",
+  "complexity": "High",
+  "complexityReason": "Global commerce header present on every page: logo, mega-menu category navigation, store/pickup selector, account menu, cart icon with live count, search, language switcher, rewards prompts. Stateful and shared sitewide.",
+  "templates": [],
+  "pages": 778,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Global Header / Nav",
+    "pages": 778
+   }
+  ],
+  "functional": [
+   "Mega-menu navigation across departments/categories.",
+   "Store & pickup-location selector reflecting the chosen store.",
+   "Account menu (sign in / orders / rewards / buy-again).",
+   "Cart icon showing live item count.",
+   "Site search entry point and language switcher."
+  ],
+  "acceptance": [
+   "Header renders on every page with nav, account, cart and search.",
+   "Cart icon reflects the current item count.",
+   "Mega-menu opens category navigation.",
+   "Store selector reflects/updates the chosen location."
+  ],
+  "verify": [
+   "Open the mega-menu; confirm categories.",
+   "Open the account menu and store selector.",
+   "Confirm cart count updates after add-to-cart."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:header"
+  ]
+ },
+ {
+  "id": "store-locator",
+  "name": "Store Locator",
+  "edsBlock": "store-locator (app)",
+  "complexity": "High",
+  "complexityReason": "Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service.",
+  "templates": [],
+  "pages": 463,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Store Locator",
+    "pages": 463
+   }
+  ],
+  "functional": [
+   "Accepts a location (geolocate or entered) and lists nearby stores.",
+   "Each store card shows address, service hours, services, distance and open/closed status; links to store detail and map.",
+   "Filters (24-hour, pharmacy, drive-thru, clinic, etc.) refine results.",
+   "'Browse stores by state' provides an SEO directory path.",
+   "Save/preferred-store action."
+  ],
+  "acceptance": [
+   "Given a location, nearby stores list with address + hours + status.",
+   "Applying a filter narrows the store list.",
+   "'View on map' opens the map for that store.",
+   "Browse-by-state navigates the store directory."
+  ],
+  "verify": [
+   "Enter/allow a location; confirm results.",
+   "Toggle a filter and confirm the list updates.",
+   "Open 'view on map'."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:store-locator"
+  ]
+ },
+ {
+  "id": "product-listing",
+  "name": "Product Listing (PLP)",
+  "edsBlock": "product-list-page (commerce)",
+  "complexity": "High",
+  "complexityReason": "Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block.",
+  "templates": [],
+  "pages": 183,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Product Listing (PLP)",
+    "pages": 183
+   }
+  ],
+  "functional": [
+   "Grid of product cards (image, title, brand, price, rating, promotion/tag).",
+   "Sort dropdown and result/item count.",
+   "Faceted filters (brand, price range, fulfillment) refine results.",
+   "Load-more / paginated navigation.",
+   "Each card links to its PDP; add-to-cart / add-to-fulfillment where applicable."
+  ],
+  "acceptance": [
+   "Results render as product cards with price and rating.",
+   "Changing sort reorders results.",
+   "Applying a filter/price range narrows results.",
+   "Load-more / next page appends or advances results.",
+   "A card navigates to its PDP."
+  ],
+  "verify": [
+   "Apply a filter and a sort; confirm results change.",
+   "Click load-more / page 2.",
+   "Open a product card → PDP."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:product-listing"
+  ]
+ },
+ {
+  "id": "product-filters",
+  "name": "Product Filters / Facets",
+  "edsBlock": "product-filters (commerce)",
+  "complexity": "High",
+  "complexityReason": "Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL.",
+  "templates": [],
+  "pages": 13,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Product Filters / Facets",
+    "pages": 13
+   }
+  ],
+  "functional": [
+   "Facet groups (brand, price, color, undertone, fulfillment).",
+   "Price min/max with Apply.",
+   "Selecting facets refines the product grid; applied-filters chips can be cleared."
+  ],
+  "acceptance": [
+   "Selecting a facet narrows the grid.",
+   "Setting a price range + Apply narrows by price.",
+   "Clearing a facet restores results."
+  ],
+  "verify": [
+   "Select a brand facet; confirm grid narrows.",
+   "Set price min/max, Apply."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:product-filters"
+  ]
+ },
+ {
+  "id": "product-detail",
+  "name": "Product Detail (PDP)",
+  "edsBlock": "product-detail-page (commerce)",
+  "complexity": "High",
+  "complexityReason": "Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS.",
+  "templates": [],
+  "pages": 13,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Product Detail (PDP)",
+    "pages": 13
+   }
+  ],
+  "functional": [
+   "Product gallery + title + brand + price + rating.",
+   "Variant selection (color/size/undertone) updates price/availability.",
+   "Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.",
+   "FSA-eligibility labelling; check-other-store availability.",
+   "Reviews."
+  ],
+  "acceptance": [
+   "PDP shows title, price and gallery.",
+   "Selecting a variant updates the selection/price.",
+   "Add-to-cart adds the item and updates the cart.",
+   "Fulfillment options are selectable."
+  ],
+  "verify": [
+   "Select a variant; confirm update.",
+   "Add to cart; confirm cart change.",
+   "Check fulfillment toggles."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:product-detail"
+  ]
+ },
+ {
+  "id": "spa-more-option",
+  "name": "Spa more option",
+  "edsBlock": "spa-more-option",
+  "complexity": "Medium",
+  "complexityReason": "AUTO-STUB — not in knowledge base; agent to assess complexity and rationale from observed markup/behavior.",
+  "templates": [],
+  "pages": 6,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "spa-more-option",
+    "pages": 6
+   }
+  ],
+  "functional": [
+   "AUTO-STUB — agent to document functionality from observed markup/behavior."
+  ],
+  "acceptance": [
+   "AUTO-STUB — agent to define acceptance criteria from observed behavior."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": true,
+  "rawKeys": [
+   "spa:testid:more-option"
+  ]
+ },
+ {
+  "id": "editors-pick",
+  "name": "Editor's Pick / Featured Teaser",
+  "edsBlock": "editors-pick (teaser)",
+  "complexity": "Medium",
+  "complexityReason": "Teaser promoting a single curated item: media + eyebrow + title + byline.",
+  "templates": [
+   "retail-base-template",
+   "retail-content-template"
+  ],
+  "pages": 4,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Editor's Pick / Featured Teaser",
+    "pages": 4
+   }
+  ],
+  "functional": [
+   "Promotes curated item(s) with media, eyebrow, title, byline and link."
+  ],
+  "acceptance": [
+   "The teaser shows the curated item with media and links to it."
+  ],
+  "verify": [
+   "Confirm teaser renders and links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-teaser"
+  ]
+ },
+ {
+  "id": "video-embed",
+  "name": "Video / Media Embed",
+  "edsBlock": "embed (video)",
+  "complexity": "High",
+  "complexityReason": "Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links.",
+  "templates": [
+   "retail-content-template"
+  ],
+  "pages": 3,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Video / Media Embed",
+    "pages": 3
+   }
+  ],
+  "functional": [
+   "Embeds a video/podcast player from the detected provider.",
+   "May add a related products/links block and a transcript section."
+  ],
+  "acceptance": [
+   "The embedded player loads and is playable.",
+   "Any related links navigate correctly; transcript text is shown where present."
+  ],
+  "verify": [
+   "Identify the provider(s) via iframe src / player script.",
+   "Confirm the player renders."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-embed"
+  ]
+ },
+ {
+  "id": "accordion",
+  "name": "Accordion",
+  "edsBlock": "accordion",
+  "complexity": "Medium",
+  "complexityReason": "Expand/collapse panels (single or multi-open); requires toggle JS + accessible disclosure semantics.",
+  "templates": [
+   "retail-content-template"
+  ],
+  "pages": 2,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Accordion",
+    "pages": 2
+   }
+  ],
+  "functional": [
+   "A list of headers that expand/collapse their panels on click.",
+   "May allow single or multiple open panels."
+  ],
+  "acceptance": [
+   "Clicking a header expands its panel; clicking again collapses it.",
+   "Keyboard and ARIA disclosure semantics work."
+  ],
+  "verify": [
+   "Click an accordion header; confirm expand/collapse."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "cmp-accordion"
+  ]
+ }
+]

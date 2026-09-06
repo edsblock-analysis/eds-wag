@@ -1,0 +1,38 @@
+{
+  "verifiedVia": "Playwright live interaction on www.walgreens.com (2026-09-06)",
+  "pagesInteracted": [
+    "/storelocator/24-hour-pharmacy/beaverton-or (store-locator — verified load-more + map + filters)",
+    "global header/footer (present sitewide)"
+  ],
+  "note": "walgreens.com is a React/SPA commerce site: components are identified by data-testid, not AEM cmp-* classes. Blocks below are commerce app blocks; in EDS most map to Adobe Commerce (PDP/PLP/cart) or JS-driven app blocks (store-locator, account). Product/cart/account flows are session/auth-gated; store-locator was fully walked, others are documented from DOM + testid evidence and should be re-walked in a logged-in/commerce environment during build.",
+  "behaviors": {
+    "store-locator": {
+      "observed": "Verified live. '/storelocator/<filter>/<city>' renders 'Stores near <zip>' with a results list of store cards (numbered, address, city/zip, distance in mi, phone tel: link, per-service hours + open/closed status for Store & Photo / Pharmacy / Lab Services, 'Pickup available'). An interactive Google Map shows numbered markers synced to the list ('View on map' per card). Active filter chips (e.g. '24-hr pharmacy Remove') and a 'Filters (N)' overlay. 'Load more' is CLIENT-SIDE: clicking advanced 'Showing 1-10 of 99' → '1-20 of 99', appending 10 store cards and 10 map markers with no reload. Edge cases handled: 'This store is closed temporarily' alert. 'Browse stores by state' links to an SEO directory. Store cards link to /locator/...id=<n> store-detail pages.",
+      "states": ["results", "filter-applied", "load-more-appended", "map-marker-selected", "store-temporarily-closed"]
+    },
+    "header": {
+      "observed": "Verified present on every page. Global commerce header: logo (home), keyword/item search box + Search button, 'Nearest store <address>' selector, Account Menu, and 'View shopping cart with N items' (live count). Mega-menu nav: Pharmacy, Health Services, Shop, Savings, Photo, Financial Services + Weekly Ad / seasonal / Vaccinations links (each opens category navigation). Promo bar above header with rotating offer links.",
+      "states": ["default", "mega-menu-open", "store-selector", "account-menu", "cart-count"]
+    },
+    "product-listing": {
+      "observed": "PLP (search results '/q/<term>' and category '/store/c/...'): grid of product cards (data-testid product-card-* — title, brand, price, review/rating, promotion/tag), item count, sort dropdown, faceted filters, and load-more / paginated navigation (product-list, first-product-list, second-page-navigation testids). Cards link to PDPs. Not fully walked live (commerce/session); documented from testid + DOM evidence — re-verify sort/filter/pagination in a commerce env.",
+      "states": ["results", "sorted", "filtered", "paginated"]
+    },
+    "product-filters": {
+      "observed": "Faceted refinement (price-filter with set-minimum/maximum + apply-price, brand-filter, brand-walgreens-checkbox, beauty filter-foundation-color / filter-undertone, pickup/sdd/shipping fulfillment filters, applied-filters chips). Synced to the PLP grid client-side. Documented from testid evidence.",
+      "states": ["facet-selected", "price-applied", "cleared"]
+    },
+    "product-detail": {
+      "observed": "PDP: product-title, price, gallery, variant selection (multi-variant-title, select-lipstick-color, filter-undertone), fulfillment (add-to-fulfillment-btn, check-other-store), FSA-eligibility (fsa-label), Walgreens-brand tagging, reviews (product-card-review). Add-to-cart updates the header cart count. Documented from testid evidence; re-verify add-to-cart + variant behavior in a commerce env.",
+      "states": ["default", "variant-selected", "added-to-cart", "fulfillment-selected"]
+    },
+    "cart": {
+      "observed": "Cart icon in header reflects live item count and links to /cart/view-ui; recommendation experience-fragments (buy-again, featured-categories, recently-viewed) appear in cart context. Full cart/checkout is session-gated; documented from header + XF evidence — walk add→cart→checkout in a commerce env.",
+      "states": ["empty", "with-items", "count-updated"]
+    },
+    "account-auth": {
+      "observed": "Account Menu in header; sign-in / register / password-reset routes (/youraccount, /register, /password) and guest order-lookup (order-number-input, last-name-input, phone-number-input, lookup-search-btn testids). Family/care-management account areas. Auth-gated; documented from testid + route evidence.",
+      "states": ["signed-out", "sign-in-form", "order-lookup", "validation-error"]
+    }
+  }
+}

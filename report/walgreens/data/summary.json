@@ -1,0 +1,953 @@
+{
+ "slug": "walgreens",
+ "origin": "https://www.walgreens.com",
+ "totalUrls": 853,
+ "ok": 835,
+ "templateCounts": {
+  "home-page-content-template": 10,
+  "redirect-stub": 45,
+  "cart": 5,
+  "account": 26,
+  "find-care": 60,
+  "retail-content-template": 5,
+  "article": 209,
+  "content-page": 2,
+  "store-detail": 18,
+  "retail-base-template": 22,
+  "plp": 11,
+  "store-locator": 440
+ },
+ "templates": {
+  "home-page-content-template": {
+   "count": 10,
+   "blocks": [
+    "cmp-container",
+    "cmp-experiencefragment",
+    "cmp-text",
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [
+    "cmp-experiencefragment--follow-on-social"
+   ],
+   "custom": []
+  },
+  "redirect-stub": {
+   "count": 45,
+   "blocks": [
+    "cmp-container",
+    "cmp-text"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "cart": {
+   "count": 5,
+   "blocks": [
+    "cmp-container",
+    "cmp-text",
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "account": {
+   "count": 26,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "find-care": {
+   "count": 60,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "retail-content-template": {
+   "count": 5,
+   "blocks": [
+    "cmp-accordion",
+    "cmp-container",
+    "cmp-embed",
+    "cmp-image",
+    "cmp-teaser",
+    "cmp-text",
+    "cmp-title",
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": [
+    "embed"
+   ]
+  },
+  "article": {
+   "count": 209,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "content-page": {
+   "count": 2,
+   "blocks": [],
+   "variations": [],
+   "custom": []
+  },
+  "store-detail": {
+   "count": 18,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header",
+    "spa:product-detail",
+    "spa:product-filters",
+    "spa:product-listing",
+    "spa:store-locator",
+    "spa:testid:more-option"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "retail-base-template": {
+   "count": 22,
+   "blocks": [
+    "cmp-container",
+    "cmp-image",
+    "cmp-separator",
+    "cmp-teaser",
+    "cmp-text"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "plp": {
+   "count": 11,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header",
+    "spa:product-detail",
+    "spa:product-filters",
+    "spa:product-listing",
+    "spa:store-locator",
+    "spa:testid:more-option"
+   ],
+   "variations": [],
+   "custom": []
+  },
+  "store-locator": {
+   "count": 440,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:header",
+    "spa:product-listing",
+    "spa:store-locator"
+   ],
+   "variations": [],
+   "custom": []
+  }
+ },
+ "blockPageCounts": {
+  "cmp-container": 48,
+  "cmp-text": 36,
+  "spa:cart": 778,
+  "spa:header": 778,
+  "spa:account-auth": 783,
+  "cmp-embed": 3,
+  "spa:store-locator": 463,
+  "cmp-separator": 12,
+  "cmp-experiencefragment": 1,
+  "spa:product-filters": 13,
+  "spa:product-listing": 183,
+  "spa:product-detail": 13,
+  "spa:testid:more-option": 6,
+  "cmp-teaser": 4,
+  "cmp-image": 4,
+  "cmp-title": 2,
+  "cmp-accordion": 2
+ },
+ "variationPageCounts": {
+  "cmp-experiencefragment--follow-on-social": 1
+ },
+ "customPageCounts": {
+  "embed": 3
+ },
+ "genericBlockPageCounts": {},
+ "cardVariationPageCounts": {
+  "hero": 0,
+  "small": 0,
+  "medium": 0,
+  "video": 0
+ },
+ "integrationPageCounts": {
+  "Adobe Launch/DTM (tag mgmt)": 812,
+  "Adobe Client Data Layer": 38,
+  "Adobe Helix RUM": 48,
+  "Adobe Analytics (AppMeasurement)": 780,
+  "Adobe Target (A/B)": 264,
+  "Monetate": 783,
+  "OneTrust (consent)": 804,
+  "TrustArc (consent)": 780,
+  "Google Maps": 806,
+  "Google Fonts": 143,
+  "Facebook Pixel": 7,
+  "Google Analytics / GA4": 775,
+  "YouTube embed": 16,
+  "Google Tag Manager": 3,
+  "Pardot (form)": 1,
+  "LinkedIn Insight": 1,
+  "Qualtrics (survey)": 23,
+  "Zendesk / LiveChat / Tidio": 2,
+  "Spotify embed": 1
+ },
+ "integrationCategories": {
+  "Analytics/Tag Mgmt": {
+   "Adobe Launch/DTM (tag mgmt)": 812,
+   "Adobe Client Data Layer": 38,
+   "Adobe Helix RUM": 48,
+   "Adobe Analytics (AppMeasurement)": 780,
+   "Google Analytics / GA4": 775,
+   "Google Tag Manager": 3
+  },
+  "Personalization/AB": {
+   "Adobe Target (A/B)": 264,
+   "Monetate": 783
+  },
+  "Consent/Privacy": {
+   "OneTrust (consent)": 804,
+   "TrustArc (consent)": 780
+  },
+  "Maps/Location": {
+   "Google Maps": 806
+  },
+  "Fonts": {
+   "Google Fonts": 143
+  },
+  "Marketing/Pixel": {
+   "Facebook Pixel": 7,
+   "LinkedIn Insight": 1
+  },
+  "Media/Video": {
+   "YouTube embed": 16,
+   "Spotify embed": 1
+  },
+  "Forms/CRM": {
+   "Pardot (form)": 1
+  },
+  "Survey/Feedback": {
+   "Qualtrics (survey)": 23
+  },
+  "Chat/Support": {
+   "Zendesk / LiveChat / Tidio": 2
+  }
+ },
+ "unknownScriptHostCounts": {
+  "dok.js-cdn.dynatrace.com": 16,
+  "securepubads.g.doubleclick.net": 6,
+  "unpkg.com": 3,
+  "www.wag-static.com": 190
+ },
+ "formKindCounts": {
+  "generic": 36,
+  "contact/lead": 2,
+  "login/auth": 5
+ },
+ "formActionHostCounts": {
+  "go.walgreenshealth.com": 1
+ },
+ "forms": [
+  {
+   "url": "https://www.walgreens.com/findcare/category/diabetes",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/illness-injuries",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/inperson-visit",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/labsandat-homekits",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/preventivecare",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/skin-hair",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/virtual-visit",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/weightloss",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/findcare/category/women'shealth",
+   "template": "find-care",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "text"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/healthcare-solutions/how-we-can-help/clinical-trials",
+   "template": "content-page",
+   "kind": "contact/lead",
+   "fieldCount": 10,
+   "actionHost": "go.walgreenshealth.com",
+   "method": "post",
+   "submitText": "Submit",
+   "fields": [
+    "985971_130002pi_985971_130002",
+    "985971_129999pi_985971_129999",
+    "985971_129990pi_985971_129990",
+    "985971_130005pi_985971_130005",
+    "985971_130092pi_985971_130092",
+    "985971_199001pi_985971_199001",
+    "985971_199004pi_985971_199004",
+    "985971_130095pi_985971_130095_1813440",
+    "985971_130035pi_985971_130035_1813356",
+    "pi_extra_field"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-1010+maple+ave-lisle-il-60532/id=7212",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-11+e+75th+st-chicago-il-60619/id=3539",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-15601+san+carlos+blvd-fort+myers-fl-33908/id=3356",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-1602+n+dixie+ave-elizabethtown-ky-42701/id=4123",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-2000+veterans+blvd-dublin-ga-31021/id=19407",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-2646+darlington+rd-beaver+falls-pa-15010/id=9942",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-26482+us+highway+281+n-san+antonio-tx-78258/id=13940",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-411+s+mason+rd-katy-tx-77450/id=4696",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-4730+s+27th+st-milwaukee-wi-53221/id=5601",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/locator/walgreens-92+leonardville+rd-belford-nj-07718/id=19757",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/login.jsp",
+   "template": "article",
+   "kind": "login/auth",
+   "fieldCount": 3,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Sign in",
+   "fields": [
+    "username",
+    "password",
+    "showPassword"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+acuvue",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+acuvue+moist",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+contacts+for+astigmatism",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+narafilcon+contact+lenses",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+narafilcon+contacts",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+day+trueye",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/1+hour+teeth+whitening",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/100+watt+bulbs",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/100+watt+light+bulbs",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/q/100+watt+light+bulbs+",
+   "template": "plp",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/register/addressView",
+   "template": "account",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "wag-regpharmacy-gender"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store-services/same-day-delivery",
+   "template": "retail-content-template",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "searchbox"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store-services/store-pickup",
+   "template": "retail-content-template",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "searchbox"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/store/save/clearance.jsp",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/store/save/sale.jsp",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/store/save/w-cash-rewards-offers.jsp",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 2,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "minvalue",
+    "maxvalue"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/storelocator/storeDetails.jsp?stnum=3323",
+   "template": "store-locator",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Cancel",
+   "fields": [
+    "commenttext"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/topic/pharmacy.jsp",
+   "template": "article",
+   "kind": "contact/lead",
+   "fieldCount": 9,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "firstName",
+    "lastName",
+    "phoneNumber",
+    "phoneType",
+    "streetAddress",
+    "other",
+    "city",
+    "state",
+    "zipCode"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/youraccount/communication_preferences.jsp",
+   "template": "account",
+   "kind": "login/auth",
+   "fieldCount": 3,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Sign in",
+   "fields": [
+    "username",
+    "password",
+    "showPassword"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/youraccount/default.jsp",
+   "template": "account",
+   "kind": "login/auth",
+   "fieldCount": 3,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Sign in",
+   "fields": [
+    "username",
+    "password",
+    "showPassword"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/youraccount/dlorder/reorder.jsp",
+   "template": "account",
+   "kind": "login/auth",
+   "fieldCount": 3,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Sign in",
+   "fields": [
+    "username",
+    "password",
+    "showPassword"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/youraccount/personal_information.jsp",
+   "template": "account",
+   "kind": "login/auth",
+   "fieldCount": 3,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "Sign in",
+   "fields": [
+    "username",
+    "password",
+    "showPassword"
+   ]
+  }
+ ],
+ "journeyCapabilityCounts": {
+  "hasLogin": 814,
+  "hasCart": 778,
+  "hasCheckout": 787,
+  "hasModal": 541,
+  "hasSearch": 52,
+  "hasMap": 205,
+  "hasAccordion": 578,
+  "hasForm": 43,
+  "hasFilters": 470,
+  "hasTabs": 3,
+  "hasVideo": 14,
+  "hasPagination": 187,
+  "hasChat": 8
+ },
+ "embedHosts": {
+  "www.youtube-nocookie.com": 41,
+  "www.youtube.com": 4
+ },
+ "tplBlock": {
+  "home-page-content-template": {
+   "cmp-container": 10,
+   "cmp-text": 9,
+   "spa:cart": 10,
+   "spa:header": 10,
+   "spa:account-auth": 10,
+   "cmp-experiencefragment": 1
+  },
+  "redirect-stub": {
+   "cmp-container": 10,
+   "cmp-text": 1
+  },
+  "cart": {
+   "spa:cart": 4,
+   "spa:header": 4,
+   "spa:account-auth": 4,
+   "cmp-container": 1,
+   "cmp-text": 1
+  },
+  "account": {
+   "spa:cart": 22,
+   "spa:header": 22,
+   "spa:account-auth": 26
+  },
+  "find-care": {
+   "spa:cart": 60,
+   "spa:header": 60,
+   "spa:account-auth": 60
+  },
+  "retail-content-template": {
+   "cmp-container": 5,
+   "cmp-embed": 3,
+   "spa:cart": 5,
+   "spa:header": 5,
+   "spa:account-auth": 5,
+   "cmp-text": 3,
+   "cmp-teaser": 2,
+   "cmp-image": 2,
+   "cmp-title": 2,
+   "cmp-accordion": 2
+  },
+  "article": {
+   "spa:cart": 208,
+   "spa:header": 208,
+   "spa:account-auth": 209
+  },
+  "content-page": {},
+  "store-detail": {
+   "spa:cart": 18,
+   "spa:header": 18,
+   "spa:account-auth": 18,
+   "spa:store-locator": 15,
+   "spa:product-filters": 3,
+   "spa:product-listing": 3,
+   "spa:product-detail": 3,
+   "spa:testid:more-option": 2
+  },
+  "retail-base-template": {
+   "cmp-container": 22,
+   "cmp-text": 22,
+   "cmp-separator": 12,
+   "cmp-teaser": 2,
+   "cmp-image": 2
+  },
+  "plp": {
+   "spa:cart": 11,
+   "spa:header": 11,
+   "spa:account-auth": 11,
+   "spa:store-locator": 10,
+   "spa:product-filters": 10,
+   "spa:product-listing": 10,
+   "spa:product-detail": 10,
+   "spa:testid:more-option": 4
+  },
+  "store-locator": {
+   "spa:cart": 440,
+   "spa:header": 440,
+   "spa:account-auth": 440,
+   "spa:store-locator": 438,
+   "spa:product-listing": 170
+  }
+ },
+ "tplVariation": {
+  "home-page-content-template": {
+   "cmp-experiencefragment--follow-on-social": 1
+  },
+  "redirect-stub": {},
+  "cart": {},
+  "account": {},
+  "find-care": {},
+  "retail-content-template": {},
+  "article": {},
+  "content-page": {},
+  "store-detail": {},
+  "retail-base-template": {},
+  "plp": {},
+  "store-locator": {}
+ },
+ "mirrorCount": 0,
+ "spanishCount": 1
+}

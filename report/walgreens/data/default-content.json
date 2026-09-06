@@ -1,0 +1,26 @@
+[
+ {
+  "id": "text",
+  "name": "Rich Text",
+  "edsBlock": "default content (rich text)",
+  "pages": 36
+ },
+ {
+  "id": "separator",
+  "name": "Separator",
+  "edsBlock": "default content (hr)",
+  "pages": 12
+ },
+ {
+  "id": "image",
+  "name": "Image",
+  "edsBlock": "default content (image)",
+  "pages": 4
+ },
+ {
+  "id": "title",
+  "name": "Title",
+  "edsBlock": "default content (heading)",
+  "pages": 2
+ }
+]

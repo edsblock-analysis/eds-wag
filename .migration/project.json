@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "eds-wag": {
+      "previewOrg": "edsblock-analysis",
+      "previewSite": "eds-wag",
+      "contentHostUrl": "https://content.da.live/edsblock-analysis/eds-wag/"
+    }
+  }
+}

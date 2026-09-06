@@ -7,18 +7,24 @@ const path = require('path');
 const L = require('./lib.js');
 const cheerio = L.requireCheerio();
 const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
+const TESTID = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'react-testid-blocks.json')); } catch (e) { return { families: [], blocks: {} }; } })();
+TESTID.families = TESTID.testidFamilies || TESTID.families || [];
 
 function extract(url, html, status) {
   const $ = cheerio.load(html);
-  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [], forms: [], journey: {}, genericBlocks: {}, unknownScriptHosts: [] };
+  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [], forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, unknownScriptHosts: [] };
 
   rec.template = $('meta[name="template"]').attr('content') || null;
-  // Redirect / external-stub detection: meta-refresh, JS location change, or a page with
-  // no AEM components (cmp-*) at all.
+  // Real-page vs stub test based on VISIBLE TEXT, not cmp-* count (React/SPA sites have
+  // zero cmp-* but are real pages). A page is a redirect/stub only if it truly has no
+  // rendered content: explicit meta-refresh, or a near-empty body.
   const metaRefresh = $('meta[http-equiv="refresh" i]').attr('content') || '';
-  const hasJsRedirect = /(window\.location|location\.href|location\.replace)\s*[=(]/.test($('script:not([src])').text());
-  const cmpCount = $('[class*="cmp-"]').length;
-  rec.isRedirect = /url=/i.test(metaRefresh) || (hasJsRedirect && cmpCount < 3) || cmpCount === 0;
+  const bodyClone = $('body').clone();
+  bodyClone.find('script,style,noscript,template,svg').remove();
+  const visibleText = (bodyClone.text() || '').replace(/\s+/g, ' ').trim();
+  rec.meta.visibleTextLen = visibleText.length;
+  const isApiOrAsset = /\.(js|json|css|xml|txt|jpg|png|gif|svg|pdf)(\?|$)/i.test(url) || !/<html/i.test(html);
+  rec.isRedirect = /url=/i.test(metaRefresh) || isApiOrAsset || visibleText.length < 200;
   rec.title = ($('title').first().text() || '').trim().replace(/instagram-logo.*$/i, '').slice(0, 200);
   rec.description = $('meta[name="description"]').attr('content') || $('meta[property="og:description"]').attr('content') || null;
   rec.lang = $('html').attr('lang') || null;
@@ -112,11 +118,28 @@ function extract(url, html, status) {
   scripts.forEach(s => { try { const h = new URL(s, url).host; if (h && h !== new URL(url).host && !knownHostFrag.test(h)) unknownHosts[h] = (unknownHosts[h] || 0) + 1; } catch (e) {} });
   rec.unknownScriptHosts = Object.keys(unknownHosts);
 
+  // ---- React/SPA block extraction (data-testid families) ----
+  // Sites built as React/SPA apps expose components via data-testid rather than cmp-*.
+  // Group testids into known block families (react-testid-blocks.json); anything not
+  // matched is kept as its own testid-family so nothing is missed.
+  rec.spaBlocks = {};
+  const testidSeen = {};
+  $('[data-testid]').each((i, el) => {
+    let t = ($(el).attr('data-testid') || '').replace(/[-_]?\d+$/, '').replace(/[-_][0-9a-f]{6,}$/i, '').trim();
+    if (t) testidSeen[t] = (testidSeen[t] || 0) + 1;
+  });
+  for (const t in testidSeen) {
+    const fam = (TESTID.families || []).find(f => new RegExp(f.match, 'i').test(t));
+    const key = fam ? fam.block : ('testid:' + t);
+    rec.spaBlocks[key] = (rec.spaBlocks[key] || 0) + testidSeen[t];
+  }
+  rec.meta.reactRoots = $('#root,#app,[data-reactroot],[data-testid]').length;
+
   // ---- Generic (non-AEM) block fallback ----
-  // If the page has few/no cmp-* components, capture data-block / BEM-ish top-level
-  // section classes so non-AEM sites still yield a block inventory instead of nothing.
+  // If the page has few/no cmp-* AND few/no data-testid blocks, capture data-block /
+  // BEM-ish top-level section classes so non-AEM sites still yield a block inventory.
   rec.genericBlocks = {};
-  if (Object.keys(base).length < 3) {
+  if (Object.keys(base).length < 3 && Object.keys(rec.spaBlocks).length < 2) {
     $('[data-block], [data-component], main section[class], main > div[class], [class*="block-"], [class*="section-"]').each((i, el) => {
       let key = $(el).attr('data-block') || $(el).attr('data-component');
       if (!key) { const c = ($(el).attr('class') || '').split(/\s+/).find(x => /^(block|section|component|c-|o-|b-)[-_]?[a-z]/i.test(x)); key = c; }
@@ -157,7 +180,7 @@ function classifyForm($f, fields, action, url) {
     if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).size > 500) { html = fs.readFileSync(htmlPath, 'utf8'); status = 200; }
     else { const r = await L.get(url); status = r.statusCode; html = r.body || ''; if (status === 200 && html.length > 500) fs.writeFileSync(htmlPath, html); }
     let rec;
-    const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, unknownScriptHosts: [] };
+    const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, unknownScriptHosts: [] };
     try { rec = (status === 200 && html.length > 200) ? extract(url, html, status) : { url, status, error: 'non-200 or empty', ...empty }; }
     catch (e) { rec = { url, status, error: 'parse:' + e.message, ...empty }; }
     if (++done % 50 === 0) process.stderr.write(`  ...${done}/${urls.length}\n`);

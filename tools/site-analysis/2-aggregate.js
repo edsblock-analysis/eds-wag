@@ -22,6 +22,27 @@ function heroPageType(p) {
   const base = named[0].replace(/^cmp-/, '').replace(/-hero$/, '');
   return 'page-' + base;
 }
+// Commerce/SPA page-type from data-testid families (react-testid-blocks.json page hints)
+// + URL heuristics. Returns a template id or null.
+const TESTID_FAM = (() => { try { return require('./knowledge/react-testid-blocks.json').testidFamilies || []; } catch (e) { return []; } })();
+function spaPageType(p) {
+  const spa = p.spaBlocks || {};
+  const has = (b) => spa[b] > 0;
+  const u = p.url.toLowerCase();
+  // URL structure is the most reliable signal on this kind of site — check it FIRST,
+  // because cart-icon / account-auth appear in the GLOBAL HEADER on every page and would
+  // otherwise mis-classify content/home pages as "cart".
+  if (/\/storelocator\//.test(u)) return 'store-locator';           // store search/results by area
+  if (/\/(locator|store)\//.test(u)) return 'store-detail';          // individual store page
+  if (/\/(cart|rx-checkout|checkout)(\/|$|\?)/.test(u)) return 'cart';
+  if (/\/findcare/.test(u)) return 'find-care';
+  if (/\/(youraccount|register|password|mywalgreens|familymgmt|caremanagement)/.test(u)) return 'account';
+  if (/\/q\//.test(u) || /\/search/.test(u)) return 'plp';           // search results = product listing
+  // Component signals (only when URL is inconclusive). Ignore cart/account (global chrome).
+  if (has('product-detail')) return 'pdp';
+  if (has('product-listing') || has('product-filters')) return 'plp';
+  return null;
+}
 function classify(p) {
   const t = p.template || 'unknown';
   const url = p.url;
@@ -29,12 +50,21 @@ function classify(p) {
   const has = (b) => p.blocks && p.blocks[b];
   const cards = p.cards || {};
   const notableCount = blockKeys(p).filter(k => !/^cmp-(container|experiencefragment|button|image|text|title|list|separator|header|footer|social-media)/.test(k)).length;
+  const spaCount = Object.keys(p.spaBlocks || {}).length;
   const hasTheater = (p.custom && p.custom.theater) || (p.media && p.media.theaterThumbs) || has('cmp-episode-container');
   const heroCarousel = has('cmp-hero-carousel');
   const richHub = has('cmp-card-container-hero') || has('cmp-slick-carousel') || has('cmp-promo-blocks');
 
-  // Redirect / external-stub pages (no authored AEM components)
-  if (p.isRedirect || (t === 'unknown' && notableCount === 0)) return 'redirect-stub';
+  // Non-200 responses (403/404/500/timeouts) and true redirect/non-HTML/empty stubs
+  // (visible-text based; see extractor) are not real content pages.
+  if ((p.status && p.status !== 200) || p.error || p.isRedirect) return 'redirect-stub';
+
+  // Commerce / SPA page types (React sites with data-testid components, few/no cmp-*).
+  if (spaCount || /\/(storelocator|locator|store|cart|rx-checkout|checkout|findcare|youraccount|register|password|mywalgreens|familymgmt|caremanagement|q|search)\b/i.test(url)) {
+    const spt = spaPageType(p);
+    if (spt) return spt;
+  }
+  if (t === 'unknown' && notableCount === 0 && spaCount === 0) return 'content-page'; // real page, generic content
 
   // Blog-style meta template families (keeps blog.walgreens.com behavior intact)
   if (t === 'blank-page-template') {
@@ -94,6 +124,9 @@ function classify(p) {
     tplBlock[tpl] = tplBlock[tpl] || {}; tplVariation[tpl] = tplVariation[tpl] || {};
 
     Object.keys(p.blocks || {}).forEach(b => { (blockPages[b] = blockPages[b] || new Set()).add(p.url); templates[tpl].blocks.add(b); tplBlock[tpl][b] = (tplBlock[tpl][b] || 0) + 1; });
+    // SPA/React blocks (data-testid families) are first-class blocks; namespace with spa: so
+    // the catalog builder maps them via react-testid-blocks.json.
+    Object.keys(p.spaBlocks || {}).forEach(b => { const key = 'spa:' + b; (blockPages[key] = blockPages[key] || new Set()).add(p.url); templates[tpl].blocks.add(key); tplBlock[tpl][key] = (tplBlock[tpl][key] || 0) + 1; });
     Object.keys(p.variations || {}).forEach(v => { (variationPages[v] = variationPages[v] || new Set()).add(p.url); templates[tpl].variations.add(v); tplVariation[tpl][v] = (tplVariation[tpl][v] || 0) + 1; });
     Object.keys(p.custom || {}).forEach(c => { (customPages[c] = customPages[c] || new Set()).add(p.url); templates[tpl].custom.add(c); });
     Object.keys(p.genericBlocks || {}).forEach(g => { (genericBlockPages[g] = genericBlockPages[g] || new Set()).add(p.url); });

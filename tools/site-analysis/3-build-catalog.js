@@ -8,6 +8,8 @@ const path = require('path');
 const L = require('./lib.js');
 const KB = L.loadJSON(path.join(__dirname, 'knowledge', 'aem-wcm-blocks.json')).entries;
 const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
+const TESTID = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'react-testid-blocks.json')); } catch (e) { return { blocks: {} }; } })();
+const SPA_BLOCKS = TESTID.blocks || {};
 const IGNORE = new Set(DET.ignoreComponents || []);
 const FOLD = DET.foldInto || {};
 // Index KB entries by their block id (KB is keyed by cmp-* class)
@@ -32,6 +34,21 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
 
   for (const [rawKey, count] of Object.entries(bp)) {
     if (IGNORE.has(rawKey)) continue;                       // structural wrapper, not a block
+    // React/SPA blocks: key is "spa:<block>" (known family) or "spa:testid:<name>" (unknown).
+    if (rawKey.startsWith('spa:')) {
+      const sub = rawKey.slice(4);
+      if (sub.startsWith('testid:')) {                      // unrecognized testid family -> stub
+        const id = 'spa-' + sub.slice(7).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+        const rec = ensure(id, null); rec.needsReview = true; rec.rawKeys.push(rawKey);
+        idPages[id] = Math.max(idPages[id] || 0, count);
+      } else {                                              // known SPA block from knowledge base
+        const rec = ensure(sub, SPA_BLOCKS[sub] || null);
+        if (!SPA_BLOCKS[sub]) rec.needsReview = true;
+        rec.rawKeys.push(rawKey);
+        idPages[sub] = Math.max(idPages[sub] || 0, count);
+      }
+      continue;
+    }
     const kb = KB[rawKey];
     if (kb) {
       const id = kb.id;
