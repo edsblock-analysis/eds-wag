@@ -5,13 +5,23 @@
   "edsBlock": "account-auth (app)",
   "complexity": "High",
   "complexityReason": "Sign in / register / password reset / order lookup and account menus. Auth-gated flows with validation and session; typically integrated with an identity service.",
-  "templates": [],
-  "pages": 793,
+  "templates": [
+   "account",
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "retail-content-template",
+   "rx-checkout",
+   "store-detail",
+   "store-locator"
+  ],
+  "pages": 794,
   "variations": [
    {
     "name": "default",
     "desc": "Account / Authentication",
-    "pages": 793
+    "pages": 794
    }
   ],
   "functional": [
@@ -41,13 +51,23 @@
   "edsBlock": "cart (commerce)",
   "complexity": "High",
   "complexityReason": "Cart view/mini-cart: line items, quantities, fulfillment, price summary, promo code, checkout entry. Commerce, stateful, tied to session + catalog/pricing APIs.",
-  "templates": [],
-  "pages": 786,
+  "templates": [
+   "account",
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "retail-content-template",
+   "rx-checkout",
+   "store-detail",
+   "store-locator"
+  ],
+  "pages": 787,
   "variations": [
    {
     "name": "default",
     "desc": "Cart",
-    "pages": 786
+    "pages": 787
    }
   ],
   "functional": [
@@ -78,13 +98,23 @@
   "edsBlock": "header (app nav)",
   "complexity": "High",
   "complexityReason": "Global commerce header present on every page: logo, mega-menu category navigation, store/pickup selector, account menu, cart icon with live count, search, language switcher, rewards prompts. Stateful and shared sitewide.",
-  "templates": [],
-  "pages": 786,
+  "templates": [
+   "account",
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "retail-content-template",
+   "rx-checkout",
+   "store-detail",
+   "store-locator"
+  ],
+  "pages": 787,
   "variations": [
    {
     "name": "default",
     "desc": "Global Header / Nav",
-    "pages": 786
+    "pages": 787
    }
   ],
   "functional": [
@@ -112,12 +142,100 @@
   ]
  },
  {
+  "id": "promo-banner",
+  "name": "Promo Banner",
+  "edsBlock": "promo-banner",
+  "complexity": "Low",
+  "complexityReason": "Sitewide promo strip above the header with rotating offer links.",
+  "templates": [
+   "account",
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "retail-content-template",
+   "rx-checkout",
+   "store-detail",
+   "store-locator"
+  ],
+  "pages": 787,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Promo Banner",
+    "pages": 787
+   }
+  ],
+  "functional": [
+   "Rotating promotional offer links above the header."
+  ],
+  "acceptance": [
+   "Promo links navigate to the offer/PLP."
+  ],
+  "verify": [
+   "Confirm promo links."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:promo-banner"
+  ]
+ },
+ {
+  "id": "footer",
+  "name": "Global Footer",
+  "edsBlock": "footer",
+  "complexity": "Medium",
+  "complexityReason": "Sitewide mega-footer: customer service, myWalgreens, company info, terms/privacy, product category directory, photo products, social, newsletter signup and legal/copyright. Shared across all pages.",
+  "templates": [
+   "account",
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "retail-content-template",
+   "rx-checkout",
+   "store-detail",
+   "store-locator"
+  ],
+  "pages": 780,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Global Footer",
+    "pages": 780
+   }
+  ],
+  "functional": [
+   "Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.",
+   "Product category directory ('View all products by') + photo products.",
+   "Newsletter/deals signup, social links, copyright and legal (privacy/CCPA/Washington health).",
+   "'Your Privacy Choices' CCPA opt-out."
+  ],
+  "acceptance": [
+   "Footer renders all link columns and legal links on every page.",
+   "Newsletter signup and social links work.",
+   "Privacy/CCPA links resolve."
+  ],
+  "verify": [
+   "Confirm footer link columns and privacy links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:footer"
+  ]
+ },
+ {
   "id": "store-locator",
   "name": "Store Locator",
   "edsBlock": "store-locator (app)",
   "complexity": "High",
   "complexityReason": "Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service.",
-  "templates": [],
+  "templates": [
+   "store-detail",
+   "store-locator"
+  ],
   "pages": 449,
   "variations": [
    {
@@ -151,12 +269,204 @@
   ]
  },
  {
+  "id": "content-carousel",
+  "name": "Content / Product Carousel",
+  "edsBlock": "carousel",
+  "complexity": "Medium",
+  "complexityReason": "Horizontal glider/carousel of cards (products, offers, content) with prev/next; used on home, category and content pages.",
+  "templates": [
+   "article",
+   "find-care",
+   "home-page-content-template",
+   "plp",
+   "redirect-stub",
+   "retail-content-template",
+   "store-detail"
+  ],
+  "pages": 57,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Content / Product Carousel",
+    "pages": 57
+   }
+  ],
+  "functional": [
+   "Horizontal carousel of cards with prev/next controls.",
+   "Each card links to a PDP/PLP/content page."
+  ],
+  "acceptance": [
+   "Carousel scrolls via prev/next.",
+   "Cards link correctly."
+  ],
+  "verify": [
+   "Scroll a glider carousel; click a card."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:content-carousel"
+  ]
+ },
+ {
+  "id": "hero-banner",
+  "name": "Hero Banner",
+  "edsBlock": "hero",
+  "complexity": "Medium",
+  "complexityReason": "Homepage/landing hero: background media, headline, CTA(s); may rotate.",
+  "templates": [
+   "article",
+   "cart",
+   "find-care",
+   "home-page-content-template",
+   "redirect-stub",
+   "store-detail"
+  ],
+  "pages": 36,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Hero Banner",
+    "pages": 36
+   }
+  ],
+  "functional": [
+   "Background media + headline + CTA(s); may auto-rotate."
+  ],
+  "acceptance": [
+   "Hero renders headline + CTA; rotation works if present."
+  ],
+  "verify": [
+   "Confirm hero CTA + rotation."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:hero-banner"
+  ]
+ },
+ {
+  "id": "health-content",
+  "name": "Health/Wellness Article",
+  "edsBlock": "article (default content)",
+  "complexity": "Low",
+  "complexityReason": "Editorial health/wellness article: H1, sub-headings, rich body copy, lists, images, inline links — maps to EDS default content within a category-details wrapper. Content-authored, not a coded block.",
+  "templates": [
+   "article",
+   "find-care"
+  ],
+  "pages": 36,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Health/Wellness Article",
+    "pages": 36
+   }
+  ],
+  "functional": [
+   "Renders article title (H1), section headings, paragraphs, lists and images.",
+   "Inline links to related conditions/products.",
+   "Sits under a health category (breadcrumb/category context)."
+  ],
+  "acceptance": [
+   "Article renders title + body with correct heading hierarchy.",
+   "Inline links resolve.",
+   "Images render with alt text."
+  ],
+  "verify": [
+   "Open a /health or /topic article; confirm the body content renders."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:health-content"
+  ]
+ },
+ {
+  "id": "rich-content",
+  "name": "Rich Content (AEM DS)",
+  "edsBlock": "default content (rich text)",
+  "complexity": "Low",
+  "complexityReason": "AEM Design-System rich content (aemds-title/body/link) — headings, body copy, links. Maps to EDS default content.",
+  "templates": [
+   "article",
+   "redirect-stub",
+   "retail-base-template",
+   "retail-content-template"
+  ],
+  "pages": 27,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Rich Content (AEM DS)",
+    "pages": 27
+   }
+  ],
+  "functional": [
+   "Renders titles, body copy and links from the AEM DS."
+  ],
+  "acceptance": [
+   "Rich content renders with correct hierarchy and links."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:rich-content"
+  ]
+ },
+ {
+  "id": "product-detail",
+  "name": "Product Detail (PDP)",
+  "edsBlock": "product-detail-page (commerce)",
+  "complexity": "High",
+  "complexityReason": "Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS.",
+  "templates": [
+   "plp",
+   "store-detail"
+  ],
+  "pages": 26,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Product Detail (PDP)",
+    "pages": 26
+   }
+  ],
+  "functional": [
+   "Product gallery + title + brand + price + rating.",
+   "Variant selection (color/size/undertone) updates price/availability.",
+   "Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.",
+   "FSA-eligibility labelling; check-other-store availability.",
+   "Reviews."
+  ],
+  "acceptance": [
+   "PDP shows title, price and gallery.",
+   "Selecting a variant updates the selection/price.",
+   "Add-to-cart adds the item and updates the cart.",
+   "Fulfillment options are selectable."
+  ],
+  "verify": [
+   "Select a variant; confirm update.",
+   "Add to cart; confirm cart change.",
+   "Check fulfillment toggles."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:product-detail"
+  ]
+ },
+ {
   "id": "product-filters",
   "name": "Product Filters / Facets",
   "edsBlock": "product-filters (commerce)",
   "complexity": "High",
   "complexityReason": "Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL.",
-  "templates": [],
+  "templates": [
+   "plp",
+   "store-detail"
+  ],
   "pages": 25,
   "variations": [
    {
@@ -186,51 +496,15 @@
   ]
  },
  {
-  "id": "product-detail",
-  "name": "Product Detail (PDP)",
-  "edsBlock": "product-detail-page (commerce)",
-  "complexity": "High",
-  "complexityReason": "Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS.",
-  "templates": [],
-  "pages": 25,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Product Detail (PDP)",
-    "pages": 25
-   }
-  ],
-  "functional": [
-   "Product gallery + title + brand + price + rating.",
-   "Variant selection (color/size/undertone) updates price/availability.",
-   "Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.",
-   "FSA-eligibility labelling; check-other-store availability.",
-   "Reviews."
-  ],
-  "acceptance": [
-   "PDP shows title, price and gallery.",
-   "Selecting a variant updates the selection/price.",
-   "Add-to-cart adds the item and updates the cart.",
-   "Fulfillment options are selectable."
-  ],
-  "verify": [
-   "Select a variant; confirm update.",
-   "Add to cart; confirm cart change.",
-   "Check fulfillment toggles."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:product-detail"
-  ]
- },
- {
   "id": "product-listing",
   "name": "Product Listing (PLP)",
   "edsBlock": "product-list-page (commerce)",
   "complexity": "High",
   "complexityReason": "Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block.",
-  "templates": [],
+  "templates": [
+   "plp",
+   "store-detail"
+  ],
   "pages": 23,
   "variations": [
    {
@@ -270,13 +544,16 @@
   "edsBlock": "product-fulfillment (commerce)",
   "complexity": "High",
   "complexityReason": "PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs.",
-  "templates": [],
-  "pages": 17,
+  "templates": [
+   "plp",
+   "store-detail"
+  ],
+  "pages": 18,
   "variations": [
    {
     "name": "default",
     "desc": "Fulfillment & Add-to-Cart",
-    "pages": 17
+    "pages": 18
    }
   ],
   "functional": [
@@ -304,12 +581,48 @@
   ]
  },
  {
+  "id": "quick-links",
+  "name": "Quick Links / Category Shortcuts",
+  "edsBlock": "quick-links",
+  "complexity": "Low",
+  "complexityReason": "Grid/row of labelled icon shortcuts to key categories/services (homepage & landing pages).",
+  "templates": [
+   "article",
+   "cart",
+   "home-page-content-template"
+  ],
+  "pages": 10,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Quick Links / Category Shortcuts",
+    "pages": 10
+   }
+  ],
+  "functional": [
+   "Row/grid of icon + label shortcut cards linking to categories/services."
+  ],
+  "acceptance": [
+   "Each quick-link navigates to its target."
+  ],
+  "verify": [
+   "Click a quick-link tile."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:quick-links"
+  ]
+ },
+ {
   "id": "store-detail",
   "name": "Store Detail",
   "edsBlock": "store-detail (app)",
   "complexity": "High",
   "complexityReason": "Individual store page: address, per-service hours & open/closed status (store, pharmacy, photo, lab), preferred-store save, and service entry points (schedule vaccine — COVID/flu/pneumonia, photo products & projects, FedEx returns, same-day pickup, propane/Blue Rhino, beauty consultation). Location-data driven with several 'see all' overlays.",
-  "templates": [],
+  "templates": [
+   "store-detail"
+  ],
   "pages": 10,
   "variations": [
    {
@@ -339,6 +652,109 @@
   "needsReview": false,
   "rawKeys": [
    "spa:store-detail"
+  ]
+ },
+ {
+  "id": "live-chat",
+  "name": "Live Chat / Click-to-Chat",
+  "edsBlock": "live-chat (embed)",
+  "complexity": "Medium",
+  "complexityReason": "Click-to-chat support widget (Zendesk/vendor) launched from a fixed button.",
+  "templates": [
+   "account",
+   "article"
+  ],
+  "pages": 9,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Live Chat / Click-to-Chat",
+    "pages": 9
+   }
+  ],
+  "functional": [
+   "Fixed chat button launches a support chat widget."
+  ],
+  "acceptance": [
+   "Clicking the chat button opens the chat widget."
+  ],
+  "verify": [
+   "Click the chat button; confirm widget opens."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:live-chat"
+  ]
+ },
+ {
+  "id": "login-form",
+  "name": "Login / Sign-in Form",
+  "edsBlock": "form (auth)",
+  "complexity": "High",
+  "complexityReason": "Email/password sign-in with validation, remember-me, forgot-password, and links to register; identity-service integrated.",
+  "templates": [
+   "account",
+   "article"
+  ],
+  "pages": 7,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Login / Sign-in Form",
+    "pages": 7
+   }
+  ],
+  "functional": [
+   "Email + password fields with validation.",
+   "Remember-me, forgot-password, create-account links.",
+   "Submit authenticates against the identity service."
+  ],
+  "acceptance": [
+   "Invalid input shows validation errors.",
+   "Forgot-password / register links resolve."
+  ],
+  "verify": [
+   "Open sign-in; submit invalid → validation."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:login-form"
+  ]
+ },
+ {
+  "id": "feature-tile",
+  "name": "Feature Tile / Teaser",
+  "edsBlock": "teaser",
+  "complexity": "Low",
+  "complexityReason": "Image + heading + copy + CTA promotional tile (aemds-featuretile / cmp-teaser).",
+  "templates": [
+   "article",
+   "retail-base-template",
+   "retail-content-template"
+  ],
+  "pages": 5,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Feature Tile / Teaser",
+    "pages": 5
+   }
+  ],
+  "functional": [
+   "Media + heading + copy + CTA promoting a page/offer."
+  ],
+  "acceptance": [
+   "Tile renders media + heading; CTA navigates."
+  ],
+  "verify": [
+   "Confirm the tile CTA link."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:feature-tile"
   ]
  },
  {
@@ -410,6 +826,112 @@
   ]
  },
  {
+  "id": "rx-refill",
+  "name": "Rx Refill (guest/express)",
+  "edsBlock": "rx-refill (pharmacy app)",
+  "complexity": "High",
+  "complexityReason": "Prescription refill checkout: enter Rx number (or scan), select pickup store & date, guest details, and submit to the pharmacy fulfillment system. HIPAA-sensitive, validated, session/pharmacy-API integrated.",
+  "templates": [
+   "rx-checkout"
+  ],
+  "pages": 3,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Rx Refill (guest/express)",
+    "pages": 3
+   }
+  ],
+  "functional": [
+   "Enter prescription number (guest express) or scan to refill.",
+   "Select pickup store and pickup date/time.",
+   "Provide guest contact details; validation on all fields.",
+   "Submit refill to the pharmacy system with confirmation."
+  ],
+  "acceptance": [
+   "Invalid Rx number shows validation.",
+   "A store + date can be selected.",
+   "Submitting a valid refill shows a confirmation.",
+   "Guest flow works without sign-in."
+  ],
+  "verify": [
+   "Open /rx-checkout/guest-express-refill; confirm the Rx-number form + store/date selection."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:rx-refill"
+  ]
+ },
+ {
+  "id": "article-body",
+  "name": "Article / Content Body",
+  "edsBlock": "default content (rich text + media)",
+  "complexity": "Low",
+  "complexityReason": "Editorial/marketing page body rendered as semantic HTML (headings, paragraphs, lists, images, links). Maps to EDS default content; content-authored, not a coded block.",
+  "templates": [
+   "article"
+  ],
+  "pages": 2,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Article / Content Body",
+    "pages": 2
+   }
+  ],
+  "functional": [
+   "Renders page title, section headings, body copy, lists, images and inline links."
+  ],
+  "acceptance": [
+   "Content renders with correct heading hierarchy and working links."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:article-body"
+  ]
+ },
+ {
+  "id": "rx-transfer",
+  "name": "Rx Transfer",
+  "edsBlock": "rx-transfer (pharmacy app)",
+  "complexity": "High",
+  "complexityReason": "Transfer a prescription to Walgreens: identify current pharmacy + medication, choose destination store, provide patient details, submit. HIPAA-sensitive, validated, pharmacy-API integrated.",
+  "templates": [
+   "article",
+   "rx-checkout"
+  ],
+  "pages": 2,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Rx Transfer",
+    "pages": 2
+   }
+  ],
+  "functional": [
+   "Identify current pharmacy and medication(s) to transfer.",
+   "Choose destination Walgreens store.",
+   "Provide patient details with validation.",
+   "Submit transfer request with confirmation."
+  ],
+  "acceptance": [
+   "Required fields validate before submit.",
+   "A destination store can be selected.",
+   "Submitting shows a transfer confirmation."
+  ],
+  "verify": [
+   "Open /rx-checkout/guest-transfer-rx; confirm the transfer form + store selection."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:rx-transfer"
+  ]
+ },
+ {
   "id": "accordion",
   "name": "Accordion",
   "edsBlock": "accordion",
@@ -449,13 +971,15 @@
   "edsBlock": "product-carousel (commerce)",
   "complexity": "Medium",
   "complexityReason": "Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards.",
-  "templates": [],
-  "pages": 1,
+  "templates": [
+   "store-detail"
+  ],
+  "pages": 2,
   "variations": [
    {
     "name": "default",
     "desc": "Recommendations / Merchandising Carousels",
-    "pages": 1
+    "pages": 2
    }
   ],
   "functional": [
@@ -476,6 +1000,76 @@
   "needsReview": false,
   "rawKeys": [
    "spa:recommendations-carousel"
+  ]
+ },
+ {
+  "id": "order-pickup",
+  "name": "Order Pickup / On-my-way",
+  "edsBlock": "order-pickup (app)",
+  "complexity": "High",
+  "complexityReason": "Store-pickup / on-my-way flow: order lookup, store info, continue steps, arrival notification. Session + order-service integrated.",
+  "templates": [
+   "article"
+  ],
+  "pages": 1,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Order Pickup / On-my-way",
+    "pages": 1
+   }
+  ],
+  "functional": [
+   "Order/pickup lookup and store info display.",
+   "Continue/confirm pickup steps; on-my-way arrival notification."
+  ],
+  "acceptance": [
+   "Pickup flow shows store info and progresses through steps."
+  ],
+  "verify": [
+   "Open a pickup/onmyway route; confirm the flow structure."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:order-pickup"
+  ]
+ },
+ {
+  "id": "cart-confirmation",
+  "name": "Add-to-Cart Confirmation / Mini-cart",
+  "edsBlock": "cart-confirmation (commerce)",
+  "complexity": "High",
+  "complexityReason": "Overlay shown after add-to-cart (VERIFIED live: PLP→PDP→add-to-cart): item + quantity confirmation, quantity dropdown, cross-sell/upsell ('add for pickup' upsell), and 'continue shopping' / 'view cart' actions. Session + cart-service integrated.",
+  "templates": [
+   "store-detail"
+  ],
+  "pages": 1,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Add-to-Cart Confirmation / Mini-cart",
+    "pages": 1
+   }
+  ],
+  "functional": [
+   "After add-to-cart, an overlay confirms the item + quantity added.",
+   "Shows an upsell/cross-sell ('add for pickup' upsell).",
+   "'Continue shopping' closes the overlay; 'View cart' goes to the cart.",
+   "Cart icon count increments."
+  ],
+  "acceptance": [
+   "Adding an item opens the confirmation overlay with the item + quantity.",
+   "'View cart' navigates to the cart; 'Continue shopping' closes the overlay.",
+   "The header cart count reflects the added item."
+  ],
+  "verify": [
+   "VERIFIED: on a PDP, click add-for-pickup/add-to-cart; the confirmation overlay appears with view-cart / continue-shopping."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cart-confirmation"
   ]
  }
 ]

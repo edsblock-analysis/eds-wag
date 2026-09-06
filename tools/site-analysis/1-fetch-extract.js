@@ -9,6 +9,8 @@ const cheerio = L.requireCheerio();
 const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
 const TESTID = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'react-testid-blocks.json')); } catch (e) { return { families: [], blocks: {} }; } })();
 TESTID.families = TESTID.testidFamilies || TESTID.families || [];
+const CONTENT = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'content-blocks.json')); } catch (e) { return { classRoots: [], blocks: {} }; } })();
+CONTENT.classRoots = CONTENT.classRoots || [];
 
 function extract(url, html, status) {
   const $ = cheerio.load(html);
@@ -134,6 +136,32 @@ function extract(url, html, status) {
     rec.spaBlocks[key] = (rec.spaBlocks[key] || 0) + testidSeen[t];
   }
   rec.meta.reactRoots = $('#root,#app,[data-reactroot],[data-testid]').length;
+
+  // ---- Content-page & homepage block extraction (named component classes) ----
+  // Hybrid sites render content/marketing blocks as semantic HTML with component
+  // class roots (aemds-*, wag-*, retail*, quicklinkcard, glider) rather than testids.
+  // Map those class roots to content blocks so content pages aren't empty.
+  const classRootCounts = {};
+  $('[class]').each((i, el) => {
+    ($(el).attr('class') || '').split(/\s+/).forEach(c => {
+      const root = c.split('__')[0].split('--')[0];
+      CONTENT.classRoots.forEach(cr => { if (new RegExp(cr.match, 'i').test(root)) classRootCounts[cr.block] = (classRootCounts[cr.block] || 0) + 1; });
+    });
+  });
+  Object.keys(classRootCounts).forEach(b => { rec.spaBlocks['content:' + b] = classRootCounts[b]; });
+
+  // Article/editorial body signal: substantial semantic content (headings + paragraphs)
+  // in the main area with no commerce testids -> mark as an article content block so the
+  // (large) content-page population is represented, not blank.
+  const contentTestids = $('[data-testid]').length;
+  const mainSel = $('main, [role=main], #maincontent, article').first();
+  const mainTxt = (mainSel.text() || '').replace(/\s+/g, ' ').trim();
+  const bodyH = $('h1,h2,h3').length, bodyP = $('p').length;
+  if (contentTestids <= 12 && !$('[class*="cmp-"]').length && (mainTxt.length > 1200 || (bodyH >= 2 && bodyP >= 5))) {
+    if (!rec.spaBlocks['content:health-content'] && !rec.spaBlocks['content:rich-content']) {
+      rec.spaBlocks['content:article-body'] = 1;
+    }
+  }
 
   // ---- Generic (non-AEM) block fallback ----
   // If the page has few/no cmp-* AND few/no data-testid blocks, capture data-block /

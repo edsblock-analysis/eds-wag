@@ -10,6 +10,10 @@ const KB = L.loadJSON(path.join(__dirname, 'knowledge', 'aem-wcm-blocks.json')).
 const DET = L.loadJSON(path.join(__dirname, 'knowledge', 'detectors.json'));
 const TESTID = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'react-testid-blocks.json')); } catch (e) { return { blocks: {} }; } })();
 const SPA_BLOCKS = TESTID.blocks || {};
+const CONTENT = (() => { try { return L.loadJSON(path.join(__dirname, 'knowledge', 'content-blocks.json')); } catch (e) { return { blocks: {} }; } })();
+const CONTENT_BLOCKS = CONTENT.blocks || {};
+// synthesize a generic article-body content block if referenced
+if (!CONTENT_BLOCKS['article-body']) CONTENT_BLOCKS['article-body'] = { id: 'article-body', name: 'Article / Content Body', edsBlock: 'default content (rich text + media)', complexity: 'Low', complexityReason: 'Editorial/marketing page body rendered as semantic HTML (headings, paragraphs, lists, images, links). Maps to EDS default content; content-authored, not a coded block.', functional: ['Renders page title, section headings, body copy, lists, images and inline links.'], acceptance: ['Content renders with correct heading hierarchy and working links.'], verify: [] };
 const IGNORE = new Set(DET.ignoreComponents || []);
 const FOLD = DET.foldInto || {};
 // Index KB entries by their block id (KB is keyed by cmp-* class)
@@ -34,6 +38,15 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
 
   for (const [rawKey, count] of Object.entries(bp)) {
     if (IGNORE.has(rawKey)) continue;                       // structural wrapper, not a block
+    // Content/marketing blocks: key is "spa:content:<block>" (from named class roots).
+    if (rawKey.startsWith('spa:content:') || rawKey.startsWith('content:')) {
+      const sub = rawKey.replace(/^spa:content:|^content:/, '');
+      const rec = ensure(sub, CONTENT_BLOCKS[sub] || null);
+      if (!CONTENT_BLOCKS[sub]) rec.needsReview = true;
+      rec.rawKeys.push(rawKey);
+      idPages[sub] = Math.max(idPages[sub] || 0, count);
+      continue;
+    }
     // React/SPA blocks: key is "spa:<block>" (known family) or "spa:testid:<name>" (unknown).
     if (rawKey.startsWith('spa:')) {
       const sub = rawKey.slice(4);
@@ -95,12 +108,26 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
     if (byId[id] && !(id === 'card')) (idVariations[id] = idVariations[id] || []).push({ name: m[2], pages: count, desc: `${m[2]} variation` });
   }
 
+  // Resolve any raw block key (cmp-*, spa:*, content:*, fold) to its catalog id — same
+  // rules as the main mapping loop — so template→block associations cover every block type.
+  function keyToId(rawKey) {
+    if (IGNORE.has(rawKey)) return null;
+    if (rawKey.startsWith('spa:content:') || rawKey.startsWith('content:')) return rawKey.replace(/^spa:content:|^content:/, '');
+    if (rawKey.startsWith('spa:')) {
+      const sub = rawKey.slice(4);
+      return sub.startsWith('testid:') ? 'spa-' + sub.slice(7).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') : sub;
+    }
+    if (KB[rawKey]) return KB[rawKey].id;
+    if (FOLD[rawKey]) return FOLD[rawKey];
+    if (/^cmp-[a-z0-9-]+$/.test(rawKey)) return rawKey.replace(/^cmp-/, '');
+    return null;
+  }
   // Which templates use each id
   const idTemplates = {};
   for (const [tpl, blocks] of Object.entries(S.tplBlock)) {
     for (const rawKey of Object.keys(blocks)) {
-      const kb = KB[rawKey]; const id = kb ? kb.id : rawKey.replace(/^cmp-/, '');
-      if (byId[id]) (idTemplates[id] = idTemplates[id] || new Set()).add(tpl);
+      const id = keyToId(rawKey);
+      if (id && byId[id]) (idTemplates[id] = idTemplates[id] || new Set()).add(tpl);
     }
   }
 

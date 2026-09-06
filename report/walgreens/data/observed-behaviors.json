@@ -2,7 +2,21 @@
   "verifiedVia": "Live Playwright + headless-Chromium rendered crawl of all 853 URLs (post-JavaScript DOM) on www.walgreens.com (2026-09-06)",
   "method": "walgreens.com is a React/SPA commerce site — content loads client-side via AJAX. Every URL was rendered in a real headless browser (networkidle + scroll + consent dismissal) so blocks that appear only after JS were captured (avg 73 data-testid components/page vs ~1-3 in raw HTML). Interactive journeys were verified with Playwright MCP where Akamai bot-protection allowed (PLP, store-locator); PDP/cart direct navigation is Akamai-403-gated, so those are documented from the rendered DOM captured during in-app navigation.",
   "botProtectionNote": "Direct navigation to PDP (/store/c/...-product) and /cart often returns Akamai 'Access Denied' (403); in-app navigation (click from PLP) works. 18 of 853 URLs returned non-200 for this reason and are flagged redirect-stub.",
+  "journeyWalked": {
+    "name": "Category/Search → PLP → PDP → Add to Cart (VERIFIED live end-to-end via headless Chromium; artifacts in report/walgreens/journey/)",
+    "steps": [
+      "1. PLP (/q/vitamin c): 110 components — filters (pickup/same-day/shipping/price/brand), sort (8 options), product cards (title/brand/price/rating/promotion), add-to-fulfillment, pagination. VERIFIED: '374 items filtered'.",
+      "2. PDP (clicked a product card in-app): 69 components — pdp-product-title, specifications (brand, FSA/HSA, product-type, size/count, UPC, item-code), gallery, fulfillment radios (pickup/same-day/shipping) with stock + ready messaging + store address, quantity dropdown, add-for-pickup, check-other-stores, save-to-shopping-list, description show-more, 'more to explore' carousel.",
+      "3. ADD TO CART (clicked add-for-pickup): SUCCEEDED — a cart-confirmation overlay appeared (component count 69→88): quantity-confirmation, item-qty-text, add-for-pickup upsell/cross-sell, continue-shopping-btn-pdp, view-cart-btn-pdp, cart-overlay-close-btn.",
+      "4. CART / CHECKOUT (/cart/view-ui): blocked by Akamai bot protection (403 Access Denied) on direct navigation — could not be walked by an automated browser. Cart line-items/summary/promo and the checkout steps are therefore documented from the header cart + recommendation experience-fragments and would need a real logged-in session to walk fully."
+    ],
+    "note": "I did not create an account or submit any order/PII/payment — the journey was walked as a guest up to the add-to-cart confirmation. Beyond that, walgreens.com's production Akamai bot protection blocks automated access to the cart/checkout pages; I did not attempt to bypass it."
+  },
   "behaviors": {
+    "cart-confirmation": {
+      "observed": "VERIFIED LIVE. After clicking add-for-pickup on a PDP, an add-to-cart confirmation overlay appears with the item + quantity confirmation (quantity-confirmation, item-qty-text), an upsell (add-for-pickup-btn-upsell), and 'Continue shopping' (continue-shopping-btn-pdp) / 'View cart' (view-cart-btn-pdp) actions + close button.",
+      "states": ["shown-after-add", "upsell", "view-cart", "continue-shopping", "closed"]
+    },
     "product-listing": {
       "observed": "VERIFIED LIVE (/q/tylenol). PLP renders '105 items filtered*' count, a product grid (8 visible cards, lazy-loads more), and a filter rail. Sort dropdown has 8 options: Relevance, Top Sellers, Price Low→High, Price High→Low, Unit Price Low→High, Brand A-Z, Brand Z-A, Most Reviewed. Fulfillment filters (Pickup, Same-day delivery, Shipping), Brand facets, and Price min/max + Apply. Product cards show title, brand, price, rating/review, promotion/tag, offer badges, FSA label. Pagination via second-page-navigation. Cards link to PDPs.",
       "states": ["results", "sorted", "fulfillment-filtered", "brand-filtered", "price-filtered", "paginated", "lazy-loaded"]

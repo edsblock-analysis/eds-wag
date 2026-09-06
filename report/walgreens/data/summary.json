@@ -1,20 +1,20 @@
 {
  "slug": "walgreens",
  "origin": "https://www.walgreens.com",
- "totalUrls": 853,
- "ok": 835,
+ "totalUrls": 854,
+ "ok": 836,
  "templateCounts": {
   "home-page-content-template": 10,
   "redirect-stub": 35,
-  "cart": 4,
+  "cart": 1,
   "account": 27,
   "find-care": 58,
   "retail-content-template": 5,
-  "article": 209,
-  "content-page": 2,
-  "store-detail": 30,
+  "article": 211,
+  "store-detail": 31,
   "retail-base-template": 22,
   "plp": 11,
+  "rx-checkout": 3,
   "store-locator": 440
  },
  "templates": {
@@ -26,6 +26,11 @@
     "cmp-text",
     "spa:account-auth",
     "spa:cart",
+    "spa:content:content-carousel",
+    "spa:content:footer",
+    "spa:content:hero-banner",
+    "spa:content:promo-banner",
+    "spa:content:quick-links",
     "spa:header"
    ],
    "variations": [
@@ -37,19 +42,21 @@
    "count": 35,
    "blocks": [
     "cmp-container",
-    "cmp-text"
+    "cmp-text",
+    "spa:content:content-carousel",
+    "spa:content:hero-banner",
+    "spa:content:rich-content"
    ],
    "variations": [],
    "custom": []
   },
   "cart": {
-   "count": 4,
+   "count": 1,
    "blocks": [
     "cmp-container",
     "cmp-text",
-    "spa:account-auth",
-    "spa:cart",
-    "spa:header"
+    "spa:content:hero-banner",
+    "spa:content:quick-links"
    ],
    "variations": [],
    "custom": []
@@ -59,6 +66,10 @@
    "blocks": [
     "spa:account-auth",
     "spa:cart",
+    "spa:content:footer",
+    "spa:content:live-chat",
+    "spa:content:login-form",
+    "spa:content:promo-banner",
     "spa:header"
    ],
    "variations": [],
@@ -69,6 +80,11 @@
    "blocks": [
     "spa:account-auth",
     "spa:cart",
+    "spa:content:content-carousel",
+    "spa:content:footer",
+    "spa:content:health-content",
+    "spa:content:hero-banner",
+    "spa:content:promo-banner",
     "spa:header"
    ],
    "variations": [],
@@ -86,6 +102,11 @@
     "cmp-title",
     "spa:account-auth",
     "spa:cart",
+    "spa:content:content-carousel",
+    "spa:content:feature-tile",
+    "spa:content:footer",
+    "spa:content:promo-banner",
+    "spa:content:rich-content",
     "spa:header"
    ],
    "variations": [],
@@ -94,27 +115,39 @@
    ]
   },
   "article": {
-   "count": 209,
+   "count": 211,
    "blocks": [
     "spa:account-auth",
     "spa:cart",
+    "spa:content:article-body",
+    "spa:content:content-carousel",
+    "spa:content:feature-tile",
+    "spa:content:footer",
+    "spa:content:health-content",
+    "spa:content:hero-banner",
+    "spa:content:live-chat",
+    "spa:content:login-form",
+    "spa:content:order-pickup",
+    "spa:content:promo-banner",
+    "spa:content:quick-links",
+    "spa:content:rich-content",
+    "spa:content:rx-transfer",
     "spa:header"
    ],
    "variations": [],
    "custom": []
   },
-  "content-page": {
-   "count": 2,
-   "blocks": [],
-   "variations": [],
-   "custom": []
-  },
   "store-detail": {
-   "count": 30,
+   "count": 31,
    "blocks": [
     "cmp-container",
     "spa:account-auth",
     "spa:cart",
+    "spa:cart-confirmation",
+    "spa:content:content-carousel",
+    "spa:content:footer",
+    "spa:content:hero-banner",
+    "spa:content:promo-banner",
     "spa:fulfillment-cart",
     "spa:header",
     "spa:product-detail",
@@ -135,7 +168,9 @@
     "cmp-image",
     "cmp-separator",
     "cmp-teaser",
-    "cmp-text"
+    "cmp-text",
+    "spa:content:feature-tile",
+    "spa:content:rich-content"
    ],
    "variations": [],
    "custom": []
@@ -145,6 +180,9 @@
    "blocks": [
     "spa:account-auth",
     "spa:cart",
+    "spa:content:content-carousel",
+    "spa:content:footer",
+    "spa:content:promo-banner",
     "spa:fulfillment-cart",
     "spa:header",
     "spa:product-detail",
@@ -154,11 +192,27 @@
    "variations": [],
    "custom": []
   },
+  "rx-checkout": {
+   "count": 3,
+   "blocks": [
+    "spa:account-auth",
+    "spa:cart",
+    "spa:content:footer",
+    "spa:content:promo-banner",
+    "spa:content:rx-refill",
+    "spa:content:rx-transfer",
+    "spa:header"
+   ],
+   "variations": [],
+   "custom": []
+  },
   "store-locator": {
    "count": 440,
    "blocks": [
     "spa:account-auth",
     "spa:cart",
+    "spa:content:footer",
+    "spa:content:promo-banner",
     "spa:header",
     "spa:store-locator"
    ],
@@ -169,24 +223,39 @@
  "blockPageCounts": {
   "cmp-container": 60,
   "cmp-text": 36,
-  "spa:cart": 786,
-  "spa:header": 786,
-  "spa:account-auth": 793,
+  "spa:cart": 787,
+  "spa:header": 787,
+  "spa:account-auth": 794,
+  "spa:content:promo-banner": 787,
+  "spa:content:hero-banner": 36,
+  "spa:content:quick-links": 10,
+  "spa:content:content-carousel": 57,
+  "spa:content:footer": 780,
+  "spa:content:health-content": 36,
   "cmp-embed": 3,
+  "spa:content:article-body": 2,
   "spa:store-detail": 10,
   "spa:store-locator": 449,
+  "spa:content:login-form": 7,
+  "spa:content:live-chat": 9,
+  "spa:content:feature-tile": 5,
+  "spa:content:rich-content": 27,
+  "spa:content:order-pickup": 1,
   "cmp-separator": 12,
   "cmp-experiencefragment": 1,
   "spa:product-filters": 25,
   "spa:product-listing": 23,
-  "spa:product-detail": 25,
-  "spa:fulfillment-cart": 17,
+  "spa:product-detail": 26,
+  "spa:fulfillment-cart": 18,
+  "spa:content:rx-refill": 3,
+  "spa:content:rx-transfer": 2,
   "cmp-teaser": 4,
   "cmp-image": 4,
   "cmp-title": 2,
   "cmp-accordion": 2,
-  "spa:recommendations-carousel": 1,
-  "spa:testid:inner-div": 1
+  "spa:recommendations-carousel": 2,
+  "spa:testid:inner-div": 2,
+  "spa:cart-confirmation": 1
  },
  "variationPageCounts": {
   "cmp-experiencefragment--follow-on-social": 1
@@ -202,61 +271,61 @@
   "video": 0
  },
  "integrationPageCounts": {
-  "Adobe Launch/DTM (tag mgmt)": 823,
+  "Adobe Launch/DTM (tag mgmt)": 824,
   "Adobe Client Data Layer": 38,
   "Adobe Helix RUM": 60,
   "Google Tag Manager": 23,
-  "Google Analytics / GA4": 787,
-  "Adobe Analytics (AppMeasurement)": 795,
-  "Adobe Target (A/B)": 800,
-  "Monetate": 799,
-  "OneTrust (consent)": 811,
-  "TrustArc (consent)": 788,
-  "Medallia (feedback)": 793,
-  "Google Maps": 816,
-  "Google Fonts": 800,
-  "reCAPTCHA / hCaptcha": 7,
+  "Google Analytics / GA4": 788,
+  "Adobe Analytics (AppMeasurement)": 796,
+  "Adobe Target (A/B)": 801,
+  "Monetate": 800,
+  "OneTrust (consent)": 812,
+  "TrustArc (consent)": 789,
+  "Medallia (feedback)": 794,
+  "Google Maps": 817,
+  "Google Fonts": 801,
+  "reCAPTCHA / hCaptcha": 8,
   "Vimeo embed": 82,
   "YouTube embed": 19,
-  "Facebook Pixel": 9,
+  "Facebook Pixel": 10,
   "Pardot (form)": 1,
   "LinkedIn Insight": 1,
-  "Bazaarvoice (ratings/reviews)": 2,
-  "Amplitude": 1,
+  "Bazaarvoice (ratings/reviews)": 3,
+  "Amplitude": 2,
   "Qualtrics (survey)": 23,
   "Zendesk / LiveChat / Tidio": 2,
   "Spotify embed": 1
  },
  "integrationCategories": {
   "Analytics/Tag Mgmt": {
-   "Adobe Launch/DTM (tag mgmt)": 823,
+   "Adobe Launch/DTM (tag mgmt)": 824,
    "Adobe Client Data Layer": 38,
    "Adobe Helix RUM": 60,
    "Google Tag Manager": 23,
-   "Google Analytics / GA4": 787,
-   "Adobe Analytics (AppMeasurement)": 795,
-   "Amplitude": 1
+   "Google Analytics / GA4": 788,
+   "Adobe Analytics (AppMeasurement)": 796,
+   "Amplitude": 2
   },
   "Personalization/AB": {
-   "Adobe Target (A/B)": 800,
-   "Monetate": 799
+   "Adobe Target (A/B)": 801,
+   "Monetate": 800
   },
   "Consent/Privacy": {
-   "OneTrust (consent)": 811,
-   "TrustArc (consent)": 788
+   "OneTrust (consent)": 812,
+   "TrustArc (consent)": 789
   },
   "Survey/Feedback": {
-   "Medallia (feedback)": 793,
+   "Medallia (feedback)": 794,
    "Qualtrics (survey)": 23
   },
   "Maps/Location": {
-   "Google Maps": 816
+   "Google Maps": 817
   },
   "Fonts": {
-   "Google Fonts": 800
+   "Google Fonts": 801
   },
   "Security/Bot": {
-   "reCAPTCHA / hCaptcha": 7
+   "reCAPTCHA / hCaptcha": 8
   },
   "Media/Video": {
    "Vimeo embed": 82,
@@ -264,14 +333,14 @@
    "Spotify embed": 1
   },
   "Marketing/Pixel": {
-   "Facebook Pixel": 9,
+   "Facebook Pixel": 10,
    "LinkedIn Insight": 1
   },
   "Forms/CRM": {
    "Pardot (form)": 1
   },
   "Reviews/UGC": {
-   "Bazaarvoice (ratings/reviews)": 2
+   "Bazaarvoice (ratings/reviews)": 3
   },
   "Chat/Support": {
    "Zendesk / LiveChat / Tidio": 2
@@ -280,38 +349,38 @@
  "unknownScriptHostCounts": {
   "www.mczbf.com": 21,
   "mihvea1f.micpn.com": 20,
-  "track.coherentpath.com": 13,
-  "cdn.branch.io": 709,
-  "s2.go-mpulse.net": 756,
-  "securepubads.g.doubleclick.net": 7,
-  "bat.bing.com": 13,
-  "d.criteo.com": 26,
+  "track.coherentpath.com": 14,
+  "cdn.branch.io": 710,
+  "s2.go-mpulse.net": 757,
+  "securepubads.g.doubleclick.net": 8,
+  "bat.bing.com": 14,
+  "d.criteo.com": 27,
   "googleads.g.doubleclick.net": 21,
-  "login-ds.dotomi.com": 31,
+  "login-ds.dotomi.com": 32,
   "dok.js-cdn.dynatrace.com": 15,
-  "resources.digital-cloud-west.medallia.com": 793,
-  "dynamic.criteo.com": 26,
-  "sslwidget.criteo.com": 26,
+  "resources.digital-cloud-west.medallia.com": 794,
+  "dynamic.criteo.com": 27,
+  "sslwidget.criteo.com": 27,
   "media-us2.digital.nuance.com": 32,
   "unpkg.com": 3,
   "www.youtube.com": 1,
-  "www.wag-static.com": 200,
+  "www.wag-static.com": 201,
   "se.monetate.net": 29,
-  "js.adsrvr.org": 22,
+  "js.adsrvr.org": 23,
   "wag-dwa-api-prod.przone.net": 1,
   "www.cdn-net.com": 2,
   "six.cdn-net.com": 2,
   "prod.accdab.net": 2,
-  "apps.bazaarvoice.com": 2,
-  "s.pinimg.com": 1,
-  "connect.facebook.net": 1,
-  "content.syndigo.com": 1
+  "apps.bazaarvoice.com": 3,
+  "s.pinimg.com": 2,
+  "connect.facebook.net": 2,
+  "content.syndigo.com": 2
  },
  "formKindCounts": {
-  "generic": 786,
+  "generic": 787,
   "contact/lead": 4,
   "login/auth": 11,
-  "checkout/payment": 2
+  "checkout/payment": 3
  },
  "formActionHostCounts": {
   "go.walgreenshealth.com": 1
@@ -1416,7 +1485,7 @@
   },
   {
    "url": "https://www.walgreens.com/healthcare-solutions/how-we-can-help/clinical-trials",
-   "template": "content-page",
+   "template": "article",
    "kind": "contact/lead",
    "fieldCount": 10,
    "actionHost": "go.walgreenshealth.com",
@@ -2455,7 +2524,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/guest-express-refill",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "generic",
    "fieldCount": 1,
    "actionHost": null,
@@ -2467,7 +2536,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/guest-express-refill",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "generic",
    "fieldCount": 4,
    "actionHost": null,
@@ -2482,7 +2551,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/guest-transfer-rx",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "generic",
    "fieldCount": 1,
    "actionHost": null,
@@ -2494,7 +2563,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/guest-transfer-rx",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "contact/lead",
    "fieldCount": 12,
    "actionHost": null,
@@ -2517,7 +2586,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/refill-by-scan",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "generic",
    "fieldCount": 1,
    "actionHost": null,
@@ -2529,7 +2598,7 @@
   },
   {
    "url": "https://www.walgreens.com/rx-checkout/refill-by-scan",
-   "template": "cart",
+   "template": "rx-checkout",
    "kind": "generic",
    "fieldCount": 4,
    "actionHost": null,
@@ -10776,19 +10845,47 @@
     "password",
     "showPassword"
    ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "ntt-placeholder"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product",
+   "template": "store-detail",
+   "kind": "checkout/payment",
+   "fieldCount": 5,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "fulfillmentOptions",
+    "ff-pickup-cart-quantity-dropdown",
+    "ff-pickup-cart-quantity-dropdown",
+    "fulfillmentOptions",
+    "fulfillmentOptions"
+   ]
   }
  ],
  "journeyCapabilityCounts": {
-  "hasForm": 794,
-  "hasSearch": 784,
-  "hasLogin": 827,
-  "hasCart": 786,
-  "hasCheckout": 796,
-  "hasFilters": 795,
-  "hasTabs": 788,
-  "hasModal": 793,
+  "hasForm": 795,
+  "hasSearch": 785,
+  "hasLogin": 828,
+  "hasCart": 787,
+  "hasCheckout": 797,
+  "hasFilters": 796,
+  "hasTabs": 789,
+  "hasModal": 794,
   "hasMap": 441,
-  "hasAccordion": 595,
+  "hasAccordion": 596,
   "hasVideo": 17,
   "hasPagination": 445,
   "hasChat": 10
@@ -10796,10 +10893,10 @@
  "embedHosts": {
   "c32929d0c298ccf2ef0ee7a794c92c88.safeframe.googlesyndication.com": 1,
   "walgreens.demdex.net": 1,
-  "www.google.com": 7,
+  "www.google.com": 8,
   "13040738.fls.doubleclick.net": 21,
   "gum.criteo.com": 26,
-  "cm.g.doubleclick.net": 7,
+  "cm.g.doubleclick.net": 8,
   "aeb957ecac742d08780a2eb3d0caa225.safeframe.googlesyndication.com": 1,
   "www.walgreens.com": 32,
   "www.youtube.com": 10,
@@ -10809,12 +10906,13 @@
   "13470457.fls.doubleclick.net": 1,
   "photo.walgreens.com": 1,
   "d928c62cbff58d4e8b97fc67e385deba.safeframe.googlesyndication.com": 1,
-  "insight.adsrvr.org": 19,
+  "insight.adsrvr.org": 20,
   "c08197b8d8b26f2d88b8099776f88582.safeframe.googlesyndication.com": 1,
   "prod.accdab.net": 2,
   "97b25404ceeeeee2034b30120533e6a4.safeframe.googlesyndication.com": 1,
   "c33ac9ee4e38b4b6b21bb6e2b3f9e0aa.safeframe.googlesyndication.com": 1,
-  "de6f3849d98856e356e77793c3d7dacc.safeframe.googlesyndication.com": 1
+  "de6f3849d98856e356e77793c3d7dacc.safeframe.googlesyndication.com": 1,
+  "b4ef8b05a4d9f0871e1ae4a46879a4bd.safeframe.googlesyndication.com": 1
  },
  "tplBlock": {
   "home-page-content-template": {
@@ -10823,28 +10921,44 @@
    "spa:cart": 10,
    "spa:header": 10,
    "spa:account-auth": 10,
+   "spa:content:promo-banner": 10,
+   "spa:content:hero-banner": 10,
+   "spa:content:quick-links": 8,
+   "spa:content:content-carousel": 6,
+   "spa:content:footer": 10,
    "cmp-experiencefragment": 1
   },
   "redirect-stub": {
    "cmp-container": 10,
-   "cmp-text": 1
+   "spa:content:hero-banner": 9,
+   "spa:content:content-carousel": 9,
+   "cmp-text": 1,
+   "spa:content:rich-content": 1
   },
   "cart": {
    "cmp-container": 1,
    "cmp-text": 1,
-   "spa:cart": 3,
-   "spa:header": 3,
-   "spa:account-auth": 3
+   "spa:content:hero-banner": 1,
+   "spa:content:quick-links": 1
   },
   "account": {
    "spa:cart": 21,
    "spa:header": 21,
-   "spa:account-auth": 27
+   "spa:account-auth": 27,
+   "spa:content:promo-banner": 21,
+   "spa:content:footer": 27,
+   "spa:content:login-form": 6,
+   "spa:content:live-chat": 6
   },
   "find-care": {
    "spa:cart": 58,
    "spa:header": 58,
-   "spa:account-auth": 58
+   "spa:account-auth": 58,
+   "spa:content:promo-banner": 58,
+   "spa:content:footer": 55,
+   "spa:content:content-carousel": 11,
+   "spa:content:health-content": 7,
+   "spa:content:hero-banner": 2
   },
   "retail-content-template": {
    "cmp-container": 5,
@@ -10852,38 +10966,62 @@
    "spa:cart": 5,
    "spa:header": 5,
    "spa:account-auth": 5,
+   "spa:content:promo-banner": 5,
+   "spa:content:footer": 5,
    "cmp-text": 3,
+   "spa:content:rich-content": 3,
    "cmp-teaser": 2,
    "cmp-image": 2,
    "cmp-title": 2,
-   "cmp-accordion": 2
+   "cmp-accordion": 2,
+   "spa:content:content-carousel": 2,
+   "spa:content:feature-tile": 2
   },
   "article": {
    "spa:cart": 208,
    "spa:header": 208,
-   "spa:account-auth": 209
+   "spa:account-auth": 209,
+   "spa:content:promo-banner": 208,
+   "spa:content:health-content": 29,
+   "spa:content:hero-banner": 2,
+   "spa:content:content-carousel": 12,
+   "spa:content:footer": 198,
+   "spa:content:article-body": 2,
+   "spa:content:login-form": 1,
+   "spa:content:live-chat": 3,
+   "spa:content:feature-tile": 1,
+   "spa:content:rich-content": 1,
+   "spa:content:order-pickup": 1,
+   "spa:content:rx-transfer": 1,
+   "spa:content:quick-links": 1
   },
-  "content-page": {},
   "store-detail": {
    "cmp-container": 12,
-   "spa:cart": 30,
-   "spa:header": 30,
-   "spa:account-auth": 30,
+   "spa:cart": 31,
+   "spa:header": 31,
+   "spa:account-auth": 31,
    "spa:store-detail": 10,
    "spa:store-locator": 10,
-   "spa:product-detail": 15,
-   "spa:fulfillment-cart": 12,
+   "spa:content:promo-banner": 31,
+   "spa:content:hero-banner": 12,
+   "spa:content:content-carousel": 16,
+   "spa:content:footer": 31,
+   "spa:product-detail": 16,
+   "spa:fulfillment-cart": 13,
    "spa:product-filters": 15,
    "spa:product-listing": 13,
-   "spa:recommendations-carousel": 1,
-   "spa:testid:inner-div": 1
+   "spa:recommendations-carousel": 2,
+   "spa:testid:inner-div": 2,
+   "spa:cart-confirmation": 1
   },
   "retail-base-template": {
    "cmp-container": 22,
    "cmp-text": 22,
    "cmp-separator": 12,
+   "spa:content:rich-content": 22,
    "cmp-teaser": 2,
-   "cmp-image": 2
+   "cmp-image": 2,
+   "spa:content:feature-tile": 2
   },
   "plp": {
    "spa:cart": 11,
@@ -10892,13 +11030,27 @@
    "spa:product-filters": 10,
    "spa:product-listing": 10,
    "spa:product-detail": 10,
-   "spa:fulfillment-cart": 5
+   "spa:content:promo-banner": 11,
+   "spa:content:footer": 11,
+   "spa:fulfillment-cart": 5,
+   "spa:content:content-carousel": 1
+  },
+  "rx-checkout": {
+   "spa:cart": 3,
+   "spa:header": 3,
+   "spa:account-auth": 3,
+   "spa:content:rx-refill": 3,
+   "spa:content:promo-banner": 3,
+   "spa:content:footer": 3,
+   "spa:content:rx-transfer": 1
   },
   "store-locator": {
    "spa:cart": 440,
    "spa:header": 440,
    "spa:account-auth": 440,
-   "spa:store-locator": 439
+   "spa:store-locator": 439,
+   "spa:content:promo-banner": 440,
+   "spa:content:footer": 440
   }
  },
  "tplVariation": {
@@ -10911,10 +11063,10 @@
   "find-care": {},
   "retail-content-template": {},
   "article": {},
-  "content-page": {},
   "store-detail": {},
   "retail-base-template": {},
   "plp": {},
+  "rx-checkout": {},
   "store-locator": {}
  },
  "mirrorCount": 0,

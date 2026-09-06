@@ -2,7 +2,7 @@
 
 **Source site:** https://www.walgreens.com
 **Analysis date:** 2026-09-06
-**Method:** Every one of the 853 URLs was fetched (HTTP 200: 835) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
+**Method:** Every one of the 854 URLs was fetched (HTTP 200: 836) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
 
 > 0 URLs are content mirror/duplicate paths; 1 are non-English (es) variants — same templates/blocks, content only.
 
@@ -12,13 +12,13 @@
 
 | Metric | Value |
 |---|---|
-| Total URLs analyzed | **853** |
+| Total URLs analyzed | **854** |
 | Unique templates | **12** |
-| EDS blocks to develop | **13** |
-| Block variations | **13** |
+| EDS blocks to develop | **28** |
+| Block variations | **28** |
 | EDS default content (not blocks) | 4 |
-| High / Medium / Low complexity | 10 / 3 / 0 |
-| Forms | 860 |
+| High / Medium / Low complexity | 15 / 7 / 6 |
+| Forms | 862 |
 | Third-party integrations | 24 |
 | Unrecognized 3rd-party hosts (review) | 28 |
 | Blocks needing agent review | 0 |
@@ -30,39 +30,54 @@
 | # | Template | Pages |
 |---|---|---|
 | 1 | **Store locator** (`store-locator`) | 440 |
-| 2 | **Article** (`article`) | 209 |
+| 2 | **Article** (`article`) | 211 |
 | 3 | **Find care** (`find-care`) | 58 |
 | 4 | **Redirect / External Stub** (`redirect-stub`) | 35 |
-| 5 | **Store detail** (`store-detail`) | 30 |
+| 5 | **Store detail** (`store-detail`) | 31 |
 | 6 | **Account** (`account`) | 27 |
 | 7 | **Retail base template** (`retail-base-template`) | 22 |
 | 8 | **Plp** (`plp`) | 11 |
 | 9 | **Home page content template** (`home-page-content-template`) | 10 |
 | 10 | **Retail content template** (`retail-content-template`) | 5 |
-| 11 | **Cart** (`cart`) | 4 |
-| 12 | **Content page** (`content-page`) | 2 |
+| 11 | **Rx checkout** (`rx-checkout`) | 3 |
+| 12 | **Cart** (`cart`) | 1 |
 
 ---
 
 ## 3. Block Inventory
 
-13 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
+28 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
 
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
-| **Account / Authentication** | `account-auth (app)` | High | 793 | default (793) |
-| **Cart** | `cart (commerce)` | High | 786 | default (786) |
-| **Global Header / Nav** | `header (app nav)` | High | 786 | default (786) |
+| **Account / Authentication** | `account-auth (app)` | High | 794 | default (794) |
+| **Cart** | `cart (commerce)` | High | 787 | default (787) |
+| **Global Header / Nav** | `header (app nav)` | High | 787 | default (787) |
+| **Promo Banner** | `promo-banner` | Low | 787 | default (787) |
+| **Global Footer** | `footer` | Medium | 780 | default (780) |
 | **Store Locator** | `store-locator (app)` | High | 449 | default (449) |
+| **Content / Product Carousel** | `carousel` | Medium | 57 | default (57) |
+| **Hero Banner** | `hero` | Medium | 36 | default (36) |
+| **Health/Wellness Article** | `article (default content)` | Low | 36 | default (36) |
+| **Rich Content (AEM DS)** | `default content (rich text)` | Low | 27 | default (27) |
+| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 26 | default (26) |
 | **Product Filters / Facets** | `product-filters (commerce)` | High | 25 | default (25) |
-| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 25 | default (25) |
 | **Product Listing (PLP)** | `product-list-page (commerce)` | High | 23 | default (23) |
-| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 17 | default (17) |
+| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 18 | default (18) |
+| **Quick Links / Category Shortcuts** | `quick-links` | Low | 10 | default (10) |
 | **Store Detail** | `store-detail (app)` | High | 10 | default (10) |
+| **Live Chat / Click-to-Chat** | `live-chat (embed)` | Medium | 9 | default (9) |
+| **Login / Sign-in Form** | `form (auth)` | High | 7 | default (7) |
+| **Feature Tile / Teaser** | `teaser` | Low | 5 | default (5) |
 | **Editor's Pick / Featured Teaser** | `editors-pick (teaser)` | Medium | 4 | default (4) |
 | **Video / Media Embed** | `embed (video)` | High | 3 | default (3) |
+| **Rx Refill (guest/express)** | `rx-refill (pharmacy app)` | High | 3 | default (3) |
+| **Article / Content Body** | `default content (rich text + media)` | Low | 2 | default (2) |
+| **Rx Transfer** | `rx-transfer (pharmacy app)` | High | 2 | default (2) |
 | **Accordion** | `accordion` | Medium | 2 | default (2) |
-| **Recommendations / Merchandising Carousels** | `product-carousel (commerce)` | Medium | 1 | default (1) |
+| **Recommendations / Merchandising Carousels** | `product-carousel (commerce)` | Medium | 2 | default (2) |
+| **Order Pickup / On-my-way** | `order-pickup (app)` | High | 1 | default (1) |
+| **Add-to-Cart Confirmation / Mini-cart** | `cart-confirmation (commerce)` | High | 1 | default (1) |
 
 **EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Rich Text (36), Separator (12), Image (4), Title (2).
 
@@ -74,65 +89,157 @@
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Store Locator | default | High |
 
-### Article (`article`) — 209 pages
+### Article (`article`) — 211 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+| Health/Wellness Article | default | Low |
+| Rich Content (AEM DS) | default | Low |
+| Quick Links / Category Shortcuts | default | Low |
+| Live Chat / Click-to-Chat | default | Medium |
+| Login / Sign-in Form | default | High |
+| Feature Tile / Teaser | default | Low |
+| Article / Content Body | default | Low |
+| Rx Transfer | default | High |
+| Order Pickup / On-my-way | default | High |
 
 ### Find care (`find-care`) — 58 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+| Health/Wellness Article | default | Low |
 
 ### Redirect / External Stub (`redirect-stub`) — 35 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+| Rich Content (AEM DS) | default | Low |
 
-### Store detail (`store-detail`) — 30 pages
+### Store detail (`store-detail`) — 31 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Store Locator | default | High |
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+| Product Detail (PDP) | default | High |
+| Product Filters / Facets | default | High |
+| Product Listing (PLP) | default | High |
+| Fulfillment & Add-to-Cart | default | High |
+| Store Detail | default | High |
+| Recommendations / Merchandising Carousels | default | Medium |
+| Add-to-Cart Confirmation / Mini-cart | default | High |
 
 ### Account (`account`) — 27 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Live Chat / Click-to-Chat | default | Medium |
+| Login / Sign-in Form | default | High |
 
 ### Retail base template (`retail-base-template`) — 22 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Rich Content (AEM DS) | default | Low |
+| Feature Tile / Teaser | default | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 
 ### Plp (`plp`) — 11 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Content / Product Carousel | default | Medium |
+| Product Detail (PDP) | default | High |
+| Product Filters / Facets | default | High |
+| Product Listing (PLP) | default | High |
+| Fulfillment & Add-to-Cart | default | High |
 
 ### Home page content template (`home-page-content-template`) — 10 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+| Quick Links / Category Shortcuts | default | Low |
 
 ### Retail content template (`retail-content-template`) — 5 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Content / Product Carousel | default | Medium |
+| Rich Content (AEM DS) | default | Low |
+| Feature Tile / Teaser | default | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 | Video / Media Embed | default | High |
 | Accordion | default | Medium |
 
-### Cart (`cart`) — 4 pages
+### Rx checkout (`rx-checkout`) — 3 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Global Footer | default | Medium |
+| Rx Refill (guest/express) | default | High |
+| Rx Transfer | default | High |
 
-### Content page (`content-page`) — 2 pages
+### Cart (`cart`) — 1 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Hero Banner | default | Medium |
+| Quick Links / Category Shortcuts | default | Low |
 
 ---
 
@@ -140,8 +247,8 @@
 
 ### Account / Authentication (`account-auth (app)`)
 
-- **Pages:** 793 · **Templates:** 
-- **Variations:** default (793)
+- **Pages:** 794 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (794)
 
 - Sign in (email/password) and create-account.
 - Password reset and guest order-lookup (order number, last name, phone).
@@ -150,8 +257,8 @@
 
 ### Cart (`cart (commerce)`)
 
-- **Pages:** 786 · **Templates:** 
-- **Variations:** default (786)
+- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (787)
 
 - Line items with image, title, price, quantity controls.
 - Fulfillment per item; price/summary totals.
@@ -160,8 +267,8 @@
 
 ### Global Header / Nav (`header (app nav)`)
 
-- **Pages:** 786 · **Templates:** 
-- **Variations:** default (786)
+- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (787)
 
 - Mega-menu navigation across departments/categories.
 - Store & pickup-location selector reflecting the chosen store.
@@ -169,9 +276,26 @@
 - Cart icon showing live item count.
 - Site search entry point and language switcher.
 
+### Promo Banner (`promo-banner`)
+
+- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (787)
+
+- Rotating promotional offer links above the header.
+
+### Global Footer (`footer`)
+
+- **Pages:** 780 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (780)
+
+- Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.
+- Product category directory ('View all products by') + photo products.
+- Newsletter/deals signup, social links, copyright and legal (privacy/CCPA/Washington health).
+- 'Your Privacy Choices' CCPA opt-out.
+
 ### Store Locator (`store-locator (app)`)
 
-- **Pages:** 449 · **Templates:** 
+- **Pages:** 449 · **Templates:** store-detail, store-locator
 - **Variations:** default (449)
 
 - Accepts a location (geolocate or entered) and lists nearby stores.
@@ -180,19 +304,41 @@
 - 'Browse stores by state' provides an SEO directory path.
 - Save/preferred-store action.
 
-### Product Filters / Facets (`product-filters (commerce)`)
+### Content / Product Carousel (`carousel`)
 
-- **Pages:** 25 · **Templates:** 
-- **Variations:** default (25)
+- **Pages:** 57 · **Templates:** article, find-care, home-page-content-template, plp, redirect-stub, retail-content-template, store-detail
+- **Variations:** default (57)
 
-- Facet groups (brand, price, color, undertone, fulfillment).
-- Price min/max with Apply.
-- Selecting facets refines the product grid; applied-filters chips can be cleared.
+- Horizontal carousel of cards with prev/next controls.
+- Each card links to a PDP/PLP/content page.
+
+### Hero Banner (`hero`)
+
+- **Pages:** 36 · **Templates:** article, cart, find-care, home-page-content-template, redirect-stub, store-detail
+- **Variations:** default (36)
+
+- Background media + headline + CTA(s); may auto-rotate.
+
+### Health/Wellness Article (`article (default content)`)
+
+- **Pages:** 36 · **Templates:** article, find-care
+- **Variations:** default (36)
+
+- Renders article title (H1), section headings, paragraphs, lists and images.
+- Inline links to related conditions/products.
+- Sits under a health category (breadcrumb/category context).
+
+### Rich Content (AEM DS) (`default content (rich text)`)
+
+- **Pages:** 27 · **Templates:** article, redirect-stub, retail-base-template, retail-content-template
+- **Variations:** default (27)
+
+- Renders titles, body copy and links from the AEM DS.
 
 ### Product Detail (PDP) (`product-detail-page (commerce)`)
 
-- **Pages:** 25 · **Templates:** 
-- **Variations:** default (25)
+- **Pages:** 26 · **Templates:** plp, store-detail
+- **Variations:** default (26)
 
 - Product gallery + title + brand + price + rating.
 - Variant selection (color/size/undertone) updates price/availability.
@@ -200,9 +346,18 @@
 - FSA-eligibility labelling; check-other-store availability.
 - Reviews.
 
+### Product Filters / Facets (`product-filters (commerce)`)
+
+- **Pages:** 25 · **Templates:** plp, store-detail
+- **Variations:** default (25)
+
+- Facet groups (brand, price, color, undertone, fulfillment).
+- Price min/max with Apply.
+- Selecting facets refines the product grid; applied-filters chips can be cleared.
+
 ### Product Listing (PLP) (`product-list-page (commerce)`)
 
-- **Pages:** 23 · **Templates:** 
+- **Pages:** 23 · **Templates:** plp, store-detail
 - **Variations:** default (23)
 
 - Grid of product cards (image, title, brand, price, rating, promotion/tag).
@@ -213,8 +368,8 @@
 
 ### Fulfillment & Add-to-Cart (`product-fulfillment (commerce)`)
 
-- **Pages:** 17 · **Templates:** 
-- **Variations:** default (17)
+- **Pages:** 18 · **Templates:** plp, store-detail
+- **Variations:** default (18)
 
 - Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.
 - Quantity dropdown.
@@ -222,9 +377,16 @@
 - Check other stores for availability.
 - Pickup address/details reflect the selected store.
 
+### Quick Links / Category Shortcuts (`quick-links`)
+
+- **Pages:** 10 · **Templates:** article, cart, home-page-content-template
+- **Variations:** default (10)
+
+- Row/grid of icon + label shortcut cards linking to categories/services.
+
 ### Store Detail (`store-detail (app)`)
 
-- **Pages:** 10 · **Templates:** 
+- **Pages:** 10 · **Templates:** store-detail
 - **Variations:** default (10)
 
 - Shows the store's address, phone and per-service hours + open/closed status.
@@ -232,6 +394,29 @@
 - Service links: schedule vaccine (COVID/flu/pneumonia), photo (cards/prints/same-day), FedEx returns, propane exchange, beauty consultation.
 - 'See all' overlays for photo and services.
 - In-store product search box.
+
+### Live Chat / Click-to-Chat (`live-chat (embed)`)
+
+- **Pages:** 9 · **Templates:** account, article
+- **Variations:** default (9)
+
+- Fixed chat button launches a support chat widget.
+
+### Login / Sign-in Form (`form (auth)`)
+
+- **Pages:** 7 · **Templates:** account, article
+- **Variations:** default (7)
+
+- Email + password fields with validation.
+- Remember-me, forgot-password, create-account links.
+- Submit authenticates against the identity service.
+
+### Feature Tile / Teaser (`teaser`)
+
+- **Pages:** 5 · **Templates:** article, retail-base-template, retail-content-template
+- **Variations:** default (5)
+
+- Media + heading + copy + CTA promoting a page/offer.
 
 ### Editor's Pick / Featured Teaser (`editors-pick (teaser)`)
 
@@ -248,6 +433,33 @@
 - Embeds a video/podcast player from the detected provider.
 - May add a related products/links block and a transcript section.
 
+### Rx Refill (guest/express) (`rx-refill (pharmacy app)`)
+
+- **Pages:** 3 · **Templates:** rx-checkout
+- **Variations:** default (3)
+
+- Enter prescription number (guest express) or scan to refill.
+- Select pickup store and pickup date/time.
+- Provide guest contact details; validation on all fields.
+- Submit refill to the pharmacy system with confirmation.
+
+### Article / Content Body (`default content (rich text + media)`)
+
+- **Pages:** 2 · **Templates:** article
+- **Variations:** default (2)
+
+- Renders page title, section headings, body copy, lists, images and inline links.
+
+### Rx Transfer (`rx-transfer (pharmacy app)`)
+
+- **Pages:** 2 · **Templates:** article, rx-checkout
+- **Variations:** default (2)
+
+- Identify current pharmacy and medication(s) to transfer.
+- Choose destination Walgreens store.
+- Provide patient details with validation.
+- Submit transfer request with confirmation.
+
 ### Accordion (`accordion`)
 
 - **Pages:** 2 · **Templates:** retail-content-template
@@ -258,12 +470,30 @@
 
 ### Recommendations / Merchandising Carousels (`product-carousel (commerce)`)
 
-- **Pages:** 1 · **Templates:** 
-- **Variations:** default (1)
+- **Pages:** 2 · **Templates:** store-detail
+- **Variations:** default (2)
 
 - Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).
 - Category/brand shortcut sections.
 - Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon.
+
+### Order Pickup / On-my-way (`order-pickup (app)`)
+
+- **Pages:** 1 · **Templates:** article
+- **Variations:** default (1)
+
+- Order/pickup lookup and store info display.
+- Continue/confirm pickup steps; on-my-way arrival notification.
+
+### Add-to-Cart Confirmation / Mini-cart (`cart-confirmation (commerce)`)
+
+- **Pages:** 1 · **Templates:** store-detail
+- **Variations:** default (1)
+
+- After add-to-cart, an overlay confirms the item + quantity added.
+- Shows an upsell/cross-sell ('add for pickup' upsell).
+- 'Continue shopping' closes the overlay; 'View cart' goes to the cart.
+- Cart icon count increments.
 
 ---
 
@@ -289,6 +519,16 @@
 - [ ] Mega-menu opens category navigation.
 - [ ] Store selector reflects/updates the chosen location.
 
+### Promo Banner
+
+- [ ] Promo links navigate to the offer/PLP.
+
+### Global Footer
+
+- [ ] Footer renders all link columns and legal links on every page.
+- [ ] Newsletter signup and social links work.
+- [ ] Privacy/CCPA links resolve.
+
 ### Store Locator
 
 - [ ] Given a location, nearby stores list with address + hours + status.
@@ -296,11 +536,24 @@
 - [ ] 'View on map' opens the map for that store.
 - [ ] Browse-by-state navigates the store directory.
 
-### Product Filters / Facets
+### Content / Product Carousel
 
-- [ ] Selecting a facet narrows the grid.
-- [ ] Setting a price range + Apply narrows by price.
-- [ ] Clearing a facet restores results.
+- [ ] Carousel scrolls via prev/next.
+- [ ] Cards link correctly.
+
+### Hero Banner
+
+- [ ] Hero renders headline + CTA; rotation works if present.
+
+### Health/Wellness Article
+
+- [ ] Article renders title + body with correct heading hierarchy.
+- [ ] Inline links resolve.
+- [ ] Images render with alt text.
+
+### Rich Content (AEM DS)
+
+- [ ] Rich content renders with correct hierarchy and links.
 
 ### Product Detail (PDP)
 
@@ -308,6 +561,12 @@
 - [ ] Selecting a variant updates the selection/price.
 - [ ] Add-to-cart adds the item and updates the cart.
 - [ ] Fulfillment options are selectable.
+
+### Product Filters / Facets
+
+- [ ] Selecting a facet narrows the grid.
+- [ ] Setting a price range + Apply narrows by price.
+- [ ] Clearing a facet restores results.
 
 ### Product Listing (PLP)
 
@@ -324,12 +583,29 @@
 - [ ] Check-other-stores surfaces alternative stores.
 - [ ] Out-of-stock options are disabled/messaged.
 
+### Quick Links / Category Shortcuts
+
+- [ ] Each quick-link navigates to its target.
+
 ### Store Detail
 
 - [ ] Store detail shows address, hours and status per service.
 - [ ] Save-preferred-store marks the store preferred.
 - [ ] A service link (e.g. schedule vaccine) navigates to that flow.
 - [ ] 'See all photo products' opens the photo overlay.
+
+### Live Chat / Click-to-Chat
+
+- [ ] Clicking the chat button opens the chat widget.
+
+### Login / Sign-in Form
+
+- [ ] Invalid input shows validation errors.
+- [ ] Forgot-password / register links resolve.
+
+### Feature Tile / Teaser
+
+- [ ] Tile renders media + heading; CTA navigates.
 
 ### Editor's Pick / Featured Teaser
 
@@ -339,6 +615,23 @@
 
 - [ ] The embedded player loads and is playable.
 - [ ] Any related links navigate correctly; transcript text is shown where present.
+
+### Rx Refill (guest/express)
+
+- [ ] Invalid Rx number shows validation.
+- [ ] A store + date can be selected.
+- [ ] Submitting a valid refill shows a confirmation.
+- [ ] Guest flow works without sign-in.
+
+### Article / Content Body
+
+- [ ] Content renders with correct heading hierarchy and working links.
+
+### Rx Transfer
+
+- [ ] Required fields validate before submit.
+- [ ] A destination store can be selected.
+- [ ] Submitting shows a transfer confirmation.
 
 ### Accordion
 
@@ -351,6 +644,16 @@
 - [ ] Prev/next scrolls the rail.
 - [ ] A card navigates to the target PDP/PLP or clips a coupon.
 
+### Order Pickup / On-my-way
+
+- [ ] Pickup flow shows store info and progresses through steps.
+
+### Add-to-Cart Confirmation / Mini-cart
+
+- [ ] Adding an item opens the confirmation overlay with the item + quantity.
+- [ ] 'View cart' navigates to the cart; 'Continue shopping' closes the overlay.
+- [ ] The header cart count reflects the added item.
+
 ---
 
 ## 7. User Journeys & Interactions
@@ -359,15 +662,15 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Capability | Pages |
 |---|---|
-| Login / account | 827 |
-| Checkout / buy | 796 |
-| Filtering | 795 |
-| Forms | 794 |
-| Modal / popup | 793 |
-| Tabs | 788 |
-| Cart | 786 |
-| Search | 784 |
-| Accordion / flip | 595 |
+| Login / account | 828 |
+| Checkout / buy | 797 |
+| Filtering | 796 |
+| Forms | 795 |
+| Modal / popup | 794 |
+| Tabs | 789 |
+| Cart | 787 |
+| Search | 785 |
+| Accordion / flip | 596 |
 | Pagination / load-more | 445 |
 | Map | 441 |
 | Video | 17 |
@@ -379,7 +682,7 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 ## 8. Forms
 
-860 form instance(s) found. Kinds: generic (786), contact/lead (4), login/auth (11), checkout/payment (2).
+862 form instance(s) found. Kinds: generic (787), contact/lead (4), login/auth (11), checkout/payment (3).
 
 | Page | Kind | Fields | Method | Posts to |
 |---|---|---|---|---|
@@ -1243,6 +1546,8 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /youraccount/default.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/dlorder/reorder.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/personal_information.jsp | login/auth | 3 | get | (js-handled) |
+| /store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product | generic | 1 | get | (js-handled) |
+| /store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product | checkout/payment | 5 | get | (js-handled) |
 
 ---
 
@@ -1252,13 +1557,13 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Adobe Launch/DTM (tag mgmt) | 823 |
-| Adobe Analytics (AppMeasurement) | 795 |
-| Google Analytics / GA4 | 787 |
+| Adobe Launch/DTM (tag mgmt) | 824 |
+| Adobe Analytics (AppMeasurement) | 796 |
+| Google Analytics / GA4 | 788 |
 | Adobe Helix RUM | 60 |
 | Adobe Client Data Layer | 38 |
 | Google Tag Manager | 23 |
-| Amplitude | 1 |
+| Amplitude | 2 |
 
 **Chat/Support**
 
@@ -1270,14 +1575,14 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| OneTrust (consent) | 811 |
-| TrustArc (consent) | 788 |
+| OneTrust (consent) | 812 |
+| TrustArc (consent) | 789 |
 
 **Fonts**
 
 | Integration | Pages |
 |---|---|
-| Google Fonts | 800 |
+| Google Fonts | 801 |
 
 **Forms/CRM**
 
@@ -1289,13 +1594,13 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Google Maps | 816 |
+| Google Maps | 817 |
 
 **Marketing/Pixel**
 
 | Integration | Pages |
 |---|---|
-| Facebook Pixel | 9 |
+| Facebook Pixel | 10 |
 | LinkedIn Insight | 1 |
 
 **Media/Video**
@@ -1310,60 +1615,60 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Adobe Target (A/B) | 800 |
-| Monetate | 799 |
+| Adobe Target (A/B) | 801 |
+| Monetate | 800 |
 
 **Reviews/UGC**
 
 | Integration | Pages |
 |---|---|
-| Bazaarvoice (ratings/reviews) | 2 |
+| Bazaarvoice (ratings/reviews) | 3 |
 
 **Security/Bot**
 
 | Integration | Pages |
 |---|---|
-| reCAPTCHA / hCaptcha | 7 |
+| reCAPTCHA / hCaptcha | 8 |
 
 **Survey/Feedback**
 
 | Integration | Pages |
 |---|---|
-| Medallia (feedback) | 793 |
+| Medallia (feedback) | 794 |
 | Qualtrics (survey) | 23 |
 
 **⚠︎ Unrecognized third-party hosts (need agent review — could be complex integrations):**
 
 | Host | Pages |
 |---|---|
-| resources.digital-cloud-west.medallia.com | 793 |
-| s2.go-mpulse.net | 756 |
-| cdn.branch.io | 709 |
-| www.wag-static.com | 200 |
+| resources.digital-cloud-west.medallia.com | 794 |
+| s2.go-mpulse.net | 757 |
+| cdn.branch.io | 710 |
+| www.wag-static.com | 201 |
+| login-ds.dotomi.com | 32 |
 | media-us2.digital.nuance.com | 32 |
-| login-ds.dotomi.com | 31 |
 | se.monetate.net | 29 |
-| d.criteo.com | 26 |
-| dynamic.criteo.com | 26 |
-| sslwidget.criteo.com | 26 |
-| js.adsrvr.org | 22 |
+| d.criteo.com | 27 |
+| dynamic.criteo.com | 27 |
+| sslwidget.criteo.com | 27 |
+| js.adsrvr.org | 23 |
 | www.mczbf.com | 21 |
 | googleads.g.doubleclick.net | 21 |
 | mihvea1f.micpn.com | 20 |
 | dok.js-cdn.dynatrace.com | 15 |
-| track.coherentpath.com | 13 |
-| bat.bing.com | 13 |
-| securepubads.g.doubleclick.net | 7 |
+| track.coherentpath.com | 14 |
+| bat.bing.com | 14 |
+| securepubads.g.doubleclick.net | 8 |
 | unpkg.com | 3 |
+| apps.bazaarvoice.com | 3 |
 | www.cdn-net.com | 2 |
 | six.cdn-net.com | 2 |
 | prod.accdab.net | 2 |
-| apps.bazaarvoice.com | 2 |
+| s.pinimg.com | 2 |
+| connect.facebook.net | 2 |
+| content.syndigo.com | 2 |
 | www.youtube.com | 1 |
 | wag-dwa-api-prod.przone.net | 1 |
-| s.pinimg.com | 1 |
-| connect.facebook.net | 1 |
-| content.syndigo.com | 1 |
 
 ---
 
@@ -1375,15 +1680,30 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Cart** | High | Cart view/mini-cart: line items, quantities, fulfillment, price summary, promo code, checkout entry. Commerce, stateful, tied to session + catalog/pricing APIs. |
 | **Global Header / Nav** | High | Global commerce header present on every page: logo, mega-menu category navigation, store/pickup selector, account menu, cart icon with live count, search, language switcher, rewards prompts. Stateful and shared sitewide. |
 | **Store Locator** | High | Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service. |
-| **Product Filters / Facets** | High | Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL. |
 | **Product Detail (PDP)** | High | Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS. |
+| **Product Filters / Facets** | High | Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL. |
 | **Product Listing (PLP)** | High | Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block. |
 | **Fulfillment & Add-to-Cart** | High | PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs. |
 | **Store Detail** | High | Individual store page: address, per-service hours & open/closed status (store, pharmacy, photo, lab), preferred-store save, and service entry points (schedule vaccine — COVID/flu/pneumonia, photo products & projects, FedEx returns, same-day pickup, propane/Blue Rhino, beauty consultation). Location-data driven with several 'see all' overlays. |
+| **Login / Sign-in Form** | High | Email/password sign-in with validation, remember-me, forgot-password, and links to register; identity-service integrated. |
 | **Video / Media Embed** | High | Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links. |
+| **Rx Refill (guest/express)** | High | Prescription refill checkout: enter Rx number (or scan), select pickup store & date, guest details, and submit to the pharmacy fulfillment system. HIPAA-sensitive, validated, session/pharmacy-API integrated. |
+| **Rx Transfer** | High | Transfer a prescription to Walgreens: identify current pharmacy + medication, choose destination store, provide patient details, submit. HIPAA-sensitive, validated, pharmacy-API integrated. |
+| **Order Pickup / On-my-way** | High | Store-pickup / on-my-way flow: order lookup, store info, continue steps, arrival notification. Session + order-service integrated. |
+| **Add-to-Cart Confirmation / Mini-cart** | High | Overlay shown after add-to-cart (VERIFIED live: PLP→PDP→add-to-cart): item + quantity confirmation, quantity dropdown, cross-sell/upsell ('add for pickup' upsell), and 'continue shopping' / 'view cart' actions. Session + cart-service integrated. |
+| **Global Footer** | Medium | Sitewide mega-footer: customer service, myWalgreens, company info, terms/privacy, product category directory, photo products, social, newsletter signup and legal/copyright. Shared across all pages. |
+| **Content / Product Carousel** | Medium | Horizontal glider/carousel of cards (products, offers, content) with prev/next; used on home, category and content pages. |
+| **Hero Banner** | Medium | Homepage/landing hero: background media, headline, CTA(s); may rotate. |
+| **Live Chat / Click-to-Chat** | Medium | Click-to-chat support widget (Zendesk/vendor) launched from a fixed button. |
 | **Editor's Pick / Featured Teaser** | Medium | Teaser promoting a single curated item: media + eyebrow + title + byline. |
 | **Accordion** | Medium | Expand/collapse panels (single or multi-open); requires toggle JS + accessible disclosure semantics. |
 | **Recommendations / Merchandising Carousels** | Medium | Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards. |
+| **Promo Banner** | Low | Sitewide promo strip above the header with rotating offer links. |
+| **Health/Wellness Article** | Low | Editorial health/wellness article: H1, sub-headings, rich body copy, lists, images, inline links — maps to EDS default content within a category-details wrapper. Content-authored, not a coded block. |
+| **Rich Content (AEM DS)** | Low | AEM Design-System rich content (aemds-title/body/link) — headings, body copy, links. Maps to EDS default content. |
+| **Quick Links / Category Shortcuts** | Low | Grid/row of labelled icon shortcuts to key categories/services (homepage & landing pages). |
+| **Feature Tile / Teaser** | Low | Image + heading + copy + CTA promotional tile (aemds-featuretile / cmp-teaser). |
+| **Article / Content Body** | Low | Editorial/marketing page body rendered as semantic HTML (headings, paragraphs, lists, images, links). Maps to EDS default content; content-authored, not a coded block. |
 
 ---
 

@@ -6413,7 +6413,7 @@
  },
  {
   "url": "https://www.walgreens.com/healthcare-solutions/how-we-can-help/clinical-trials",
-  "template": "content-page",
+  "template": "article",
   "metaTemplate": null,
   "mirror": false,
   "cards": {
@@ -8343,7 +8343,7 @@
  },
  {
   "url": "https://www.walgreens.com/pickupDetails/onmyway/cancel",
-  "template": "content-page",
+  "template": "article",
   "metaTemplate": null,
   "mirror": false,
   "cards": {
@@ -10771,7 +10771,7 @@
  },
  {
   "url": "https://www.walgreens.com/rx-checkout/guest-express-refill",
-  "template": "cart",
+  "template": "rx-checkout",
   "metaTemplate": null,
   "mirror": false,
   "cards": {
@@ -10836,7 +10836,7 @@
  },
  {
   "url": "https://www.walgreens.com/rx-checkout/guest-transfer-rx",
-  "template": "cart",
+  "template": "rx-checkout",
   "metaTemplate": null,
   "mirror": false,
   "cards": {
@@ -10907,7 +10907,7 @@
  },
  {
   "url": "https://www.walgreens.com/rx-checkout/refill-by-scan",
-  "template": "cart",
+  "template": "rx-checkout",
   "metaTemplate": null,
   "mirror": false,
   "cards": {
@@ -58516,5 +58516,78 @@
   "lang": "en",
   "forms": 0,
   "journey": {}
+ },
+ {
+  "url": "https://www.walgreens.com/store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product",
+  "template": "store-detail",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [
+   "https://b4ef8b05a4d9f0871e1ae4a46879a4bd.safeframe.googlesyndication.com/safeframe/1-0-45/html/container.html",
+   "https://www.google.com/recaptcha/api2/aframe",
+   "https://insight.adsrvr.org/track/cei?advertiser_id=us9q5yu&cookie_sync=1&upv=3.0.0&upid=35bawq5&ref=https%3A%2F%2Fwww.walgreens.com%2Fstore%2Fc%2Fwalgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)%2FID%3D300428278-product",
+   "https://cm.g.doubleclick.net/partnerpixels?rdp=1&url=https%3A%2F%2Fwww.walgreens.com%2Fstore%2Fc%2Fwalgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)%2FID%3D300428278-product"
+  ],
+  "integrations": [
+   "Adobe Launch/DTM (tag mgmt)",
+   "Google Analytics / GA4",
+   "Adobe Analytics (AppMeasurement)",
+   "Amplitude",
+   "Adobe Target (A/B)",
+   "Monetate",
+   "OneTrust (consent)",
+   "TrustArc (consent)",
+   "Bazaarvoice (ratings/reviews)",
+   "Medallia (feedback)",
+   "Google Maps",
+   "Google Fonts",
+   "Facebook Pixel",
+   "reCAPTCHA / hCaptcha"
+  ],
+  "lang": "en",
+  "forms": 2,
+  "journey": {
+   "hasForm": true,
+   "hasSearch": true,
+   "hasLogin": true,
+   "hasCart": true,
+   "hasCheckout": true,
+   "hasFilters": true,
+   "hasPagination": false,
+   "hasTabs": true,
+   "hasAccordion": true,
+   "hasModal": true,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Buy It Again",
+    "Buy It Again",
+    "Request new Rx",
+    "Contact Lenses",
+    "Shop All Contact Lenses",
+    "Shop Contact Lenses",
+    "Shop",
+    "Shop All",
+    "Contact Lenses",
+    "Shop by Brand",
+    "Buy Again",
+    "Buy It Again"
+   ],
+   "externalLinkHosts": {
+    "blog.walgreens.com": 1,
+    "photo.walgreens.com": 13,
+    "walgreens.corporate.thegiftcardshop.com": 1,
+    "privacyportal.onetrust.com": 3,
+    "www.onetrust.com": 1
+   }
+  }
  }
 ]

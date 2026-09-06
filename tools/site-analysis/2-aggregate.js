@@ -34,10 +34,12 @@ function spaPageType(p) {
   // otherwise mis-classify content/home pages as "cart".
   if (/\/storelocator\//.test(u)) return 'store-locator';           // store search/results by area
   if (/\/(locator|store)\//.test(u)) return 'store-detail';          // individual store page
-  if (/\/(cart|rx-checkout|checkout)(\/|$|\?)/.test(u)) return 'cart';
+  if (/\/rx-checkout\//.test(u)) return 'rx-checkout';
+  if (/\/(cart|checkout)(\/|$|\?)/.test(u)) return 'cart';
   if (/\/findcare/.test(u)) return 'find-care';
   if (/\/(youraccount|register|password|mywalgreens|familymgmt|caremanagement)/.test(u)) return 'account';
-  if (/\/q\//.test(u) || /\/search/.test(u)) return 'plp';           // search results = product listing
+  if (/\/q\//.test(u) || /\/search/.test(u) || /\/store\/c\/productlist/.test(u)) return 'plp'; // search/browse results = product listing
+  if (/\/store\/c\/.*-product/.test(u) || /ID=[0-9a-z]+-product/i.test(u)) return 'pdp';        // product detail
   // Component signals (only when URL is inconclusive). Ignore cart/account (global chrome).
   if (has('product-detail')) return 'pdp';
   if (has('product-listing') || has('product-filters')) return 'plp';
