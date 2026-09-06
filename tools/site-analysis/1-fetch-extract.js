@@ -173,12 +173,24 @@ function classifyForm($f, fields, action, url) {
   fs.mkdirSync(dataDir, { recursive: true });
   console.error(`[1-fetch-extract] ${urls.length} URLs -> ${args.out}`);
 
+  // --parse-only: never HTTP-fetch; only parse HTML already present in pages/ (used when
+  // pages were pre-rendered by 1r-render-fetch.js). Missing files -> recorded as errors.
+  const parseOnly = process.argv.includes('--parse-only');
+  // Optional render metadata (status per URL) written by 1r-render-fetch.js
+  let renderMeta = {};
+  try { const rm = L.loadJSON(path.join(dataDir, 'render-meta.json')); rm.forEach(m => { if (m && m.url) renderMeta[m.url] = m; }); } catch (e) {}
+
   let done = 0;
   const results = await L.runPool(urls, args.concurrency, async (url) => {
     const htmlPath = path.join(htmlDir, L.slugForUrl(url) + '.html');
     let html, status;
-    if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).size > 500) { html = fs.readFileSync(htmlPath, 'utf8'); status = 200; }
-    else { const r = await L.get(url); status = r.statusCode; html = r.body || ''; if (status === 200 && html.length > 500) fs.writeFileSync(htmlPath, html); }
+    if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).size > 500) {
+      html = fs.readFileSync(htmlPath, 'utf8');
+      status = (renderMeta[url] && renderMeta[url].status) || 200;
+    } else if (parseOnly) {
+      const rm = renderMeta[url] || {};
+      html = ''; status = rm.status || 0;
+    } else { const r = await L.get(url); status = r.statusCode; html = r.body || ''; if (status === 200 && html.length > 500) fs.writeFileSync(htmlPath, html); }
     let rec;
     const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, unknownScriptHosts: [] };
     try { rec = (status === 200 && html.length > 200) ? extract(url, html, status) : { url, status, error: 'non-200 or empty', ...empty }; }

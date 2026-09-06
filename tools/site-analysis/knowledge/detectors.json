@@ -58,7 +58,7 @@
   ],
   "socialHosts": ["facebook.com", "twitter.com", "x.com", "instagram.com", "pinterest.com", "linkedin.com", "youtube.com", "tiktok.com"],
   "_ignoreDoc": "Structural/layout wrappers that are NOT authored blocks — excluded from the catalog. Match is exact against the cmp-* class.",
-  "ignoreComponents": ["cmp-container", "cmp-experiencefragment", "cmp-navigation", "cmp-list", "cmp-tabs", "cmp-accordion-panel"],
+  "ignoreComponents": ["cmp-container", "cmp-experiencefragment", "cmp-navigation", "cmp-list", "cmp-tabs", "cmp-accordion-panel", "spa:testid:inner-div"],
   "_foldDoc": "Sub-part components folded into their parent block id (composite blocks). Key = discovered cmp-* class, value = parent block id already defined in aem-wcm-blocks.json.",
   "foldInto": {
     "cmp-hero-carousel-wrapper": "hero-carousel",

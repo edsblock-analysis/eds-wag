@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "Reusable toolkit: crawl a URL list and generate EDS-migration functional analysis reports (dashboard, per-block/template detail, estimates).",
-  "bin": { "site-analysis": "run-analysis.js" },
+  "bin": {
+    "site-analysis": "run-analysis.js"
+  },
   "scripts": {
     "analyze": "node run-analysis.js"
   },
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "playwright": "^1.63.0"
   }
 }

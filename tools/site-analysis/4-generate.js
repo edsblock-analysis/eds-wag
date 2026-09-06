@@ -123,10 +123,14 @@ ${reportNav(opts.hubHref)}
 }
 
 /* ---------------- example URLs per block ---------------- */
+let _pagesJsonCache = null;
 function exampleUrlsForBlock(b) {
   const raw = b.rawKeys || [];
-  const pagesJson = L.loadJSON(path.join(dataDir, 'pages.json'));
-  return pagesJson.filter(p => raw.some(k => (p.blocks && p.blocks[k]) || (p.custom && p.custom[k]))).map(p => p.url);
+  if (!_pagesJsonCache) _pagesJsonCache = L.loadJSON(path.join(dataDir, 'pages.json'));
+  return _pagesJsonCache.filter(p => raw.some(k => {
+    if (k.startsWith('spa:')) { const sub = k.slice(4); return p.spaBlocks && (p.spaBlocks[sub] || p.spaBlocks[sub.replace(/^testid:/, 'testid:')]); }
+    return (p.blocks && p.blocks[k]) || (p.custom && p.custom[k]);
+  })).map(p => p.url);
 }
 
 /* ================= REPORT.md ================= */

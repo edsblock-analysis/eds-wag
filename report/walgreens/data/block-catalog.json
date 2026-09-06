@@ -6,12 +6,12 @@
   "complexity": "High",
   "complexityReason": "Sign in / register / password reset / order lookup and account menus. Auth-gated flows with validation and session; typically integrated with an identity service.",
   "templates": [],
-  "pages": 783,
+  "pages": 793,
   "variations": [
    {
     "name": "default",
     "desc": "Account / Authentication",
-    "pages": 783
+    "pages": 793
    }
   ],
   "functional": [
@@ -42,12 +42,12 @@
   "complexity": "High",
   "complexityReason": "Cart view/mini-cart: line items, quantities, fulfillment, price summary, promo code, checkout entry. Commerce, stateful, tied to session + catalog/pricing APIs.",
   "templates": [],
-  "pages": 778,
+  "pages": 786,
   "variations": [
    {
     "name": "default",
     "desc": "Cart",
-    "pages": 778
+    "pages": 786
    }
   ],
   "functional": [
@@ -79,12 +79,12 @@
   "complexity": "High",
   "complexityReason": "Global commerce header present on every page: logo, mega-menu category navigation, store/pickup selector, account menu, cart icon with live count, search, language switcher, rewards prompts. Stateful and shared sitewide.",
   "templates": [],
-  "pages": 778,
+  "pages": 786,
   "variations": [
    {
     "name": "default",
     "desc": "Global Header / Nav",
-    "pages": 778
+    "pages": 786
    }
   ],
   "functional": [
@@ -118,12 +118,12 @@
   "complexity": "High",
   "complexityReason": "Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service.",
   "templates": [],
-  "pages": 463,
+  "pages": 449,
   "variations": [
    {
     "name": "default",
     "desc": "Store Locator",
-    "pages": 463
+    "pages": 449
    }
   ],
   "functional": [
@@ -151,58 +151,18 @@
   ]
  },
  {
-  "id": "product-listing",
-  "name": "Product Listing (PLP)",
-  "edsBlock": "product-list-page (commerce)",
-  "complexity": "High",
-  "complexityReason": "Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block.",
-  "templates": [],
-  "pages": 183,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Product Listing (PLP)",
-    "pages": 183
-   }
-  ],
-  "functional": [
-   "Grid of product cards (image, title, brand, price, rating, promotion/tag).",
-   "Sort dropdown and result/item count.",
-   "Faceted filters (brand, price range, fulfillment) refine results.",
-   "Load-more / paginated navigation.",
-   "Each card links to its PDP; add-to-cart / add-to-fulfillment where applicable."
-  ],
-  "acceptance": [
-   "Results render as product cards with price and rating.",
-   "Changing sort reorders results.",
-   "Applying a filter/price range narrows results.",
-   "Load-more / next page appends or advances results.",
-   "A card navigates to its PDP."
-  ],
-  "verify": [
-   "Apply a filter and a sort; confirm results change.",
-   "Click load-more / page 2.",
-   "Open a product card → PDP."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:product-listing"
-  ]
- },
- {
   "id": "product-filters",
   "name": "Product Filters / Facets",
   "edsBlock": "product-filters (commerce)",
   "complexity": "High",
   "complexityReason": "Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL.",
   "templates": [],
-  "pages": 13,
+  "pages": 25,
   "variations": [
    {
     "name": "default",
     "desc": "Product Filters / Facets",
-    "pages": 13
+    "pages": 25
    }
   ],
   "functional": [
@@ -232,12 +192,12 @@
   "complexity": "High",
   "complexityReason": "Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS.",
   "templates": [],
-  "pages": 13,
+  "pages": 25,
   "variations": [
    {
     "name": "default",
     "desc": "Product Detail (PDP)",
-    "pages": 13
+    "pages": 25
    }
   ],
   "functional": [
@@ -265,31 +225,120 @@
   ]
  },
  {
-  "id": "spa-more-option",
-  "name": "Spa more option",
-  "edsBlock": "spa-more-option",
-  "complexity": "Medium",
-  "complexityReason": "AUTO-STUB — not in knowledge base; agent to assess complexity and rationale from observed markup/behavior.",
+  "id": "product-listing",
+  "name": "Product Listing (PLP)",
+  "edsBlock": "product-list-page (commerce)",
+  "complexity": "High",
+  "complexityReason": "Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block.",
   "templates": [],
-  "pages": 6,
+  "pages": 23,
   "variations": [
    {
     "name": "default",
-    "desc": "spa-more-option",
-    "pages": 6
+    "desc": "Product Listing (PLP)",
+    "pages": 23
    }
   ],
   "functional": [
-   "AUTO-STUB — agent to document functionality from observed markup/behavior."
+   "Grid of product cards (image, title, brand, price, rating, promotion/tag).",
+   "Sort dropdown and result/item count.",
+   "Faceted filters (brand, price range, fulfillment) refine results.",
+   "Load-more / paginated navigation.",
+   "Each card links to its PDP; add-to-cart / add-to-fulfillment where applicable."
   ],
   "acceptance": [
-   "AUTO-STUB — agent to define acceptance criteria from observed behavior."
+   "Results render as product cards with price and rating.",
+   "Changing sort reorders results.",
+   "Applying a filter/price range narrows results.",
+   "Load-more / next page appends or advances results.",
+   "A card navigates to its PDP."
   ],
-  "verify": [],
+  "verify": [
+   "Apply a filter and a sort; confirm results change.",
+   "Click load-more / page 2.",
+   "Open a product card → PDP."
+  ],
   "integrations": [],
-  "needsReview": true,
+  "needsReview": false,
   "rawKeys": [
-   "spa:testid:more-option"
+   "spa:product-listing"
+  ]
+ },
+ {
+  "id": "fulfillment-cart",
+  "name": "Fulfillment & Add-to-Cart",
+  "edsBlock": "product-fulfillment (commerce)",
+  "complexity": "High",
+  "complexityReason": "PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs.",
+  "templates": [],
+  "pages": 17,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Fulfillment & Add-to-Cart",
+    "pages": 17
+   }
+  ],
+  "functional": [
+   "Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.",
+   "Quantity dropdown.",
+   "Add-to-cart / add-for-pickup updates the cart + header count.",
+   "Check other stores for availability.",
+   "Pickup address/details reflect the selected store."
+  ],
+  "acceptance": [
+   "Selecting a fulfillment option updates availability messaging.",
+   "Choosing quantity + add-to-cart adds the item and updates the cart count.",
+   "Check-other-stores surfaces alternative stores.",
+   "Out-of-stock options are disabled/messaged."
+  ],
+  "verify": [
+   "On a PDP, toggle pickup/shipping/same-day.",
+   "Set quantity and add to cart; confirm header count changes.",
+   "Open check-other-stores."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:fulfillment-cart"
+  ]
+ },
+ {
+  "id": "store-detail",
+  "name": "Store Detail",
+  "edsBlock": "store-detail (app)",
+  "complexity": "High",
+  "complexityReason": "Individual store page: address, per-service hours & open/closed status (store, pharmacy, photo, lab), preferred-store save, and service entry points (schedule vaccine — COVID/flu/pneumonia, photo products & projects, FedEx returns, same-day pickup, propane/Blue Rhino, beauty consultation). Location-data driven with several 'see all' overlays.",
+  "templates": [],
+  "pages": 10,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Store Detail",
+    "pages": 10
+   }
+  ],
+  "functional": [
+   "Shows the store's address, phone and per-service hours + open/closed status.",
+   "Save as preferred store (star).",
+   "Service links: schedule vaccine (COVID/flu/pneumonia), photo (cards/prints/same-day), FedEx returns, propane exchange, beauty consultation.",
+   "'See all' overlays for photo and services.",
+   "In-store product search box."
+  ],
+  "acceptance": [
+   "Store detail shows address, hours and status per service.",
+   "Save-preferred-store marks the store preferred.",
+   "A service link (e.g. schedule vaccine) navigates to that flow.",
+   "'See all photo products' opens the photo overlay."
+  ],
+  "verify": [
+   "Open a /locator/...id= store page.",
+   "Save preferred store; open a 'see all' overlay; follow a vaccine/photo link."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:store-detail"
   ]
  },
  {
@@ -392,6 +441,41 @@
   "needsReview": false,
   "rawKeys": [
    "cmp-accordion"
+  ]
+ },
+ {
+  "id": "recommendations-carousel",
+  "name": "Recommendations / Merchandising Carousels",
+  "edsBlock": "product-carousel (commerce)",
+  "complexity": "Medium",
+  "complexityReason": "Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards.",
+  "templates": [],
+  "pages": 1,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Recommendations / Merchandising Carousels",
+    "pages": 1
+   }
+  ],
+  "functional": [
+   "Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).",
+   "Category/brand shortcut sections.",
+   "Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon."
+  ],
+  "acceptance": [
+   "Each carousel renders its product/offer cards.",
+   "Prev/next scrolls the rail.",
+   "A card navigates to the target PDP/PLP or clips a coupon."
+  ],
+  "verify": [
+   "On home/category/cart, scroll a recommendations carousel.",
+   "Click a card → PDP; clip a coupon."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:recommendations-carousel"
   ]
  }
 ]
