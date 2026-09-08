@@ -45,6 +45,50 @@ const origin = S.origin || (UT[0] && new URL(UT[0].url).origin) || '';
 const host = origin.replace(/^https?:\/\//, '');
 const DATE = process.env.ANALYSIS_DATE || 'the analysis date';
 
+/* ---- Current tech-stack inference (from detected components + integrations) ---- */
+function inferTechStack() {
+  const intg = Object.keys(S.integrationPageCounts || {});
+  const hasIntg = (re) => intg.some(n => re.test(n));
+  const blockKeys = Object.keys(S.blockPageCounts || {});
+  const hasCmp = blockKeys.some(k => /^cmp-/.test(k));
+  const hasSpa = blockKeys.some(k => /^spa:/.test(k));
+  const metaTpls = [...new Set(UT.map(u => u.metaTemplate).filter(Boolean))];
+  const stack = [];
+  const add = (category, tech, evidence) => stack.push({ category, tech, evidence });
+
+  // CMS / rendering
+  if (hasCmp) add('CMS / Components', 'Adobe Experience Manager (AEM) — WCM Core Components', 'cmp-* component classes' + (metaTpls.length ? ', <meta name=template>: ' + metaTpls.slice(0, 4).join(', ') : ''));
+  if (hasSpa) add('Front-end', 'React / client-side SPA', 'components addressed via data-testid; client-rendered content (rendered via headless browser)');
+  if (!hasCmp && !hasSpa && blockKeys.length) add('Front-end', 'Server-rendered / semantic HTML', 'no cmp-*/data-testid component system detected');
+  // Target EDS (analysis goal)
+  add('Target platform', 'Adobe Edge Delivery Services (EDS)', 'this analysis maps blocks/templates for EDS migration');
+
+  // Analytics / tag mgmt / personalization / consent / monitoring / media / commerce
+  if (hasIntg(/Adobe Launch|DTM/)) add('Tag management', 'Adobe Launch / DTM', 'assets.adobedtm.com');
+  if (hasIntg(/Adobe Analytics|AppMeasurement/)) add('Analytics', 'Adobe Analytics', 'AppMeasurement / smetrics');
+  if (hasIntg(/Client Data Layer/)) add('Analytics', 'Adobe Client Data Layer', 'adobe-client-data-layer');
+  if (hasIntg(/GA4|Google Analytics/)) add('Analytics', 'Google Analytics / GA4', 'gtag/analytics.js');
+  if (hasIntg(/Google Tag Manager/)) add('Tag management', 'Google Tag Manager', 'googletagmanager.com');
+  if (hasIntg(/Adobe Target/)) add('Personalization / A-B', 'Adobe Target', 'target / tt.omtrdc');
+  if (hasIntg(/Monetate/)) add('Personalization / A-B', 'Monetate', 'monetate');
+  if (hasIntg(/OneTrust/)) add('Consent / privacy', 'OneTrust', 'cookielaw.org / geolocation.onetrust.com');
+  if (hasIntg(/TrustArc/)) add('Consent / privacy', 'TrustArc', 'trustarc/truste');
+  if (hasIntg(/Helix RUM/)) add('Monitoring (RUM)', 'Adobe Helix RUM', 'rum.hlx.page');
+  if (hasIntg(/Scene7|Dynamic Media/)) add('Media / DAM', 'Adobe Scene7 / Dynamic Media', 's7viewers / scene7.com');
+  if (hasIntg(/YouTube|Vimeo|Spotify|Wistia|Brightcove|Kaltura/)) add('Media / video', intg.filter(n => /YouTube|Vimeo|Spotify|Wistia|Brightcove|Kaltura/.test(n)).join(', '), 'embedded players');
+  if (hasIntg(/Salesforce|Marketo|HubSpot|Pardot|Eloqua/)) add('Forms / CRM', intg.filter(n => /Salesforce|Marketo|HubSpot|Pardot|Eloqua/.test(n)).join(', '), 'form endpoints');
+  if (hasIntg(/Bazaarvoice|PowerReviews|Yotpo|Trustpilot/)) add('Reviews / UGC', intg.filter(n => /Bazaarvoice|PowerReviews|Yotpo|Trustpilot/.test(n)).join(', '), 'ratings & reviews');
+  if (hasIntg(/Intercom|Drift|Zendesk|LiveChat|Tidio/)) add('Chat / support', intg.filter(n => /Intercom|Drift|Zendesk|LiveChat|Tidio/.test(n)).join(', '), 'chat widget');
+  if (hasIntg(/Google Maps|Mapbox/)) add('Maps / location', intg.filter(n => /Google Maps|Mapbox/.test(n)).join(', '), 'store locator / maps');
+  if (hasIntg(/Stripe|PayPal|Braintree/)) add('Payments', intg.filter(n => /Stripe|PayPal|Braintree/.test(n)).join(', '), 'payment SDK');
+  if (hasIntg(/Typekit|Adobe Fonts|Google Fonts/)) add('Fonts', intg.filter(n => /Typekit|Adobe Fonts|Google Fonts/.test(n)).join(', '), 'web fonts');
+  if (hasIntg(/Facebook Pixel|LinkedIn|TikTok/)) add('Marketing pixels', intg.filter(n => /Facebook Pixel|LinkedIn|TikTok/.test(n)).join(', '), 'ad pixels');
+  if (hasIntg(/Qualtrics|Medallia|Hotjar/)) add('Feedback / survey', intg.filter(n => /Qualtrics|Medallia|Hotjar/.test(n)).join(', '), 'VoC / heatmap');
+  if (hasIntg(/Okta|Auth0|SSO/)) add('Auth / SSO', intg.filter(n => /Okta|Auth0|SSO/.test(n)).join(', '), 'identity');
+  return stack;
+}
+const TECH_STACK = inferTechStack();
+
 // Single source of truth for the top navigation (dashboard tabs + report hub).
 // Used by both the dashboard (client-side tab switch, hash-aware) and every report
 // page (static links back to the dashboard tab / hub) so the nav is identical everywhere.
@@ -142,7 +186,9 @@ function genMarkdown() {
   if (totals.mirror || totals.spanish) md += `> ${totals.mirror} URLs are content mirror/duplicate paths; ${totals.spanish} are non-English (es) variants — same templates/blocks, content only.\n\n`;
   md += `---\n\n## 1. Executive Summary\n\n| Metric | Value |\n|---|---|\n`;
   md += `| Total URLs analyzed | **${S.totalUrls}** |\n| Unique templates | **${totalTemplates}** |\n| EDS blocks to develop | **${catalog.length}** |\n| Block variations | **${totals.variations}** |\n| EDS default content (not blocks) | ${defaultContent.length} |\n| High / Medium / Low complexity | ${totals.high} / ${totals.medium} / ${totals.low} |\n| Forms | ${(S.forms || []).length} |\n| Third-party integrations | ${Object.keys(S.integrationPageCounts).length} |\n| Unrecognized 3rd-party hosts (review) | ${Object.keys(S.unknownScriptHostCounts || {}).length} |\n| Blocks needing agent review | ${catalog.filter(b => b.needsReview).length} |\n\n`;
-  md += `---\n\n## 2. Templates\n\n| # | Template | Pages |\n|---|---|---|\n`;
+  md += `---\n\n## 1a. Current Tech Stack\n\nInferred from detected components + third-party integrations on the live site.\n\n| Category | Technology | Evidence |\n|---|---|---|\n`;
+  TECH_STACK.forEach(t => md += `| ${t.category} | **${t.tech}** | ${t.evidence} |\n`);
+  md += `\n---\n\n## 2. Templates\n\n| # | Template | Pages |\n|---|---|---|\n`;
   tplCounts.forEach(([t, c], i) => md += `| ${i + 1} | **${tplLabel(t)}** (\`${t}\`) | ${c} |\n`);
   md += `\n---\n\n## 3. Block Inventory\n\n${catalog.length} blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).\n\n| Block | EDS name | Complexity | Pages | Variations |\n|---|---|---|---|---|\n`;
   catalog.forEach(b => md += `| **${b.name}**${b.needsReview ? ' ⚠︎' : ''} | \`${b.edsBlock}\` | ${b.complexity} | ${b.pages} | ${b.variations.map(v => `${v.name} (${v.pages})`).join('; ')} |\n`);
@@ -328,7 +374,7 @@ function genDashboard() {
     journeys: Object.entries(S.journeyCapabilityCounts || {}).map(([k, v]) => [jLabels[k] || k, v]).sort((a, b) => b[1] - a[1]),
     forms: (S.forms || []).map(f => ({ url: f.url, kind: f.kind, fieldCount: f.fieldCount, method: f.method, actionHost: f.actionHost })),
     needsReview: catalog.filter(b => b.needsReview).map(b => ({ id: b.id, name: b.name, raw: (b.rawKeys || []).join(', '), pages: b.pages })),
-    defaultContent,
+    defaultContent, techStack: TECH_STACK,
     behaviors: BEH.behaviors || {}, urlList: UT.map(u => ({ url: u.url, t: u.template, m: u.mirror ? 1 : 0, lang: u.lang || 'en' })),
   };
   const maxTpl = Math.max(...data.templates.map(t => t.count), 1);
@@ -358,7 +404,8 @@ window.addEventListener('hashchange',()=>showTab((location.hash||'').replace('#'
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 document.getElementById('v-overview').innerHTML=\`<div class="grid g4"><div class="stat"><div class="n">\${D.totals.urls}</div><div class="l">URLs analyzed</div></div><div class="stat"><div class="n">\${D.totals.templates}</div><div class="l">Templates</div></div><div class="stat"><div class="n">\${D.totals.blocks}</div><div class="l">Blocks</div></div><div class="stat"><div class="n">\${D.totals.variations}</div><div class="l">Variations</div></div></div>
 <div class="grid g4" style="margin-top:14px"><div class="stat"><div class="n" style="color:var(--hi)">\${D.totals.high}</div><div class="l">High</div></div><div class="stat"><div class="n" style="color:var(--me)">\${D.totals.medium}</div><div class="l">Medium</div></div><div class="stat"><div class="n" style="color:var(--lo)">\${D.totals.low}</div><div class="l">Low</div></div><div class="stat"><div class="n">\${D.totals.mirror}+\${D.totals.spanish}</div><div class="l">Mirror + non-EN</div></div></div>
-<h2>Pages per template</h2><div class="card">\${D.templates.map(t=>\`<div class="barrow"><div class="lab">\${esc(t.label)}</div><div class="bar" style="width:\${Math.max(2,t.count/maxTpl*620)}px"></div><div class="val">\${t.count}</div></div>\`).join('')}</div>\${(D.needsReview&&D.needsReview.length)?'<div class="card" style="border-color:var(--hi)"><b class="warn">⚠︎ '+D.needsReview.length+' component(s) need agent review</b><div class="muted" style="margin-top:6px">Auto-detected but not in the knowledge base — inspect the live pages and complete their spec (do not assume): '+D.needsReview.map(r=>esc(r.name)).join(', ')+'. See <a href="reports/needs-review.html">Needs Review</a>.</div></div>':''}\${(D.unknownHosts&&Object.keys(D.unknownHosts).length)?'<div class="card" style="border-color:var(--me)"><b style="color:var(--me)">⚠︎ '+Object.keys(D.unknownHosts).length+' unrecognized third-party host(s)</b><div class="muted" style="margin-top:6px">Possible complex integrations — review in the Integrations tab.</div></div>':''}\`;
+<h2>Pages per template</h2><div class="card">\${D.templates.map(t=>\`<div class="barrow"><div class="lab">\${esc(t.label)}</div><div class="bar" style="width:\${Math.max(2,t.count/maxTpl*620)}px"></div><div class="val">\${t.count}</div></div>\`).join('')}</div>\${(D.needsReview&&D.needsReview.length)?'<div class="card" style="border-color:var(--hi)"><b class="warn">⚠︎ '+D.needsReview.length+' component(s) need agent review</b><div class="muted" style="margin-top:6px">Auto-detected but not in the knowledge base — inspect the live pages and complete their spec (do not assume): '+D.needsReview.map(r=>esc(r.name)).join(', ')+'. See <a href="reports/needs-review.html">Needs Review</a>.</div></div>':''}\${(D.unknownHosts&&Object.keys(D.unknownHosts).length)?'<div class="card" style="border-color:var(--me)"><b style="color:var(--me)">⚠︎ '+Object.keys(D.unknownHosts).length+' unrecognized third-party host(s)</b><div class="muted" style="margin-top:6px">Possible complex integrations — review in the Integrations tab.</div></div>':''}
+<h2>Current tech stack</h2><div class="muted" style="margin-bottom:8px">Inferred from detected components + third-party integrations on the live site (evidence-based).</div><table><thead><tr><th>Category</th><th>Technology</th><th>Evidence</th></tr></thead><tbody>\${(D.techStack||[]).map(t=>'<tr><td>'+esc(t.category)+'</td><td><b>'+esc(t.tech)+'</b></td><td class="muted">'+esc(t.evidence)+'</td></tr>').join('')}</tbody></table>\`;
 document.getElementById('v-templates').innerHTML='<h2>'+D.totals.templates+' templates</h2><table><thead><tr><th>#</th><th>Template</th><th>Pages</th><th></th></tr></thead><tbody>'+D.templates.map((t,i)=>'<tr><td>'+(i+1)+'</td><td><a href="reports/template-'+esc(t.id)+'.html">'+esc(t.label)+'</a> <span class="tag">'+esc(t.id)+'</span></td><td><b>'+t.count+'</b></td><td><a href="reports/template-'+esc(t.id)+'.html">detail →</a></td></tr>').join('')+'</tbody></table>';
 document.getElementById('v-blocks').innerHTML='<h2>'+D.catalog.length+' blocks · '+D.totals.variations+' variations</h2>'+((D.defaultContent&&D.defaultContent.length)?'<div class="card muted">Shared-DOM components are consolidated into one block + variations. <b>EDS default content</b> (not counted as blocks — core decoration / autoblocking handles them): '+D.defaultContent.map(d=>esc(d.name)+' ('+d.pages+')').join(', ')+'.</div>':'')+D.catalog.map(b=>\`<details><summary><span>\${esc(b.name)} <span class="tag">\${esc(b.edsBlock)}</span></span><span><span class="pill \${b.complexity}">\${b.complexity}</span> <span class="muted">\${b.pages} pages</span></span></summary><p style="margin:10px 0 4px"><a href="reports/block-\${esc(b.id)}.html">📄 Detailed report →</a></p><p class="muted">\${esc(b.complexityReason)}</p><h3>Variations (\${b.variations.length})</h3>\${b.variations.map(v=>'<div class="varbox" style="background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:6px 0"><b>'+esc(v.name)+'</b> <span class="muted">('+v.pages+' pages)</span></div>').join('')}<h3>Functionality</h3><ul class="f">\${b.functional.map(f=>'<li>'+esc(f)+'</li>').join('')}</ul></details>\`).join('');
 document.getElementById('v-mapping').innerHTML='<h2>Template → Block → Variation</h2>'+D.templates.map(t=>{const bl=D.catalog.filter(b=>b.templates.includes(t.id)||b.templates.includes('all'));return '<details open><summary><span><a href="reports/template-'+esc(t.id)+'.html">'+esc(t.label)+'</a></span><span class="muted">'+t.count+' pages · '+bl.length+' blocks</span></summary><table><thead><tr><th>Block</th><th>Variations</th><th>Complexity</th></tr></thead><tbody>'+bl.map(b=>'<tr><td><a href="reports/block-'+esc(b.id)+'.html">'+esc(b.name)+'</a></td><td class="muted">'+b.variations.map(v=>esc(v.name)).join(', ')+'</td><td><span class="pill '+b.complexity+'">'+b.complexity+'</span></td></tr>').join('')+'</tbody></table></details>';}).join('');

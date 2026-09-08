@@ -236,41 +236,6 @@
   ]
  },
  {
-  "id": "rich-content",
-  "name": "Rich Content (AEM DS)",
-  "edsBlock": "default content (rich text)",
-  "complexity": "Low",
-  "complexityReason": "AEM Design-System rich content (aemds-title/body/link) — headings, body copy, links. Maps to EDS default content.",
-  "templates": [
-   "article",
-   "category-hub",
-   "redirect-stub",
-   "retail-base-template",
-   "retail-content-template",
-   "store-detail"
-  ],
-  "pages": 343,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Rich Content (AEM DS)",
-    "pages": 343
-   }
-  ],
-  "functional": [
-   "Renders titles, body copy and links from the AEM DS."
-  ],
-  "acceptance": [
-   "Rich content renders with correct hierarchy and links."
-  ],
-  "verify": [],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:content:rich-content"
-  ]
- },
- {
   "id": "search",
   "name": "Predictive Search",
   "edsBlock": "search",

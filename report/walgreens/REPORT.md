@@ -14,14 +14,45 @@
 |---|---|
 | Total URLs analyzed | **1183** |
 | Unique templates | **15** |
-| EDS blocks to develop | **37** |
-| Block variations | **44** |
-| EDS default content (not blocks) | 5 |
-| High / Medium / Low complexity | 17 / 8 / 12 |
+| EDS blocks to develop | **36** |
+| Block variations | **43** |
+| EDS default content (not blocks) | 6 |
+| High / Medium / Low complexity | 17 / 8 / 11 |
 | Forms | 998 |
 | Third-party integrations | 25 |
 | Unrecognized 3rd-party hosts (review) | 28 |
 | Blocks needing agent review | 0 |
+
+---
+
+## 1a. Current Tech Stack
+
+Inferred from detected components + third-party integrations on the live site.
+
+| Category | Technology | Evidence |
+|---|---|---|
+| CMS / Components | **Adobe Experience Manager (AEM) — WCM Core Components** | cmp-* component classes, <meta name=template>: home-page-content-template, retail-content-template, article-page, page-content |
+| Front-end | **React / client-side SPA** | components addressed via data-testid; client-rendered content (rendered via headless browser) |
+| Target platform | **Adobe Edge Delivery Services (EDS)** | this analysis maps blocks/templates for EDS migration |
+| Tag management | **Adobe Launch / DTM** | assets.adobedtm.com |
+| Analytics | **Adobe Analytics** | AppMeasurement / smetrics |
+| Analytics | **Adobe Client Data Layer** | adobe-client-data-layer |
+| Analytics | **Google Analytics / GA4** | gtag/analytics.js |
+| Tag management | **Google Tag Manager** | googletagmanager.com |
+| Personalization / A-B | **Adobe Target** | target / tt.omtrdc |
+| Personalization / A-B | **Monetate** | monetate |
+| Consent / privacy | **OneTrust** | cookielaw.org / geolocation.onetrust.com |
+| Consent / privacy | **TrustArc** | trustarc/truste |
+| Monitoring (RUM) | **Adobe Helix RUM** | rum.hlx.page |
+| Media / DAM | **Adobe Scene7 / Dynamic Media** | s7viewers / scene7.com |
+| Media / video | **Vimeo embed, YouTube embed, Spotify embed** | embedded players |
+| Forms / CRM | **Pardot (form)** | form endpoints |
+| Reviews / UGC | **Bazaarvoice (ratings/reviews)** | ratings & reviews |
+| Chat / support | **Zendesk / LiveChat / Tidio** | chat widget |
+| Maps / location | **Google Maps** | store locator / maps |
+| Fonts | **Google Fonts** | web fonts |
+| Marketing pixels | **Facebook Pixel, LinkedIn Insight** | ad pixels |
+| Feedback / survey | **Medallia (feedback), Qualtrics (survey)** | VoC / heatmap |
 
 ---
 
@@ -49,7 +80,7 @@
 
 ## 3. Block Inventory
 
-37 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
+36 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
 
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
@@ -58,7 +89,6 @@
 | **Cart** | `cart (commerce)` | High | 582 | default (582) |
 | **Global Header / Nav** | `header (app nav)` | High | 582 | default (582) |
 | **Promo Banner** | `promo-banner` | Low | 581 | default (581) |
-| **Rich Content (AEM DS)** | `default content (rich text)` | Low | 343 | default (343) |
 | **Predictive Search** | `search` | High | 314 | default (314) |
 | **Social Media Links** | `social-media` | Low | 314 | default (314) |
 | **Article Card** | `cards` | Medium | 312 | hero (9); medium (312); small (11); video (7); related (301); hero-container (11) |
@@ -91,7 +121,7 @@
 | **Store Locator** | `store-locator (app)` | High | 2 | default (2) |
 | **Order Pickup / On-my-way** | `order-pickup (app)` | High | 1 | default (1) |
 
-**EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Title (318), Separator (314), Button / CTA (314), Image (309), Rich Text (42).
+**EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Rich Content (AEM DS) (343), Title (318), Separator (314), Button / CTA (314), Image (309), Rich Text (42).
 
 ---
 
@@ -106,7 +136,6 @@
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Article Card | hero, medium, small, video, related, hero-container | Medium |
@@ -157,7 +186,6 @@
 
 | Block | Variations | Complexity |
 |---|---|---|
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
@@ -186,7 +214,6 @@
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
@@ -205,7 +232,6 @@
 
 | Block | Variations | Complexity |
 |---|---|---|
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Feature Tile / Teaser | default | Low |
@@ -232,7 +258,6 @@
 |---|---|---|
 | Global Footer | default | Medium |
 | Global Header / Nav | default | High |
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Article Card | hero, medium, small, video, related, hero-container | Medium |
@@ -270,7 +295,6 @@
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Rich Content (AEM DS) | default | Low |
 | Predictive Search | default | High |
 | Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
@@ -381,13 +405,6 @@
 - **Variations:** default (581)
 
 - Rotating promotional offer links above the header.
-
-### Rich Content (AEM DS) (`default content (rich text)`)
-
-- **Pages:** 343 · **Templates:** article, category-hub, redirect-stub, retail-base-template, retail-content-template, store-detail
-- **Variations:** default (343)
-
-- Renders titles, body copy and links from the AEM DS.
 
 ### Predictive Search (`search`)
 
@@ -680,10 +697,6 @@
 ### Promo Banner
 
 - [ ] Promo links navigate to the offer/PLP.
-
-### Rich Content (AEM DS)
-
-- [ ] Rich content renders with correct hierarchy and links.
 
 ### Predictive Search
 
@@ -2027,7 +2040,6 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Accordion** | Medium | Expand/collapse panels (single or multi-open); requires toggle JS + accessible disclosure semantics. |
 | **Recommendations / Merchandising Carousels** | Medium | Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards. |
 | **Promo Banner** | Low | Sitewide promo strip above the header with rotating offer links. |
-| **Rich Content (AEM DS)** | Low | AEM Design-System rich content (aemds-title/body/link) — headings, body copy, links. Maps to EDS default content. |
 | **Social Media Links** | Low | Static row of social icon links (usually in the footer XF). |
 | **Breadcrumb** | Low | Hierarchical trail derived from page path. |
 | **Scroll to Top** | Low | Floating button appearing after scroll; returns to top. |

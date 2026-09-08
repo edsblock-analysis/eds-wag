@@ -74,7 +74,7 @@
     "cmp-header-nav": "header"
   },
   "_defaultContentDoc": "Block ids that are NOT authored EDS blocks — they are EDS default content (paragraphs, headings, images, buttons, lists, rules) produced by core decoration / autoblocking. Excluded from the block catalog and the dev estimate; reported separately as 'default content / core features'.",
-  "defaultContent": ["text", "title", "image", "button", "separator", "list", "teaser"],
+  "defaultContent": ["text", "title", "image", "button", "separator", "list", "teaser", "rich-content"],
   "_consolidateDoc": "Consolidate components that share a common DOM structure into a single EDS block whose differences become VARIATIONS. Key = block id from the catalog; value = {into: canonical block id, as: variation name}. This reduces block count to reflect real reuse: one block built, N variations authored. Only consolidate when the DOM/decoration is genuinely shared (e.g. all section heroes, all card sliders).",
   "consolidate": {
     "about-hero":            { "into": "hero", "as": "about" },

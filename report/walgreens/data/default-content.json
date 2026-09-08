@@ -1,5 +1,11 @@
 [
  {
+  "id": "rich-content",
+  "name": "Rich Content (AEM DS)",
+  "edsBlock": "default content (rich text)",
+  "pages": 343
+ },
+ {
   "id": "title",
   "name": "Title",
   "edsBlock": "default content (heading)",
