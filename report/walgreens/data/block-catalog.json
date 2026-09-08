@@ -1385,5 +1385,266 @@
   "rawKeys": [
    "spa:content:order-pickup"
   ]
+ },
+ {
+  "id": "create-account",
+  "name": "Create Account (multi-step)",
+  "edsBlock": "form (registration)",
+  "complexity": "High",
+  "complexityReason": "Multi-step registration (/register/regpersonalinfo …): name/email/password with live rules (≥10 & ≤64 chars, no name/email, no common patterns), myWalgreens link opt-in, Terms consent, US state legal notices (CA under-16, CO consumer data). Identity-service integrated. Rendered pre-auth but full flow is gated.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Create Account (multi-step)",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Collect first/last name, email, password (with live strength rules).",
+   "Optionally create/link a myWalgreens account.",
+   "Terms-of-use consent + state-specific legal notices.",
+   "Multi-step continue → account provisioning via /profile/v1/checkAccount + registration."
+  ],
+  "acceptance": [
+   "Password rules enforced inline before continue.",
+   "Required fields + Terms consent gate submission.",
+   "State notices (CA/CO) shown as applicable."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "reset-password",
+  "name": "Forgot / Reset Password (OTP/MFA)",
+  "edsBlock": "form (auth-reset)",
+  "complexity": "High",
+  "complexityReason": "Password reset with email/SMS OTP + pincode validation (/profile/v1/resetPassword, sendCode, validate/pincode). MFA + session/CSRF.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Forgot / Reset Password (OTP/MFA)",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Request reset by email/username.",
+   "Receive + enter OTP/pincode (MFA).",
+   "Set a new password with the same rules."
+  ],
+  "acceptance": [
+   "Invalid/expired code is rejected.",
+   "New password enforces the rule set."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "account-dashboard",
+  "name": "Account Dashboard",
+  "edsBlock": "account-dashboard (app)",
+  "complexity": "High",
+  "complexityReason": "Post-login landing (/youraccount/default.jsp, /mywalgreens/dashboard.jsp): orders, refills, rewards, saved items, profile shortcuts. Auth-gated; documented from bundles.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Account Dashboard",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Surfaces order status, prescription refills, rewards balance, saved items and profile links.",
+   "Entry point to all account sub-sections."
+  ],
+  "acceptance": [
+   "Dashboard shows the member's orders/refills/rewards; links resolve to each section."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "mywalgreens-rewards",
+  "name": "myWalgreens Rewards",
+  "edsBlock": "rewards (app)",
+  "complexity": "Medium",
+  "complexityReason": "Walgreens Cash rewards balance, offers and history (/balancerewards/*, myWagRewardsInfo). Loyalty-service integrated.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "myWalgreens Rewards",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Show Walgreens Cash balance + earned/available rewards.",
+   "Clip/redeem offers; view history."
+  ],
+  "acceptance": [
+   "Balance and offers reflect the member account."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "family-management",
+  "name": "Family / Caregiver Management",
+  "edsBlock": "family-mgmt (app)",
+  "complexity": "High",
+  "complexityReason": "Manage family members & caregiver access levels (/familymgmt/members/fullaccess, /selectedMember). Permissions + HIPAA-sensitive.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Family / Caregiver Management",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Add/manage family members and their access levels.",
+   "Switch selected member context for pharmacy actions."
+  ],
+  "acceptance": [
+   "Members can be added and access levels set; selection scopes subsequent actions."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "health-history",
+  "name": "Health History",
+  "edsBlock": "health-history (app)",
+  "complexity": "High",
+  "complexityReason": "Health records / history (/profiles/{id}/healthhistory, /healthhistorydetail, /userhealthhistory). HIPAA-regulated, auth + DOB gated.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Health History",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "View/enter health history (conditions, allergies, medications) per profile.",
+   "Detail view per record."
+  ],
+  "acceptance": [
+   "Records display per authenticated profile; edits persist."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "rx-settings-insurance",
+  "name": "Rx Settings / Insurance",
+  "edsBlock": "rx-settings (app)",
+  "complexity": "High",
+  "complexityReason": "Prescription preferences + insurance on file (/rx-settings, svc/insurance/status). Pharmacy-service integrated.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Rx Settings / Insurance",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "Manage insurance on file and Rx preferences (auto-refill, notifications)."
+  ],
+  "acceptance": [
+   "Insurance status shows and can be updated; preferences persist."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
+ },
+ {
+  "id": "secure-pharmacy-messaging",
+  "name": "Secure Pharmacy Messaging",
+  "edsBlock": "secure-messaging (app)",
+  "complexity": "High",
+  "complexityReason": "Patient↔pharmacy secure messages (/pharmacy/messaging/psm/psmhome.jsp). HIPAA-regulated, auth-gated.",
+  "templates": [
+   "account"
+  ],
+  "pages": 0,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Secure Pharmacy Messaging",
+    "pages": 0
+   }
+  ],
+  "functional": [
+   "View and send secure messages with the pharmacy.",
+   "Message activity/history."
+  ],
+  "acceptance": [
+   "Threads display; new messages send and appear in history."
+  ],
+  "verify": [
+   "Detailed manual verification required in a live session."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [],
+  "source": "code-inferred (authenticated / not crawl-verified)"
  }
 ]

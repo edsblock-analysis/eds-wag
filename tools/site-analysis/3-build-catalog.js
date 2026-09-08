@@ -208,6 +208,28 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
     b.variations = merged;
   });
 
+  // ---- (3) Supplemental blocks (e.g. authenticated / login-gated My Account blocks
+  // identified from code, not crawlable). Merged into the catalog, flagged as
+  // code-inferred so provenance stays clear. Only added if not already present. ----
+  const suppPath = path.join(dataDir, 'supplemental-blocks.json');
+  let supplementalAdded = 0;
+  if (require('fs').existsSync(suppPath)) {
+    const existing = new Set(catalog.map(b => b.id));
+    for (const s of L.loadJSON(suppPath)) {
+      if (!s.id || existing.has(s.id)) continue;
+      catalog.push({
+        id: s.id, name: s.name || s.id, edsBlock: s.edsBlock || s.id,
+        complexity: s.complexity || 'Medium', complexityReason: s.complexityReason || '',
+        templates: s.templates || [], pages: s.pages || 0,
+        variations: s.variations && s.variations.length ? s.variations : [{ name: 'default', desc: s.name || s.id, pages: s.pages || 0 }],
+        functional: s.functional || [], acceptance: s.acceptance || [], verify: s.verify || [],
+        integrations: s.integrations || [], needsReview: false, rawKeys: s.rawKeys || [],
+        source: s.source || 'code-inferred (authenticated / not crawl-verified)',
+      });
+      existing.add(s.id); supplementalAdded++;
+    }
+  }
+
   catalog.sort((a, b) => b.pages - a.pages);
 
   L.writeJSON(path.join(dataDir, 'block-catalog.json'), catalog);
@@ -215,6 +237,7 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
   const stubs = catalog.filter(b => b.needsReview);
   const consolidated = catalog.filter(b => (b.rawKeys || []).length > 1 && CONS && Object.values(CONS).some(r => r.into === b.id));
   console.log(`[3-build-catalog] ${catalog.length} blocks, ${catalog.reduce((n, b) => n + b.variations.length, 0)} variations (excludes ${defaultContent.length} default-content: ${defaultContent.map(d => d.id).join(', ') || 'none'})`);
+  if (supplementalAdded) console.log(`[3-build-catalog] + ${supplementalAdded} supplemental (code-inferred, authenticated) block(s) merged from supplemental-blocks.json`);
   if (consolidated.length) console.log(`[3-build-catalog] consolidated shared-DOM components into: ${consolidated.map(b => b.id + ' (' + b.variations.length + ' vars)').join(', ')}`);
   if (stubs.length) {
     console.log(`[3-build-catalog] ${stubs.length} component(s) NEED AGENT REVIEW (not in knowledge base):`);

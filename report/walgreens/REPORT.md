@@ -16,10 +16,10 @@
 |---|---|
 | Total URLs analyzed | **1183** |
 | Unique templates | **15** |
-| EDS blocks to develop | **36** |
-| Block variations | **43** |
+| EDS blocks to develop | **44** |
+| Block variations | **51** |
 | EDS default content (not blocks) | 6 |
-| High / Medium / Low complexity | 17 / 8 / 11 |
+| High / Medium / Low complexity | 24 / 9 / 11 |
 | Forms | 998 |
 | Third-party integrations | 25 |
 | Unrecognized 3rd-party hosts (review) | 28 |
@@ -82,7 +82,7 @@ Inferred from detected components + third-party integrations on the live site.
 
 ## 3. Block Inventory
 
-36 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
+44 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
 
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
@@ -122,6 +122,14 @@ Inferred from detected components + third-party integrations on the live site.
 | **Rx Transfer** | `rx-transfer (pharmacy app)` | High | 2 | default (2) |
 | **Store Locator** | `store-locator (app)` | High | 2 | default (2) |
 | **Order Pickup / On-my-way** | `order-pickup (app)` | High | 1 | default (1) |
+| **Create Account (multi-step)** | `form (registration)` | High | 0 | default (0) |
+| **Forgot / Reset Password (OTP/MFA)** | `form (auth-reset)` | High | 0 | default (0) |
+| **Account Dashboard** | `account-dashboard (app)` | High | 0 | default (0) |
+| **myWalgreens Rewards** | `rewards (app)` | Medium | 0 | default (0) |
+| **Family / Caregiver Management** | `family-mgmt (app)` | High | 0 | default (0) |
+| **Health History** | `health-history (app)` | High | 0 | default (0) |
+| **Rx Settings / Insurance** | `rx-settings (app)` | High | 0 | default (0) |
+| **Secure Pharmacy Messaging** | `secure-messaging (app)` | High | 0 | default (0) |
 
 **EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Rich Content (AEM DS) (343), Title (318), Separator (314), Button / CTA (314), Image (309), Rich Text (42).
 
@@ -206,6 +214,14 @@ Inferred from detected components + third-party integrations on the live site.
 | Social Media Links | default | Low |
 | Live Chat / Click-to-Chat | default | Medium |
 | Login / Sign-in Form | default | High |
+| Create Account (multi-step) | default | High |
+| Forgot / Reset Password (OTP/MFA) | default | High |
+| Account Dashboard | default | High |
+| myWalgreens Rewards | default | Medium |
+| Family / Caregiver Management | default | High |
+| Health History | default | High |
+| Rx Settings / Insurance | default | High |
+| Secure Pharmacy Messaging | default | High |
 
 ### Store detail (`store-detail`) — 23 pages
 
@@ -666,6 +682,72 @@ Inferred from detected components + third-party integrations on the live site.
 - Order/pickup lookup and store info display.
 - Continue/confirm pickup steps; on-my-way arrival notification.
 
+### Create Account (multi-step) (`form (registration)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Collect first/last name, email, password (with live strength rules).
+- Optionally create/link a myWalgreens account.
+- Terms-of-use consent + state-specific legal notices.
+- Multi-step continue → account provisioning via /profile/v1/checkAccount + registration.
+
+### Forgot / Reset Password (OTP/MFA) (`form (auth-reset)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Request reset by email/username.
+- Receive + enter OTP/pincode (MFA).
+- Set a new password with the same rules.
+
+### Account Dashboard (`account-dashboard (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Surfaces order status, prescription refills, rewards balance, saved items and profile links.
+- Entry point to all account sub-sections.
+
+### myWalgreens Rewards (`rewards (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Show Walgreens Cash balance + earned/available rewards.
+- Clip/redeem offers; view history.
+
+### Family / Caregiver Management (`family-mgmt (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Add/manage family members and their access levels.
+- Switch selected member context for pharmacy actions.
+
+### Health History (`health-history (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- View/enter health history (conditions, allergies, medications) per profile.
+- Detail view per record.
+
+### Rx Settings / Insurance (`rx-settings (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- Manage insurance on file and Rx preferences (auto-refill, notifications).
+
+### Secure Pharmacy Messaging (`secure-messaging (app)`)
+
+- **Pages:** 0 · **Templates:** account
+- **Variations:** default (0)
+
+- View and send secure messages with the pharmacy.
+- Message activity/history.
+
 ---
 
 ## 6. Acceptance Criteria
@@ -856,6 +938,41 @@ Inferred from detected components + third-party integrations on the live site.
 ### Order Pickup / On-my-way
 
 - [ ] Pickup flow shows store info and progresses through steps.
+
+### Create Account (multi-step)
+
+- [ ] Password rules enforced inline before continue.
+- [ ] Required fields + Terms consent gate submission.
+- [ ] State notices (CA/CO) shown as applicable.
+
+### Forgot / Reset Password (OTP/MFA)
+
+- [ ] Invalid/expired code is rejected.
+- [ ] New password enforces the rule set.
+
+### Account Dashboard
+
+- [ ] Dashboard shows the member's orders/refills/rewards; links resolve to each section.
+
+### myWalgreens Rewards
+
+- [ ] Balance and offers reflect the member account.
+
+### Family / Caregiver Management
+
+- [ ] Members can be added and access levels set; selection scopes subsequent actions.
+
+### Health History
+
+- [ ] Records display per authenticated profile; edits persist.
+
+### Rx Settings / Insurance
+
+- [ ] Insurance status shows and can be updated; preferences persist.
+
+### Secure Pharmacy Messaging
+
+- [ ] Threads display; new messages send and appear in history.
 
 ---
 
@@ -2033,6 +2150,13 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Rx Transfer** | High | Transfer a prescription to Walgreens: identify current pharmacy + medication, choose destination store, provide patient details, submit. HIPAA-sensitive, validated, pharmacy-API integrated. |
 | **Store Locator** | High | Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service. |
 | **Order Pickup / On-my-way** | High | Store-pickup / on-my-way flow: order lookup, store info, continue steps, arrival notification. Session + order-service integrated. |
+| **Create Account (multi-step)** | High | Multi-step registration (/register/regpersonalinfo …): name/email/password with live rules (≥10 & ≤64 chars, no name/email, no common patterns), myWalgreens link opt-in, Terms consent, US state legal notices (CA under-16, CO consumer data). Identity-service integrated. Rendered pre-auth but full flow is gated. |
+| **Forgot / Reset Password (OTP/MFA)** | High | Password reset with email/SMS OTP + pincode validation (/profile/v1/resetPassword, sendCode, validate/pincode). MFA + session/CSRF. |
+| **Account Dashboard** | High | Post-login landing (/youraccount/default.jsp, /mywalgreens/dashboard.jsp): orders, refills, rewards, saved items, profile shortcuts. Auth-gated; documented from bundles. |
+| **Family / Caregiver Management** | High | Manage family members & caregiver access levels (/familymgmt/members/fullaccess, /selectedMember). Permissions + HIPAA-sensitive. |
+| **Health History** | High | Health records / history (/profiles/{id}/healthhistory, /healthhistorydetail, /userhealthhistory). HIPAA-regulated, auth + DOB gated. |
+| **Rx Settings / Insurance** | High | Prescription preferences + insurance on file (/rx-settings, svc/insurance/status). Pharmacy-service integrated. |
+| **Secure Pharmacy Messaging** | High | Patient↔pharmacy secure messages (/pharmacy/messaging/psm/psmhome.jsp). HIPAA-regulated, auth-gated. |
 | **Global Footer** | Medium | Sitewide mega-footer: customer service, myWalgreens, company info, terms/privacy, product category directory, photo products, social, newsletter signup and legal/copyright. Shared across all pages. |
 | **Article Card** | Medium | Core reusable listing unit with multiple visual variations; drives listings, related content and carousels. |
 | **Content / Product Carousel** | Medium | Horizontal glider/carousel of cards (products, offers, content) with prev/next; used on home, category and content pages. |
@@ -2041,6 +2165,7 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Editor's Pick / Featured Teaser** | Medium | Teaser promoting a single curated item: media + eyebrow + title + byline. |
 | **Accordion** | Medium | Expand/collapse panels (single or multi-open); requires toggle JS + accessible disclosure semantics. |
 | **Recommendations / Merchandising Carousels** | Medium | Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards. |
+| **myWalgreens Rewards** | Medium | Walgreens Cash rewards balance, offers and history (/balancerewards/*, myWagRewardsInfo). Loyalty-service integrated. |
 | **Promo Banner** | Low | Sitewide promo strip above the header with rotating offer links. |
 | **Social Media Links** | Low | Static row of social icon links (usually in the footer XF). |
 | **Breadcrumb** | Low | Hierarchical trail derived from page path. |
