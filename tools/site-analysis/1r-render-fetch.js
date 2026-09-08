@@ -13,12 +13,20 @@ try { chromium = require('playwright').chromium; }
 catch (e) { console.error('[1r] playwright not installed. Run: cd tools/site-analysis && npm i playwright && node node_modules/playwright/cli.js install chromium'); process.exit(1); }
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+// deterministic jitter (no Math.random for reproducibility); varies by index
+const jitter = (i, base, spread) => base + ((i * 977) % spread);
+function isBlocked(status, html) {
+  if (status === 403 || status === 429) return true;
+  if (!html) return false;
+  return /Access Denied|Pardon the Interruption|unusual traffic|Reference #[0-9a-f.]+|errors\.edgesuite\.net|Request unsuccessful/i.test(html.slice(0, 4000));
+}
 
-async function renderOne(context, url) {
+async function renderOne(context, url, attempt) {
   const page = await context.newPage();
   const xhrHosts = new Set();
   page.on('request', (r) => { if (['xhr', 'fetch'].includes(r.resourceType())) { try { xhrHosts.add(new URL(r.url()).host); } catch (e) {} } });
-  let status = 0, finalUrl = url, err = null;
+  let status = 0, finalUrl = url, err = null, blocked = false;
   try {
     const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     status = resp ? resp.status() : 0;
@@ -43,9 +51,10 @@ async function renderOne(context, url) {
     var html = await page.content();
     var testids = await page.evaluate(() => document.querySelectorAll('[data-testid]').length);
     var visLen = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' ').trim().length);
+    blocked = isBlocked(status, html);
   } catch (e) { err = e.message.slice(0, 120); }
   await page.close().catch(() => {});
-  return { status, finalUrl, err, html: (typeof html === 'string' ? html : ''), testids: testids || 0, visLen: visLen || 0, xhrHosts: [...xhrHosts] };
+  return { status, finalUrl, err, blocked, attempt, html: (typeof html === 'string' ? html : ''), testids: testids || 0, visLen: visLen || 0, xhrHosts: [...xhrHosts] };
 }
 
 (async () => {
@@ -58,37 +67,59 @@ async function renderOne(context, url) {
   fs.mkdirSync(htmlDir, { recursive: true });
   fs.mkdirSync(dataDir, { recursive: true });
   const force = process.argv.includes('--force');
-  const conc = Math.min(args.concurrency || 5, 6);
-  console.error(`[1r] rendering ${urls.length} LIVE URLs (headless Chromium, concurrency ${conc}) -> ${args.out}`);
+  // Gentle defaults to avoid tripping bot protection: low concurrency + per-request delay.
+  const conc = Math.min(args.concurrency || 3, 6);
+  const argN = (flag, def) => process.argv.includes(flag) ? parseInt(process.argv[process.argv.indexOf(flag) + 1], 10) : def;
+  const delayMs = argN('--delay', 300);       // small pause between requests per worker
+  const maxRetries = argN('--retries', 3);    // retries on blocked/403
+  const cooldownMs = argN('--cooldown', 90000); // fixed cooldown on a block (~1.5 min), capped at 2 min
+  console.error(`[1r] rendering ${urls.length} LIVE URLs (concurrency ${conc}, delay ${delayMs}ms, cooldown ${Math.round(cooldownMs / 1000)}s, retries ${maxRetries}) -> ${args.out}`);
 
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox', '--disable-dev-shm-usage'] });
-  const context = await browser.newContext({ userAgent: UA, viewport: { width: 1366, height: 900 }, locale: 'en-US' });
+  let context = await browser.newContext({ userAgent: UA, viewport: { width: 1366, height: 900 }, locale: 'en-US' });
   context.setDefaultTimeout(45000);
 
   const meta = [];
-  let done = 0, idx = 0;
-  async function worker() {
+  let done = 0, idx = 0, blockedCount = 0;
+  async function worker(wid) {
     while (idx < urls.length) {
       const my = idx++; const url = urls[my];
       const htmlPath = path.join(htmlDir, L.slugForUrl(url) + '.html');
       if (!force && fs.existsSync(htmlPath) && fs.statSync(htmlPath).size > 2000 && fs.readFileSync(htmlPath, 'utf8').includes('data-render="pw"')) {
         meta[my] = { url, cached: true }; done++; continue;
       }
-      const r = await renderOne(context, url);
-      if (r.status && r.html && r.html.length > 500) {
-        // tag rendered files so we can distinguish from raw cache
+      // Skip pure API/asset endpoints (health-check APIs, JS/JSON): they are not pages and
+      // always block/empty — rendering them just burns cooldown time.
+      if (/\/v[0-9]+\/health(\?|$)|\.(js|json|css|xml|txt|map)(\?|$)|\/api\//i.test(url)) {
+        meta[my] = { url, status: 0, err: 'api/asset endpoint (skipped)', skipped: true }; done++; continue;
+      }
+      // gentle pacing with per-worker jitter
+      await sleep(jitter(my, delayMs, 700));
+      let r = await renderOne(context, url, 1);
+      // retry blocked/403 after a short fixed cooldown (default ~90s, capped) — no long escalation
+      let attempt = 1;
+      while (r.blocked && attempt < maxRetries) {
+        attempt++;
+        const cooldown = Math.min(cooldownMs + jitter(my, 0, 15000), 120000);
+        process.stderr.write(`  [retry ${attempt}] blocked, cooling down ${Math.round(cooldown / 1000)}s: ${url.replace(/^https?:\/\/[^/]+/, '')}\n`);
+        await sleep(cooldown);
+        r = await renderOne(context, url, attempt);
+      }
+      if (r.blocked) blockedCount++;
+      if (r.status && r.html && r.html.length > 500 && !r.blocked) {
         const tagged = r.html.replace(/<html/i, '<html data-render="pw"');
         fs.writeFileSync(htmlPath, tagged);
       }
-      meta[my] = { url, status: r.status, finalUrl: r.finalUrl, err: r.err, testids: r.testids, visLen: r.visLen, xhrHosts: r.xhrHosts };
+      meta[my] = { url, status: r.status, finalUrl: r.finalUrl, err: r.err, blocked: r.blocked, attempts: r.attempt, testids: r.testids, visLen: r.visLen, xhrHosts: r.xhrHosts };
       done++;
-      if (done % 25 === 0) process.stderr.write(`  ...${done}/${urls.length}\n`);
+      if (done % 25 === 0) { process.stderr.write(`  ...${done}/${urls.length} (blocked so far: ${blockedCount})\n`); L.writeJSON(path.join(dataDir, 'render-meta.json'), meta); }
     }
   }
-  await Promise.all(Array.from({ length: conc }, worker));
+  await Promise.all(Array.from({ length: conc }, (_, i) => worker(i)));
   await browser.close();
   L.writeJSON(path.join(dataDir, 'render-meta.json'), meta);
-  const ok = meta.filter(m => m && (m.cached || m.status === 200)).length;
+  const ok = meta.filter(m => m && (m.cached || (m.status === 200 && !m.blocked))).length;
   const avgTestids = Math.round(meta.filter(m => m && m.testids).reduce((n, m) => n + m.testids, 0) / Math.max(1, meta.filter(m => m && m.testids).length));
-  console.log(`[1r] rendered ${meta.length} URLs; 200/cached: ${ok}; avg testids/page: ${avgTestids}`);
+  console.log(`[1r] rendered ${meta.length} URLs; ok: ${ok}; blocked: ${blockedCount}; avg testids/page: ${avgTestids}`);
+  if (blockedCount) console.log('[1r] NOTE: ' + blockedCount + ' URLs blocked after retries — re-run to retry just those (cached ones are skipped).');
 })();

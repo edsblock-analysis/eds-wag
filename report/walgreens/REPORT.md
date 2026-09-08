@@ -1,10 +1,10 @@
 # www.walgreens.com — EDS Migration Functional Analysis
 
 **Source site:** https://www.walgreens.com
-**Analysis date:** 2026-09-06
-**Method:** Every one of the 854 URLs was fetched (HTTP 200: 836) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
+**Analysis date:** 2026-09-08
+**Method:** Every one of the 1181 URLs was fetched (HTTP 200: 1143) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
 
-> 0 URLs are content mirror/duplicate paths; 1 are non-English (es) variants — same templates/blocks, content only.
+> 1 URLs are content mirror/duplicate paths; 2 are non-English (es) variants — same templates/blocks, content only.
 
 ---
 
@@ -12,15 +12,15 @@
 
 | Metric | Value |
 |---|---|
-| Total URLs analyzed | **854** |
-| Unique templates | **12** |
-| EDS blocks to develop | **28** |
-| Block variations | **28** |
-| EDS default content (not blocks) | 4 |
-| High / Medium / Low complexity | 15 / 7 / 6 |
-| Forms | 862 |
+| Total URLs analyzed | **1181** |
+| Unique templates | **15** |
+| EDS blocks to develop | **37** |
+| Block variations | **43** |
+| EDS default content (not blocks) | 5 |
+| High / Medium / Low complexity | 17 / 8 / 12 |
+| Forms | 993 |
 | Third-party integrations | 24 |
-| Unrecognized 3rd-party hosts (review) | 28 |
+| Unrecognized 3rd-party hosts (review) | 26 |
 | Blocks needing agent review | 0 |
 
 ---
@@ -29,144 +29,151 @@
 
 | # | Template | Pages |
 |---|---|---|
-| 1 | **Store locator** (`store-locator`) | 440 |
-| 2 | **Article** (`article`) | 211 |
-| 3 | **Find care** (`find-care`) | 58 |
-| 4 | **Redirect / External Stub** (`redirect-stub`) | 35 |
-| 5 | **Store detail** (`store-detail`) | 31 |
-| 6 | **Account** (`account`) | 27 |
-| 7 | **Retail base template** (`retail-base-template`) | 22 |
-| 8 | **Plp** (`plp`) | 11 |
-| 9 | **Home page content template** (`home-page-content-template`) | 10 |
-| 10 | **Retail content template** (`retail-content-template`) | 5 |
-| 11 | **Rx checkout** (`rx-checkout`) | 3 |
-| 12 | **Cart** (`cart`) | 1 |
+| 1 | **Article** (`article`) | 751 |
+| 2 | **Content page** (`content-page`) | 129 |
+| 3 | **Find care** (`find-care`) | 94 |
+| 4 | **Redirect / External Stub** (`redirect-stub`) | 71 |
+| 5 | **Account** (`account`) | 46 |
+| 6 | **Retail base template** (`retail-base-template`) | 22 |
+| 7 | **Store detail** (`store-detail`) | 21 |
+| 8 | **Home page content template** (`home-page-content-template`) | 15 |
+| 9 | **Category Hub** (`category-hub`) | 11 |
+| 10 | **Rx checkout** (`rx-checkout`) | 7 |
+| 11 | **Retail content template** (`retail-content-template`) | 6 |
+| 12 | **Store locator** (`store-locator`) | 3 |
+| 13 | **Pdp** (`pdp`) | 3 |
+| 14 | **Cart** (`cart`) | 1 |
+| 15 | **Plp** (`plp`) | 1 |
 
 ---
 
 ## 3. Block Inventory
 
-28 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
+37 blocks to develop. Components that share a common DOM/decoration are consolidated into a single block whose differences are **variations** (one block built, N variations authored).
 
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
-| **Account / Authentication** | `account-auth (app)` | High | 794 | default (794) |
-| **Cart** | `cart (commerce)` | High | 787 | default (787) |
-| **Global Header / Nav** | `header (app nav)` | High | 787 | default (787) |
-| **Promo Banner** | `promo-banner` | Low | 787 | default (787) |
-| **Global Footer** | `footer` | Medium | 780 | default (780) |
-| **Store Locator** | `store-locator (app)` | High | 449 | default (449) |
-| **Content / Product Carousel** | `carousel` | Medium | 57 | default (57) |
-| **Hero Banner** | `hero` | Medium | 36 | default (36) |
-| **Health/Wellness Article** | `article (default content)` | Low | 36 | default (36) |
-| **Rich Content (AEM DS)** | `default content (rich text)` | Low | 27 | default (27) |
-| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 26 | default (26) |
-| **Product Filters / Facets** | `product-filters (commerce)` | High | 25 | default (25) |
-| **Product Listing (PLP)** | `product-list-page (commerce)` | High | 23 | default (23) |
-| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 18 | default (18) |
-| **Quick Links / Category Shortcuts** | `quick-links` | Low | 10 | default (10) |
-| **Store Detail** | `store-detail (app)` | High | 10 | default (10) |
-| **Live Chat / Click-to-Chat** | `live-chat (embed)` | Medium | 9 | default (9) |
-| **Login / Sign-in Form** | `form (auth)` | High | 7 | default (7) |
-| **Feature Tile / Teaser** | `teaser` | Low | 5 | default (5) |
-| **Editor's Pick / Featured Teaser** | `editors-pick (teaser)` | Medium | 4 | default (4) |
-| **Video / Media Embed** | `embed (video)` | High | 3 | default (3) |
+| **Global Footer** | `footer` | Medium | 831 | default (831) |
+| **Account / Authentication** | `account-auth (app)` | High | 627 | default (627) |
+| **Cart** | `cart (commerce)` | High | 580 | default (580) |
+| **Global Header / Nav** | `header (app nav)` | High | 580 | default (580) |
+| **Promo Banner** | `promo-banner` | Low | 579 | default (579) |
+| **Rich Content (AEM DS)** | `default content (rich text)` | Low | 343 | default (343) |
+| **Predictive Search** | `search` | High | 314 | default (314) |
+| **Social Media Links** | `social-media` | Low | 314 | default (314) |
+| **Article Card** | `cards` | Medium | 312 | hero (9); medium (312); small (11); video (7); related (301); hero-container (11) |
+| **Breadcrumb** | `breadcrumb` | Low | 303 | default (303) |
+| **Scroll to Top** | `scroll-to-top` | Low | 299 | default (299) |
+| **Health/Wellness Article** | `article (default content)` | Low | 125 | default (125) |
+| **Content / Product Carousel** | `carousel` | Medium | 82 | default (82) |
+| **Live Chat / Click-to-Chat** | `live-chat (embed)` | Medium | 56 | default (56) |
+| **Login / Sign-in Form** | `form (auth)` | High | 47 | default (47) |
+| **Hero Banner** | `hero` | Medium | 43 | default (43) |
+| **Quick Links / Category Shortcuts** | `quick-links` | Low | 22 | default (22) |
+| **Article Listing + Pagination** | `article-list (paginate)` | High | 11 | inactive-page (11); active-page (11) |
+| **Explore (category tiles)** | `explore` | Low | 11 | default (11) |
+| **Carousel** | `carousel` | High | 11 | content (11) |
+| **Promo Blocks** | `promo-blocks` | Low | 10 | default (10) |
+| **Product Filters / Facets** | `product-filters (commerce)` | High | 9 | default (9) |
+| **Product Listing (PLP)** | `product-list-page (commerce)` | High | 7 | default (7) |
+| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 7 | default (7) |
+| **Background Container** | `section-metadata (background)` | Low | 7 | navy-blue (7) |
+| **Watch Videos (gallery)** | `watch-videos` | High | 7 | default (7) |
+| **Feature Tile / Teaser** | `teaser` | Low | 7 | default (7) |
+| **Article / Content Body** | `default content (rich text + media)` | Low | 6 | default (6) |
+| **Editor's Pick / Featured Teaser** | `editors-pick (teaser)` | Medium | 6 | default (6) |
+| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 4 | default (4) |
+| **Video / Media Embed** | `embed (video)` | High | 4 | default (4) |
+| **Accordion** | `accordion` | Medium | 4 | default (4) |
 | **Rx Refill (guest/express)** | `rx-refill (pharmacy app)` | High | 3 | default (3) |
-| **Article / Content Body** | `default content (rich text + media)` | Low | 2 | default (2) |
-| **Rx Transfer** | `rx-transfer (pharmacy app)` | High | 2 | default (2) |
-| **Accordion** | `accordion` | Medium | 2 | default (2) |
 | **Recommendations / Merchandising Carousels** | `product-carousel (commerce)` | Medium | 2 | default (2) |
+| **Rx Transfer** | `rx-transfer (pharmacy app)` | High | 2 | default (2) |
+| **Store Locator** | `store-locator (app)` | High | 2 | default (2) |
 | **Order Pickup / On-my-way** | `order-pickup (app)` | High | 1 | default (1) |
-| **Add-to-Cart Confirmation / Mini-cart** | `cart-confirmation (commerce)` | High | 1 | default (1) |
 
-**EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Rich Text (36), Separator (12), Image (4), Title (2).
+**EDS default content (not counted as blocks)** — rendered by core decoration / autoblocking, not authored as blocks: Title (318), Separator (314), Button / CTA (314), Image (309), Rich Text (42).
 
 ---
 
 ## 4. Template → Block → Variation
 
-### Store locator (`store-locator`) — 440 pages
+### Article (`article`) — 751 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Global Footer | default | Medium |
-| Store Locator | default | High |
-
-### Article (`article`) — 211 pages
-
-| Block | Variations | Complexity |
-|---|---|---|
-| Account / Authentication | default | High |
-| Cart | default | High |
-| Global Header / Nav | default | High |
-| Promo Banner | default | Low |
-| Global Footer | default | Medium |
-| Content / Product Carousel | default | Medium |
-| Hero Banner | default | Medium |
-| Health/Wellness Article | default | Low |
 | Rich Content (AEM DS) | default | Low |
-| Quick Links / Category Shortcuts | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Article Card | hero, medium, small, video, related, hero-container | Medium |
+| Breadcrumb | default | Low |
+| Scroll to Top | default | Low |
+| Health/Wellness Article | default | Low |
+| Content / Product Carousel | default | Medium |
 | Live Chat / Click-to-Chat | default | Medium |
 | Login / Sign-in Form | default | High |
+| Hero Banner | default | Medium |
+| Quick Links / Category Shortcuts | default | Low |
 | Feature Tile / Teaser | default | Low |
 | Article / Content Body | default | Low |
+| Recommendations / Merchandising Carousels | default | Medium |
 | Rx Transfer | default | High |
 | Order Pickup / On-my-way | default | High |
 
-### Find care (`find-care`) — 58 pages
+### Content page (`content-page`) — 129 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+
+### Find care (`find-care`) — 94 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Global Footer | default | Medium |
-| Content / Product Carousel | default | Medium |
-| Hero Banner | default | Medium |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Health/Wellness Article | default | Low |
-
-### Redirect / External Stub (`redirect-stub`) — 35 pages
-
-| Block | Variations | Complexity |
-|---|---|---|
 | Content / Product Carousel | default | Medium |
+| Live Chat / Click-to-Chat | default | Medium |
+| Login / Sign-in Form | default | High |
 | Hero Banner | default | Medium |
-| Rich Content (AEM DS) | default | Low |
-
-### Store detail (`store-detail`) — 31 pages
-
-| Block | Variations | Complexity |
-|---|---|---|
-| Account / Authentication | default | High |
-| Cart | default | High |
-| Global Header / Nav | default | High |
-| Promo Banner | default | Low |
-| Global Footer | default | Medium |
-| Store Locator | default | High |
-| Content / Product Carousel | default | Medium |
-| Hero Banner | default | Medium |
-| Product Detail (PDP) | default | High |
 | Product Filters / Facets | default | High |
 | Product Listing (PLP) | default | High |
+| Product Detail (PDP) | default | High |
+| Article / Content Body | default | Low |
 | Fulfillment & Add-to-Cart | default | High |
-| Store Detail | default | High |
-| Recommendations / Merchandising Carousels | default | Medium |
-| Add-to-Cart Confirmation / Mini-cart | default | High |
 
-### Account (`account`) — 27 pages
+### Redirect / External Stub (`redirect-stub`) — 71 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Content / Product Carousel | default | Medium |
+| Hero Banner | default | Medium |
+
+### Account (`account`) — 46 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Global Footer | default | Medium |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Live Chat / Click-to-Chat | default | Medium |
 | Login / Sign-in Form | default | High |
 
@@ -175,80 +182,170 @@
 | Block | Variations | Complexity |
 |---|---|---|
 | Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Feature Tile / Teaser | default | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 
-### Plp (`plp`) — 11 pages
+### Store detail (`store-detail`) — 21 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Global Footer | default | Medium |
+| Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
-| Product Detail (PDP) | default | High |
+| Hero Banner | default | Medium |
+| Quick Links / Category Shortcuts | default | Low |
 | Product Filters / Facets | default | High |
 | Product Listing (PLP) | default | High |
-| Fulfillment & Add-to-Cart | default | High |
+| Product Detail (PDP) | default | High |
+| Feature Tile / Teaser | default | Low |
+| Editor's Pick / Featured Teaser | default | Medium |
+| Accordion | default | Medium |
 
-### Home page content template (`home-page-content-template`) — 10 pages
+### Home page content template (`home-page-content-template`) — 15 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
-| Global Footer | default | Medium |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
 | Hero Banner | default | Medium |
 | Quick Links / Category Shortcuts | default | Low |
 
-### Retail content template (`retail-content-template`) — 5 pages
+### Category Hub (`category-hub`) — 11 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Global Footer | default | Medium |
+| Global Header / Nav | default | High |
+| Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Article Card | hero, medium, small, video, related, hero-container | Medium |
+| Content / Product Carousel | default | Medium |
+| Article Listing + Pagination | inactive-page, active-page | High |
+| Explore (category tiles) | default | Low |
+| Carousel | content | High |
+| Promo Blocks | default | Low |
+| Background Container | navy-blue | Low |
+| Watch Videos (gallery) | default | High |
+
+### Rx checkout (`rx-checkout`) — 7 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Live Chat / Click-to-Chat | default | Medium |
+| Login / Sign-in Form | default | High |
+| Quick Links / Category Shortcuts | default | Low |
+| Rx Refill (guest/express) | default | High |
+| Rx Transfer | default | High |
+
+### Retail content template (`retail-content-template`) — 6 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
 | Global Footer | default | Medium |
-| Content / Product Carousel | default | Medium |
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
 | Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Content / Product Carousel | default | Medium |
 | Feature Tile / Teaser | default | Low |
 | Editor's Pick / Featured Teaser | default | Medium |
 | Video / Media Embed | default | High |
 | Accordion | default | Medium |
 
-### Rx checkout (`rx-checkout`) — 3 pages
+### Store locator (`store-locator`) — 3 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Global Footer | default | Medium |
 | Account / Authentication | default | High |
 | Cart | default | High |
 | Global Header / Nav | default | High |
 | Promo Banner | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Store Locator | default | High |
+
+### Pdp (`pdp`) — 3 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
 | Global Footer | default | Medium |
-| Rx Refill (guest/express) | default | High |
-| Rx Transfer | default | High |
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Content / Product Carousel | default | Medium |
+| Product Filters / Facets | default | High |
+| Product Listing (PLP) | default | High |
+| Product Detail (PDP) | default | High |
+| Fulfillment & Add-to-Cart | default | High |
 
 ### Cart (`cart`) — 1 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 | Hero Banner | default | Medium |
 | Quick Links / Category Shortcuts | default | Low |
+
+### Plp (`plp`) — 1 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
+| Global Footer | default | Medium |
+| Account / Authentication | default | High |
+| Cart | default | High |
+| Global Header / Nav | default | High |
+| Promo Banner | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
 
 ---
 
 ## 5. Functional Requirements
 
+### Global Footer (`footer`)
+
+- **Pages:** 831 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (831)
+
+- Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.
+- Product category directory ('View all products by') + photo products.
+- Newsletter/deals signup, social links, copyright and legal (privacy/CCPA/Washington health).
+- 'Your Privacy Choices' CCPA opt-out.
+
 ### Account / Authentication (`account-auth (app)`)
 
-- **Pages:** 794 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (794)
+- **Pages:** 627 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (627)
 
 - Sign in (email/password) and create-account.
 - Password reset and guest order-lookup (order number, last name, phone).
@@ -257,8 +354,8 @@
 
 ### Cart (`cart (commerce)`)
 
-- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (787)
+- **Pages:** 580 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (580)
 
 - Line items with image, title, price, quantity controls.
 - Fulfillment per item; price/summary totals.
@@ -267,8 +364,8 @@
 
 ### Global Header / Nav (`header (app nav)`)
 
-- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (787)
+- **Pages:** 580 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (580)
 
 - Mega-menu navigation across departments/categories.
 - Store & pickup-location selector reflecting the chosen store.
@@ -278,78 +375,141 @@
 
 ### Promo Banner (`promo-banner`)
 
-- **Pages:** 787 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (787)
+- **Pages:** 579 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (579)
 
 - Rotating promotional offer links above the header.
 
-### Global Footer (`footer`)
+### Rich Content (AEM DS) (`default content (rich text)`)
 
-- **Pages:** 780 · **Templates:** account, article, find-care, home-page-content-template, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (780)
+- **Pages:** 343 · **Templates:** article, category-hub, redirect-stub, retail-base-template, retail-content-template, store-detail
+- **Variations:** default (343)
 
-- Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.
-- Product category directory ('View all products by') + photo products.
-- Newsletter/deals signup, social links, copyright and legal (privacy/CCPA/Washington health).
-- 'Your Privacy Choices' CCPA opt-out.
+- Renders titles, body copy and links from the AEM DS.
 
-### Store Locator (`store-locator (app)`)
+### Predictive Search (`search`)
 
-- **Pages:** 449 · **Templates:** store-detail, store-locator
-- **Variations:** default (449)
+- **Pages:** 314 · **Templates:** all
+- **Variations:** default (314)
 
-- Accepts a location (geolocate or entered) and lists nearby stores.
-- Each store card shows address, service hours, services, distance and open/closed status; links to store detail and map.
-- Filters (24-hour, pharmacy, drive-thru, clinic, etc.) refine results.
-- 'Browse stores by state' provides an SEO directory path.
-- Save/preferred-store action.
+- Search field (role=search).
+- Minimum query length gates the request (check data-cmp-min-length).
+- Returns a capped number of results (check data-cmp-results-size).
+- AJAX request to a search endpoint returning JSON results.
+- Loading indicator + clear button.
+- Each result links to a page.
 
-### Content / Product Carousel (`carousel`)
+### Social Media Links (`social-media`)
 
-- **Pages:** 57 · **Templates:** article, find-care, home-page-content-template, plp, redirect-stub, retail-content-template, store-detail
-- **Variations:** default (57)
+- **Pages:** 314 · **Templates:** all
+- **Variations:** default (314)
 
-- Horizontal carousel of cards with prev/next controls.
-- Each card links to a PDP/PLP/content page.
+- Row of social icon links opening brand profiles.
 
-### Hero Banner (`hero`)
+### Article Card (`cards`)
 
-- **Pages:** 36 · **Templates:** article, cart, find-care, home-page-content-template, redirect-stub, store-detail
-- **Variations:** default (36)
+- **Pages:** 312 · **Templates:** article, category-hub
+- **Variations:** hero (9); medium (312); small (11); video (7); related (301); hero-container (11)
 
-- Background media + headline + CTA(s); may auto-rotate.
+- Card is clickable to its target.
+- Shows image, category eyebrow, title, meta (read-time/byline/date) per variation.
+- Video variation overlays play icon + duration.
+
+### Breadcrumb (`breadcrumb`)
+
+- **Pages:** 303 · **Templates:** article
+- **Variations:** default (303)
+
+- Shows Home > ... > current; ancestors are links.
+
+### Scroll to Top (`scroll-to-top`)
+
+- **Pages:** 299 · **Templates:** article
+- **Variations:** default (299)
+
+- Button appears after scrolling; clicking smooth-scrolls to top.
 
 ### Health/Wellness Article (`article (default content)`)
 
-- **Pages:** 36 · **Templates:** article, find-care
-- **Variations:** default (36)
+- **Pages:** 125 · **Templates:** article, find-care
+- **Variations:** default (125)
 
 - Renders article title (H1), section headings, paragraphs, lists and images.
 - Inline links to related conditions/products.
 - Sits under a health category (breadcrumb/category context).
 
-### Rich Content (AEM DS) (`default content (rich text)`)
+### Content / Product Carousel (`carousel`)
 
-- **Pages:** 27 · **Templates:** article, redirect-stub, retail-base-template, retail-content-template
-- **Variations:** default (27)
+- **Pages:** 82 · **Templates:** article, category-hub, find-care, home-page-content-template, pdp, redirect-stub, retail-content-template, store-detail
+- **Variations:** default (82)
 
-- Renders titles, body copy and links from the AEM DS.
+- Horizontal carousel of cards with prev/next controls.
+- Each card links to a PDP/PLP/content page.
 
-### Product Detail (PDP) (`product-detail-page (commerce)`)
+### Live Chat / Click-to-Chat (`live-chat (embed)`)
 
-- **Pages:** 26 · **Templates:** plp, store-detail
-- **Variations:** default (26)
+- **Pages:** 56 · **Templates:** account, article, find-care, rx-checkout
+- **Variations:** default (56)
 
-- Product gallery + title + brand + price + rating.
-- Variant selection (color/size/undertone) updates price/availability.
-- Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.
-- FSA-eligibility labelling; check-other-store availability.
-- Reviews.
+- Fixed chat button launches a support chat widget.
+
+### Login / Sign-in Form (`form (auth)`)
+
+- **Pages:** 47 · **Templates:** account, article, find-care, rx-checkout
+- **Variations:** default (47)
+
+- Email + password fields with validation.
+- Remember-me, forgot-password, create-account links.
+- Submit authenticates against the identity service.
+
+### Hero Banner (`hero`)
+
+- **Pages:** 43 · **Templates:** article, cart, find-care, home-page-content-template, redirect-stub, store-detail
+- **Variations:** default (43)
+
+- Background media + headline + CTA(s); may auto-rotate.
+
+### Quick Links / Category Shortcuts (`quick-links`)
+
+- **Pages:** 22 · **Templates:** article, cart, home-page-content-template, rx-checkout, store-detail
+- **Variations:** default (22)
+
+- Row/grid of icon + label shortcut cards linking to categories/services.
+
+### Article Listing + Pagination (`article-list (paginate)`)
+
+- **Pages:** 11 · **Templates:** category-hub
+- **Variations:** inactive-page (11); active-page (11)
+
+- Renders the category grid in pages.
+- Numbered page buttons; Previous disabled on page 1, Next on last page.
+- Jump-to-page control.
+- Verify whether pagination is client-side (no reload) or server-side.
+
+### Explore (category tiles) (`explore`)
+
+- **Pages:** 11 · **Templates:** category-hub
+- **Variations:** default (11)
+
+- Grid of category tiles; may show a live article count per tile.
+
+### Carousel (`carousel`)
+
+- **Pages:** 11 · **Templates:** category-hub
+- **Variations:** content (11)
+
+
+### Promo Blocks (`promo-blocks`)
+
+- **Pages:** 10 · **Templates:** category-hub
+- **Variations:** default (10)
+
+- Promotional tiles (image + title) linking to featured content.
 
 ### Product Filters / Facets (`product-filters (commerce)`)
 
-- **Pages:** 25 · **Templates:** plp, store-detail
-- **Variations:** default (25)
+- **Pages:** 9 · **Templates:** find-care, pdp, store-detail
+- **Variations:** default (9)
 
 - Facet groups (brand, price, color, undertone, fulfillment).
 - Price min/max with Apply.
@@ -357,8 +517,8 @@
 
 ### Product Listing (PLP) (`product-list-page (commerce)`)
 
-- **Pages:** 23 · **Templates:** plp, store-detail
-- **Variations:** default (23)
+- **Pages:** 7 · **Templates:** find-care, pdp, store-detail
+- **Variations:** default (7)
 
 - Grid of product cards (image, title, brand, price, rating, promotion/tag).
 - Sort dropdown and result/item count.
@@ -366,10 +526,56 @@
 - Load-more / paginated navigation.
 - Each card links to its PDP; add-to-cart / add-to-fulfillment where applicable.
 
+### Product Detail (PDP) (`product-detail-page (commerce)`)
+
+- **Pages:** 7 · **Templates:** find-care, pdp, store-detail
+- **Variations:** default (7)
+
+- Product gallery + title + brand + price + rating.
+- Variant selection (color/size/undertone) updates price/availability.
+- Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.
+- FSA-eligibility labelling; check-other-store availability.
+- Reviews.
+
+### Background Container (`section-metadata (background)`)
+
+- **Pages:** 7 · **Templates:** category-hub
+- **Variations:** navy-blue (7)
+
+- Wraps a section to apply a themed background.
+
+### Watch Videos (gallery) (`watch-videos`)
+
+- **Pages:** 7 · **Templates:** category-hub
+- **Variations:** default (7)
+
+- Gallery of video cards; selecting one plays the video.
+
+### Feature Tile / Teaser (`teaser`)
+
+- **Pages:** 7 · **Templates:** article, retail-base-template, retail-content-template, store-detail
+- **Variations:** default (7)
+
+- Media + heading + copy + CTA promoting a page/offer.
+
+### Article / Content Body (`default content (rich text + media)`)
+
+- **Pages:** 6 · **Templates:** article, find-care
+- **Variations:** default (6)
+
+- Renders page title, section headings, body copy, lists, images and inline links.
+
+### Editor's Pick / Featured Teaser (`editors-pick (teaser)`)
+
+- **Pages:** 6 · **Templates:** retail-base-template, retail-content-template, store-detail
+- **Variations:** default (6)
+
+- Promotes curated item(s) with media, eyebrow, title, byline and link.
+
 ### Fulfillment & Add-to-Cart (`product-fulfillment (commerce)`)
 
-- **Pages:** 18 · **Templates:** plp, store-detail
-- **Variations:** default (18)
+- **Pages:** 4 · **Templates:** find-care, pdp
+- **Variations:** default (4)
 
 - Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.
 - Quantity dropdown.
@@ -377,61 +583,21 @@
 - Check other stores for availability.
 - Pickup address/details reflect the selected store.
 
-### Quick Links / Category Shortcuts (`quick-links`)
-
-- **Pages:** 10 · **Templates:** article, cart, home-page-content-template
-- **Variations:** default (10)
-
-- Row/grid of icon + label shortcut cards linking to categories/services.
-
-### Store Detail (`store-detail (app)`)
-
-- **Pages:** 10 · **Templates:** store-detail
-- **Variations:** default (10)
-
-- Shows the store's address, phone and per-service hours + open/closed status.
-- Save as preferred store (star).
-- Service links: schedule vaccine (COVID/flu/pneumonia), photo (cards/prints/same-day), FedEx returns, propane exchange, beauty consultation.
-- 'See all' overlays for photo and services.
-- In-store product search box.
-
-### Live Chat / Click-to-Chat (`live-chat (embed)`)
-
-- **Pages:** 9 · **Templates:** account, article
-- **Variations:** default (9)
-
-- Fixed chat button launches a support chat widget.
-
-### Login / Sign-in Form (`form (auth)`)
-
-- **Pages:** 7 · **Templates:** account, article
-- **Variations:** default (7)
-
-- Email + password fields with validation.
-- Remember-me, forgot-password, create-account links.
-- Submit authenticates against the identity service.
-
-### Feature Tile / Teaser (`teaser`)
-
-- **Pages:** 5 · **Templates:** article, retail-base-template, retail-content-template
-- **Variations:** default (5)
-
-- Media + heading + copy + CTA promoting a page/offer.
-
-### Editor's Pick / Featured Teaser (`editors-pick (teaser)`)
-
-- **Pages:** 4 · **Templates:** retail-base-template, retail-content-template
-- **Variations:** default (4)
-
-- Promotes curated item(s) with media, eyebrow, title, byline and link.
-
 ### Video / Media Embed (`embed (video)`)
 
-- **Pages:** 3 · **Templates:** retail-content-template
-- **Variations:** default (3)
+- **Pages:** 4 · **Templates:** retail-content-template
+- **Variations:** default (4)
 
 - Embeds a video/podcast player from the detected provider.
 - May add a related products/links block and a transcript section.
+
+### Accordion (`accordion`)
+
+- **Pages:** 4 · **Templates:** retail-content-template, store-detail
+- **Variations:** default (4)
+
+- A list of headers that expand/collapse their panels on click.
+- May allow single or multiple open panels.
 
 ### Rx Refill (guest/express) (`rx-refill (pharmacy app)`)
 
@@ -443,12 +609,14 @@
 - Provide guest contact details; validation on all fields.
 - Submit refill to the pharmacy system with confirmation.
 
-### Article / Content Body (`default content (rich text + media)`)
+### Recommendations / Merchandising Carousels (`product-carousel (commerce)`)
 
 - **Pages:** 2 · **Templates:** article
 - **Variations:** default (2)
 
-- Renders page title, section headings, body copy, lists, images and inline links.
+- Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).
+- Category/brand shortcut sections.
+- Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon.
 
 ### Rx Transfer (`rx-transfer (pharmacy app)`)
 
@@ -460,22 +628,16 @@
 - Provide patient details with validation.
 - Submit transfer request with confirmation.
 
-### Accordion (`accordion`)
+### Store Locator (`store-locator (app)`)
 
-- **Pages:** 2 · **Templates:** retail-content-template
+- **Pages:** 2 · **Templates:** store-locator
 - **Variations:** default (2)
 
-- A list of headers that expand/collapse their panels on click.
-- May allow single or multiple open panels.
-
-### Recommendations / Merchandising Carousels (`product-carousel (commerce)`)
-
-- **Pages:** 2 · **Templates:** store-detail
-- **Variations:** default (2)
-
-- Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).
-- Category/brand shortcut sections.
-- Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon.
+- Accepts a location (geolocate or entered) and lists nearby stores.
+- Each store card shows address, service hours, services, distance and open/closed status; links to store detail and map.
+- Filters (24-hour, pharmacy, drive-thru, clinic, etc.) refine results.
+- 'Browse stores by state' provides an SEO directory path.
+- Save/preferred-store action.
 
 ### Order Pickup / On-my-way (`order-pickup (app)`)
 
@@ -485,19 +647,15 @@
 - Order/pickup lookup and store info display.
 - Continue/confirm pickup steps; on-my-way arrival notification.
 
-### Add-to-Cart Confirmation / Mini-cart (`cart-confirmation (commerce)`)
-
-- **Pages:** 1 · **Templates:** store-detail
-- **Variations:** default (1)
-
-- After add-to-cart, an overlay confirms the item + quantity added.
-- Shows an upsell/cross-sell ('add for pickup' upsell).
-- 'Continue shopping' closes the overlay; 'View cart' goes to the cart.
-- Cart icon count increments.
-
 ---
 
 ## 6. Acceptance Criteria
+
+### Global Footer
+
+- [ ] Footer renders all link columns and legal links on every page.
+- [ ] Newsletter signup and social links work.
+- [ ] Privacy/CCPA links resolve.
 
 ### Account / Authentication
 
@@ -523,27 +681,34 @@
 
 - [ ] Promo links navigate to the offer/PLP.
 
-### Global Footer
+### Rich Content (AEM DS)
 
-- [ ] Footer renders all link columns and legal links on every page.
-- [ ] Newsletter signup and social links work.
-- [ ] Privacy/CCPA links resolve.
+- [ ] Rich content renders with correct hierarchy and links.
 
-### Store Locator
+### Predictive Search
 
-- [ ] Given a location, nearby stores list with address + hours + status.
-- [ ] Applying a filter narrows the store list.
-- [ ] 'View on map' opens the map for that store.
-- [ ] Browse-by-state navigates the store directory.
+- [ ] Below the min length, no request fires and no results show.
+- [ ] At/above min length, matching results render as a typeahead list.
+- [ ] Clicking a result navigates to that page.
+- [ ] Clear empties the field and closes results.
 
-### Content / Product Carousel
+### Social Media Links
 
-- [ ] Carousel scrolls via prev/next.
-- [ ] Cards link correctly.
+- [ ] Each social icon links to the correct external profile.
 
-### Hero Banner
+### Article Card
 
-- [ ] Hero renders headline + CTA; rotation works if present.
+- [ ] Each card navigates to its target when clicked.
+- [ ] Category eyebrow links to the category.
+- [ ] Cards reflow responsively.
+
+### Breadcrumb
+
+- [ ] Breadcrumb reflects the page path; ancestors navigate.
+
+### Scroll to Top
+
+- [ ] After scrolling the button is visible; clicking returns to top.
 
 ### Health/Wellness Article
 
@@ -551,16 +716,44 @@
 - [ ] Inline links resolve.
 - [ ] Images render with alt text.
 
-### Rich Content (AEM DS)
+### Content / Product Carousel
 
-- [ ] Rich content renders with correct hierarchy and links.
+- [ ] Carousel scrolls via prev/next.
+- [ ] Cards link correctly.
 
-### Product Detail (PDP)
+### Live Chat / Click-to-Chat
 
-- [ ] PDP shows title, price and gallery.
-- [ ] Selecting a variant updates the selection/price.
-- [ ] Add-to-cart adds the item and updates the cart.
-- [ ] Fulfillment options are selectable.
+- [ ] Clicking the chat button opens the chat widget.
+
+### Login / Sign-in Form
+
+- [ ] Invalid input shows validation errors.
+- [ ] Forgot-password / register links resolve.
+
+### Hero Banner
+
+- [ ] Hero renders headline + CTA; rotation works if present.
+
+### Quick Links / Category Shortcuts
+
+- [ ] Each quick-link navigates to its target.
+
+### Article Listing + Pagination
+
+- [ ] On page 1 Previous is disabled.
+- [ ] Clicking a page shows that page's items.
+- [ ] On the last page Next is disabled.
+
+### Explore (category tiles)
+
+- [ ] Each tile links to its category; counts (if present) are shown.
+
+### Carousel
+
+
+### Promo Blocks
+
+- [ ] Each promo tile links to its target and shows image + title.
 
 ### Product Filters / Facets
 
@@ -576,6 +769,33 @@
 - [ ] Load-more / next page appends or advances results.
 - [ ] A card navigates to its PDP.
 
+### Product Detail (PDP)
+
+- [ ] PDP shows title, price and gallery.
+- [ ] Selecting a variant updates the selection/price.
+- [ ] Add-to-cart adds the item and updates the cart.
+- [ ] Fulfillment options are selectable.
+
+### Background Container
+
+- [ ] Wrapped sections render with the specified background.
+
+### Watch Videos (gallery)
+
+- [ ] Each video card shows a thumbnail + duration and plays when selected.
+
+### Feature Tile / Teaser
+
+- [ ] Tile renders media + heading; CTA navigates.
+
+### Article / Content Body
+
+- [ ] Content renders with correct heading hierarchy and working links.
+
+### Editor's Pick / Featured Teaser
+
+- [ ] The teaser shows the curated item with media and links to it.
+
 ### Fulfillment & Add-to-Cart
 
 - [ ] Selecting a fulfillment option updates availability messaging.
@@ -583,38 +803,15 @@
 - [ ] Check-other-stores surfaces alternative stores.
 - [ ] Out-of-stock options are disabled/messaged.
 
-### Quick Links / Category Shortcuts
-
-- [ ] Each quick-link navigates to its target.
-
-### Store Detail
-
-- [ ] Store detail shows address, hours and status per service.
-- [ ] Save-preferred-store marks the store preferred.
-- [ ] A service link (e.g. schedule vaccine) navigates to that flow.
-- [ ] 'See all photo products' opens the photo overlay.
-
-### Live Chat / Click-to-Chat
-
-- [ ] Clicking the chat button opens the chat widget.
-
-### Login / Sign-in Form
-
-- [ ] Invalid input shows validation errors.
-- [ ] Forgot-password / register links resolve.
-
-### Feature Tile / Teaser
-
-- [ ] Tile renders media + heading; CTA navigates.
-
-### Editor's Pick / Featured Teaser
-
-- [ ] The teaser shows the curated item with media and links to it.
-
 ### Video / Media Embed
 
 - [ ] The embedded player loads and is playable.
 - [ ] Any related links navigate correctly; transcript text is shown where present.
+
+### Accordion
+
+- [ ] Clicking a header expands its panel; clicking again collapses it.
+- [ ] Keyboard and ARIA disclosure semantics work.
 
 ### Rx Refill (guest/express)
 
@@ -623,9 +820,11 @@
 - [ ] Submitting a valid refill shows a confirmation.
 - [ ] Guest flow works without sign-in.
 
-### Article / Content Body
+### Recommendations / Merchandising Carousels
 
-- [ ] Content renders with correct heading hierarchy and working links.
+- [ ] Each carousel renders its product/offer cards.
+- [ ] Prev/next scrolls the rail.
+- [ ] A card navigates to the target PDP/PLP or clips a coupon.
 
 ### Rx Transfer
 
@@ -633,26 +832,16 @@
 - [ ] A destination store can be selected.
 - [ ] Submitting shows a transfer confirmation.
 
-### Accordion
+### Store Locator
 
-- [ ] Clicking a header expands its panel; clicking again collapses it.
-- [ ] Keyboard and ARIA disclosure semantics work.
-
-### Recommendations / Merchandising Carousels
-
-- [ ] Each carousel renders its product/offer cards.
-- [ ] Prev/next scrolls the rail.
-- [ ] A card navigates to the target PDP/PLP or clips a coupon.
+- [ ] Given a location, nearby stores list with address + hours + status.
+- [ ] Applying a filter narrows the store list.
+- [ ] 'View on map' opens the map for that store.
+- [ ] Browse-by-state navigates the store directory.
 
 ### Order Pickup / On-my-way
 
 - [ ] Pickup flow shows store info and progresses through steps.
-
-### Add-to-Cart Confirmation / Mini-cart
-
-- [ ] Adding an item opens the confirmation overlay with the item + quantity.
-- [ ] 'View cart' navigates to the cart; 'Continue shopping' closes the overlay.
-- [ ] The header cart count reflects the added item.
 
 ---
 
@@ -662,19 +851,19 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Capability | Pages |
 |---|---|
-| Login / account | 828 |
-| Checkout / buy | 797 |
-| Filtering | 796 |
-| Forms | 795 |
-| Modal / popup | 794 |
-| Tabs | 789 |
-| Cart | 787 |
-| Search | 785 |
-| Accordion / flip | 596 |
-| Pagination / load-more | 445 |
-| Map | 441 |
-| Video | 17 |
-| Live chat | 10 |
+| Login / account | 985 |
+| Filtering | 946 |
+| Checkout / buy | 945 |
+| Forms | 944 |
+| Tabs | 898 |
+| Search | 892 |
+| Modal / popup | 628 |
+| Cart | 581 |
+| Accordion / flip | 168 |
+| Live chat | 53 |
+| Video | 39 |
+| Pagination / load-more | 32 |
+| Map | 4 |
 
 > Journeys should be walked end-to-end with Playwright and documented in `data/observed-behaviors.json`. Multi-step flows (form → validation → submit → confirmation; filter → results; login → gated content) are called out per block in §5.
 
@@ -682,29 +871,97 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 ## 8. Forms
 
-862 form instance(s) found. Kinds: generic (787), contact/lead (4), login/auth (11), checkout/payment (3).
+993 form instance(s) found. Kinds: generic (579), contact/lead (13), login/auth (52), search (314), checkout/payment (1).
 
 | Page | Kind | Fields | Method | Posts to |
 |---|---|---|---|---|
 | / | generic | 1 | get | (js-handled) |
+| /22301037185 | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/homepage | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/sales/coupons | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/sales/top-deals | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/sales/weekly-ad | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/shop | generic | 1 | get | (js-handled) |
+| /22301037185/walgreens/store | generic | 1 | get | (js-handled) |
+| /beauty/beauty-101.html | generic | 1 | get | (js-handled) |
+| /beauty/makeup.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care/face-exfoliators.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care/five-surprising-tips-on-how-to-protect-your-skin-from-the-sun.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care/sunscreen-for-babies-and-kids.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care/sunscreen-for-sensitive-and-acne-prone-skin.html | generic | 1 | get | (js-handled) |
+| /beauty/skin-care/sunscreen-with-zinc.html | generic | 1 | get | (js-handled) |
+| /beauty/tutorials.html | generic | 1 | get | (js-handled) |
+| /buying-guides/Acid-reflex-medicine-OTC-options-for-your-symptoms.html | generic | 1 | get | (js-handled) |
+| /buying-guides/Constipation-relief-A-guide-to-OTC-laxatives-and-other-options.html | generic | 1 | get | (js-handled) |
+| /buying-guides/Guide-to-menstrual-care-Find-the-right-supplies.html | generic | 1 | get | (js-handled) |
+| /buying-guides/What-to-look-for-in-a-probiotic.html | generic | 1 | get | (js-handled) |
+| /buying-guides/how-to-choose-an-over-the-counter-allergy-medication.html | generic | 1 | get | (js-handled) |
+| /buying-guides/how-to-choose-an-over-the-counter-pain-reliever-2.html | generic | 1 | get | (js-handled) |
+| /community-stories/7-ways-to-help-kids-de-stress-and-decompress.html | generic | 1 | get | (js-handled) |
+| /community-stories/aapi-healthcare-challenges-and-solutions.html | generic | 1 | get | (js-handled) |
+| /community-stories/beating-breast-cancer-through-early-detection.html | generic | 1 | get | (js-handled) |
+| /community-stories/better-together.html | generic | 1 | get | (js-handled) |
+| /community-stories/bringing-vaccines-to-every-community.html | generic | 1 | get | (js-handled) |
+| /community-stories/committed-to-a-healthier-future-for-our-children.html | generic | 1 | get | (js-handled) |
+| /community-stories/expanding-access-to-care-with-covid-19-vaccine-equity.html | generic | 1 | get | (js-handled) |
+| /community-stories/feeding-thousands-of-kids-one-backpack-at-a-time.html | generic | 1 | get | (js-handled) |
+| /community-stories/fighting-the-invisible-epidemic-of-diabetes.html | generic | 1 | get | (js-handled) |
+| /community-stories/helping-breast-cancer-patients-get-quality-healthcare.html | generic | 1 | get | (js-handled) |
+| /community-stories/helping-expectant-mothers-get-quality-prenatal-healthcare.html | generic | 1 | get | (js-handled) |
+| /community-stories/improving-access-to-blood-cancer-care-in-minority-communities.html | generic | 1 | get | (js-handled) |
+| /community-stories/improving-access-to-leukemia-and-lymphoma-care.html | generic | 1 | get | (js-handled) |
+| /community-stories/kids-get-better-healthcare-access-thanks-to-your-red-nose-day-do.html | generic | 1 | get | (js-handled) |
+| /community-stories/next-stop-better-care-for-kids-who-need-it.html | generic | 1 | get | (js-handled) |
+| /community-stories/our-impact/maternal-health/every-mom-deserves-a-chance-at-a-healthy-pregnancy.html | generic | 1 | get | (js-handled) |
+| /community-stories/our-impact/maternal-health/planning-for-pregnancy-these-tips-can-help.html | generic | 1 | get | (js-handled) |
+| /community-stories/the-navigator-who-guides-breast-cancer-patients.html | generic | 1 | get | (js-handled) |
+| /community-stories/the-power-of-a-three-minute-phone-call.html | generic | 1 | get | (js-handled) |
+| /community-stories/the-vaccine-lady-holds-a-key-to-health-equity.html | generic | 1 | get | (js-handled) |
+| /community-stories/your-voices/feel-more-like-you.html | generic | 1 | get | (js-handled) |
+| /community-stories/your-voices/in-our-words.html | generic | 1 | get | (js-handled) |
+| /community-stories/your-voices/shelf-life.html | generic | 1 | get | (js-handled) |
+| /contacts | generic | 1 | get | (js-handled) |
+| /content/content-hub/us/en/homepage.html | generic | 1 | get | (js-handled) |
+| /coupons | generic | 1 | get | (js-handled) |
 | /default.jsp | generic | 1 | get | (js-handled) |
 | /familymgmt/manageAccountAccess | generic | 1 | get | (js-handled) |
 | /familymgmt/manageAccountAccess | contact/lead | 5 | get | (js-handled) |
 | /familymgmt/manageAccountAccess | generic | 0 | get | (js-handled) |
 | /familymgmt/manageFamilyAccounts | generic | 1 | get | (js-handled) |
+| /familymgmt/members/fullaccess | login/auth | 3 | get | (js-handled) |
+| /familymgmt/selectedMember | login/auth | 3 | get | (js-handled) |
+| /findcare | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/advisor | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/marketplace | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/marketplace/content/what-is-the-marketplace | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/marketplace_dark | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicaid | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare-resources | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/all-plans | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare/cigna | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare/content/medicare-part-d-coverage-gap | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare/content/medicare-part-d-coverage-gap_dark | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/content/find-prescription-coverage/medicare/medicare-part-b-services | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/shopping | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/shopping | generic | 2 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/shopping | generic | 3 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/united | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/content/find-prescription-coverage/medicare/wellcare | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/partner/dexcom | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/partner/kindbody | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/partner/mdlive | generic | 1 | get | (js-handled) |
-| /findcare-partners/findcare/partner/mdlive%5C | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/partner/mdlivebehavioral | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/partner/services | generic | 1 | get | (js-handled) |
 | /findcare-partners/findcare/partner/vaccination | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/service/Enrollment_Guide | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/service/abbottplus | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/service/nicorette | generic | 1 | get | (js-handled) |
+| /findcare-partners/findcare/service/pg-menopause | generic | 1 | get | (js-handled) |
+| /findcare/category/caregivers | generic | 1 | get | (js-handled) |
+| /findcare/category/caregivers | generic | 1 | get | (js-handled) |
 | /findcare/category/diabetes | generic | 1 | get | (js-handled) |
 | /findcare/category/diabetes | generic | 1 | get | (js-handled) |
 | /findcare/category/illness-injuries | generic | 1 | get | (js-handled) |
@@ -719,43 +976,65 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /findcare/category/skin-hair | generic | 1 | get | (js-handled) |
 | /findcare/category/virtual-visit | generic | 1 | get | (js-handled) |
 | /findcare/category/virtual-visit | generic | 1 | get | (js-handled) |
+| /findcare/category/vision-hearing | generic | 1 | get | (js-handled) |
+| /findcare/category/vision-hearing | generic | 1 | get | (js-handled) |
 | /findcare/category/weightloss | generic | 1 | get | (js-handled) |
 | /findcare/category/weightloss | generic | 1 | get | (js-handled) |
-| /findcare/category/women'shealth | generic | 1 | get | (js-handled) |
-| /findcare/category/women'shealth | generic | 1 | get | (js-handled) |
+| /findcare/content/find-prescription-coverage.jsp | generic | 1 | get | (js-handled) |
 | /findcare/content/find-prescription-coverage/advisor | generic | 1 | get | (js-handled) |
 | /findcare/content/find-prescription-coverage/medicaid | generic | 1 | get | (js-handled) |
 | /findcare/content/find-prescription-coverage/medicare/cigna | generic | 1 | get | (js-handled) |
 | /findcare/content/find-prescription-coverage/medicare/united | generic | 1 | get | (js-handled) |
 | /findcare/content/find-prescription-coverage/medicare/wellcare | generic | 1 | get | (js-handled) |
+| /findcare/covid19 | login/auth | 3 | get | (js-handled) |
+| /findcare/covid19/otc | generic | 1 | get | (js-handled) |
+| /findcare/covid19/otc | generic | 2 | get | (js-handled) |
 | /findcare/covid19/otc-test | generic | 1 | get | (js-handled) |
 | /findcare/covid19/paxlovid | generic | 1 | get | (js-handled) |
+| /findcare/covid19/paxlovid/positive-test | generic | 1 | get | (js-handled) |
+| /findcare/covid19/testing | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/advisor | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/marketplace | generic | 1 | get | (js-handled) |
-| /findcare/find-prescription-coverage/marketplace_dark | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/marketplace/content/what-is-the-marketplace | generic | 1 | get | (js-handled) |
+| /findcare/find-prescription-coverage/marketplace_dark | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicaid | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare-resources | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/all-plans | generic | 1 | get | (js-handled) |
+| /findcare/find-prescription-coverage/medicare/cigna | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/content/medicare-part-d-coverage-gap | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/content/medicare-part-d-coverage-gap_dark | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/medicare-part-b-services | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/shopping | generic | 1 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/shopping | generic | 2 | get | (js-handled) |
 | /findcare/find-prescription-coverage/medicare/shopping | generic | 3 | get | (js-handled) |
+| /findcare/find-prescription-coverage/medicare/united | generic | 1 | get | (js-handled) |
+| /findcare/find-prescription-coverage/medicare/wellcare | generic | 1 | get | (js-handled) |
 | /findcare/mdlive | generic | 1 | get | (js-handled) |
 | /findcare/partner/dexcom | generic | 1 | get | (js-handled) |
+| /findcare/partner/find-my-clinical-trial | contact/lead | 10 | post | go.walgreenshealth.com |
 | /findcare/partner/kindbody | generic | 1 | get | (js-handled) |
 | /findcare/service/Enrollment_Guide | generic | 1 | get | (js-handled) |
+| /findcare/service/FreeStyle | generic | 1 | get | (js-handled) |
 | /findcare/service/nicorette | generic | 1 | get | (js-handled) |
 | /findcare/service/pg-menopause | generic | 1 | get | (js-handled) |
 | /findcare/services | generic | 1 | get | (js-handled) |
 | /findcare/vaccination | generic | 1 | get | (js-handled) |
+| /findcarecovidui | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/caregivers | generic | 1 | get | (js-handled) |
 | /findcareui/findcare/category/diabetes | generic | 1 | get | (js-handled) |
 | /findcareui/findcare/category/illness-injuries | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/inperson-visit | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/labsandat-homekits | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/preventivecare | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/skin-hair | generic | 1 | get | (js-handled) |
 | /findcareui/findcare/category/virtual-visit | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/vision-hearing | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/weightloss | generic | 1 | get | (js-handled) |
+| /findcareui/findcare/category/women | generic | 1 | get | (js-handled) |
+| /fsa | generic | 1 | get | (js-handled) |
+| /hcimmhealthrecordui | generic | 1 | get | (js-handled) |
 | /health-services/clinical-trials | generic | 1 | get | (js-handled) |
 | /health-services/clinical-trials/es | generic | 1 | get | (js-handled) |
 | /health/allergy-asthma/900006 | generic | 1 | get | (js-handled) |
@@ -766,47 +1045,300 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /health/diabetes/500001 | generic | 1 | get | (js-handled) |
 | /health/diabetes/7-ways-to-manage-diabetes-when-you-have-the-flu.html | generic | 1 | get | (js-handled) |
 | /health/p2/a/1800002/are-nsaids-safe-five-facts-you-should-know/2191117 | generic | 1 | get | (js-handled) |
+| /health/p2/a/1800002/back-muscle-strains-symptoms-and-treatment/2449025 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/back-pain-common-causes-and-treatments/2449005 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/constant-headaches-meaning-and-treatment/2449010 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/diagnosing-arthritis/2449027 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/headache-locations-and-what-they-mean/2449003 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/migraines-101/2156100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/types-of-arthritis/2449033 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/what-causes-arthritis/2449021 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800002/what-is-tendonitis/2448392 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/causes-of-sleep-paralysis/2449148 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/how-much-sleep-should-i-be-getting/2442133 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/jet-lag-causes-symptoms-and-prevention/2448571 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/melatonin-from-food/2449132 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/melatonin-safety/2449154 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/narcolepsy-causes-symptoms-and-medications/2448663 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/pregnancy-insomnia/2449120 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/sleep-aids-and-natural-remedies-for-insomnia/2448660 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/sleep-apnea-causes-symptoms-and-treatment/2448661 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/sleep-insomnia-in-women/2448662 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/sleep-your-way-to-better-health-tonight/2129113 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/testing-for-sleep-apnea/2449115 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800004/too-much-sleep-hurts/2401101 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800006/alzheimers-disease-the-most-common-form-of-dementia/2447031 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800006/dementia-a-complex-group-of-symptoms/2447032 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800006/incontinence-101/2414104 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1800006/what-does-immunocompromised-mean/2449069 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/acid-reflux-in-babies/2449128 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/acid-reflux-in-pregnancy/2449123 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/acid-reflux-symptoms-and-treatments-explained/2446680 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/bloating-after-eating-causes-and-treatments/2448981 | search | 1 | get | www.walgreens.com |
 | /health/p2/a/1900001/causes-of-gerd/2449134 | generic | 1 | get | (js-handled) |
+| /health/p2/a/1900001/celiac-disease-an-informational-overview/2446666 | search | 1 | get | www.walgreens.com |
 | /health/p2/a/1900001/colon-cancer-treatment/2449137 | generic | 1 | get | (js-handled) |
+| /health/p2/a/1900001/constipation-explanations-and-solutions-for-a-common-problem/2446681 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/constipation-in-pregnancy/2449136 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/constipation-remedies/2449135 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/diarrhea-in-pregnancy/2449155 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/foods-that-help-with-diarrhea/2449152 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/foods-to-help-constipation/2449159 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/gluten-what-you-need-to-know/2446667 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/heartburn-vs-acid-reflux/2449133 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/how-to-help-a-constipated-baby/2449158 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/how-to-manage-ibs-symptoms/2448984 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/how-to-relieve-gas-pain/2449161 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/nausea-after-eating/2449149 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/nausea-in-pregnancy/2449150 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/nausea-medicine/2448988 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/nausea-remedies/2449151 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/remedies_for_diarrhea_in_babies/2449157 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/remedies_for_upset_stomach_and_diarrhea/2449156 | search | 1 | get | www.walgreens.com |
 | /health/p2/a/1900001/symptoms-of-colon-cancer/2449138 | generic | 1 | get | (js-handled) |
 | /health/p2/a/1900001/the-power-of-probiotics/2130127 | generic | 1 | get | (js-handled) |
+| /health/p2/a/1900001/ulcerative-colitis-an-inflammatory-bowel-disease/2446669 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/1900001/what-is-heartburn-and-how-is-heartburn-treated/2446668 | search | 1 | get | www.walgreens.com |
 | /health/p2/a/2500001/what-is-pre-diabetes/2449046 | generic | 1 | get | (js-handled) |
 | /health/p2/a/3000001/5-tips-to-avoid-weight-gain-while-you-quit-smoking/2297202 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/choosing-the-right-nicotine-replacement-therapy/2297204 | search | 1 | get | www.walgreens.com |
 | /health/p2/a/3000001/conquering-smoking-cravings-and-triggers/2297203 | generic | 1 | get | (js-handled) |
 | /health/p2/a/3000001/creating-a-smoke-free-environment/2306377 | generic | 1 | get | (js-handled) |
 | /health/p2/a/3000001/eight-reasons-to-quit-smoking/300001 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/eight-things-to-do-when-you-want-a-cigarette/2448990 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/five-ways-to-help-someone-quit-smoking/2448995 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/how-exercise-can-help-with-quitting-smoking/2448991 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/how-smoking-makes-medical-problems-worse/2448992 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/identification-and-management-of-gateways-to-smoking/2325846 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/managing-a-smoking-relapse/2317654 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/managing-mood-changes-after-quit-day/2448996 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/myths-and-facts-about-nicotine-replacement-therapy/2448997 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/quit-smoking-with-online-support/2342102 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/seven-ways-to-reduce-your-risk-of-cancer/2448998 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/the-effects-of-smoking-on-fertility/2448993 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/the-impact-of-second-and-third-hand-smoke/2448994 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/the-real-costs-of-smoking/2306378 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/youth-and-smoking-prevention-what-do-we-know-and-what-can-be-done/2297205 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3000001/zyban-or-chantix-whats-the-difference/2306376 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/OCD-symptoms/2449173 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/anxiety-and-depression/2448980 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/anxiety-in-children/2449102 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/autism-in-children/2449160 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/bipolar-disorder/2442586 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/childrens-anxiety-disorders-treatment/2440102 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/childrens-depression-treatment/2441100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/coronavirus-anxiety-and-stress-how-to-cope/2449053 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/coronavirus-social-distancing-and-depression/2449047 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/helpful-parenting-tips-during-covid-19/2449062 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/helping-a-family-member-who-has-ptsd/2442587 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/how-systemic-racism-affects-public-health-part-1-health-disparities-among-black-people/2449079 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/how-to-choose-a-mental-health-therapist/2437101 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/how-to-manage-anxiety-medications/2440101 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/how-to-manage-stress/2449108 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/how-to-manage-your-antidepressants/2440100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/managing-depression/2448985 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/medications-for-anxiety/2449103 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/mental-health-glossary/2437100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/ocd-medications-and-treatment/2449169 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/physical-side-effects-stress/2449080 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/signs-and-symptoms-of-autism/2449168 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/signs-and-symptoms-of-schizophrenia/2449171 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/stopping-panic-attacks/2449104 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/trouble-sleeping-during-coronavirus-tips-to-get-better-rest/2449061 | generic | 1 | get | (js-handled) |
+| /health/p2/a/3200001/what-is-bulimia/2449176 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/3200001/why-we-feel-stressed-during-the-pandemic/2449142 | generic | 1 | get | (js-handled) |
+| /health/p2/a/4000001/Sunscreen-for-sensitive-and-acne-prone-skin/2449044 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/common-skin-rash-types-causes-and-symptoms/2448501 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/creams-and-treatments-for-eczema/2449055 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/dandruff-basics/2446853 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/dry-skin-causes-and-treatments/2448983 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/eczema-on-the-face-causes-and-treatments/2449054 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/eczema/2442643 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/face-exfoliators/2449039 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/first-aid-tips-for-cuts-and-scrapes/2448250 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/how-to-identify-and-treat-bug-bites/2448251 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/how-to-treat-poison-ivy-oak-and-sumac/2448322 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/sun-spots-causes-treatment-and-prevention/2448500 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/what-is-photosensitivity/2448091 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4000001/what-is-psoriasis/2446852 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/400002/menopause-what-to-expect/2178246 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/400002/migraines-101/2156100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/400002/your-guide-to-managing-menopause/2129108 | generic | 1 | get | (js-handled) |
+| /health/p2/a/400002/your-guide-to-urinary-tract-infections-utis/2129115 | generic | 1 | get | (js-handled) |
+| /health/p2/a/400002/your-toughest-hiv-prevention-questions-answered/2449088 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/4300001/how-to-manage-anxiety-medications/2440101 | generic | 1 | get | (js-handled) |
+| /health/p2/a/4300002/bipolar-disorder/2442586 | generic | 1 | get | (js-handled) |
+| /health/p2/a/4300005/helping-a-family-member-who-has-ptsd/2442587 | generic | 1 | get | (js-handled) |
+| /health/p2/a/4400001/incontinence-an-overview-for-caregivers/2446951 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/500001/alcohol-and-diabetes/2449059 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/blood-pressure-in-diabetes/2449068 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/caring-for-a-loved-one-with-diabetes/2142157 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/causes-of-diabetes-type-2/2449063 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/diabetes-and-the-keto-diet/2449064 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/diabetes-diet-dos-and-donts/2141102 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/diabetes-insulin/2449065 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/diabetes-tracker-take-charge-of-your-blood-sugar/2142154 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/diabetic-foot-problems/2447563 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/dry-mouth/2165855 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/500001/gestational-diabetes-causes-risk-factors-and-treatments/2447951 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/have-diabetes-know-your-numbers/2142147 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/how-to-test-your-blood-glucose-sugar/2142156 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/hyperglycemia-high-blood-sugar-for-diabetics/2447952 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/hypoglycemia-low-blood-sugar-for-diabetics/2447950 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/keep-blood-sugar-under-control/2142155 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/keep-your-vision-strong-even-with-diabetes/2143102 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/500001/managing-diabetes-medication-side-effects/2142148 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/500001/managing-diabetes-with-walgreens-tools/2414103 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/managing-nerve-pain-in-diabetes/2449066 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/smart-strategies-for-weight-loss-with-type-2-diabetes/2142152 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/sugar-substitutes-for-diabetes/2449067 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/switching-to-a-new-diabetes-medication/2142150 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/tests-for-diabetes/2447580 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/treating-diabetes-with-medication-an-overview/2142149 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/type_1_diabetes_in_children/2449060 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/veggie-frittata-recipe-for-diabetics/2443280 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/walk-away-from-diabetes/2142151 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/what-are-diabetic-socks/2447577 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/500001/what-is-diabetes/2133199 | generic | 1 | get | (js-handled) |
+| /health/p2/a/500001/what-is-pre-diabetes/2449046 | generic | 1 | get | (js-handled) |
+| /health/p2/a/800004/beta-blockers-vs-calcium-channel-blockers/2449236 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/800004/dehydration-causes-symptoms-prevention/2448382 | generic | 1 | get | (js-handled) |
+| /health/p2/a/800006/the-dos-and-donts-of-your-diet-plan/2130134 | generic | 1 | get | (js-handled) |
+| /health/p2/a/800006/the-power-of-probiotics/2130127 | generic | 1 | get | (js-handled) |
+| /health/p2/a/800006/your-holiday-diet-game-plan/2130131 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900002/4-myths-about-the-timing-of-flu-shots/2448860 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/6-easy-ways-to-avoid-germs-this-holiday-season/2288394 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/bronchitis-vs-pneumonia/2448982 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/cold-medicine-when-pregnant-or-breastfeeding/2449000 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/cold-vs-flu-how-do-they-differ/2447313 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/cough-and-cold-medicine-for-children/2448872 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/covid-19-testing/2449117 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/croup-vs-whooping-cough/2448930 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/does-the-flu-shot-protect-me-from-COVID-19/2449081 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/flu-during-pregnancy-symptoms-and-prevention/2448913 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/flu-shot-options-for-seniors/2448800 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/flu-testing-and-diagnosis/2449076 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/flu-vs-covid-19-what-you-need-to-know/2449077 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/get-well-soon-kit-for-cold-and-flu-season/2449090 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/how-different-covid-19-vaccines-work/2449153 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/how-to-choose-a-face-mask/2449113 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/how-to-diagnose-pneumonia/2449091 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/how-to-recover-from-a-cold/2447233 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/how-to-wash-your-mask/2449129 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900002/humidifiers-for-babies-and-kids/2449092 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/humidifiers-for-cold-and-flu/2449093 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/is-pneumonia-contagious/2449094 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/keys-to-preventing-pneumonia/2288405 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/kids-and-the-flu-what-to-do/2201101 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/medicare-is-the-flu-shot-covered/2200227 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/medicine-for-cold-and-sinus/2448986 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/nasal-decongestants/2448987 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/persistent-cough/2449095 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/pneumonia-symptoms-and-treatment/2449096 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/pneumonia-vaccine/2449082 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/side-effects-of-the-measles-vaccine/2449099 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/sinus-infections-causes-and-symptoms-explained/2447234 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/the-flu-basics/2447312 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/the-flu-shot-what-you-need-to-know/2447311 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/tuberculosis-testing/2449107 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/wheezing/2449097 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/when-to-get-the-measles-vaccine/2449100 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/whooping-cough-the-common-term-for-pertussis/2447310 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900002/whooping-cough-vaccine/2449101 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/16-heart-healthy-foods-you-arent-eating/2181102 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/24-ways-to-lower-your-risk-for-heart-attack-today/2181100 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/beta-blockers-vs-calcium-channel-blockers/2449236 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/causes-of-heart-failure/2449056 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/common-heart-disease-medications/2447722 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/early-signs-of-lung-cancer/2449028 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/foods-to-lower-cholesterol/2449072 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/form-heart-healthy-habits/2358263 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/heart-arrhythmias-causes-and-treatments/2449121 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/heart-attack-causes-symptoms-treatments-and-prevention/2447481 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/heart-disease-information/2447491 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/heart-rate-what-is-heart-rate-and-how-to-measure-it/2447492 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/how-to-lower-blood-pressure/2449057 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/how-to-lower-cholesterol/2449073 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/how-to-lower-triglyceride-levels/2449130 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/lipid-panel-testing/2449143 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/lung-cancer-risk-factors/2449030 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/nuclear-stress-test/2449071 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/overview-of-arteries-and-arterial-diseases/2447480 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/signs-and-symptoms-of-common-heart-diseases/2447493 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/signs_and_symptoms_of_AFib/2449058 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/sinus-arrhythmia/2449122 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/stages-of-copd/2449147 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/symptoms-and-causes-of-high-triglycerides/2449144 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/symptoms-of-copd/2449146 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/symptoms-of-heat-stroke/2449070 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/symptoms_of_a_stroke/2449052 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/take-control-of-your-blood-pressure-a-5-step-plan/2182100 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/what-is-angina-pectoris/2449040 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/what-is-angina/2449050 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/whats-new-in-heart-health/2358264 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900004/who-should-be-screened-for-lung-cancer/2449006 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900004/why-your-heart-needs-a-good-nights-sleep/2356088 | generic | 1 | get | (js-handled) |
+| /health/p2/a/900006/11-tips-to-reduce-indoor-allergies/2448062 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/allergens-a-comprehensive-guide/2446570 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/allergy-induced-asthma/2449127 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/allergy-medication-for-pregnancy-and-childhood/2448139 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/antihistamines-for-treating-allergy-symptoms/2448140 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/asthma-attacks/2449139 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/asthma-in-children/2449145 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/at_home_allergy_testing/2449012 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/can-allergies-cause-a-sore-throat/2449014 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/can_allergies_cause_headaches/2449015 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/coronavirus-symptoms-vs-allergies/2449051 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/coughing-in-asthma/2449140 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/coughing_from_allergies/2449016 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/do-you-have-allergies-or-a-cold/2449017 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/finding-relief-from-grass-allergies/2449018 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/how-to-avoid-common-fall-allergies/2449023 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/how-to-test-for-food-allergies/2449019 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/mold-allergy-symtoms-causes-and-treatments/2449020 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/natural-remedies-for-allergies-what-works/2448060 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/pollen-basics-for-the-allergy-sufferer/2446460 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/saline-nasal-spray-a-natural-alternative/2446451 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/symptoms-and-warning-signs-of-an-asthma-attack/2446545 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/symptoms-of-asthma/2449126 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/the-8-most-common-food-allergies/2446440 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/tips-for-managing-pet-allergy-symptoms/2448110 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/tree-pollen-allergy-types-and-symptoms/2448061 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/types-of-asthma-inhalers/2449141 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/what-causes-winter-allergies/2449004 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/what-is-contact-dermatitis/2446544 | search | 1 | get | www.walgreens.com |
+| /health/p2/a/900006/what-type-of-allergy-medicine-do-i-need/2448063 | generic | 1 | get | (js-handled) |
+| /health/p2/s/500001/8-easy-delicious-ways-to-cook-for-diabetes/2131873/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/800006/10-ways-to-eat-right-now/2130139/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/800006/11-superfoods-to-start-eating-now/2130191/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/800006/8-flu-fighting-foods/2130100/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/800006/9-healthy-substitutions-for-your-diet/2130150/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/800006/weight-loss-tips-scale-wont-budge-heres-what-to-do/2130252/1 | generic | 1 | get | (js-handled) |
+| /health/p2/s/900002/8-flu-fighting-foods/2130100/1 | generic | 1 | get | (js-handled) |
+| /health/pain-management/1800002 | search | 1 | get | www.walgreens.com |
 | /health/quit-smoking/3000001 | generic | 1 | get | (js-handled) |
 | /health/vaccines-immunizations/6-simple-tips-to-combat-needle-anxiety.html | generic | 1 | get | (js-handled) |
 | /healthcare-solutions/how-we-can-help/clinical-trials | contact/lead | 10 | post | go.walgreenshealth.com |
-| /locator/walgreens-1010+maple+ave-lisle-il-60532/id=7212 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-1010+maple+ave-lisle-il-60532/id=7212 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-11+e+75th+st-chicago-il-60619/id=3539 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-11+e+75th+st-chicago-il-60619/id=3539 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-15601+san+carlos+blvd-fort+myers-fl-33908/id=3356 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-15601+san+carlos+blvd-fort+myers-fl-33908/id=3356 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-1602+n+dixie+ave-elizabethtown-ky-42701/id=4123 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-1602+n+dixie+ave-elizabethtown-ky-42701/id=4123 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-2000+veterans+blvd-dublin-ga-31021/id=19407 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-2000+veterans+blvd-dublin-ga-31021/id=19407 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-2646+darlington+rd-beaver+falls-pa-15010/id=9942 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-2646+darlington+rd-beaver+falls-pa-15010/id=9942 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-26482+us+highway+281+n-san+antonio-tx-78258/id=13940 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-26482+us+highway+281+n-san+antonio-tx-78258/id=13940 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-411+s+mason+rd-katy-tx-77450/id=4696 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-411+s+mason+rd-katy-tx-77450/id=4696 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-4730+s+27th+st-milwaukee-wi-53221/id=5601 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-4730+s+27th+st-milwaukee-wi-53221/id=5601 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-92+leonardville+rd-belford-nj-07718/id=19757 | generic | 1 | get | (js-handled) |
-| /locator/walgreens-92+leonardville+rd-belford-nj-07718/id=19757 | generic | 1 | get | (js-handled) |
+| /healthcare-solutions/how-we-can-help/disease-state-specialization/hiv | contact/lead | 10 | post | go.walgreenshealth.com |
+| /healthychoices | generic | 1 | get | (js-handled) |
+| /immunizationservice | generic | 1 | get | (js-handled) |
+| /immunizationservice/pharmacy/immunization/ViewImmunizeHistory.jsp | login/auth | 3 | get | (js-handled) |
 | /login.jsp | login/auth | 3 | get | (js-handled) |
+| /logout | generic | 1 | get | (js-handled) |
 | /logout.jsp | generic | 1 | get | (js-handled) |
 | /marketing/emailsignup/signup_main.jsp | generic | 1 | get | (js-handled) |
 | /mktg/contactus/contact-us-landing.jsp | generic | 1 | get | (js-handled) |
+| /mywalgreens | generic | 1 | get | (js-handled) |
+| /mywalgreens-terms | generic | 1 | get | (js-handled) |
 | /mywalgreens/cards/credit.jsp | generic | 1 | get | (js-handled) |
 | /mywalgreens/cards/debit.jsp | generic | 1 | get | (js-handled) |
+| /mywalgreens/dashboard.jsp | generic | 1 | get | (js-handled) |
+| /mywalgreens/upgrade.jsp | login/auth | 3 | get | (js-handled) |
 | /mywalgreenshealthaccess/termsofuse | login/auth | 3 | get | (js-handled) |
+| /offers | generic | 1 | get | (js-handled) |
 | /offers/offers.jsp | generic | 1 | get | (js-handled) |
 | /offers/offers.jsp/weeklyad | generic | 1 | get | (js-handled) |
+| /our-team | generic | 1 | get | (js-handled) |
 | /password/password_reset.jsp | generic | 1 | get | (js-handled) |
 | /password/password_reset.jsp | generic | 1 | get | (js-handled) |
 | /password/password_reset.jsp/sendcode | generic | 1 | get | (js-handled) |
@@ -816,44 +1348,53 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /password/reset_password.jsp | generic | 1 | get | (js-handled) |
 | /password/reset_password.jsp | generic | 1 | get | (js-handled) |
 | /password/retrieve_username_confirmation.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy | generic | 1 | get | (js-handled) |
+| /pharmacy | contact/lead | 9 | get | (js-handled) |
 | /pharmacy/familyaccount/managefamilyaccounts.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/fulfillment/rx-landing | login/auth | 3 | get | (js-handled) |
+| /pharmacy/immunization/ViewImmunizeHistory.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/immunization/immunization_index.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/immunization/seasonal_flu.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/manageautorefills/manage_auto_refill.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/messaging/psm/psmhome.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/order/enterprescription.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/order/express-refills.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/order/transferprescription.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/pharmacy_chat_landing.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/pharmacy_chat_landing.jsp | contact/lead | 9 | get | (js-handled) |
 | /pharmacy/privacyComplaintForm/privacyComplaintForm.jsp | generic | 1 | get | (js-handled) |
 | /pharmacy/privacyComplaintForm/privacyComplaintForm.jsp | checkout/payment | 21 | get | (js-handled) |
+| /pharmacy/report/rxprint.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/rxstatus/rxStatus.jsp | login/auth | 3 | get | (js-handled) |
+| /pharmacy/save-a-trip-refills.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/save-a-trip-refills.jsp | contact/lead | 9 | get | (js-handled) |
 | /pharmacy/sell-your-pharmacy | generic | 1 | get | (js-handled) |
+| /pharmacy/specialty-pharmacy/cancer-treatment/oral-chemo-drug-information.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/specialtypharmacy.jsp | generic | 1 | get | (js-handled) |
+| /pharmacy/youraccount/accountbalance/payment.jsp | login/auth | 3 | get | (js-handled) |
 | /privacycenter | generic | 1 | get | (js-handled) |
 | /promotion/offer-details | generic | 1 | get | (js-handled) |
 | /promotion/party-supplies | generic | 1 | get | (js-handled) |
 | /promotion/walgreens-app | generic | 1 | get | (js-handled) |
 | /promotion/womens-wellness | generic | 1 | get | (js-handled) |
-| /q/1+day+acuvue | generic | 1 | get | (js-handled) |
-| /q/1+day+acuvue | generic | 2 | get | (js-handled) |
-| /q/1+day+acuvue+moist | generic | 1 | get | (js-handled) |
-| /q/1+day+acuvue+moist | generic | 2 | get | (js-handled) |
-| /q/1+day+contacts+for+astigmatism | generic | 1 | get | (js-handled) |
-| /q/1+day+contacts+for+astigmatism | generic | 2 | get | (js-handled) |
-| /q/1+day+narafilcon+contact+lenses | generic | 1 | get | (js-handled) |
-| /q/1+day+narafilcon+contact+lenses | generic | 2 | get | (js-handled) |
-| /q/1+day+narafilcon+contacts | generic | 1 | get | (js-handled) |
-| /q/1+day+narafilcon+contacts | generic | 2 | get | (js-handled) |
-| /q/1+day+trueye | generic | 1 | get | (js-handled) |
-| /q/1+day+trueye | generic | 2 | get | (js-handled) |
-| /q/1+hour+teeth+whitening | generic | 1 | get | (js-handled) |
-| /q/1+hour+teeth+whitening | generic | 2 | get | (js-handled) |
-| /q/100+watt+bulbs | generic | 1 | get | (js-handled) |
-| /q/100+watt+bulbs | generic | 2 | get | (js-handled) |
-| /q/100+watt+light+bulbs | generic | 1 | get | (js-handled) |
-| /q/100+watt+light+bulbs | generic | 2 | get | (js-handled) |
-| /q/100+watt+light+bulbs+ | generic | 1 | get | (js-handled) |
-| /q/100+watt+light+bulbs+ | generic | 2 | get | (js-handled) |
+| /psc/prescription-savings-club | generic | 1 | get | (js-handled) |
 | /register/addressView | generic | 1 | get | (js-handled) |
 | /register/addressView | generic | 7 | get | (js-handled) |
+| /register/completePharmacyReg | login/auth | 3 | get | (js-handled) |
 | /register/mywag/covidvaccine/updates | login/auth | 3 | get | (js-handled) |
+| /register/mywalgreens/enroll | login/auth | 3 | get | (js-handled) |
+| /register/mywalgreens/multipleMatch | login/auth | 3 | get | (js-handled) |
+| /register/mywalgreens/review | login/auth | 3 | get | (js-handled) |
+| /register/mywalgreens/verifyCode | login/auth | 3 | get | (js-handled) |
+| /register/mywalgreens/verifyMembership | login/auth | 3 | get | (js-handled) |
 | /register/pharmacyRegistration | generic | 1 | get | (js-handled) |
 | /register/pharmacyRegistration | login/auth | 9 | get | (js-handled) |
 | /register/pharmacyRegistration.jsp | generic | 1 | get | (js-handled) |
 | /register/pharmacyRegistration.jsp | login/auth | 9 | get | (js-handled) |
+| /register/regConfirmationView | login/auth | 3 | get | (js-handled) |
 | /register/regOptions.jsp | generic | 1 | get | (js-handled) |
 | /register/regOptions.jsp | login/auth | 7 | get | (js-handled) |
+| /register/reg_confirmation.jsp | login/auth | 3 | get | (js-handled) |
 | /register/regpersonalinfo | generic | 1 | get | (js-handled) |
 | /register/regpersonalinfo | login/auth | 7 | get | (js-handled) |
 | /request_error.jsp | generic | 1 | get | (js-handled) |
@@ -861,54 +1402,189 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /rx-checkout/guest-express-refill | generic | 4 | get | (js-handled) |
 | /rx-checkout/guest-transfer-rx | generic | 1 | get | (js-handled) |
 | /rx-checkout/guest-transfer-rx | contact/lead | 12 | get | (js-handled) |
+| /rx-checkout/order/enter-prescription | login/auth | 3 | get | (js-handled) |
+| /rx-checkout/order/express-refill | login/auth | 3 | get | (js-handled) |
+| /rx-checkout/order/transfer-prescription | login/auth | 3 | get | (js-handled) |
+| /rx-checkout/pharmacy-landing | generic | 1 | get | (js-handled) |
+| /rx-checkout/pharmacy-landing | contact/lead | 9 | get | (js-handled) |
 | /rx-checkout/refill-by-scan | generic | 1 | get | (js-handled) |
 | /rx-checkout/refill-by-scan | generic | 4 | get | (js-handled) |
 | /rx-druginfo/pharmacy/finddrug/druginfosearch | generic | 1 | get | (js-handled) |
 | /rx-druginfo/search-results | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/allergy-asthma/900006 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/answers | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/caregiver-support/4400001 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/cough-cold-flu/900002 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/diabetes/500001 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/digestive-health/1900001 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/heart-health/900004 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/mental-health/3200001 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/arthritis-medicine/2449002 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/constant-headaches-meaning-and-treatment/2449010 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/migraines-101/2156100 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/products-to-treat-and-manage-arthritis-pain/2449032 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/types-of-arthritis/2449033 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800002/types-of-arthritis/2449033&20200222 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/1800002/yoga-and-acupuncture-helpful-for-sciatic-nerve-pain/2448530 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/causes-of-sleep-paralysis/2449148 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/how-much-sleep-should-i-be-getting/2442133 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/jet-lag-causes-symptoms-and-prevention/2448571 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/narcolepsy-causes-symptoms-and-medications/2448663 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/sleep-aids-and-natural-remedies-for-insomnia/2448660 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/sleep-apnea-causes-symptoms-and-treatment/2448661 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/sleep-insomnia-in-women/2448662 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800004/too-much-sleep-hurts/2401101 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800006/alzheimers-disease-the-most-common-form-of-dementia/2447031 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1800006/what-does-immunocompromised-mean/2449069 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/acid-reflux-in-babies/2449128 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/acid-reflux-in-pregnancy/2449123 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/acid-reflux-symptoms-and-treatments-explained/2446680 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/bloating-after-eating-causes-and-treatments/2448981 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/celiac-disease-an-informational-overview/2446666 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/1900001/colon-cancer-treatment/2449137 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/1900001/constipation-explanations-and-solutions-for-a-common-problem/2446681 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/constipation-in-pregnancy/2449136 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/constipation-remedies/2449135 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/gluten-what-you-need-to-know/2446667 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/how-to-manage-ibs-symptoms/2448984 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/1900001/how-to-relieve-gas-pain/2449161 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/1900001/symptoms-of-colon-cancer/2449138 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/1900001/ulcerative-colitis-an-inflammatory-bowel-disease/2446669 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/1900001/what-is-gerd/2449001 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/1900001/what-is-heartburn-and-how-is-heartburn-treated/2446668 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/3000001/finding-the-right-mental-health-therapy/2438100 | generic | 1 | get | (js-handled) |
 | /rx-healthanswer/health/p2/a/3000001/the-impact-of-second-and-third-hand-smoke/2448994 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/3200001/anxiety-and-depression/2448980 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/3200001/childrens-depression-treatment/2441100 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/3200001/coronavirus-anxiety-and-stress-how-to-cope/2449053 | generic | 1 | get | (js-handled) |
 | /rx-healthanswer/health/p2/a/3200001/coronavirus-social-distancing-and-depression/2449047 | generic | 1 | get | (js-handled) |
 | /rx-healthanswer/health/p2/a/3200001/finding-the-right-mental-health-therapy/2438100 | generic | 1 | get | (js-handled) |
 | /rx-healthanswer/health/p2/a/3200001/helping-a-family-member-who-has-ptsd/2442587 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/3200001/how-to-manage-anxiety-medications/2440101 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/3200001/how-to-manage-stress/2449108 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/3200001/managing-depression/2448985 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/3200001/physical-side-effects-stress/2449080 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/common-skin-rash-types-causes-and-symptoms/2448501 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/creams-and-treatments-for-eczema/2449055 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/dandruff-basics/2446853 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/dry-skin-causes-and-treatments/2448983 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/eczema-on-the-face-causes-and-treatments/2449054 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/eczema/2442643 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/how-to-identify-and-treat-bug-bites/2448251 | search | 1 | get | www.walgreens.com |
 | /rx-healthanswer/health/p2/a/4000001/types-of-eczema-treatment/2442643 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/4000001/what-is-photosensitivity/2448091 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/4000001/what-is-psoriasis/2446852 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/400002/menopause-what-to-expect/2178246 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/400002/your-guide-to-managing-menopause/2129108 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/400002/your-guide-to-urinary-tract-infections-utis/2129115 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/400002/your-toughest-hiv-prevention-questions-answered/2449088 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/alcohol-and-diabetes/2449059 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/blood-pressure-in-diabetes/2449068 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/diabetes-insulin/2449065 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/diabetic-foot-problems/2447563 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/dry-mouth/2165855 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/gestational-diabetes-causes-risk-factors-and-treatments/2447951 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/how-to-test-your-blood-glucose-blood-sugar/2142156 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/500001/how-to-test-your-blood-glucose-sugar/2142156 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/hyperglycemia-high-blood-sugar-for-diabetics/2447952 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/hypoglycemia-low-blood-sugar-for-diabetics/2447950 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/keep-blood-sugar-under-control/2142155 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/managing-diabetes-with-walgreens-tools/2414103 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/500001/managing-nerve-pain-in-diabetes/2449066 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/tests-for-diabetes/2447580 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/treating-diabetes-with-medication-an-overview/2142149 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/what-is-diabetes/2133199 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/500001/what-is-pre-diabetes/2449046 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/800004/causes-of-childhood-obesity/2449199 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/800004/dehydration-causes-symptoms-prevention/2448382 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/900002/4-myths-about-the-timing-of-flu-shots/2448860 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/article_medhelp_whooping-cough-vaccine/2449101 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/article_pneumonia-vaccine/2449082 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/bronchitis-vs-pneumonia/2448982 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/cold-vs-flu-how-do-they-differ/2447313 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/croup-vs-whooping-cough/2448930 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/flu-during-pregnancy-symptoms-and-prevention/2448913 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/flu-shot-options-for-seniors/2448800 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/flu-testing-and-diagnosis/2449076 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/how-different-covid-19-vaccines-work/2449153 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/how-to-recover-from-a-cold/2447233 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/humidifiers-for-babies-and-kids/2449092 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/humidifiers-for-cold-and-flu/2449093 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/keys-to-preventing-pneumonia/2288405 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/nasal-decongestants/2448987 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/persistent-cough/2449095 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/pneumonia-symptoms-and-treatment/2449096 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/sinus-infections-causes-and-symptoms-explained/2447234 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/the-flu-basics/2447312 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/the-flu-shot-what-you-need-to-know/2447311 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/wheezing/2449097 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900002/whooping-cough-the-common-term-for-pertussis/2447310 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/early-signs-of-lung-cancer/2449028 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/foods-to-lower-cholesterol/2449072 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/heart-arrhythmias-causes-and-treatments/2449121 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/heart-attack-causes-symptoms-treatments-and-prevention/2447481 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/heart-disease-information/2447491 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/heart-rate-what-is-heart-rate-and-how-to-measure-it/2447492 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/how-to-lower-blood-pressure/2449057 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/how-to-lower-cholesterol/2449073 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/how-to-lower-triglyceride-levels/2449130 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/overview-of-arteries-and-arterial-diseases/2447480 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/signs-and-symptoms-of-common-heart-diseases/2447493 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/signs-and-symptoms-of-common-heart-diseases/2447722 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/900004/symptoms-and-causes-of-high-triglycerides/2449144 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/symptoms_of_a_stroke/2449052 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/take-control-of-your-blood-pressure-a-5-step-plan/2182100 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/900004/what-is-angina-pectoris/2449040 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900004/what-is-angina/2449050 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/11-tips-to-reduce-indoor-allergies/2448062 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/allergens-a-comprehensive-guide/2446570 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/allergy-induced-asthma/2449127 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/antihistamines-for-treating-allergy-symptoms/2448140 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/asthma-attacks/2449139 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/can-allergies-cause-a-sore-throat/2449014 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/coughing-in-asthma/2449140 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/coughing_from_allergies/2449016 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/finding-relief-from-grass-allergies/2449018 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/how-to-test-for-food-allergies/2449019 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/mold-allergy-symtoms-causes-and-treatments/2449020 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/pollen-basics-for-the-allergy-sufferer/2446460 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/saline-nasal-spray-a-natural-alternative/2446451 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/symptoms-and-warning-signs-of-an-asthma-attack/2446545 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/symptoms-of-asthma/2449126 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/the-8-most-common-food-allergies/2446440 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/tips-for-managing-pet-allergy-symptoms/2448110 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/tips-for-managing-pet-allergy-symptoms/2448534 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/p2/a/900006/tree-pollen-allergy-types-and-symptoms/2448061 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/types-of-asthma-inhalers/2449141 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/a/900006/what-is-contact-dermatitis/2446544 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/p2/s/500001/diabetes-diet-dos-and-donts/2141102 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/pain-management/1800002 | search | 1 | get | www.walgreens.com |
+| /rx-healthanswer/health/quit-smoking/3000001 | generic | 1 | get | (js-handled) |
+| /rx-healthanswer/health/sleep/1800004 | search | 1 | get | www.walgreens.com |
+| /rx-profile/rxAuthentication | login/auth | 3 | get | (js-handled) |
+| /rx-refillhub/autorefill | login/auth | 3 | get | (js-handled) |
+| /rx-refillhub/refillhub-holistic | login/auth | 3 | get | (js-handled) |
 | /rx-settings/home-delivery-pharmacy | generic | 1 | get | (js-handled) |
+| /rx-settings/prescription-insurance | login/auth | 3 | get | (js-handled) |
+| /rx-settings/print-rx | login/auth | 3 | get | (js-handled) |
+| /rx-settings/print-rx.jsp | login/auth | 3 | get | (js-handled) |
+| /rx-settings/rxsettings | login/auth | 3 | get | (js-handled) |
+| /rx-settings/rxsettings/cap | login/auth | 3 | get | (js-handled) |
+| /rx-settings/rxsettings/pay | login/auth | 3 | get | (js-handled) |
+| /rx-settings/rxsettings/pay.jsp | login/auth | 3 | get | (js-handled) |
+| /rx-status | login/auth | 3 | get | (js-handled) |
+| /rx-utility/pharmacychat | generic | 1 | get | (js-handled) |
+| /rx-utility/pharmacychat | contact/lead | 9 | get | (js-handled) |
 | /shop | generic | 1 | get | (js-handled) |
 | /shoplocal/default.jsp | generic | 1 | get | (js-handled) |
+| /sso/samlRedirect.jsp?affiliateId=mdlive | login/auth | 3 | get | (js-handled) |
 | /store-services/same-day-delivery | generic | 1 | get | (js-handled) |
 | /store-services/same-day-delivery | generic | 1 | get | (js-handled) |
 | /store-services/store-pickup | generic | 1 | get | (js-handled) |
 | /store-services/store-pickup | generic | 1 | get | (js-handled) |
-| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 1 | get | (js-handled) |
-| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 4 | get | (js-handled) |
-| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 4 | get | (js-handled) |
-| /store/c/productlist/N=118/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=118/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=1268/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=1268/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=1382/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=1382/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=307776/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=307776/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=358197/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=358197/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=365113/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=365113/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=377466/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=377466/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=4608/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=4608/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=491/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=491/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/productlist/N=656/1/Brands=yes | generic | 1 | get | (js-handled) |
-| /store/c/productlist/N=656/1/Brands=yes | generic | 2 | get | (js-handled) |
-| /store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product | generic | 1 | get | (js-handled) |
-| /store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product | checkout/payment | 5 | get | (js-handled) |
-| /store/store/brands/brand.jsp | generic | 1 | get | (js-handled) |
-| /store/store/category/productlist.jsp | generic | 1 | get | (js-handled) |
+| /store/BalanceRewardsOffers/balance-rewards-offer.jsp?eventCode=A-R638-A-01-1001 | generic | 1 | get | (js-handled) |
+| /store/catalog/shopLanding | generic | 1 | get | (js-handled) |
+| /store/shoppinglist/showwishlist.jsp | generic | 1 | get | (js-handled) |
 | /store/store/family_products.jsp | generic | 1 | get | (js-handled) |
 | /store/store/save/clearance.jsp | generic | 1 | get | (js-handled) |
 | /store/store/save/clearance.jsp | generic | 2 | get | (js-handled) |
@@ -916,457 +1592,32 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /store/store/save/sale.jsp | generic | 2 | get | (js-handled) |
 | /store/store/save/w-cash-rewards-offers.jsp | generic | 1 | get | (js-handled) |
 | /store/store/save/w-cash-rewards-offers.jsp | generic | 2 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/beaverton-or | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/mineral-wells-tx | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/newark-nj | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/north-creek-ny | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/northridge-ca | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/parsippany-nj | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/penn-yan-ny | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/riverdale-ga | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/south-dartmouth-ma | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-pharmacy/sunset-beach-nc | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/bedford-tx | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/centreville-md | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/coral-springs-fl | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/doral-fl | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/harrison-nj | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/logan-wv | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/pine-bluff-ar | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/portage-mi | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/saratoga-springs-ny | generic | 1 | get | (js-handled) |
-| /storelocator/24-hour-store/wales-wi | generic | 1 | get | (js-handled) |
-| /storelocator/atm/jackson-heights-ny | generic | 1 | get | (js-handled) |
-| /storelocator/atm/milan-il | generic | 1 | get | (js-handled) |
-| /storelocator/atm/montebello-ca | generic | 1 | get | (js-handled) |
-| /storelocator/atm/murphy-nc | generic | 1 | get | (js-handled) |
-| /storelocator/atm/portland-or | generic | 1 | get | (js-handled) |
-| /storelocator/atm/rotterdam-ny | generic | 1 | get | (js-handled) |
-| /storelocator/atm/san-bruno-ca | generic | 1 | get | (js-handled) |
-| /storelocator/atm/south-dartmouth-ma | generic | 1 | get | (js-handled) |
-| /storelocator/atm/vassar-mi | generic | 1 | get | (js-handled) |
-| /storelocator/atm/winston-salem-nc | generic | 1 | get | (js-handled) |
-| /storelocator/beer/ithaca-ny | generic | 1 | get | (js-handled) |
-| /storelocator/beer/killeen-tx | generic | 1 | get | (js-handled) |
-| /storelocator/beer/patchogue-ny | generic | 1 | get | (js-handled) |
-| /storelocator/beer/peoria-heights-il | generic | 1 | get | (js-handled) |
-| /storelocator/beer/pine-bush-ny | generic | 1 | get | (js-handled) |
-| /storelocator/beer/plano-tx | generic | 1 | get | (js-handled) |
-| /storelocator/beer/rockmart-ga | generic | 1 | get | (js-handled) |
-| /storelocator/beer/saint-clair-shores-mi | generic | 1 | get | (js-handled) |
-| /storelocator/beer/sugar-hill-ga | generic | 1 | get | (js-handled) |
-| /storelocator/beer/waldwick-nj | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/midland-tx | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/mount-morris-ny | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/powell-oh | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/red-bank-nj | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/rock-island-il | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/rocky-mount-nc | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/rocky-point-ny | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/saint-clair-shores-mi | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/warrenton-nc | generic | 1 | get | (js-handled) |
-| /storelocator/blue-rhino-propane-gas/west-columbia-tx | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/chickenpox/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/killeen-tx | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/lodi-ca | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/salem-oh | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/salem-or | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/san-bruno-ca | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/schaumburg-il | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/selma-ca | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/stamford-ny | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/the-dalles-or | generic | 1 | get | (js-handled) |
-| /storelocator/clinic/willis-tx | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/covid-19/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/idaho-falls-id | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/marina-ca | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/mount-holly-nc | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/oxnard-ca | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/rochelle-il | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/saint-johns-mi | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/seffner-fl | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/southlake-tx | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/spring-lake-nc | generic | 1 | get | (js-handled) |
-| /storelocator/drive-thru-pharmacy/toronto-oh | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/bellingham-ma | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/burlington-nj | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/college-park-ga | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/lebanon-or | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/levittown-pa | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/lyndhurst-oh | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/millwood-wa | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/palos-heights-il | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/park-city-ut | generic | 1 | get | (js-handled) |
-| /storelocator/driveThruClose/shelbyville-tn | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/homewood-il | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/hudson-ny | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/huntington-beach-ca | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/kingwood-tx | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/opa-locka-fl | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/pasadena-ca | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/sault-s-marie-mi | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/spring-lake-nj | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/taylor-mi | generic | 1 | get | (js-handled) |
-| /storelocator/electric-car-charging-station/wylie-tx | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/merritt-island-fl | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/miami-gardens-fl | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/mineola-ny | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/randolph-ma | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/river-forest-il | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/sun-city-center-fl | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/ticonderoga-ny | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/waterford-mi | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/westbury-ny | generic | 1 | get | (js-handled) |
-| /storelocator/fedex/yorkshire-ny | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/herkimer-ny | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/johnson-city-ny | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/oradell-nj | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/reidsville-nc | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/richmond-hill-ga | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/salem-ma | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/snow-hill-nc | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/vineland-nj | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/west-orange-nj | generic | 1 | get | (js-handled) |
-| /storelocator/FedRtn/westwood-ma | generic | 1 | get | (js-handled) |
+| /store/store/xpo_products.jsp?pluCode= | generic | 1 | get | (js-handled) |
+| /storelistings/storesbystate.jsp | generic | 1 | get | (js-handled) |
 | /storelocator/find.jsp | generic | 1 | get | (js-handled) |
-| /storelocator/find.jsp?beauty=true | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/lompoc-ca | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/los-altos-ca | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/naperville-il | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/new-hyde-park-ny | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/plainfield-il | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/redondo-beach-ca | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/silsbee-tx | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/the-dalles-or | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/west-melbourne-fl | generic | 1 | get | (js-handled) |
-| /storelocator/flu-shot/whittier-ca | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a-b-combo/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-a/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/hepatitis-b/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/hpv/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/japanese-encephalitis/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/murrieta-ca | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/new-hyde-park-ny | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/ozone-park-ny | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/port-isabel-tx | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/robbinsville-nj | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/spring-valley-ny | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/taunton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/trophy-club-tx | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/weatherford-tx | generic | 1 | get | (js-handled) |
-| /storelocator/lab-services/west-plains-mo | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/mill-valley-ca | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/milton-fl | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/north-chili-ny | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/perry-ga | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/river-vale-nj | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/sanford-fl | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/sherman-oaks-ca | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/stone-ridge-ny | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/weslaco-tx | generic | 1 | get | (js-handled) |
-| /storelocator/liquor/west-allis-wi | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/measles-mumps-rubella-mmr/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/lockhart-tx | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/miller-place-ny | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/north-fort-myers-fl | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/plainfield-nj | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/poway-ca | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/reading-ma | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/saint-clair-shores-mi | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/verona-nj | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/wellington-fl | generic | 1 | get | (js-handled) |
-| /storelocator/medication-compounding/westlake-oh | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/meningitis/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/odd/malone-ny | generic | 1 | get | (js-handled) |
-| /storelocator/odd/oldsmar-fl | generic | 1 | get | (js-handled) |
-| /storelocator/odd/plymouth-nc | generic | 1 | get | (js-handled) |
-| /storelocator/odd/suwanee-ga | generic | 1 | get | (js-handled) |
-| /storelocator/odd/the-villages-fl | generic | 1 | get | (js-handled) |
-| /storelocator/odd/ticonderoga-ny | generic | 1 | get | (js-handled) |
-| /storelocator/odd/tracy-ca | generic | 1 | get | (js-handled) |
-| /storelocator/odd/west-dundee-il | generic | 1 | get | (js-handled) |
-| /storelocator/odd/westbury-ny | generic | 1 | get | (js-handled) |
-| /storelocator/odd/wyoming-mi | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/leander-tx | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/manlius-ny | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/murphy-tx | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/norwalk-ca | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/oakland-nj | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/palm-beach-gardens-fl | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/peachtree-city-ga | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/rancho-santa-margarita-ca | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/willoughby-oh | generic | 1 | get | (js-handled) |
-| /storelocator/passport-photos/winder-ga | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/baraboo-wi | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/east-providence-ri | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/gray-ga | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/lexington-tn | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/paintsville-ky | generic | 1 | get | (js-handled) |
-| /storelocator/pharmacy/stanford-ky | generic | 1 | get | (js-handled) |
-| /storelocator/photo/johnson-city-ny | generic | 1 | get | (js-handled) |
-| /storelocator/photo/lake-placid-ny | generic | 1 | get | (js-handled) |
-| /storelocator/photo/lake-villa-il | generic | 1 | get | (js-handled) |
-| /storelocator/photo/lancaster-ca | generic | 1 | get | (js-handled) |
-| /storelocator/photo/perry-fl | generic | 1 | get | (js-handled) |
-| /storelocator/photo/rockford-il | generic | 1 | get | (js-handled) |
-| /storelocator/photo/south-ozone-park-ny | generic | 1 | get | (js-handled) |
-| /storelocator/photo/vails-gate-ny | generic | 1 | get | (js-handled) |
-| /storelocator/photo/whitehall-mi | generic | 1 | get | (js-handled) |
-| /storelocator/photo/wichita-falls-tx | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/pneumonia/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/polio/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/polio/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/polio/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/polio/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/polio/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/polio/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/polio/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/polio/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/polio/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/polio/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/peru-il | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/rocky-point-ny | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/salem-or | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/saranac-lake-ny | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/shallotte-nc | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/south-miami-fl | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/ventnor-city-nj | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/wappingers-falls-ny | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/waupaca-wi | generic | 1 | get | (js-handled) |
-| /storelocator/primary-care/woodbury-tn | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/rabies/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/indio-ca | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/marshall-tx | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/mattoon-il | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/miami-beach-fl | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/moline-il | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/montgomery-il | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/palatine-bridge-ny | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/parma-oh | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/pineville-nc | generic | 1 | get | (js-handled) |
-| /storelocator/redbox/wood-river-il | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/ithaca-ny | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/milan-il | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/mineola-ny | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/nashville-nc | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/passaic-nj | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/south-yarmouth-ma | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/three-rivers-mi | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/waukegan-il | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/waycross-ga | generic | 1 | get | (js-handled) |
-| /storelocator/rx-disposal/western-springs-il | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/shingles/acton-ma | generic | 1 | get | (js-handled) |
 | /storelocator/storeDetails.jsp?stnum=3323 | generic | 1 | get | (js-handled) |
 | /storelocator/storeDetails.jsp?stnum=3323 | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/tdap/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/tetanus-diptheria-td/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/liberty-ny | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/nokomis-fl | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/okeechobee-fl | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/port-saint-lucie-fl | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/schaumburg-il | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/sebastian-fl | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/sutter-creek-ca | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/trophy-club-tx | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/verona-nj | generic | 1 | get | (js-handled) |
-| /storelocator/travel-health-consultations/wausau-wi | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/typhoid/acton-ma | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/leander-tx | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/north-cape-may-nj | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/orchard-park-ny | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/painesville-oh | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/palmdale-ca | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/pana-il | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/san-gabriel-ca | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/st-petersburg-fl | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/sutter-creek-ca | generic | 1 | get | (js-handled) |
-| /storelocator/urgent-care/xenia-oh | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/kingwood-tx | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/la-crescenta-ca | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/massapequa-ny | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/oak-forest-il | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/oswego-il | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/rosenberg-tx | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/south-chicago-heights-il | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/spencerport-ny | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/vero-beach-fl | generic | 1 | get | (js-handled) |
-| /storelocator/western-union/west-lake-hills-tx | generic | 1 | get | (js-handled) |
-| /storelocator/wic/cottage-grove-or | generic | 1 | get | (js-handled) |
-| /storelocator/wic/penn-yan-ny | generic | 1 | get | (js-handled) |
-| /storelocator/wic/pinehurst-nc | generic | 1 | get | (js-handled) |
-| /storelocator/wic/rockport-ma | generic | 1 | get | (js-handled) |
-| /storelocator/wic/south-glens-falls-ny | generic | 1 | get | (js-handled) |
-| /storelocator/wic/statesboro-ga | generic | 1 | get | (js-handled) |
-| /storelocator/wic/waltham-ma | generic | 1 | get | (js-handled) |
-| /storelocator/wic/waynesville-nc | generic | 1 | get | (js-handled) |
-| /storelocator/wic/west-long-branch-nj | generic | 1 | get | (js-handled) |
-| /storelocator/wic/yorkville-il | generic | 1 | get | (js-handled) |
-| /storelocator/wine/lake-oswego-or | generic | 1 | get | (js-handled) |
-| /storelocator/wine/liverpool-ny | generic | 1 | get | (js-handled) |
-| /storelocator/wine/manalapan-nj | generic | 1 | get | (js-handled) |
-| /storelocator/wine/marlboro-nj | generic | 1 | get | (js-handled) |
-| /storelocator/wine/monroe-ny | generic | 1 | get | (js-handled) |
-| /storelocator/wine/riverside-ca | generic | 1 | get | (js-handled) |
-| /storelocator/wine/sherman-oaks-ca | generic | 1 | get | (js-handled) |
-| /storelocator/wine/springfield-gardens-ny | generic | 1 | get | (js-handled) |
-| /storelocator/wine/sutter-creek-ca | generic | 1 | get | (js-handled) |
-| /storelocator/wine/wilmette-il | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/abbeville-la | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/aberdeen-md | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/aberdeen-ms | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/aberdeen-nc | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/abilene-tx | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/abingdon-md | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/abingdon-va | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/abita-springs-la | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/absecon-nj | generic | 1 | get | (js-handled) |
-| /storelocator/yellow-fever/acton-ma | generic | 1 | get | (js-handled) |
 | /testandtreat/testing | generic | 1 | get | (js-handled) |
 | /testandtreat/treatment | generic | 1 | get | (js-handled) |
+| /topic | generic | 1 | get | (js-handled) |
+| /topic/USH/tudiabetes.jsp | generic | 1 | get | (js-handled) |
 | /topic/about/history/ourpast.jsp | generic | 1 | get | (js-handled) |
+| /topic/apps/learn_about_mobile_apps.jsp | generic | 1 | get | (js-handled) |
+| /topic/balancerewards/balance-program-details.jsp | generic | 1 | get | (js-handled) |
+| /topic/brand/cerave-beauty-store.jsp | generic | 1 | get | (js-handled) |
+| /topic/brand/no7-beauty-store.jsp | generic | 1 | get | (js-handled) |
+| /topic/brand/olay-beauty-store.jsp | generic | 1 | get | (js-handled) |
+| /topic/clinical-trials.jsp | generic | 1 | get | (js-handled) |
 | /topic/clinical-trials/ebonistudyinfo.jsp | generic | 1 | get | (js-handled) |
 | /topic/contacts/deals.jsp | generic | 1 | get | (js-handled) |
-| /topic/donotsellmyinfo_es.jsp | generic | 1 | get | (js-handled) |
 | /topic/donotsellmyinfo.jsp | generic | 1 | get | (js-handled) |
+| /topic/donotsellmyinfo_es.jsp | generic | 1 | get | (js-handled) |
 | /topic/financial-services/overview.jsp | generic | 1 | get | (js-handled) |
 | /topic/findcare/allergy-and-respiratory-info.jsp | generic | 1 | get | (js-handled) |
+| /topic/findcare/coronavirus.jsp | generic | 1 | get | (js-handled) |
 | /topic/findcare/diabetes-info.jsp | generic | 1 | get | (js-handled) |
 | /topic/findcare/heart-health-info.jsp | generic | 1 | get | (js-handled) |
+| /topic/findcare/pain-management-info.jsp | generic | 1 | get | (js-handled) |
 | /topic/findcare/testAndTreat.testingPage.breadCrumb.servicesUrl | generic | 1 | get | (js-handled) |
 | /topic/findcare/testAndTreat.testingPage.breadCrumb.walgreensHomePage | generic | 1 | get | (js-handled) |
 | /topic/fraud_information.jsp | generic | 1 | get | (js-handled) |
@@ -1398,24 +1649,26 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /topic/help/pharmacyhelp/walgreens_health_services_help_main.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/pickup.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/same-day-delivery.jsp | generic | 1 | get | (js-handled) |
-| /topic/help/shipping/shipping_help_main_espanol.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shipping/shipping_help_main.jsp | generic | 1 | get | (js-handled) |
+| /topic/help/shipping/shipping_help_main_espanol.jsp | generic | 1 | get | (js-handled) |
+| /topic/help/shophelp/Bulk_Gift_Cards_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/account_help_main.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/bulk_gift_cards_help.jsp | generic | 1 | get | (js-handled) |
-| /topic/help/shophelp/Bulk_Gift_Cards_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/checkout_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/coupons_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/paymentmethods_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/promotions_help.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/returns_help_main.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/shipping_help_main.jsp | generic | 1 | get | (js-handled) |
+| /topic/help/shophelp/shiptostore.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/shophelp/shop_help_main.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/storeshelp/stores_help_main.jsp | generic | 1 | get | (js-handled) |
 | /topic/help/virtualhealthcare.jsp | generic | 1 | get | (js-handled) |
+| /topic/help/walgreens-gift-card-terms-of-use.jsp | generic | 1 | get | (js-handled) |
 | /topic/information/access-to-services.jsp | generic | 1 | get | (js-handled) |
 | /topic/information/california_transparency_act.jsp | generic | 1 | get | (js-handled) |
 | /topic/information/recall.jsp | generic | 1 | get | (js-handled) |
-| /topic/inkrefill/storelocator/storelocator/find.jsp?tab=store locator&requestType=locator | generic | 1 | get | (js-handled) |
+| /topic/inkrefill/storelocator/storelocator/find.jsp | generic | 1 | get | (js-handled) |
 | /topic/marketing/contactus/contactus-pharmacy-oral-oncology-medication-support.jsp | generic | 1 | get | (js-handled) |
 | /topic/marketing/contactus/contactus-product-contact-lenses-brand.jsp | generic | 1 | get | (js-handled) |
 | /topic/marketing/contactus/contactus-product-website-prices.jsp | generic | 1 | get | (js-handled) |
@@ -1430,29 +1683,38 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /topic/marketing/contactus/contactus-wphoto-product-question.jsp | generic | 1 | get | (js-handled) |
 | /topic/marketing/contactus/contactus-wphoto-returns.jsp | generic | 1 | get | (js-handled) |
 | /topic/marketing/contactus/vendor_inquiries.jsp | generic | 1 | get | (js-handled) |
+| /topic/mobile/apps/learn_about_mobile_apps.jsp | generic | 1 | get | (js-handled) |
 | /topic/mywalgreenshealthaccess.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy.jsp | contact/lead | 9 | get | (js-handled) |
 | /topic/pharmacy/compounding.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/easily-manage-prescriptions.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/easily-manage-prescriptions.jsp | contact/lead | 9 | get | (js-handled) |
 | /topic/pharmacy/financial-assistance.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/glp-1-bridge-program.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/healthcare-clinic.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/hiv-pharmacy-services.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/hiv-pharmacy-services/prevention-and-testing.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/immunization-services-appointments | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/immunization-services-appointments.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/immunization-services/travel-health.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/live-therapist-video-chat.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/medicare-part-b.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/medicare-part-d-info.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/medicare-resources/cybersecurity-tips.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/nebulizer-services.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/pharmacy_acquisition.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/pharmacy_regulation_websites.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/prescription-delivery.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/rx-savings-finder.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/scheduler/blood-pressure-test.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/chickenpox-vaccine_40.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/chikungunya-vaccine.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/hepatitis-a-vaccine_33.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/hepatitis-ab-vaccine.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/hepatitis-b-vaccine_34.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/human-papillomavirus-hpv-vaccine_36.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/scheduler/influenza-vaccine_1.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/japanese-encephalitis-vaccine.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/measles-mumps-rubella-mmr-vaccine_38.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/scheduler/meningitis-vaccine_37.jsp | generic | 1 | get | (js-handled) |
@@ -1468,38 +1730,57 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /topic/pharmacy/scheduler/yellow-fever-vaccine.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/seasonal-flu.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/specialty-pharmacy/cancer-medication-support.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/cancer-medication-support/medication-side-effects.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/fertility-order-review.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/fertility-preservation.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/fertility-services.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/mash.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/oncology-caregiver.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/specialty-pharmacy/patient-resources.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/specialty-pharmacy/side-effect-help.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/side-effect-help/feel-more-like-you.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/specialty-pharmacy/srx-financial-assistance.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/text-alerts.jsp | generic | 1 | get | (js-handled) |
 | /topic/pharmacy/text-opt-in.jsp | generic | 1 | get | (js-handled) |
+| /topic/pharmacy/walgreens-express.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/90-day-Rx.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/90-day-Rx.jsp | contact/lead | 9 | get | (js-handled) |
 | /topic/promotion/aarpcard.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/api.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/beauty-oncology-podcast.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/beautydeals.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/beautydeals.jsp | generic | 2 | get | (js-handled) |
+| /topic/promotion/corporate-gift-card-sales.jsp | login/auth | 2 | post | (js-handled) |
+| /topic/promotion/covid-testing.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/covid-vaccine.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/health-wellness-deals.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/health-wellness-deals.jsp | generic | 2 | get | (js-handled) |
 | /topic/promotion/mywalgreens.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/mywalgreens/espanol.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/offer-details.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/reloadablecards.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/rx-reward-offerA.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/rx-reward-offerB.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/scalp-health.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/seniorday.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/ship-to-store.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/shop-essentials.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/testAndTreat.testingPage.breadCrumb.servicesUrl | generic | 1 | get | (js-handled) |
 | /topic/promotion/testAndTreat.testingPage.breadCrumb.walgreensHomePage | generic | 1 | get | (js-handled) |
+| /topic/promotion/vitamin1.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/vitamin1.jsp | generic | 2 | get | (js-handled) |
+| /topic/promotion/walgreens-online-deals.jsp | generic | 1 | get | (js-handled) |
 | /topic/promotion/western-union.jsp | generic | 1 | get | (js-handled) |
+| /topic/promotion/womens-wellness.jsp | generic | 1 | get | (js-handled) |
 | /topic/sr/social_responsibility_home.jsp | generic | 1 | get | (js-handled) |
 | /topic/sr/sr_giving_back_contribution.jsp | generic | 1 | get | (js-handled) |
 | /topic/store/fsa/shop_fsa.jsp | generic | 1 | get | (js-handled) |
 | /topic/store/otc/shop_otc.jsp | generic | 1 | get | (js-handled) |
-| /topic/USH/tudiabetes.jsp | generic | 1 | get | (js-handled) |
-| /topic/v1/contactus | generic | 1 | get | (js-handled) |
-| /topic/v1/privacycomplaint/complaintInfo | generic | 1 | get | (js-handled) |
+| /topic/store/same-day-delivery.jsp | generic | 1 | get | (js-handled) |
+| /topic/store/same-day-delivery.jsp | generic | 1 | get | (js-handled) |
+| /topic/store/store-pickup.jsp | generic | 1 | get | (js-handled) |
+| /topic/store/store-pickup.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/heart-health/high-cholesterol-treatment.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/illnesses-and-infections.jsp | generic | 1 | get | (js-handled) |
@@ -1516,12 +1797,12 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /topic/virtual-healthcare/sexual-health/sildenafil.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/sexual-health/tadalafil.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/skin-health.jsp | generic | 1 | get | (js-handled) |
+| /topic/virtual-healthcare/skin-health/Pseudomembranous | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/skin-health/acne-treatment.jsp | generic | 1 | get | (js-handled) |
-| /topic/virtual-healthcare/skin-health/Pseudomembranous colitis. Mayo Clinic. Accessed June 16 | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/skin-health/tretinoin.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/weight-loss.jsp | generic | 1 | get | (js-handled) |
-| /topic/virtual-healthcare/weight-loss/foundayo.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/weight-loss/Foundayo.jsp | generic | 1 | get | (js-handled) |
+| /topic/virtual-healthcare/weight-loss/foundayo.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/weight-loss/ozempic.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/weight-loss/wegovy.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/weight-loss/zepbound.jsp | generic | 1 | get | (js-handled) |
@@ -1530,24 +1811,63 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /topic/virtual-healthcare/womens-health/online-uti-treatment.jsp | generic | 1 | get | (js-handled) |
 | /topic/virtual-healthcare/womens-health/yeast-infection-treatment.jsp | generic | 1 | get | (js-handled) |
 | /topic/walgreensgiftcards.jsp | generic | 1 | get | (js-handled) |
+| /topic/yourprivacychoices.jsp | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/5-self-care-tips-for-caregivers.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/bathroom-safety-providing-a-safe-environment-as-a-caregiver.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/caring-for-your-loved-one-bathing-and-grooming.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/hearing-aid-batteries-101-what-you-need-to-know.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/helping-seniors-navigate-medicare.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/incontinence-an-overview-for-caregivers.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/managing-stress-as-a-sandwich-generation-caregiver.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/mobility-devices-exploring-options-for-your-loved-ones.html | generic | 1 | get | (js-handled) |
+| /wellness/caregiver-support/nutrition-and-healthy-aging-what-caregivers-need-to-know.html | generic | 1 | get | (js-handled) |
+| /wellness/diet-fitness.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/7-simple-habits-to-improve-your-mental-health-and-well-being.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/anxiety-and-depression.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/how-to-choose-a-mental-health-professional.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/how-to-manage-your-anti-anxiety-medications.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/how-to-manage-your-antidepressants.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/how-to-stop-panic-attacks.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/how-to-support-a-friend-with-a-mental-health-condition.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/managing-depression.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/medications-for-anxiety.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/mental-health-glossary-terms-you-should-know.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/new-years-resolutions-4-tips-to-create-healthy-habits.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/ocd-medications-and-treatment.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/ocd-symptoms.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/physical-side-effects-of-stress.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/seasonal-affective-disorder-is-more-than-just-the-winter-blues.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/signs-and-symptoms-of-schizophrenia.html | generic | 1 | get | (js-handled) |
+| /wellness/mental-health/spring-cleaning-for-your-home-and-health.html | generic | 1 | get | (js-handled) |
 | /wellness/mental-health/what-is-bulimia.html | generic | 1 | get | (js-handled) |
 | /wellness/sleep.html | generic | 1 | get | (js-handled) |
 | /wellness/sleep/how-much-sleep-should-i-be-getting.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/insomnia-from-menopause-causes-symptoms-and-treatment.html | generic | 1 | get | (js-handled) |
 | /wellness/sleep/insomnia-in-women-what-you-should-know.html | generic | 1 | get | (js-handled) |
 | /wellness/sleep/melatonin-from-food.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/melatonin-safety-what-you-need-to-know.html | generic | 1 | get | (js-handled) |
 | /wellness/sleep/narcolepsy-causes-symptoms-and-medications.html | generic | 1 | get | (js-handled) |
-| /wrapper/inventory/v2/GetStoreInventory | generic | 1 | get | (js-handled) |
+| /wellness/sleep/sleep-aids-and-natural-remedies-for-insomnia.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/sleep-apnea-causes-symptoms-and-treatment.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/sleep-your-way-to-better-health.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/testing-for-sleep-apnea.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/too-much-sleep-hurts.html | generic | 1 | get | (js-handled) |
+| /wellness/sleep/what-are-the-causes-of-sleep-paralysis.html | generic | 1 | get | (js-handled) |
+| /wellness/stress.html | generic | 1 | get | (js-handled) |
+| /wellness/stress/how-to-manage-stress.html | generic | 1 | get | (js-handled) |
+| /wellness/stress/how-to-spot-stress-in-your-child.html | generic | 1 | get | (js-handled) |
+| /wellness/stress/stress-sleep.html | generic | 1 | get | (js-handled) |
+| /wellness/vitamins-supplements.html | generic | 1 | get | (js-handled) |
+| /wellness/vitamins-supplements/be-in-the-know-about-multivitamins.html | generic | 1 | get | (js-handled) |
+| /wellness/vitamins-supplements/benefits-of-calcium--magnesium-and-zinc.html | generic | 1 | get | (js-handled) |
 | /youraccount/communication_preferences.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/default.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/dlorder/reorder.jsp | login/auth | 3 | get | (js-handled) |
+| /youraccount/health_history.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/personal_information.jsp | login/auth | 3 | get | (js-handled) |
-| /store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product | generic | 1 | get | (js-handled) |
-| /store/c/walgreens-vitamin-c-with-natural-rose-hips-500-mg-tablets-(100-days)/ID=300428278-product | checkout/payment | 5 | get | (js-handled) |
+| /youraccount/security_information.jsp | login/auth | 3 | get | (js-handled) |
 
 ---
 
@@ -1557,13 +1877,12 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Adobe Launch/DTM (tag mgmt) | 824 |
-| Adobe Analytics (AppMeasurement) | 796 |
-| Google Analytics / GA4 | 788 |
-| Adobe Helix RUM | 60 |
-| Adobe Client Data Layer | 38 |
-| Google Tag Manager | 23 |
-| Amplitude | 2 |
+| Adobe Launch/DTM (tag mgmt) | 976 |
+| Adobe Analytics (AppMeasurement) | 943 |
+| Google Analytics / GA4 | 624 |
+| Adobe Helix RUM | 379 |
+| Adobe Client Data Layer | 361 |
+| Google Tag Manager | 21 |
 
 **Chat/Support**
 
@@ -1575,100 +1894,99 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| OneTrust (consent) | 812 |
-| TrustArc (consent) | 789 |
+| OneTrust (consent) | 922 |
+| TrustArc (consent) | 589 |
 
 **Fonts**
 
 | Integration | Pages |
 |---|---|
-| Google Fonts | 801 |
+| Google Fonts | 642 |
 
 **Forms/CRM**
 
 | Integration | Pages |
 |---|---|
-| Pardot (form) | 1 |
+| Pardot (form) | 3 |
 
 **Maps/Location**
 
 | Integration | Pages |
 |---|---|
-| Google Maps | 817 |
+| Google Maps | 616 |
 
 **Marketing/Pixel**
 
 | Integration | Pages |
 |---|---|
-| Facebook Pixel | 10 |
-| LinkedIn Insight | 1 |
+| Facebook Pixel | 16 |
+| LinkedIn Insight | 3 |
 
 **Media/Video**
 
 | Integration | Pages |
 |---|---|
-| Vimeo embed | 82 |
-| YouTube embed | 19 |
+| Adobe Scene7 / Dynamic Media (video) | 314 |
+| Vimeo embed | 198 |
+| YouTube embed | 42 |
 | Spotify embed | 1 |
 
 **Personalization/AB**
 
 | Integration | Pages |
 |---|---|
-| Adobe Target (A/B) | 801 |
-| Monetate | 800 |
+| Adobe Target (A/B) | 956 |
+| Monetate | 952 |
 
 **Reviews/UGC**
 
 | Integration | Pages |
 |---|---|
-| Bazaarvoice (ratings/reviews) | 3 |
+| Bazaarvoice (ratings/reviews) | 1 |
 
 **Security/Bot**
 
 | Integration | Pages |
 |---|---|
-| reCAPTCHA / hCaptcha | 8 |
+| reCAPTCHA / hCaptcha | 12 |
 
 **Survey/Feedback**
 
 | Integration | Pages |
 |---|---|
-| Medallia (feedback) | 794 |
-| Qualtrics (survey) | 23 |
+| Medallia (feedback) | 941 |
+| Qualtrics (survey) | 24 |
 
 **⚠︎ Unrecognized third-party hosts (need agent review — could be complex integrations):**
 
 | Host | Pages |
 |---|---|
-| resources.digital-cloud-west.medallia.com | 794 |
-| s2.go-mpulse.net | 757 |
-| cdn.branch.io | 710 |
-| www.wag-static.com | 201 |
-| login-ds.dotomi.com | 32 |
-| media-us2.digital.nuance.com | 32 |
-| se.monetate.net | 29 |
-| d.criteo.com | 27 |
-| dynamic.criteo.com | 27 |
-| sslwidget.criteo.com | 27 |
-| js.adsrvr.org | 23 |
-| www.mczbf.com | 21 |
-| googleads.g.doubleclick.net | 21 |
-| mihvea1f.micpn.com | 20 |
-| dok.js-cdn.dynatrace.com | 15 |
-| track.coherentpath.com | 14 |
-| bat.bing.com | 14 |
-| securepubads.g.doubleclick.net | 8 |
-| unpkg.com | 3 |
-| apps.bazaarvoice.com | 3 |
+| resources.digital-cloud-west.medallia.com | 941 |
+| cdn.branch.io | 741 |
+| s2.go-mpulse.net | 688 |
+| www.wag-static.com | 216 |
+| dok.js-cdn.dynatrace.com | 164 |
+| media-us2.digital.nuance.com | 120 |
+| se.monetate.net | 115 |
+| login-ds.dotomi.com | 25 |
+| d.criteo.com | 20 |
+| dynamic.criteo.com | 20 |
+| sslwidget.criteo.com | 20 |
+| js.adsrvr.org | 19 |
+| www.mczbf.com | 17 |
+| googleads.g.doubleclick.net | 16 |
+| mihvea1f.micpn.com | 13 |
+| securepubads.g.doubleclick.net | 12 |
+| unpkg.com | 7 |
+| track.coherentpath.com | 5 |
+| bat.bing.com | 5 |
+| www.youtube.com | 4 |
 | www.cdn-net.com | 2 |
 | six.cdn-net.com | 2 |
 | prod.accdab.net | 2 |
-| s.pinimg.com | 2 |
-| connect.facebook.net | 2 |
-| content.syndigo.com | 2 |
-| www.youtube.com | 1 |
+| connect.facebook.net | 1 |
 | wag-dwa-api-prod.przone.net | 1 |
+| cdn.glassboxcdn.com | 1 |
 
 ---
 
@@ -1679,29 +1997,38 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Account / Authentication** | High | Sign in / register / password reset / order lookup and account menus. Auth-gated flows with validation and session; typically integrated with an identity service. |
 | **Cart** | High | Cart view/mini-cart: line items, quantities, fulfillment, price summary, promo code, checkout entry. Commerce, stateful, tied to session + catalog/pricing APIs. |
 | **Global Header / Nav** | High | Global commerce header present on every page: logo, mega-menu category navigation, store/pickup selector, account menu, cart icon with live count, search, language switcher, rewards prompts. Stateful and shared sitewide. |
-| **Store Locator** | High | Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service. |
-| **Product Detail (PDP)** | High | Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS. |
+| **Predictive Search** | High | AJAX predictive/typeahead search with min-length gating, loading/empty/results states and keyboard a11y; on EDS must be rebuilt against an index (query-index.json). |
+| **Login / Sign-in Form** | High | Email/password sign-in with validation, remember-me, forgot-password, and links to register; identity-service integrated. |
+| **Article Listing + Pagination** | High | Client-side paginated grid: numbered pages, prev/next bound states, jump-to-page, no reload; data-driven from a category index. |
+| **Carousel** | High | Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts. |
 | **Product Filters / Facets** | High | Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL. |
 | **Product Listing (PLP)** | High | Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block. |
+| **Product Detail (PDP)** | High | Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS. |
+| **Watch Videos (gallery)** | High | Gallery of video cards each launching a player; combines a card grid with the video embed lifecycle. |
 | **Fulfillment & Add-to-Cart** | High | PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs. |
-| **Store Detail** | High | Individual store page: address, per-service hours & open/closed status (store, pharmacy, photo, lab), preferred-store save, and service entry points (schedule vaccine — COVID/flu/pneumonia, photo products & projects, FedEx returns, same-day pickup, propane/Blue Rhino, beauty consultation). Location-data driven with several 'see all' overlays. |
-| **Login / Sign-in Form** | High | Email/password sign-in with validation, remember-me, forgot-password, and links to register; identity-service integrated. |
 | **Video / Media Embed** | High | Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links. |
 | **Rx Refill (guest/express)** | High | Prescription refill checkout: enter Rx number (or scan), select pickup store & date, guest details, and submit to the pharmacy fulfillment system. HIPAA-sensitive, validated, session/pharmacy-API integrated. |
 | **Rx Transfer** | High | Transfer a prescription to Walgreens: identify current pharmacy + medication, choose destination store, provide patient details, submit. HIPAA-sensitive, validated, pharmacy-API integrated. |
+| **Store Locator** | High | Location-aware store finder: geolocation/entered location, results list with per-store cards (address, hours, services, distance), map view, browse-by-state, and multi-facet filters. Client-rendered against a store API — in EDS this is a JS-driven block calling a location service. |
 | **Order Pickup / On-my-way** | High | Store-pickup / on-my-way flow: order lookup, store info, continue steps, arrival notification. Session + order-service integrated. |
-| **Add-to-Cart Confirmation / Mini-cart** | High | Overlay shown after add-to-cart (VERIFIED live: PLP→PDP→add-to-cart): item + quantity confirmation, quantity dropdown, cross-sell/upsell ('add for pickup' upsell), and 'continue shopping' / 'view cart' actions. Session + cart-service integrated. |
 | **Global Footer** | Medium | Sitewide mega-footer: customer service, myWalgreens, company info, terms/privacy, product category directory, photo products, social, newsletter signup and legal/copyright. Shared across all pages. |
+| **Article Card** | Medium | Core reusable listing unit with multiple visual variations; drives listings, related content and carousels. |
 | **Content / Product Carousel** | Medium | Horizontal glider/carousel of cards (products, offers, content) with prev/next; used on home, category and content pages. |
-| **Hero Banner** | Medium | Homepage/landing hero: background media, headline, CTA(s); may rotate. |
 | **Live Chat / Click-to-Chat** | Medium | Click-to-chat support widget (Zendesk/vendor) launched from a fixed button. |
+| **Hero Banner** | Medium | Homepage/landing hero: background media, headline, CTA(s); may rotate. |
 | **Editor's Pick / Featured Teaser** | Medium | Teaser promoting a single curated item: media + eyebrow + title + byline. |
 | **Accordion** | Medium | Expand/collapse panels (single or multi-open); requires toggle JS + accessible disclosure semantics. |
 | **Recommendations / Merchandising Carousels** | Medium | Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards. |
 | **Promo Banner** | Low | Sitewide promo strip above the header with rotating offer links. |
-| **Health/Wellness Article** | Low | Editorial health/wellness article: H1, sub-headings, rich body copy, lists, images, inline links — maps to EDS default content within a category-details wrapper. Content-authored, not a coded block. |
 | **Rich Content (AEM DS)** | Low | AEM Design-System rich content (aemds-title/body/link) — headings, body copy, links. Maps to EDS default content. |
+| **Social Media Links** | Low | Static row of social icon links (usually in the footer XF). |
+| **Breadcrumb** | Low | Hierarchical trail derived from page path. |
+| **Scroll to Top** | Low | Floating button appearing after scroll; returns to top. |
+| **Health/Wellness Article** | Low | Editorial health/wellness article: H1, sub-headings, rich body copy, lists, images, inline links — maps to EDS default content within a category-details wrapper. Content-authored, not a coded block. |
 | **Quick Links / Category Shortcuts** | Low | Grid/row of labelled icon shortcuts to key categories/services (homepage & landing pages). |
+| **Explore (category tiles)** | Low | Grid of category tiles (image + name), sometimes with live article counts. |
+| **Promo Blocks** | Low | Static promotional image tiles with title + link. |
+| **Background Container** | Low | Section wrapper applying a themed background; maps to EDS section metadata. |
 | **Feature Tile / Teaser** | Low | Image + heading + copy + CTA promotional tile (aemds-featuretile / cmp-teaser). |
 | **Article / Content Body** | Low | Editorial/marketing page body rendered as semantic HTML (headings, paragraphs, lists, images, links). Maps to EDS default content; content-authored, not a coded block. |
 

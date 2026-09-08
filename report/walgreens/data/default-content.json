@@ -1,26 +1,32 @@
 [
  {
-  "id": "text",
-  "name": "Rich Text",
-  "edsBlock": "default content (rich text)",
-  "pages": 36
+  "id": "title",
+  "name": "Title",
+  "edsBlock": "default content (heading)",
+  "pages": 318
  },
  {
   "id": "separator",
   "name": "Separator",
   "edsBlock": "default content (hr)",
-  "pages": 12
+  "pages": 314
+ },
+ {
+  "id": "button",
+  "name": "Button / CTA",
+  "edsBlock": "default content (button)",
+  "pages": 314
  },
  {
   "id": "image",
   "name": "Image",
   "edsBlock": "default content (image)",
-  "pages": 4
+  "pages": 309
  },
  {
-  "id": "title",
-  "name": "Title",
-  "edsBlock": "default content (heading)",
-  "pages": 2
+  "id": "text",
+  "name": "Rich Text",
+  "edsBlock": "default content (rich text)",
+  "pages": 42
  }
 ]
