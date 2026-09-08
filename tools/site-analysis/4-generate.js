@@ -27,7 +27,7 @@ fs.mkdirSync(REP, { recursive: true });
 // Clear previously generated pages so removed/renamed/consolidated blocks & templates
 // don't leave stale files behind on re-runs.
 for (const f of fs.readdirSync(REP)) {
-  if (/^(block-|template-).*\.html$/.test(f) || ['index.html', 'blocks.html', 'templates.html', 'behaviors.html', 'journeys.html', 'integrations.html', 'needs-review.html', 'full-report.html'].includes(f)) {
+  if (/^(block-|template-).*\.html$/.test(f) || ['index.html', 'blocks.html', 'templates.html', 'behaviors.html', 'journeys.html', 'integrations.html', 'needs-review.html', 'full-report.html', 'myaccount.html'].includes(f)) {
     try { fs.unlinkSync(path.join(REP, f)); } catch (e) {}
   }
 }
@@ -347,6 +347,11 @@ function genDetailed() {
   // full report
   const md = fs.readFileSync(path.join(OUT, 'REPORT.md'), 'utf8');
   fs.writeFileSync(path.join(REP, 'full-report.html'), shell('Full Consolidated Report', `<a href="index.html">Report Hub</a> <span>›</span> Full Report`, `<a class="backlink" href="index.html">← Report hub</a>` + mdToHtml(md)));
+  // Optional My Account / authenticated-flow analysis (rendered from data/myaccount.md if present)
+  const maPath = path.join(dataDir, 'myaccount.md');
+  if (fs.existsSync(maPath)) {
+    fs.writeFileSync(path.join(REP, 'myaccount.html'), shell('My Account & Checkout Analysis', `<a href="index.html">Report Hub</a> <span>›</span> My Account & Checkout`, `<a class="backlink" href="index.html">← Report hub</a>` + mdToHtml(fs.readFileSync(maPath, 'utf8'))));
+  }
   // hub
   let hub = `<div class="grid g4"><div class="stat"><div class="n">${totals.urls}</div><div class="l">URLs</div></div><div class="stat"><div class="n">${totals.templates}</div><div class="l">Templates</div></div><div class="stat"><div class="n">${totals.blocks}</div><div class="l">Blocks</div></div><div class="stat"><div class="n">${totals.variations}</div><div class="l">Variations</div></div></div>
   <h2>Reports</h2><div class="grid g3">
@@ -357,7 +362,8 @@ function genDetailed() {
   <a class="card" style="text-decoration:none;color:inherit" href="behaviors.html"><b>🎬 Observed Behaviors</b><div class="muted" style="margin-top:6px">Playwright-verified.</div></a>
   <a class="card" style="text-decoration:none;color:inherit" href="journeys.html"><b>🧭 Journeys & Forms</b><div class="muted" style="margin-top:6px">Interactive capabilities + form inventory.</div></a>
   <a class="card" style="text-decoration:none;color:inherit" href="integrations.html"><b>🔌 Integrations</b><div class="muted" style="margin-top:6px">Third-party services (by category) + unknown hosts.</div></a>
-  <a class="card" style="text-decoration:none;color:inherit" href="needs-review.html"><b>${catalog.filter(b => b.needsReview).length ? '⚠︎' : '✓'} Needs Review</b><div class="muted" style="margin-top:6px">${catalog.filter(b => b.needsReview).length} unresolved component(s).</div></a></div>
+  <a class="card" style="text-decoration:none;color:inherit" href="needs-review.html"><b>${catalog.filter(b => b.needsReview).length ? '⚠︎' : '✓'} Needs Review</b><div class="muted" style="margin-top:6px">${catalog.filter(b => b.needsReview).length} unresolved component(s).</div></a>
+  ${fs.existsSync(path.join(dataDir, 'myaccount.md')) ? '<a class="card" style="text-decoration:none;color:inherit" href="myaccount.html"><b>🔐 My Account & Checkout</b><div class="muted" style="margin-top:6px">Authenticated flows — high-level (manual, bot-limited). Needs detailed follow-up.</div></a>' : ''}</div>
   <h2>All blocks</h2><div class="nav-blocks">${catalog.map(b => `<a href="block-${b.id}.html">${esc(b.name)} <span class="pill ${b.complexity}" style="margin-left:4px">${b.complexity[0]}</span></a>`).join('')}</div>
   <h2>All templates</h2><div class="nav-blocks">${tplCounts.map(([t, c]) => `<a href="template-${t}.html">${esc(tplLabel(t))} (${c})</a>`).join('')}</div>`;
   fs.writeFileSync(path.join(REP, 'index.html'), shell('EDS Migration — Report Hub', `Report Hub`, hub));

@@ -1,5 +1,13 @@
 # walgreens.com — My Account & Checkout Analysis
 
+> ⚠️ **High-level only — detailed analysis still required.** This is a preliminary,
+> manually-run pass of the authenticated My Account + checkout/authenticated flows,
+> limited by **Akamai bot protection** and login-gating (automated crawling of these
+> flows is blocked). It maps blocks, forms, APIs and integrations from public code +
+> rendered shells, but a **full detailed analysis of My Account, checkout, and the
+> authenticated journey must be performed manually in a logged-in session** to
+> confirm in-flow blocks, states and behavior.
+
 **Scope:** Authenticated **My Account** section + **checkout/pharmacy-checkout** journeys only (public content/PLP/PDP pages are covered by the main `report/walgreens/` analysis, not repeated here).
 **Date:** 2026-09-08
 **Method & honest constraints:**
