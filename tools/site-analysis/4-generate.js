@@ -108,12 +108,27 @@ const NAV = [
   { id: 'integrations', label: 'Integrations' },
   { id: 'urls', label: 'All URLs (' + S.totalUrls + ')' },
   { id: 'reports', label: 'Detailed Reports', href: 'reports/index.html' },
+  { id: 'estimates', label: 'Estimations', href: 'estimates.html' },
 ];
-// Static nav bar for report pages (prefix points back up to the dashboard).
+// Static nav bar for report pages (in reports/, so prefix points back up one level).
 function reportNav(activeReportsHubHref) {
   return `<nav class="topnav">${NAV.map(t => {
-    const href = t.id === 'reports' ? (activeReportsHubHref || 'index.html') : `../dashboard.html#${t.id}`;
+    let href;
+    if (t.id === 'reports') href = activeReportsHubHref || 'index.html';
+    else if (t.id === 'estimates') href = '../estimates.html';
+    else href = `../dashboard.html#${t.id}`;
     const active = t.id === 'reports' ? ' class="active"' : '';
+    return `<a href="${href}"${active}>${esc(t.label)}</a>`;
+  }).join('')}</nav>`;
+}
+// Static nav bar for top-level pages (dashboard.html / estimates.html live at the root).
+function topLevelNav(activeId) {
+  return `<nav class="topnav">${NAV.map(t => {
+    let href;
+    if (t.id === 'reports') href = 'reports/index.html';
+    else if (t.id === 'estimates') href = 'estimates.html';
+    else href = `dashboard.html#${t.id}`;
+    const active = t.id === activeId ? ' class="active"' : '';
     return `<a href="${href}"${active}>${esc(t.label)}</a>`;
   }).join('')}</nav>`;
 }
@@ -413,8 +428,9 @@ const TABS=[['overview','Overview'],['templates','Templates'],['blocks','Blocks 
 const nav=document.getElementById('nav');
 function showTab(id){const ids=TABS.map(t=>t[0]);if(!ids.includes(id))id='overview';document.querySelectorAll('nav#nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));const el=document.getElementById('v-'+id);if(el)el.classList.add('active');}
 TABS.forEach(([id,lab])=>{const b=document.createElement('button');b.textContent=lab;b.dataset.tab=id;b.onclick=()=>{history.replaceState(null,'','#'+id);showTab(id);window.scrollTo(0,0);};nav.appendChild(b);});
-// Detailed Reports link sits in the same nav bar (navigates to the report hub).
+// Detailed Reports + Estimations links sit in the same nav bar (navigate to those pages).
 const rl=document.createElement('a');rl.href='reports/index.html';rl.textContent='Detailed Reports';rl.style.cssText='color:var(--mut);padding:12px 16px;font-size:13px;text-decoration:none;border-bottom:2px solid transparent';nav.appendChild(rl);
+const el2=document.createElement('a');el2.href='estimates.html';el2.textContent='Estimations';el2.style.cssText='color:var(--mut);padding:12px 16px;font-size:13px;text-decoration:none;border-bottom:2px solid transparent';nav.appendChild(el2);
 showTab((location.hash||'').replace('#',''));
 window.addEventListener('hashchange',()=>showTab((location.hash||'').replace('#','')));
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -462,12 +478,15 @@ function genEstimates() {
   let grand = 0; const gt = groups.map(([g, rows]) => { const t = rows.reduce((n, r) => n + r[2], 0); grand += t; return t; });
   const cont = Math.round(grand * 0.15), tot = grand + cont;
   let body = `<div class="grid g4"><div class="stat"><div class="n">${grand}</div><div class="l">Dev hours (base)</div></div><div class="stat"><div class="n">${tot}</div><div class="l">With 15% contingency</div></div><div class="stat"><div class="n">${Math.round(tot / 8)}</div><div class="l">Person-days</div></div><div class="stat"><div class="n">${(tot / 40).toFixed(1)}</div><div class="l">Person-weeks</div></div></div>
+  <div class="card" style="border-color:var(--me);background:rgba(154,106,0,.06)"><b style="color:var(--me)">⚠︎ Estimate basis — manual review required</b><div class="muted" style="margin-top:6px">This estimate is derived from the <b>${S.totalUrls} analyzed URLs</b> and the <b>${catalog.length} blocks / ${totals.variations} variations</b> detected across them. It is a starting point, not a final number: if a <b>manual review identifies any additional block or variation</b> (e.g. an authenticated/gated flow, a rarely-linked page, or a component not present in the crawled set), that item <b>must be re-estimated</b> and added here. Treat the totals as subject to revision after design/BA review.</div></div>
   <div class="card muted"><b>Scope:</b> development effort only. Excludes PM, BA, UX/visual design, content authoring, and infra. Hours are effort, not calendar time. Based on ${S.totalUrls} URLs, ${totalTemplates} templates, ${catalog.length} blocks (${byCx.High.length} High / ${byCx.Medium.length} Medium / ${byCx.Low.length} Low).</div>`;
   groups.forEach(([g, rows], gi) => { body += `<h2>${esc(g)} <span class="muted" style="font-weight:400;font-size:13px">— ${gt[gi]} h</span></h2><table><thead><tr><th style="width:32%">Item</th><th>Detail</th><th class="h">Hours</th></tr></thead><tbody>${rows.map(r => `<tr><td>${esc(r[0])}</td><td class="muted">${esc(r[1])}</td><td class="h">${r[2]}</td></tr>`).join('')}</tbody><tfoot><tr><td colspan="2">Subtotal</td><td class="h">${gt[gi]}</td></tr></tfoot></table>`; });
   body += `<div class="card"><b>Block development rate card</b> (dev-only per block): High ${BH.High}h · Medium ${BH.Medium}h · Low ${BH.Low}h base, +2h per extra variation. Subtotal ${blockTotal}h.</div>`;
   body += `<h2>Grand total</h2><table><tbody>${groups.map(([g], gi) => `<tr><td>${esc(g)}</td><td class="h">${gt[gi]} h</td></tr>`).join('')}<tr><td><b>Base total</b></td><td class="h"><b>${grand} h</b></td></tr><tr><td>Contingency (15%)</td><td class="h">${cont} h</td></tr></tbody><tfoot><tr><td>Total dev effort</td><td class="h">${tot} h ≈ ${Math.round(tot / 8)} person-days</td></tr></tfoot></table>`;
   body += `<div class="card muted"><b>Assumptions:</b> content authoring done by a content team (only dev-side import automation/remediation costed); integrations re-integrated not rebuilt; 1 person-day = 8h; contingency covers content variance, third-party quirks and UAT churn.</div>`;
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(host)} → EDS · Development Effort Estimate</title><style>${CSS}</style></head><body><header class="top"><h1>${esc(host)} → EDS — Development Effort Estimate</h1><p>Dev-only effort in hours · derived from the analysis (${S.totalUrls} URLs, ${totalTemplates} templates, ${catalog.length} blocks) · ${esc(DATE)}</p></header><main>${body}</main><footer>Development-only estimate. Excludes PM, design, content authoring and infra.</footer></body></html>`;
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(host)} → EDS · Development Effort Estimate</title><style>${CSS}</style></head><body><header class="top"><h1>${esc(host)} → EDS — Development Effort Estimate</h1><p>Dev-only effort in hours · derived from the analysis (${S.totalUrls} URLs, ${totalTemplates} templates, ${catalog.length} blocks) · ${esc(DATE)}</p></header>
+${topLevelNav('estimates')}
+<main>${body}</main><footer>Development-only estimate. Excludes PM, design, content authoring and infra. See <a href="dashboard.html">dashboard</a> · <a href="reports/index.html">report hub</a>.</footer></body></html>`;
   fs.writeFileSync(path.join(OUT, 'estimates.html'), html);
   return { grand, tot };
 }

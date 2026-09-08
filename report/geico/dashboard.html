@@ -58,8 +58,9 @@ const TABS=[['overview','Overview'],['templates','Templates'],['blocks','Blocks 
 const nav=document.getElementById('nav');
 function showTab(id){const ids=TABS.map(t=>t[0]);if(!ids.includes(id))id='overview';document.querySelectorAll('nav#nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));const el=document.getElementById('v-'+id);if(el)el.classList.add('active');}
 TABS.forEach(([id,lab])=>{const b=document.createElement('button');b.textContent=lab;b.dataset.tab=id;b.onclick=()=>{history.replaceState(null,'','#'+id);showTab(id);window.scrollTo(0,0);};nav.appendChild(b);});
-// Detailed Reports link sits in the same nav bar (navigates to the report hub).
+// Detailed Reports + Estimations links sit in the same nav bar (navigate to those pages).
 const rl=document.createElement('a');rl.href='reports/index.html';rl.textContent='Detailed Reports';rl.style.cssText='color:var(--mut);padding:12px 16px;font-size:13px;text-decoration:none;border-bottom:2px solid transparent';nav.appendChild(rl);
+const el2=document.createElement('a');el2.href='estimates.html';el2.textContent='Estimations';el2.style.cssText='color:var(--mut);padding:12px 16px;font-size:13px;text-decoration:none;border-bottom:2px solid transparent';nav.appendChild(el2);
 showTab((location.hash||'').replace('#',''));
 window.addEventListener('hashchange',()=>showTab((location.hash||'').replace('#','')));
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
