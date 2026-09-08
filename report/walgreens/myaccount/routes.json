@@ -1,0 +1,348 @@
+[
+ {
+  "url": "https://www.walgreens.com/youraccount/default.jsp",
+  "finalUrl": "https://www.walgreens.com/login.jsp?ru=/youraccount/default.jsp",
+  "title": "Sign In or Register to Get Started Using Walgreens.com",
+  "denied": false,
+  "redirectedToSignin": true,
+  "testidCount": 1,
+  "testids": [
+   "password"
+  ],
+  "forms": [
+   {
+    "id": null,
+    "action": "(js)",
+    "fields": [
+     "username",
+     "password",
+     "showPassword"
+    ]
+   }
+  ],
+  "inputs": [
+   {
+    "name": "analyticsPageName",
+    "type": "hidden",
+    "ph": null
+   },
+   {
+    "name": "username",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "password",
+    "type": "password",
+    "ph": null
+   },
+   {
+    "name": "showPassword",
+    "type": "checkbox",
+    "ph": null
+   }
+  ],
+  "overlays": [
+   "ReactModalPortal"
+  ],
+  "headings": [
+   "Sign in"
+  ],
+  "topHosts": [
+   "www.walgreens.com",
+   "assets.adobedtm.com",
+   "dpm.demdex.net",
+   "resources.digital-cloud-west.medallia.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "api2.branch.io",
+   "chatbot-prod.walgreens.com",
+   "walgreens.demdex.net",
+   "cm.everesttech.net",
+   "target.walgreens.com",
+   "cdn.branch.io",
+   "app.link",
+   "smetrics.walgreens.com",
+   "cdn.jsdelivr.net",
+   "analytics-fe.digital-cloud-west.medallia.com",
+   ""
+  ]
+ },
+ {
+  "url": "https://www.walgreens.com/profile/v1/dashboard",
+  "finalUrl": "https://www.walgreens.com/profile/v1/dashboard",
+  "title": "Error",
+  "denied": false,
+  "redirectedToSignin": false,
+  "testidCount": 0,
+  "testids": [],
+  "forms": [],
+  "inputs": [],
+  "overlays": [],
+  "headings": [],
+  "topHosts": [
+   "www.walgreens.com"
+  ]
+ },
+ {
+  "url": "https://www.walgreens.com/cart/view-ui",
+  "finalUrl": "https://www.walgreens.com/cart/view-ui",
+  "title": "Access Denied",
+  "denied": true,
+  "redirectedToSignin": false,
+  "testidCount": 0,
+  "testids": [],
+  "forms": [],
+  "inputs": [],
+  "overlays": [],
+  "headings": [
+   "Access Denied"
+  ],
+  "topHosts": [
+   "www.walgreens.com"
+  ]
+ },
+ {
+  "url": "https://www.walgreens.com/rx-checkout/guest-express-refill",
+  "finalUrl": "https://www.walgreens.com/rx-checkout/guest-express-refill",
+  "title": "Guest Express Refill | Pharmacy | Walgreens",
+  "denied": false,
+  "redirectedToSignin": false,
+  "testidCount": 29,
+  "testids": [
+   "account-menu",
+   "buy-again-link-link",
+   "cart-icon",
+   "close_change_store_overlay_button",
+   "overlay-heading",
+   "pickup-address-header",
+   "signin_btn",
+   "store_locator_button",
+   "walgreens-cash-rewards-text"
+  ],
+  "forms": [
+   {
+    "id": null,
+    "action": "(js)",
+    "fields": [
+     "ntt-placeholder"
+    ]
+   },
+   {
+    "id": null,
+    "action": "(js)",
+    "fields": [
+     "prescnum1",
+     "prescnum2",
+     "prescnum3",
+     "prescEmail"
+    ]
+   }
+  ],
+  "inputs": [
+   {
+    "name": "ntt-placeholder",
+    "type": "text",
+    "ph": "Search"
+   },
+   {
+    "name": "store-head-search",
+    "type": "text",
+    "ph": "Enter city, state or ZIP code"
+   },
+   {
+    "name": "pharmacy-only-checkbox",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "prescnum1",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "prescnum2",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "prescnum3",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "prescEmail",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "ot-group-id-C0004",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "ot-group-id-C0007",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "vendor-search-handler",
+    "type": "text",
+    "ph": "Search…"
+   },
+   {
+    "name": "select-all-hosts-groups-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "select-all-vendor-groups-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "select-all-vendor-leg-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "chkbox-id",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "ot-group-id-C0004",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "ot-group-id-C0007",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "vendor-search-handler",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "select-all-hosts-groups-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "select-all-vendor-groups-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "select-all-vendor-leg-handler",
+    "type": "checkbox",
+    "ph": null
+   },
+   {
+    "name": "chkbox-id",
+    "type": "checkbox",
+    "ph": null
+   }
+  ],
+  "overlays": [
+   "tool-tip__overlay",
+   "overlay testing-two",
+   "overlay testing",
+   "tool-tip__overlay",
+   "overlay testing-two",
+   "store-dropdown v2 store-dropdown-hidden strwidget-",
+   "close_change_store_overlay_button",
+   "overlay testing-three v2",
+   "modal-white express-overlay modal",
+   "modal__content-contain modal__small modal__white",
+   "btn btn__rounded btn__neutral modal-hover black gu",
+   "modal__content small flex-column-g-32",
+   "modal-title rx-number-modal-title xp-refill-modal-",
+   "modal-body flex-column-g-32",
+   "xp-refill-modal-image-section"
+  ],
+  "headings": [
+   "Refill with Rx number",
+   "Where’s my Rx number?",
+   "Data Preferences",
+   "Data Preferences"
+  ],
+  "topHosts": [
+   "www.walgreens.com",
+   "chatbot-prod.walgreens.com",
+   "cdn.cookielaw.org",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "geolocation.onetrust.com",
+   ""
+  ]
+ },
+ {
+  "url": "https://www.walgreens.com/login.jsp",
+  "finalUrl": "https://www.walgreens.com/login.jsp",
+  "title": "Sign In or Register to Get Started Using Walgreens.com",
+  "denied": false,
+  "redirectedToSignin": true,
+  "testidCount": 1,
+  "testids": [
+   "password"
+  ],
+  "forms": [
+   {
+    "id": null,
+    "action": "(js)",
+    "fields": [
+     "username",
+     "password",
+     "showPassword"
+    ]
+   }
+  ],
+  "inputs": [
+   {
+    "name": "analyticsPageName",
+    "type": "hidden",
+    "ph": null
+   },
+   {
+    "name": "username",
+    "type": "text",
+    "ph": null
+   },
+   {
+    "name": "password",
+    "type": "password",
+    "ph": null
+   },
+   {
+    "name": "showPassword",
+    "type": "checkbox",
+    "ph": null
+   }
+  ],
+  "overlays": [
+   "ReactModalPortal"
+  ],
+  "headings": [
+   "Sign in"
+  ],
+  "topHosts": [
+   "assets.adobedtm.com",
+   "www.walgreens.com",
+   "resources.digital-cloud-west.medallia.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "api2.branch.io",
+   "target.walgreens.com",
+   "chatbot-prod.walgreens.com",
+   "cdn.branch.io",
+   "app.link",
+   "smetrics.walgreens.com",
+   "cdn.jsdelivr.net",
+   "analytics-fe.digital-cloud-west.medallia.com",
+   ""
+  ]
+ }
+]
