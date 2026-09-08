@@ -135,6 +135,27 @@ function extract(url, html, status) {
     const key = fam ? fam.block : ('testid:' + t);
     rec.spaBlocks[key] = (rec.spaBlocks[key] || 0) + testidSeen[t];
   }
+  // CSS-Modules component extraction: class names like `hero-home_root__QXmw0` or
+  // `card-carousel_inner__x1` encode the component as the prefix before the first `_`.
+  // We only count a component when we see its `_root__`/top wrapper to avoid noise, and
+  // fold `<name>-section` section wrappers too. Namespaced spa:cssmod:<name>.
+  const cssmodSeen = {};
+  $('[class]').each((i, el) => {
+    ($(el).attr('class') || '').split(/\s+/).forEach(c => {
+      let m = c.match(/^([a-z][a-zA-Z0-9-]+)_(root|hero|container|wrapper|section|inner)__[A-Za-z0-9_-]+$/);
+      if (m) { cssmodSeen[m[1]] = (cssmodSeen[m[1]] || 0) + 1; return; }
+      const s = c.match(/^([a-z][a-z0-9-]+)-section$/);
+      if (s) cssmodSeen[s[1]] = (cssmodSeen[s[1]] || 0) + 1;
+    });
+  });
+  const CSSMOD = TESTID.cssModuleBlocks || {};       // optional name->block map in knowledge base
+  const CSSMOD_IGNORE = new Set(TESTID.cssModuleIgnore || []);
+  for (const name in cssmodSeen) {
+    if (CSSMOD_IGNORE.has(name)) continue;
+    const mapped = CSSMOD[name];                      // {block} or omitted
+    const key = 'cssmod:' + (mapped && mapped.block ? mapped.block : name);
+    rec.spaBlocks[key] = (rec.spaBlocks[key] || 0) + cssmodSeen[name];
+  }
   rec.meta.reactRoots = $('#root,#app,[data-reactroot],[data-testid]').length;
 
   // ---- Per-block variation detection (e.g. PDP: standard vs contact-lens) ----

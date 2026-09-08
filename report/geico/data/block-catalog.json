@@ -1,0 +1,995 @@
+[
+ {
+  "id": "footer",
+  "name": "Global Footer",
+  "edsBlock": "footer",
+  "complexity": "Medium",
+  "complexityReason": "Sitewide mega-footer: customer service, myWalgreens, company info, terms/privacy, product category directory, photo products, social, newsletter signup and legal/copyright. Shared across all pages.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "author",
+   "claims",
+   "contact",
+   "content-page",
+   "home-landing",
+   "knowledge-hub",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing",
+   "redirect-stub",
+   "sitemap",
+   "vehicle-info"
+  ],
+  "pages": 2641,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Global Footer",
+    "pages": 2641
+   }
+  ],
+  "functional": [
+   "Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.",
+   "Product category directory ('View all products by') + photo products.",
+   "Newsletter/deals signup, social links, copyright and legal (privacy/CCPA/Washington health).",
+   "'Your Privacy Choices' CCPA opt-out."
+  ],
+  "acceptance": [
+   "Footer renders all link columns and legal links on every page.",
+   "Newsletter signup and social links work.",
+   "Privacy/CCPA links resolve."
+  ],
+  "verify": [
+   "Confirm footer link columns and privacy links resolve."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:footer"
+  ]
+ },
+ {
+  "id": "call-to-action",
+  "name": "Call To Action",
+  "edsBlock": "callout",
+  "complexity": "Low",
+  "complexityReason": "Promotional callout band: heading, copy and CTA(s); an image variation adds supporting media. Also used as a state/topic selector callout (e.g. 'Car insurance coverage by state' with a state dropdown that routes to the state page).",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 1348,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Call To Action",
+    "pages": 1348
+   },
+   {
+    "name": "with-image",
+    "desc": "Call To Action",
+    "pages": 324
+   }
+  ],
+  "functional": [
+   "Heading + copy + CTA button(s).",
+   "Image variation adds media alongside the copy.",
+   "Some CTAs include a select (e.g. choose a state) that routes to the target page."
+  ],
+  "acceptance": [
+   "CTA renders heading + button; button/select routes correctly."
+  ],
+  "verify": [
+   "Confirm a CTA band + the 'by state' selector on the homepage."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:call-to-action",
+   "spa:cssmod:call-to-action-image"
+  ]
+ },
+ {
+  "id": "article-body",
+  "name": "Article / Content Body",
+  "edsBlock": "default content (rich text + media)",
+  "complexity": "Low",
+  "complexityReason": "Editorial/marketing page body rendered as semantic HTML (headings, paragraphs, lists, images, links). Maps to EDS default content; content-authored, not a coded block.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "author",
+   "claims",
+   "contact",
+   "content-page",
+   "knowledge-hub",
+   "press-release",
+   "product-detail-page",
+   "product-landing",
+   "redirect-stub",
+   "sitemap",
+   "vehicle-info"
+  ],
+  "pages": 1198,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Article / Content Body",
+    "pages": 1198
+   }
+  ],
+  "functional": [
+   "Renders page title, section headings, body copy, lists, images and inline links."
+  ],
+  "acceptance": [
+   "Content renders with correct heading hierarchy and working links."
+  ],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:article-body"
+  ]
+ },
+ {
+  "id": "hero",
+  "name": "Hero",
+  "edsBlock": "hero",
+  "complexity": "Medium",
+  "complexityReason": "Page/section hero with background or side media, headline, sub-copy and CTA(s). One shared hero block across the site with variations by context (homepage bundle hero, knowledge/living landing hero, category hero, product/vertical hero, image-grid hero).",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "contact",
+   "content-page",
+   "home-landing",
+   "knowledge-hub",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 915,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Hero",
+    "pages": 915
+   },
+   {
+    "name": "homepage",
+    "desc": "Hero",
+    "pages": 495
+   },
+   {
+    "name": "image-grid",
+    "desc": "Hero",
+    "pages": 12
+   },
+   {
+    "name": "landing",
+    "desc": "Hero",
+    "pages": 6
+   },
+   {
+    "name": "category",
+    "desc": "Hero",
+    "pages": 69
+   }
+  ],
+  "functional": [
+   "Renders headline, sub-copy, background/side media and one or more CTAs.",
+   "Context variations: homepage, knowledge-landing, category, vehicle/vertical, image-grid.",
+   "CTA typically starts a quote or navigates deeper."
+  ],
+  "acceptance": [
+   "Hero renders headline + media + CTA per page context.",
+   "CTA links resolve (quote/nav)."
+  ],
+  "verify": [
+   "Confirm hero headline + CTA on home, a landing and a category page."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:hero",
+   "spa:cssmod:hero-home",
+   "spa:cssmod:hero-image-grid",
+   "spa:cssmod:landing-hero",
+   "spa:cssmod:category-hero"
+  ]
+ },
+ {
+  "id": "virtual-assistant",
+  "name": "GEICO Virtual Assistant (Chat)",
+  "edsBlock": "chat-widget (embed)",
+  "complexity": "Medium",
+  "complexityReason": "Site-wide virtual assistant / chatbot (verified live): a launcher ('gabby-launcher', 'Open GEICO Virtual Assistant chat') with a proactive greeting that opens a conversational support/self-service widget. Third-party/embedded chat — in EDS a lazy-loaded embed, not a rebuilt block.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "contact",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 833,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "GEICO Virtual Assistant (Chat)",
+    "pages": 833
+   }
+  ],
+  "functional": [
+   "Persistent chat launcher on every page, with a dismissible greeting.",
+   "Opens the GEICO Virtual Assistant conversational widget for support/self-service."
+  ],
+  "acceptance": [
+   "Launcher appears sitewide; clicking opens the assistant; greeting can be dismissed."
+  ],
+  "verify": [
+   "VERIFIED live: 'gabby-launcher' + 'Open GEICO Virtual Assistant chat' button on the homepage."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:virtual-assistant"
+  ]
+ },
+ {
+  "id": "accordion",
+  "name": "Accordion / FAQ",
+  "edsBlock": "accordion",
+  "complexity": "Low",
+  "complexityReason": "Expand/collapse accordion, predominantly FAQ sections on product/vertical pages. Each item toggles a panel of rich content.",
+  "templates": [
+   "article",
+   "claims",
+   "content-page",
+   "press-release",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 542,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Accordion / FAQ",
+    "pages": 542
+   }
+  ],
+  "functional": [
+   "List of expandable items; clicking toggles its answer panel.",
+   "Rich content (copy, lists, links) inside panels."
+  ],
+  "acceptance": [
+   "Clicking an item expands/collapses its panel; one/many open as designed."
+  ],
+  "verify": [
+   "Expand an FAQ item on a product page."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:accordion"
+  ]
+ },
+ {
+  "id": "carousel",
+  "name": "Carousel",
+  "edsBlock": "carousel",
+  "complexity": "Medium",
+  "complexityReason": "Horizontal carousel of cards (testimonials, product/coverage cards, related content) with prev/next controls; used on the homepage and marketing pages.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 541,
+  "variations": [
+   {
+    "name": "cards",
+    "desc": "Card Carousel",
+    "pages": 535
+   },
+   {
+    "name": "content",
+    "desc": "Content / Product Carousel",
+    "pages": 541
+   }
+  ],
+  "functional": [],
+  "acceptance": [],
+  "verify": [],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:card-carousel",
+   "spa:content:content-carousel"
+  ],
+  "_consolidated": true
+ },
+ {
+  "id": "card",
+  "name": "Card",
+  "edsBlock": "card",
+  "complexity": "Low",
+  "complexityReason": "Reusable content card (image/icon + heading + copy + optional CTA/link). One shared card block with variations: standard content card, vertical card, and testimonial/quote card.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 534,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Card",
+    "pages": 534
+   },
+   {
+    "name": "testimonial",
+    "desc": "Card",
+    "pages": 495
+   },
+   {
+    "name": "vertical",
+    "desc": "Card",
+    "pages": 472
+   }
+  ],
+  "functional": [
+   "Image/icon + heading + copy + optional link/CTA.",
+   "Variations: standard, vertical, testimonial (customer quote + attribution + line-of-business)."
+  ],
+  "acceptance": [
+   "Card renders media + heading + copy; link resolves.",
+   "Testimonial variation shows quote + author + LOB."
+  ],
+  "verify": [
+   "Confirm a content card and a testimonial card render."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:card",
+   "spa:cssmod:testimonial-card",
+   "spa:cssmod:vertical-card"
+  ]
+ },
+ {
+  "id": "tabs",
+  "name": "Tabs",
+  "edsBlock": "tabs",
+  "complexity": "Medium",
+  "complexityReason": "Tabbed content panels — used to switch between related content sets (e.g. product options, comparison views). Client-side tab state swaps the visible panel.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 507,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Tabs",
+    "pages": 507
+   }
+  ],
+  "functional": [
+   "Tab strip; selecting a tab shows its panel and hides others.",
+   "Panels contain rich content/cards."
+  ],
+  "acceptance": [
+   "Selecting a tab reveals the matching panel."
+  ],
+  "verify": [
+   "Switch tabs and confirm the panel changes."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:tabs"
+  ]
+ },
+ {
+  "id": "image-text",
+  "name": "Image + Text Feature",
+  "edsBlock": "columns (media + text)",
+  "complexity": "Low",
+  "complexityReason": "Media-and-copy feature row: image on one side, heading + body + optional CTA on the other; alternating left/right. large-image-media is the full-bleed variation.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 506,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Image + Text Feature",
+    "pages": 506
+   },
+   {
+    "name": "full-width",
+    "desc": "Image + Text Feature",
+    "pages": 505
+   }
+  ],
+  "functional": [
+   "Image beside heading + body copy + optional CTA.",
+   "Alternating image side; large-image-media is a full-width media variation."
+  ],
+  "acceptance": [
+   "Feature renders media + copy; CTA resolves."
+  ],
+  "verify": [
+   "Confirm an image+text feature row renders."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:image-text",
+   "spa:cssmod:large-image-media"
+  ]
+ },
+ {
+  "id": "statistics-block",
+  "name": "Statistics / Why-Choose Block",
+  "edsBlock": "stats",
+  "complexity": "Medium",
+  "complexityReason": "'Why Choose GEICO' style section: intro heading + a set of animated impact numbers (years of experience, customers served, claims handled, etc.) each with a label and supporting copy. impact-numbers are its child stat items.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 499,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Statistics / Why-Choose Block",
+    "pages": 499
+   },
+   {
+    "name": "stat-item",
+    "desc": "Statistics / Why-Choose Block",
+    "pages": 499
+   }
+  ],
+  "functional": [
+   "Intro heading + supporting copy.",
+   "A row of impact numbers (value + label + description), often count-up animated."
+  ],
+  "acceptance": [
+   "Section renders heading + all stat items with values and labels."
+  ],
+  "verify": [
+   "Confirm the homepage 'Why Choose GEICO' stats render."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:statistics-block",
+   "spa:cssmod:impact-numbers"
+  ]
+ },
+ {
+  "id": "mobile-app-cta",
+  "name": "Mobile App CTA",
+  "edsBlock": "callout (app promo)",
+  "complexity": "Low",
+  "complexityReason": "GEICO Mobile App promotion (verified live): heading + benefit list (digital ID cards, file a claim, manage payments, roadside service) + App Store / Google Play badges + app imagery.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 497,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Mobile App CTA",
+    "pages": 497
+   }
+  ],
+  "functional": [
+   "Heading + benefits list of app capabilities.",
+   "App Store & Google Play badge links.",
+   "App device imagery."
+  ],
+  "acceptance": [
+   "Section renders benefits + working store-badge links."
+  ],
+  "verify": [
+   "Confirm the 'Peace of Mind at Your Fingertips' app CTA + store links."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:mobile-app-cta"
+  ]
+ },
+ {
+  "id": "product-selector",
+  "name": "Quote-Start Product Selector",
+  "edsBlock": "product-selector (quote entry)",
+  "complexity": "High",
+  "complexityReason": "GEICO's primary conversion entry (verified live on the homepage): tabbed product picker — Popular / Vehicle / Property / Personal / Commercial — exposing ~30 insurance products (Car, Homeowners, Renters, Motorcycle, Boat & PWC, ATV, RV, Condo, Flood, Umbrella, Life, Travel, Pet, Jewelry, Bicycle, Mexico Auto, Overseas, Identity Protection, Commercial Auto/Business …) plus a 'Build My Bundle' path. Selecting a product launches that product's quote flow (sales.geico.com / partner underwriters). Stateful widget wired to the quote/sales platform.",
+  "templates": [
+   "about",
+   "agent-locator",
+   "article",
+   "claims",
+   "content-page",
+   "home-landing",
+   "press-release",
+   "press-release-archive",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 495,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Quote-Start Product Selector",
+    "pages": 495
+   }
+  ],
+  "functional": [
+   "Tabbed categories (Popular, Vehicle, Property, Personal, Commercial) reveal the products in each group.",
+   "~30 product tiles; each starts the corresponding quote flow (auto/property route to sales.geico.com; some personal lines route to partner underwriters).",
+   "'Build My Bundle' path to start a multi-product bundled quote.",
+   "'See more Personal Options' expands the long tail of personal products."
+  ],
+  "acceptance": [
+   "Switching tabs shows the correct product set.",
+   "Selecting a product navigates to that product's quote start.",
+   "Build My Bundle initiates a bundled quote.",
+   "The selector renders on the homepage and quote landing pages."
+  ],
+  "verify": [
+   "VERIFIED live: homepage selector exposes Vehicle/Property/Personal/Commercial tabs and ~30 products incl. Build My Bundle."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:product-selector"
+  ]
+ },
+ {
+  "id": "table-contents",
+  "name": "Table of Contents / On-page Nav",
+  "edsBlock": "toc",
+  "complexity": "Low",
+  "complexityReason": "In-article table of contents / jump-links (press releases, long articles): anchor links that scroll to on-page sections, often sticky.",
+  "templates": [
+   "article",
+   "content-page",
+   "press-release",
+   "product-detail-page"
+  ],
+  "pages": 302,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Table of Contents / On-page Nav",
+    "pages": 302
+   }
+  ],
+  "functional": [
+   "List of anchor links to on-page section headings.",
+   "Clicking scrolls to the section; may highlight the active section."
+  ],
+  "acceptance": [
+   "Each TOC link scrolls to its section."
+  ],
+  "verify": [
+   "Click a TOC entry on a long article/press release."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:table-contents"
+  ]
+ },
+ {
+  "id": "vehicle-info",
+  "name": "Vehicle Make/Model Insurance",
+  "edsBlock": "vehicle-info (SEO template)",
+  "complexity": "Medium",
+  "complexityReason": "Programmatic vehicle-insurance SEO pages (verified live) at /auto-insurance/vehicle-make/{make}[/{model}]. Composed of a consistent set of sections: make/model hero with quote CTA, model picker (make page), 'what affects your cost' factors, trim comparison table, safety features, why-GEICO, and an FAQ/legal disclaimer. One templated block family driven by vehicle data (make, model, year, trims, safety, MPG).",
+  "templates": [
+   "vehicle-info"
+  ],
+  "pages": 293,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Vehicle Make/Model Insurance",
+    "pages": 293
+   }
+  ],
+  "functional": [
+   "Make page: hero + grid of model cards ('View Model') + cost details + disclaimer.",
+   "Model page: hero + cost-factors + trim comparison table + standard safety features + why-GEICO + FAQ.",
+   "Every page carries a quote CTA for that vehicle.",
+   "Content is data-driven per make/model/year."
+  ],
+  "acceptance": [
+   "Make page lists models linking to model pages.",
+   "Model page renders cost factors, trim table and safety features for that vehicle.",
+   "Quote CTA starts an auto quote."
+  ],
+  "verify": [
+   "VERIFIED live: /auto-insurance/vehicle-make/acura (models) and /acura/mdx (factors, trims, safety)."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:vehicle-info"
+  ]
+ },
+ {
+  "id": "articles-section",
+  "name": "Articles List / Latest Articles",
+  "edsBlock": "article-list",
+  "complexity": "Low",
+  "complexityReason": "List of article cards (verified live): 'Read Latest Articles' / '{Category} Articles' — each card shows title + author (GEICO Team) + link to the article. Content-driven listing.",
+  "templates": [
+   "author",
+   "knowledge-hub"
+  ],
+  "pages": 79,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Articles List / Latest Articles",
+    "pages": 79
+   }
+  ],
+  "functional": [
+   "List/grid of article cards (title, author, link).",
+   "Contextual heading (latest, or per-category)."
+  ],
+  "acceptance": [
+   "Article cards render and link to their articles."
+  ],
+  "verify": [
+   "Confirm the /knowledge and category article lists."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:articles-section"
+  ]
+ },
+ {
+  "id": "browse-categories",
+  "name": "Browse By Category",
+  "edsBlock": "category-grid",
+  "complexity": "Low",
+  "complexityReason": "Knowledge/Living hub category browser (verified live): grid of category tiles (ATV, Auto Care, Boat, Business, Car, Commercial, Flood …) with paging; each tile links to that category listing.",
+  "templates": [
+   "knowledge-hub"
+  ],
+  "pages": 75,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Browse By Category",
+    "pages": 75
+   }
+  ],
+  "functional": [
+   "Grid of category tiles with paging (1/2/3).",
+   "Each tile links to its category listing page."
+  ],
+  "acceptance": [
+   "Categories render; paging works; tiles navigate to the category."
+  ],
+  "verify": [
+   "Confirm the /knowledge 'Browse By Category' grid + paging."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:browse-categories"
+  ]
+ },
+ {
+  "id": "knowledge-hub-cta",
+  "name": "Knowledge Hub CTA",
+  "edsBlock": "callout",
+  "complexity": "Low",
+  "complexityReason": "Promotional callout within Living/Knowledge articles steering to a quote or related resource.",
+  "templates": [
+   "knowledge-hub"
+  ],
+  "pages": 53,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Knowledge Hub CTA",
+    "pages": 53
+   }
+  ],
+  "functional": [
+   "Heading + copy + CTA to a quote or resource."
+  ],
+  "acceptance": [
+   "CTA renders and routes correctly."
+  ],
+  "verify": [
+   "Confirm a knowledge-hub CTA in a Living article."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:knowledge-hub-cta"
+  ]
+ },
+ {
+  "id": "quick-links",
+  "name": "Quick Links / Category Shortcuts",
+  "edsBlock": "quick-links",
+  "complexity": "Low",
+  "complexityReason": "Grid/row of labelled icon shortcuts to key categories/services (homepage & landing pages).",
+  "templates": [
+   "article",
+   "product-detail-page",
+   "product-landing"
+  ],
+  "pages": 21,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Quick Links / Category Shortcuts",
+    "pages": 21
+   }
+  ],
+  "functional": [
+   "Row/grid of icon + label shortcut cards linking to categories/services."
+  ],
+  "acceptance": [
+   "Each quick-link navigates to its target."
+  ],
+  "verify": [
+   "Click a quick-link tile."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:quick-links"
+  ]
+ },
+ {
+  "id": "press-release-tabs",
+  "name": "Press Release Archive Tabs",
+  "edsBlock": "tabs (archive)",
+  "complexity": "Medium",
+  "complexityReason": "Press-release archive (verified live): year tabs (2026/2025/2024/2023) switch the list of dated press-release entries, each with 'Continue Reading' → the release page.",
+  "templates": [
+   "press-release-archive"
+  ],
+  "pages": 6,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Press Release Archive Tabs",
+    "pages": 6
+   }
+  ],
+  "functional": [
+   "Year tabs switch the press-release list.",
+   "Each entry: date + headline + 'Continue Reading' link."
+  ],
+  "acceptance": [
+   "Selecting a year shows that year's releases; links resolve."
+  ],
+  "verify": [
+   "Switch years on /about/pressreleases."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:press-release-tabs"
+  ]
+ },
+ {
+  "id": "promo-banner",
+  "name": "Promo Banner",
+  "edsBlock": "promo-banner",
+  "complexity": "Low",
+  "complexityReason": "Sitewide promo strip above the header with rotating offer links.",
+  "templates": [
+   "contact",
+   "content-page",
+   "product-landing"
+  ],
+  "pages": 5,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Promo Banner",
+    "pages": 5
+   }
+  ],
+  "functional": [
+   "Rotating promotional offer links above the header."
+  ],
+  "acceptance": [
+   "Promo links navigate to the offer/PLP."
+  ],
+  "verify": [
+   "Confirm promo links."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:content:promo-banner"
+  ]
+ },
+ {
+  "id": "author-profile",
+  "name": "Author Profile",
+  "edsBlock": "author-bio",
+  "complexity": "Low",
+  "complexityReason": "Living/Knowledge author page header (verified live): author name, role (Chief Editor / Team), bio and breadcrumb; followed by the author's article list.",
+  "templates": [
+   "author"
+  ],
+  "pages": 4,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Author Profile",
+    "pages": 4
+   }
+  ],
+  "functional": [
+   "Author name, role and bio.",
+   "Breadcrumb (GEICO › Living › Author).",
+   "Typically paired with the author's articles list."
+  ],
+  "acceptance": [
+   "Author header renders name + role + bio."
+  ],
+  "verify": [
+   "Confirm /living/author/... header renders."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:author-profile"
+  ]
+ },
+ {
+  "id": "flipbook",
+  "name": "Claims Step Guide (Flipbook)",
+  "edsBlock": "step-guide",
+  "complexity": "Medium",
+  "complexityReason": "Claims-center guided step walkthrough (verified live): numbered steps (Report → …) presented as an interactive flipbook/step guide for handling a claim, alongside claim-type guides (car accident, glass damage).",
+  "templates": [
+   "claims"
+  ],
+  "pages": 1,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Claims Step Guide (Flipbook)",
+    "pages": 1
+   }
+  ],
+  "functional": [
+   "Numbered, sequential claim steps in an interactive guide.",
+   "Links into the report-a-claim flow and per-scenario guides."
+  ],
+  "acceptance": [
+   "Steps render in order; navigation between steps works.",
+   "Report-a-claim CTA routes to the claims flow."
+  ],
+  "verify": [
+   "VERIFIED live: /claims shows the step guide + 'Report a GEICO Claim'."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:flipbook"
+  ]
+ },
+ {
+  "id": "sitemap",
+  "name": "Sitemap",
+  "edsBlock": "sitemap",
+  "complexity": "Low",
+  "complexityReason": "HTML sitemap: grouped link directory of the site's sections/pages.",
+  "templates": [
+   "sitemap"
+  ],
+  "pages": 1,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Sitemap",
+    "pages": 1
+   }
+  ],
+  "functional": [
+   "Grouped lists of links to site sections/pages."
+  ],
+  "acceptance": [
+   "Sitemap groups render and links resolve."
+  ],
+  "verify": [
+   "Confirm /web-and-mobile/sitemap links."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:cssmod:sitemap"
+  ]
+ }
+]

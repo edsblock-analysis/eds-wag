@@ -1,0 +1,43 @@
+{
+  "behaviors": {
+    "product-selector": {
+      "observed": "Homepage quote-start selector (Playwright-verified): tabbed product picker (Popular / Vehicle / Property / Personal / Commercial) exposing ~35 products incl. Car, Homeowners, Renters, Motorcycle, Boat & PWC, ATV, RV, Condo, Flood, Umbrella, Life, Travel, Pet, Jewelry, Bicycle, Mexico Auto, plus a Build My Bundle path. Selecting a product starts that product’s quote flow (auto/property → sales.geico.com; some personal lines → partner underwriters).",
+      "states": [
+        "tab: Popular",
+        "tab: Vehicle",
+        "tab: Property",
+        "tab: Personal",
+        "tab: Commercial",
+        "Build My Bundle",
+        "See more Personal Options"
+      ]
+    },
+    "agent-locator": {
+      "observed": "Insurance Agent Locator (Playwright-verified on /insurance-agents/): address input + radius select (miles_select) + submit run an agent search; results list nearby GEICO local agents. Also a manage/select control and vendor search.",
+      "states": [
+        "enter address",
+        "select radius (miles)",
+        "submit → agent results",
+        "find a local agent"
+      ]
+    },
+    "flipbook": {
+      "observed": "Claims Center (Playwright-verified on /claims/): guided step walkthrough (flipbook) for handling a claim, with claim-type guides (Car Accident, Glass Damage) and CTAs — Report a GEICO Claim, Report Glass Damage, File a Claim with an Insurance Partner, Report a Claim.",
+      "states": [
+        "choose claim type",
+        "step guide (Report → …)",
+        "Report a GEICO Claim",
+        "partner claim"
+      ]
+    },
+    "virtual-assistant": {
+      "observed": "GEICO Virtual Assistant (Playwright-verified): persistent chat launcher (data-testid=\"gabby-launcher\", button “Open GEICO Virtual Assistant chat”) with a dismissible proactive greeting; opens a conversational support/self-service widget sitewide.",
+      "states": [
+        "launcher visible",
+        "proactive greeting",
+        "dismiss greeting",
+        "open assistant"
+      ]
+    }
+  }
+}

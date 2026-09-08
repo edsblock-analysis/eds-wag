@@ -108,7 +108,18 @@
     "image-with-text":      { "into": "feature-columns", "as": "media-text" },
 
     "footer-teaser":   { "into": "callout", "as": "cta-band" },
-    "featured-button": { "into": "callout", "as": "resource" }
+    "featured-button": { "into": "callout", "as": "resource" },
+
+    "hero-home":            { "into": "hero", "as": "homepage" },
+    "landing-hero":         { "into": "hero", "as": "landing" },
+    "category-hero":        { "into": "hero", "as": "category" },
+    "hero-image-grid":      { "into": "hero", "as": "image-grid" },
+    "vertical-card":        { "into": "card", "as": "vertical" },
+    "testimonial-card":     { "into": "card", "as": "testimonial" },
+    "call-to-action-image": { "into": "call-to-action", "as": "with-image" },
+    "large-image-media":    { "into": "image-text", "as": "full-width" },
+    "impact-numbers":       { "into": "statistics-block", "as": "stat-item" },
+    "content-carousel":     { "into": "carousel", "as": "content" }
   },
   "templateLabels": {
     "article": "Article",
@@ -128,6 +139,19 @@
     "page-results": "Results",
     "page-solutions": "Solutions",
     "page-solutions-detail": "Solution Detail",
+    "vehicle-info": "Vehicle Make/Model (SEO)",
+    "knowledge-hub": "Knowledge / Living Hub",
+    "author": "Author Profile",
+    "press-release": "Press Release",
+    "press-release-archive": "Press Release Archive",
+    "agent-locator": "Insurance Agent Locator",
+    "claims": "Claims Center",
+    "sitemap": "Sitemap",
+    "about": "About",
+    "product-landing": "Product Landing (Insurance Line)",
+    "product-detail-page": "Product Detail / Vertical",
+    "contact": "Contact Us",
+    "content-page": "Content Page",
     "unknown": "Unclassified"
   }
 }

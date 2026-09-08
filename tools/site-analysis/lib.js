@@ -35,23 +35,48 @@ function originOf(urls) {
   try { return new URL(urls[0]).origin; } catch (e) { return ''; }
 }
 
-function get(url, redirects = 0) {
+const zlib = require('zlib');
+const BROWSER_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
+
+// Follows redirects AND persists cookies across the chain (jar is a plain
+// {name:value} map, mutated in place). Many sites (e.g. geico.com) set a session
+// cookie then 302 to the SAME url; without a jar the client loops until the
+// redirect cap and never sees a 200. Sends browser-like headers + handles gzip/br.
+function get(url, redirects = 0, jar = {}) {
   return new Promise((resolve) => {
     const mod = url.startsWith('https') ? https : http;
+    const cookieHeader = Object.keys(jar).map(k => `${k}=${jar[k]}`).join('; ');
     const req = mod.get(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EDS-Migration-Analysis/1.0)' },
+      headers: {
+        'User-Agent': BROWSER_UA,
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        ...(cookieHeader ? { 'Cookie': cookieHeader } : {}),
+      },
       timeout: 30000,
     }, (res) => {
       const { statusCode } = res;
-      if ([301, 302, 303, 307, 308].includes(statusCode) && res.headers.location && redirects < 5) {
+      // merge any Set-Cookie into the jar
+      const sc = res.headers['set-cookie'];
+      if (sc) sc.forEach(c => { const m = c.match(/^\s*([^=]+)=([^;]*)/); if (m) jar[m[1].trim()] = m[2]; });
+      if ([301, 302, 303, 307, 308].includes(statusCode) && res.headers.location && redirects < 8) {
         res.resume();
         const next = new URL(res.headers.location, url).href;
-        return resolve(get(next, redirects + 1).then(r => ({ ...r, redirectedFrom: url })));
+        return resolve(get(next, redirects + 1, jar).then(r => ({ ...r, redirectedFrom: url })));
       }
-      let data = '';
-      res.setEncoding('utf8');
-      res.on('data', c => data += c);
-      res.on('end', () => resolve({ statusCode, body: data, finalUrl: url }));
+      const enc = (res.headers['content-encoding'] || '').toLowerCase();
+      const chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', () => {
+        let buf = Buffer.concat(chunks);
+        try {
+          if (enc === 'gzip') buf = zlib.gunzipSync(buf);
+          else if (enc === 'deflate') buf = zlib.inflateSync(buf);
+          else if (enc === 'br') buf = zlib.brotliDecompressSync(buf);
+        } catch (e) { /* leave as-is on decode failure */ }
+        resolve({ statusCode, body: buf.toString('utf8'), finalUrl: url });
+      });
     });
     req.on('timeout', () => { req.destroy(); resolve({ statusCode: 0, body: '', error: 'timeout' }); });
     req.on('error', (e) => resolve({ statusCode: 0, body: '', error: e.message }));

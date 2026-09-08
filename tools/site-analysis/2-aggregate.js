@@ -45,9 +45,62 @@ function spaPageType(p) {
   if (has('product-listing') || has('product-filters')) return 'plp';
   return null;
 }
+// GEICO (Next.js CSS-Modules SPA) page-type from URL structure + component signals.
+// GEICO has no cmp-* and no walgreens testids; classify by its own IA. Returns a template id or null.
+function geicoPageType(p) {
+  let path;
+  try { path = new URL(p.url).pathname.replace(/\/+$/, '').toLowerCase(); } catch (e) { return null; }
+  // Spanish mirror: /espanol/* mirrors the English IA — strip the prefix so es pages get the
+  // same template as their English counterpart (bare /espanol is the Spanish home).
+  if (path === '/espanol') return 'home-landing';
+  path = path.replace(/^\/espanol(?=\/)/, '');
+  const spa = p.spaBlocks || {};
+  const has = (b) => spa['cssmod:' + b] > 0 || spa[b] > 0;
+  const seg = path.split('/').filter(Boolean);
+  if (path === '' ) return 'home-landing';
+  // Programmatic vehicle make/model SEO pages
+  if (/\/auto-insurance\/vehicle-make(\/|$)/.test(path)) return 'vehicle-info';
+  // Living / Knowledge editorial
+  if (path === '/knowledge' || path === '/living' || has('landing-hero') || has('browse-categories')) return 'knowledge-hub';
+  if (/\/living\/category\//.test(path)) return 'category-listing';
+  if (/\/living\/author\//.test(path)) return 'author';
+  // Editorial articles: /living/{...}, /information/{...}, /techblog/{...} at 2+ segments
+  if (/^\/(living|information)\//.test(path) && seg.length >= 2) return 'article';
+  // Press releases
+  if (/\/about\/pressreleases\/.+/.test(path)) return 'press-release';
+  if (/\/about\/pressreleases$/.test(path)) return 'press-release-archive';
+  // Agent locator / find an agent
+  if (/\/insurance-agents(\/|$)/.test(path)) return 'agent-locator';
+  // Claims center
+  if (/\/claims(\/|$)/.test(path)) return 'claims';
+  // Sitemap
+  if (/sitemap/.test(path)) return 'sitemap';
+  // Engineering / tech blog
+  if (/^\/techblog(\/|$)/.test(path)) return seg.length > 1 ? 'article' : 'knowledge-hub';
+  // About section
+  if (/^\/about(\/|$)/.test(path)) return 'about';
+  // Contact-us hub
+  if (/^\/contact-us(\/|$)/.test(path)) return 'contact';
+  // Marketing landing pages (campaign/partner/product landing)
+  if (/^\/(landingpage|save|g2m|madeforyou|response|powerusers|smallbiz)(\/|$)/.test(path)) return 'product-landing';
+  // Product / vertical insurance pages (auto-insurance, motorcycle-insurance, renters-insurance, …)
+  if (/-insurance(\/|$)/.test(path) || /^\/(auto|motorcycle|homeowners|renters|boat|atv|rv|umbrella|flood|life|pet|jewelry|travel|business|commercial)\b/.test(path)) {
+    if (seg.length <= 1) return 'product-landing';
+    return 'product-detail-page';
+  }
+  return null;
+}
 function classify(p) {
   const t = p.template || 'unknown';
   const url = p.url;
+  // GEICO: CSS-Modules SPA — use its own IA classifier before the walgreens/AEM heuristics.
+  // On geico.com, never fall through to the walgreens commerce/SPA logic (no PLP/PDP/cart
+  // there); a real page that matches no specific rule is a generic content-page.
+  if (/geico\.com/i.test(url)) {
+    if ((p.status && p.status !== 200) || p.error || p.isRedirect) return 'redirect-stub';
+    const gpt = geicoPageType(p);
+    return gpt || 'content-page';
+  }
   const isTranscript = /transcript/i.test(url);
   const has = (b) => p.blocks && p.blocks[b];
   const cards = p.cards || {};
@@ -169,10 +222,13 @@ function classify(p) {
     journeyCapabilityCounts: setCount(journeyPages),
     embedHosts, tplBlock, tplVariation,
     mirrorCount: pages.filter(p => p._mirror).length,
-    spanishCount: pages.filter(p => (p.lang || '').startsWith('es')).length,
+    // Non-English variants: prefer the html lang attr, but fall back to the URL path
+    // (some sites, e.g. geico.com/espanol/*, serve Spanish content with lang="en-US").
+    spanishCount: pages.filter(p => (p.lang || '').startsWith('es') || /\/espanol(\/|$)/i.test(p.url) || /\/es(-[a-z]{2})?\//i.test(p.url)).length,
   };
   L.writeJSON(path.join(dataDir, 'summary.json'), summary);
-  L.writeJSON(path.join(dataDir, 'url-templates.json'), pages.map(p => ({ url: p.url, template: p._tpl, metaTemplate: p.template, mirror: !!p._mirror, cards: p.cards, embeds: p.embeds, integrations: p.integrations, lang: p.lang || 'en', forms: (p.forms || []).length, journey: p.journey || {} })));
+  const langOf = (p) => (p.lang && p.lang.startsWith('es')) || /\/espanol(\/|$)/i.test(p.url) || /\/es(-[a-z]{2})?\//i.test(p.url) ? 'es' : (p.lang || 'en');
+  L.writeJSON(path.join(dataDir, 'url-templates.json'), pages.map(p => ({ url: p.url, template: p._tpl, metaTemplate: p.template, mirror: !!p._mirror, cards: p.cards, embeds: p.embeds, integrations: p.integrations, lang: langOf(p), forms: (p.forms || []).length, journey: p.journey || {} })));
 
   console.log('[2-aggregate] templates:');
   Object.entries(summary.templateCounts).sort((a, b) => b[1] - a[1]).forEach(([k, v]) => console.log(`  ${String(v).padStart(4)}  ${k}`));

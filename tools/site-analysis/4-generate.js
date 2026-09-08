@@ -52,13 +52,19 @@ function inferTechStack() {
   const blockKeys = Object.keys(S.blockPageCounts || {});
   const hasCmp = blockKeys.some(k => /^cmp-/.test(k));
   const hasSpa = blockKeys.some(k => /^spa:/.test(k));
+  const hasCssMod = blockKeys.some(k => /^spa:cssmod:/.test(k));
+  const hasTestid = blockKeys.some(k => /^spa:(?!cssmod:|content:)/.test(k));
   const metaTpls = [...new Set(UT.map(u => u.metaTemplate).filter(Boolean))];
   const stack = [];
   const add = (category, tech, evidence) => stack.push({ category, tech, evidence });
 
   // CMS / rendering
   if (hasCmp) add('CMS / Components', 'Adobe Experience Manager (AEM) — WCM Core Components', 'cmp-* component classes' + (metaTpls.length ? ', <meta name=template>: ' + metaTpls.slice(0, 4).join(', ') : ''));
-  if (hasSpa) add('Front-end', 'React / client-side SPA', 'components addressed via data-testid; client-rendered content (rendered via headless browser)');
+  if (hasCssMod) {
+    add('Front-end', 'React with CSS-Modules (Next.js-style SSR/SSG)', 'server-rendered component markup with hashed CSS-Module class names (e.g. product-selector_root__abc12) and *-section wrappers; content present in the initial HTML');
+  } else if (hasTestid) {
+    add('Front-end', 'React / client-side SPA', 'components addressed via data-testid; client-rendered content (rendered via headless browser)');
+  }
   if (!hasCmp && !hasSpa && blockKeys.length) add('Front-end', 'Server-rendered / semantic HTML', 'no cmp-*/data-testid component system detected');
   // Target EDS (analysis goal)
   add('Target platform', 'Adobe Edge Delivery Services (EDS)', 'this analysis maps blocks/templates for EDS migration');

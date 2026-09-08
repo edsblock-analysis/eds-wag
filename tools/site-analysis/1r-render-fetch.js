@@ -19,7 +19,13 @@ const jitter = (i, base, spread) => base + ((i * 977) % spread);
 function isBlocked(status, html) {
   if (status === 403 || status === 429) return true;
   if (!html) return false;
-  return /Access Denied|Pardon the Interruption|unusual traffic|Reference #[0-9a-f.]+|errors\.edgesuite\.net|Request unsuccessful/i.test(html.slice(0, 4000));
+  // Only treat as a bot wall on strong signals (title/heading-level access-denied or
+  // Akamai edge error), NOT loose body text like "Reference #" which appears in normal
+  // content. Require the phrase near a <title>/<h1> or an edgesuite error host.
+  const head = html.slice(0, 6000);
+  if (/errors\.edgesuite\.net|Pardon the Interruption|Request unsuccessful\. Incapsula/i.test(head)) return true;
+  if (/<title>[^<]*Access Denied[^<]*<\/title>|<h1[^>]*>\s*Access Denied/i.test(head)) return true;
+  return false;
 }
 
 async function renderOne(context, url, attempt) {

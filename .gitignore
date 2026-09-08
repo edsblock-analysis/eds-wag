@@ -16,3 +16,6 @@ helix-importer-ui
 report/walgreens/pages/
 report/walgreens/journey/*.html
 report/walgreens/myaccount/bundles/
+
+# geico.com rendered HTML cache (large; regenerable)
+report/geico/pages/

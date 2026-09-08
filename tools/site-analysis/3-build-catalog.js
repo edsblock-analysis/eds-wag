@@ -54,6 +54,13 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
         const id = 'spa-' + sub.slice(7).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
         const rec = ensure(id, null); rec.needsReview = true; rec.rawKeys.push(rawKey);
         idPages[id] = Math.max(idPages[id] || 0, count);
+      } else if (sub.startsWith('cssmod:')) {               // CSS-Module component
+        const name = sub.slice(7);
+        const kbEntry = SPA_BLOCKS[name];                   // knowledge-base block by id
+        const rec = ensure(name, kbEntry || null);
+        if (!kbEntry) rec.needsReview = true;               // unknown CSS-module component -> stub
+        rec.rawKeys.push(rawKey);
+        idPages[name] = Math.max(idPages[name] || 0, count);
       } else {                                              // known SPA block from knowledge base
         const rec = ensure(sub, SPA_BLOCKS[sub] || null);
         if (!SPA_BLOCKS[sub]) rec.needsReview = true;
@@ -124,7 +131,9 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
     if (rawKey.startsWith('spa:content:') || rawKey.startsWith('content:')) return rawKey.replace(/^spa:content:|^content:/, '');
     if (rawKey.startsWith('spa:')) {
       const sub = rawKey.slice(4);
-      return sub.startsWith('testid:') ? 'spa-' + sub.slice(7).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') : sub;
+      if (sub.startsWith('testid:')) return 'spa-' + sub.slice(7).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+      if (sub.startsWith('cssmod:')) return sub.slice(7);
+      return sub;
     }
     if (KB[rawKey]) return KB[rawKey].id;
     if (FOLD[rawKey]) return FOLD[rawKey];
