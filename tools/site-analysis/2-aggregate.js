@@ -115,6 +115,7 @@ function classify(p) {
 
   const templates = {}, blockPages = {}, variationPages = {}, customPages = {}, integrationPages = {}, embedHosts = {};
   const genericBlockPages = {}, unknownHostPages = {}, formKindPages = {}, formActionHosts = {}, journeyPages = {};
+  const spaVarPages = {}; // "blockId::variation" -> Set(url)
   const tplBlock = {}, tplVariation = {};
   const cardVarPages = { hero: new Set(), small: new Set(), medium: new Set(), video: new Set() };
   const allForms = [];
@@ -129,6 +130,8 @@ function classify(p) {
     // SPA/React blocks (data-testid families) are first-class blocks; namespace with spa: so
     // the catalog builder maps them via react-testid-blocks.json.
     Object.keys(p.spaBlocks || {}).forEach(b => { const key = 'spa:' + b; (blockPages[key] = blockPages[key] || new Set()).add(p.url); templates[tpl].blocks.add(key); tplBlock[tpl][key] = (tplBlock[tpl][key] || 0) + 1; });
+    // Per-block variations detected on this page (e.g. product-detail: standard / contact-lens)
+    Object.entries(p.spaVariations || {}).forEach(([blockId, vars]) => { vars.forEach(v => { const k = blockId + '::' + v; (spaVarPages[k] = spaVarPages[k] || new Set()).add(p.url); }); });
     Object.keys(p.variations || {}).forEach(v => { (variationPages[v] = variationPages[v] || new Set()).add(p.url); templates[tpl].variations.add(v); tplVariation[tpl][v] = (tplVariation[tpl][v] || 0) + 1; });
     Object.keys(p.custom || {}).forEach(c => { (customPages[c] = customPages[c] || new Set()).add(p.url); templates[tpl].custom.add(c); });
     Object.keys(p.genericBlocks || {}).forEach(g => { (genericBlockPages[g] = genericBlockPages[g] || new Set()).add(p.url); });
@@ -159,6 +162,7 @@ function classify(p) {
     templates: Object.fromEntries(Object.entries(templates).map(([k, v]) => [k, { count: v.count, blocks: [...v.blocks].sort(), variations: [...v.variations].sort(), custom: [...v.custom].sort() }])),
     blockPageCounts: setCount(blockPages), variationPageCounts: setCount(variationPages), customPageCounts: setCount(customPages),
     genericBlockPageCounts: setCount(genericBlockPages),
+    spaVariationPageCounts: setCount(spaVarPages),
     cardVariationPageCounts: setCount(cardVarPages), integrationPageCounts: setCount(integrationPages), integrationCategories,
     unknownScriptHostCounts: setCount(unknownHostPages),
     formKindCounts: setCount(formKindPages), formActionHostCounts: setCount(formActionHosts), forms: allForms,

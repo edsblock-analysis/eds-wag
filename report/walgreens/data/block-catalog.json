@@ -18,12 +18,12 @@
    "store-detail",
    "store-locator"
   ],
-  "pages": 831,
+  "pages": 833,
   "variations": [
    {
     "name": "default",
     "desc": "Global Footer",
-    "pages": 831
+    "pages": 833
    }
   ],
   "functional": [
@@ -65,12 +65,12 @@
    "store-detail",
    "store-locator"
   ],
-  "pages": 627,
+  "pages": 629,
   "variations": [
    {
     "name": "default",
     "desc": "Account / Authentication",
-    "pages": 627
+    "pages": 629
    }
   ],
   "functional": [
@@ -112,12 +112,12 @@
    "store-detail",
    "store-locator"
   ],
-  "pages": 580,
+  "pages": 582,
   "variations": [
    {
     "name": "default",
     "desc": "Cart",
-    "pages": 580
+    "pages": 582
    }
   ],
   "functional": [
@@ -161,12 +161,12 @@
    "store-detail",
    "store-locator"
   ],
-  "pages": 580,
+  "pages": 582,
   "variations": [
    {
     "name": "default",
     "desc": "Global Header / Nav",
-    "pages": 580
+    "pages": 582
    }
   ],
   "functional": [
@@ -212,12 +212,12 @@
    "store-detail",
    "store-locator"
   ],
-  "pages": 579,
+  "pages": 581,
   "variations": [
    {
     "name": "default",
     "desc": "Promo Banner",
-    "pages": 579
+    "pages": 581
    }
   ],
   "functional": [
@@ -524,12 +524,12 @@
    "retail-content-template",
    "store-detail"
   ],
-  "pages": 82,
+  "pages": 84,
   "variations": [
    {
     "name": "default",
     "desc": "Content / Product Carousel",
-    "pages": 82
+    "pages": 84
    }
   ],
   "functional": [
@@ -636,12 +636,12 @@
    "redirect-stub",
    "store-detail"
   ],
-  "pages": 43,
+  "pages": 45,
   "variations": [
    {
     "name": "default",
     "desc": "Hero Banner",
-    "pages": 43
+    "pages": 45
    }
   ],
   "functional": [
@@ -869,6 +869,50 @@
   ]
  },
  {
+  "id": "product-detail",
+  "name": "Product Detail (PDP)",
+  "edsBlock": "product-detail-page (commerce)",
+  "complexity": "High",
+  "complexityReason": "Product page with TWO distinct variations that differ materially in DOM & functionality (verified live): (1) STANDARD retail PDP — gallery, specifications table, fulfillment radios (pickup/same-day/shipping) with stock+ready messaging, quantity, add-for-pickup, coupons, reviews, save-to-list, check-other-stores; (2) CONTACT-LENS / VISION PDP — per-eye prescription configurator (left/right eye power, base curve, box quantity), image tabs, simple add-to-cart, NO fulfillment radios/specs table. Each is a separate authoring/dev configuration. Commerce — Adobe Commerce PDP block(s) in EDS.",
+  "templates": [
+   "find-care",
+   "pdp",
+   "store-detail"
+  ],
+  "pages": 9,
+  "variations": [
+   {
+    "name": "contact-lens",
+    "pages": 1,
+    "desc": "Vision / contact-lens PDP: per-eye prescription selectors (left/right eye power, base curve, quantity of boxes), image tabs, add-to-cart. No fulfillment radios/specs table — a prescription configurator."
+   },
+   {
+    "name": "standard",
+    "pages": 1,
+    "desc": "Standard retail PDP: gallery, specifications table, fulfillment options (pickup/same-day/shipping) with stock+ready messaging, quantity, add-for-pickup, coupons, reviews, save-to-list, check-other-stores."
+   }
+  ],
+  "functional": [
+   "STANDARD variation: gallery + title/brand + price + rating; specifications table (brand, product-type, FSA/HSA-eligible, size, UPC, item-code); fulfillment radios (pickup/same-day/shipping) with stock + ready-time messaging + store address; quantity dropdown; add-for-pickup / add-to-cart; coupons; reviews; save-to-shopping-list; check-other-stores; description show-more; more-to-explore carousel.",
+   "CONTACT-LENS variation: per-eye prescription selectors (right-eye-power, left-eye-power, and typically base curve / brand / quantity of boxes); product image tabs; add-to-cart. No fulfillment radios or specifications table — it is a vision-prescription configurator.",
+   "Both: add-to-cart updates the header cart count and opens the cart-confirmation overlay."
+  ],
+  "acceptance": [
+   "STANDARD: PDP shows title/price/gallery + specs; fulfillment options selectable; add-to-cart updates the cart.",
+   "CONTACT-LENS: left & right eye power (and box quantity) are selectable and required before add-to-cart; adding the configured prescription updates the cart.",
+   "The correct variation renders per product type (vision products → contact-lens; all others → standard)."
+  ],
+  "verify": [
+   "Standard PDP (e.g. a cream): confirm specs table + pickup/ship/same-day radios + add-to-cart.",
+   "Contact-lens PDP (e.g. Acuvue): confirm left/right eye-power selectors + box qty + add-to-cart; confirm NO fulfillment radios."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:product-detail"
+  ]
+ },
+ {
   "id": "product-listing",
   "name": "Product Listing (PLP)",
   "edsBlock": "product-list-page (commerce)",
@@ -910,49 +954,6 @@
   "needsReview": false,
   "rawKeys": [
    "spa:product-listing"
-  ]
- },
- {
-  "id": "product-detail",
-  "name": "Product Detail (PDP)",
-  "edsBlock": "product-detail-page (commerce)",
-  "complexity": "High",
-  "complexityReason": "Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS.",
-  "templates": [
-   "find-care",
-   "pdp",
-   "store-detail"
-  ],
-  "pages": 7,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Product Detail (PDP)",
-    "pages": 7
-   }
-  ],
-  "functional": [
-   "Product gallery + title + brand + price + rating.",
-   "Variant selection (color/size/undertone) updates price/availability.",
-   "Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.",
-   "FSA-eligibility labelling; check-other-store availability.",
-   "Reviews."
-  ],
-  "acceptance": [
-   "PDP shows title, price and gallery.",
-   "Selecting a variant updates the selection/price.",
-   "Add-to-cart adds the item and updates the cart.",
-   "Fulfillment options are selectable."
-  ],
-  "verify": [
-   "Select a variant; confirm update.",
-   "Add to cart; confirm cart change.",
-   "Check fulfillment toggles."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:product-detail"
   ]
  },
  {
@@ -1055,6 +1056,49 @@
   ]
  },
  {
+  "id": "fulfillment-cart",
+  "name": "Fulfillment & Add-to-Cart",
+  "edsBlock": "product-fulfillment (commerce)",
+  "complexity": "High",
+  "complexityReason": "PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs.",
+  "templates": [
+   "find-care",
+   "pdp",
+   "store-detail"
+  ],
+  "pages": 6,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Fulfillment & Add-to-Cart",
+    "pages": 6
+   }
+  ],
+  "functional": [
+   "Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.",
+   "Quantity dropdown.",
+   "Add-to-cart / add-for-pickup updates the cart + header count.",
+   "Check other stores for availability.",
+   "Pickup address/details reflect the selected store."
+  ],
+  "acceptance": [
+   "Selecting a fulfillment option updates availability messaging.",
+   "Choosing quantity + add-to-cart adds the item and updates the cart count.",
+   "Check-other-stores surfaces alternative stores.",
+   "Out-of-stock options are disabled/messaged."
+  ],
+  "verify": [
+   "On a PDP, toggle pickup/shipping/same-day.",
+   "Set quantity and add to cart; confirm header count changes.",
+   "Open check-other-stores."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:fulfillment-cart"
+  ]
+ },
+ {
   "id": "article-body",
   "name": "Article / Content Body",
   "edsBlock": "default content (rich text + media)",
@@ -1117,48 +1161,6 @@
   "needsReview": false,
   "rawKeys": [
    "cmp-teaser"
-  ]
- },
- {
-  "id": "fulfillment-cart",
-  "name": "Fulfillment & Add-to-Cart",
-  "edsBlock": "product-fulfillment (commerce)",
-  "complexity": "High",
-  "complexityReason": "PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs.",
-  "templates": [
-   "find-care",
-   "pdp"
-  ],
-  "pages": 4,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Fulfillment & Add-to-Cart",
-    "pages": 4
-   }
-  ],
-  "functional": [
-   "Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.",
-   "Quantity dropdown.",
-   "Add-to-cart / add-for-pickup updates the cart + header count.",
-   "Check other stores for availability.",
-   "Pickup address/details reflect the selected store."
-  ],
-  "acceptance": [
-   "Selecting a fulfillment option updates availability messaging.",
-   "Choosing quantity + add-to-cart adds the item and updates the cart count.",
-   "Check-other-stores surfaces alternative stores.",
-   "Out-of-stock options are disabled/messaged."
-  ],
-  "verify": [
-   "On a PDP, toggle pickup/shipping/same-day.",
-   "Set quantity and add to cart; confirm header count changes.",
-   "Open check-other-stores."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:fulfillment-cart"
   ]
  },
  {
@@ -1232,6 +1234,44 @@
   ]
  },
  {
+  "id": "recommendations-carousel",
+  "name": "Recommendations / Merchandising Carousels",
+  "edsBlock": "product-carousel (commerce)",
+  "complexity": "Medium",
+  "complexityReason": "Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards.",
+  "templates": [
+   "article",
+   "store-detail"
+  ],
+  "pages": 3,
+  "variations": [
+   {
+    "name": "default",
+    "desc": "Recommendations / Merchandising Carousels",
+    "pages": 3
+   }
+  ],
+  "functional": [
+   "Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).",
+   "Category/brand shortcut sections.",
+   "Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon."
+  ],
+  "acceptance": [
+   "Each carousel renders its product/offer cards.",
+   "Prev/next scrolls the rail.",
+   "A card navigates to the target PDP/PLP or clips a coupon."
+  ],
+  "verify": [
+   "On home/category/cart, scroll a recommendations carousel.",
+   "Click a card → PDP; clip a coupon."
+  ],
+  "integrations": [],
+  "needsReview": false,
+  "rawKeys": [
+   "spa:recommendations-carousel"
+  ]
+ },
+ {
   "id": "rx-refill",
   "name": "Rx Refill (guest/express)",
   "edsBlock": "rx-refill (pharmacy app)",
@@ -1267,43 +1307,6 @@
   "needsReview": false,
   "rawKeys": [
    "spa:content:rx-refill"
-  ]
- },
- {
-  "id": "recommendations-carousel",
-  "name": "Recommendations / Merchandising Carousels",
-  "edsBlock": "product-carousel (commerce)",
-  "complexity": "Medium",
-  "complexityReason": "Merchandising rails rendered from recommendation experience-fragments/APIs: sales offers, coupons, top sellers, highest rated, newest arrivals, recently-viewed (RVI), more-to-explore, all-categories & top-brands sections. Horizontal carousels of product/offer cards.",
-  "templates": [
-   "article"
-  ],
-  "pages": 2,
-  "variations": [
-   {
-    "name": "default",
-    "desc": "Recommendations / Merchandising Carousels",
-    "pages": 2
-   }
-  ],
-  "functional": [
-   "Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).",
-   "Category/brand shortcut sections.",
-   "Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon."
-  ],
-  "acceptance": [
-   "Each carousel renders its product/offer cards.",
-   "Prev/next scrolls the rail.",
-   "A card navigates to the target PDP/PLP or clips a coupon."
-  ],
-  "verify": [
-   "On home/category/cart, scroll a recommendations carousel.",
-   "Click a card → PDP; clip a coupon."
-  ],
-  "integrations": [],
-  "needsReview": false,
-  "rawKeys": [
-   "spa:recommendations-carousel"
   ]
  },
  {

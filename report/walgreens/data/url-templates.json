@@ -71683,5 +71683,157 @@
    "ctas": [],
    "externalLinkHosts": {}
   }
+ },
+ {
+  "url": "https://www.walgreens.com/store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product",
+  "template": "store-detail",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [
+   "https://walgreens.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.walgreens.com"
+  ],
+  "integrations": [
+   "Adobe Launch/DTM (tag mgmt)",
+   "Adobe Helix RUM",
+   "Google Analytics / GA4",
+   "Adobe Analytics (AppMeasurement)",
+   "Adobe Target (A/B)",
+   "Monetate",
+   "OneTrust (consent)",
+   "TrustArc (consent)",
+   "Bazaarvoice (ratings/reviews)",
+   "Medallia (feedback)",
+   "Google Maps",
+   "Google Fonts"
+  ],
+  "lang": "en",
+  "forms": 3,
+  "journey": {
+   "hasForm": true,
+   "hasSearch": true,
+   "hasLogin": true,
+   "hasCart": true,
+   "hasCheckout": true,
+   "hasFilters": true,
+   "hasPagination": false,
+   "hasTabs": true,
+   "hasAccordion": true,
+   "hasModal": true,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Buy It Again",
+    "Buy It Again",
+    "Request new Rx",
+    "Contact Lenses",
+    "Shop All Contact Lenses",
+    "Shop Contact Lenses",
+    "Shop",
+    "Shop All",
+    "Contact Lenses",
+    "Shop by Brand",
+    "Buy Again",
+    "Buy It Again"
+   ],
+   "externalLinkHosts": {
+    "blog.walgreens.com": 1,
+    "photo.walgreens.com": 21,
+    "walgreens.corporate.thegiftcardshop.com": 1,
+    "visit.govisibly.com": 1,
+    "walgreens.syf.com": 1,
+    "corporate.walgreens.com": 4,
+    "jobs.walgreens.com": 1,
+    "signup.cj.com": 1,
+    "www.walgreensadvertisinggroup.com": 1,
+    "privacyportal.onetrust.com": 3,
+    "www.onetrust.com": 1
+   }
+  }
+ },
+ {
+  "url": "https://www.walgreens.com/store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product",
+  "template": "store-detail",
+  "metaTemplate": null,
+  "mirror": false,
+  "cards": {
+   "total": 0,
+   "hero": 0,
+   "small": 0,
+   "medium": 0,
+   "video": 0
+  },
+  "embeds": [
+   "https://cdce6b44a93737837d494916922191dd.safeframe.googlesyndication.com/safeframe/1-0-45/html/container.html",
+   "https://www.google.com/recaptcha/api2/aframe",
+   "https://cm.g.doubleclick.net/partnerpixels?rdp=1&url=https%3A%2F%2Fwww.walgreens.com%2Fstore%2Fc%2Fwalgreens-advanced-moisturizing-cream-fragrance-free%2FID%3D300397738-product"
+  ],
+  "integrations": [
+   "Adobe Launch/DTM (tag mgmt)",
+   "Adobe Helix RUM",
+   "Google Analytics / GA4",
+   "Adobe Analytics (AppMeasurement)",
+   "Amplitude",
+   "Adobe Target (A/B)",
+   "Monetate",
+   "OneTrust (consent)",
+   "TrustArc (consent)",
+   "Bazaarvoice (ratings/reviews)",
+   "Medallia (feedback)",
+   "Google Maps",
+   "Google Fonts",
+   "reCAPTCHA / hCaptcha"
+  ],
+  "lang": "en",
+  "forms": 2,
+  "journey": {
+   "hasForm": true,
+   "hasSearch": true,
+   "hasLogin": true,
+   "hasCart": true,
+   "hasCheckout": true,
+   "hasFilters": true,
+   "hasPagination": false,
+   "hasTabs": true,
+   "hasAccordion": true,
+   "hasModal": true,
+   "hasVideo": false,
+   "hasMap": false,
+   "hasChat": false,
+   "ctas": [
+    "Buy It Again",
+    "Buy It Again",
+    "Request new Rx",
+    "Contact Lenses",
+    "Shop All Contact Lenses",
+    "Shop Contact Lenses",
+    "Shop",
+    "Shop All",
+    "Contact Lenses",
+    "Shop by Brand",
+    "Buy Again",
+    "Buy It Again"
+   ],
+   "externalLinkHosts": {
+    "blog.walgreens.com": 1,
+    "photo.walgreens.com": 21,
+    "walgreens.corporate.thegiftcardshop.com": 1,
+    "walgreens.com": 1,
+    "walgreens.syf.com": 1,
+    "corporate.walgreens.com": 4,
+    "jobs.walgreens.com": 1,
+    "signup.cj.com": 1,
+    "www.walgreensadvertisinggroup.com": 1,
+    "privacyportal.onetrust.com": 3,
+    "www.onetrust.com": 1
+   }
+  }
  }
 ]

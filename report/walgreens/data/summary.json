@@ -1,8 +1,8 @@
 {
  "slug": "walgreens",
  "origin": "https://www.walgreens.com",
- "totalUrls": 1181,
- "ok": 1143,
+ "totalUrls": 1183,
+ "ok": 1145,
  "templateCounts": {
   "home-page-content-template": 15,
   "article": 751,
@@ -16,7 +16,7 @@
   "retail-base-template": 22,
   "rx-checkout": 7,
   "plp": 1,
-  "store-detail": 21,
+  "store-detail": 23,
   "store-locator": 3,
   "pdp": 3
  },
@@ -261,7 +261,7 @@
    "custom": []
   },
   "store-detail": {
-   "count": 21,
+   "count": 23,
    "blocks": [
     "cmp-accordion",
     "cmp-container",
@@ -278,10 +278,13 @@
     "spa:content:promo-banner",
     "spa:content:quick-links",
     "spa:content:rich-content",
+    "spa:fulfillment-cart",
     "spa:header",
     "spa:product-detail",
     "spa:product-filters",
-    "spa:product-listing"
+    "spa:product-listing",
+    "spa:recommendations-carousel",
+    "spa:testid:inner-div"
    ],
    "variations": [],
    "custom": []
@@ -318,24 +321,24 @@
   }
  },
  "blockPageCounts": {
-  "cmp-container": 379,
+  "cmp-container": 381,
   "cmp-text": 42,
-  "spa:cart": 580,
-  "spa:header": 580,
-  "spa:account-auth": 627,
-  "spa:content:promo-banner": 579,
-  "spa:content:hero-banner": 43,
+  "spa:cart": 582,
+  "spa:header": 582,
+  "spa:account-auth": 629,
+  "spa:content:promo-banner": 581,
+  "spa:content:hero-banner": 45,
   "spa:content:quick-links": 22,
-  "spa:content:content-carousel": 82,
-  "spa:content:footer": 831,
-  "spa:recommendations-carousel": 2,
+  "spa:content:content-carousel": 84,
+  "spa:content:footer": 833,
+  "spa:recommendations-carousel": 3,
   "spa:content:login-form": 47,
   "spa:content:live-chat": 56,
   "spa:content:health-content": 125,
   "spa:product-filters": 9,
   "spa:product-listing": 7,
-  "spa:product-detail": 7,
-  "spa:fulfillment-cart": 4,
+  "spa:product-detail": 9,
+  "spa:fulfillment-cart": 6,
   "spa:content:article-body": 6,
   "cmp-embed": 4,
   "cmp-experiencefragment": 316,
@@ -367,7 +370,8 @@
   "spa:content:rx-transfer": 2,
   "cmp-teaser": 6,
   "cmp-accordion": 4,
-  "spa:store-locator": 2
+  "spa:store-locator": 2,
+  "spa:testid:inner-div": 1
  },
  "variationPageCounts": {
   "cmp-experiencefragment--header": 314,
@@ -388,6 +392,10 @@
   "watch-videos": 7
  },
  "genericBlockPageCounts": {},
+ "spaVariationPageCounts": {
+  "product-detail::contact-lens": 1,
+  "product-detail::standard": 1
+ },
  "cardVariationPageCounts": {
   "hero": 9,
   "small": 11,
@@ -395,19 +403,19 @@
   "video": 7
  },
  "integrationPageCounts": {
-  "Adobe Launch/DTM (tag mgmt)": 976,
+  "Adobe Launch/DTM (tag mgmt)": 978,
   "Adobe Client Data Layer": 361,
-  "Adobe Helix RUM": 379,
-  "Adobe Analytics (AppMeasurement)": 943,
-  "Adobe Target (A/B)": 956,
-  "Monetate": 952,
-  "OneTrust (consent)": 922,
-  "TrustArc (consent)": 589,
-  "Medallia (feedback)": 941,
-  "Google Maps": 616,
-  "Google Fonts": 642,
-  "reCAPTCHA / hCaptcha": 12,
-  "Google Analytics / GA4": 624,
+  "Adobe Helix RUM": 381,
+  "Adobe Analytics (AppMeasurement)": 945,
+  "Adobe Target (A/B)": 958,
+  "Monetate": 954,
+  "OneTrust (consent)": 924,
+  "TrustArc (consent)": 591,
+  "Medallia (feedback)": 943,
+  "Google Maps": 618,
+  "Google Fonts": 644,
+  "reCAPTCHA / hCaptcha": 13,
+  "Google Analytics / GA4": 626,
   "Google Tag Manager": 21,
   "Facebook Pixel": 16,
   "Vimeo embed": 198,
@@ -415,40 +423,42 @@
   "Pardot (form)": 3,
   "LinkedIn Insight": 3,
   "Adobe Scene7 / Dynamic Media (video)": 314,
-  "Bazaarvoice (ratings/reviews)": 1,
+  "Bazaarvoice (ratings/reviews)": 3,
   "Qualtrics (survey)": 24,
   "Zendesk / LiveChat / Tidio": 2,
-  "Spotify embed": 1
+  "Spotify embed": 1,
+  "Amplitude": 1
  },
  "integrationCategories": {
   "Analytics/Tag Mgmt": {
-   "Adobe Launch/DTM (tag mgmt)": 976,
+   "Adobe Launch/DTM (tag mgmt)": 978,
    "Adobe Client Data Layer": 361,
-   "Adobe Helix RUM": 379,
-   "Adobe Analytics (AppMeasurement)": 943,
-   "Google Analytics / GA4": 624,
-   "Google Tag Manager": 21
+   "Adobe Helix RUM": 381,
+   "Adobe Analytics (AppMeasurement)": 945,
+   "Google Analytics / GA4": 626,
+   "Google Tag Manager": 21,
+   "Amplitude": 1
   },
   "Personalization/AB": {
-   "Adobe Target (A/B)": 956,
-   "Monetate": 952
+   "Adobe Target (A/B)": 958,
+   "Monetate": 954
   },
   "Consent/Privacy": {
-   "OneTrust (consent)": 922,
-   "TrustArc (consent)": 589
+   "OneTrust (consent)": 924,
+   "TrustArc (consent)": 591
   },
   "Survey/Feedback": {
-   "Medallia (feedback)": 941,
+   "Medallia (feedback)": 943,
    "Qualtrics (survey)": 24
   },
   "Maps/Location": {
-   "Google Maps": 616
+   "Google Maps": 618
   },
   "Fonts": {
-   "Google Fonts": 642
+   "Google Fonts": 644
   },
   "Security/Bot": {
-   "reCAPTCHA / hCaptcha": 12
+   "reCAPTCHA / hCaptcha": 13
   },
   "Marketing/Pixel": {
    "Facebook Pixel": 16,
@@ -464,18 +474,18 @@
    "Pardot (form)": 3
   },
   "Reviews/UGC": {
-   "Bazaarvoice (ratings/reviews)": 1
+   "Bazaarvoice (ratings/reviews)": 3
   },
   "Chat/Support": {
    "Zendesk / LiveChat / Tidio": 2
   }
  },
  "unknownScriptHostCounts": {
-  "cdn.branch.io": 741,
-  "s2.go-mpulse.net": 688,
-  "securepubads.g.doubleclick.net": 12,
+  "cdn.branch.io": 743,
+  "s2.go-mpulse.net": 690,
+  "securepubads.g.doubleclick.net": 13,
   "dok.js-cdn.dynatrace.com": 164,
-  "resources.digital-cloud-west.medallia.com": 941,
+  "resources.digital-cloud-west.medallia.com": 943,
   "www.mczbf.com": 17,
   "mihvea1f.micpn.com": 13,
   "track.coherentpath.com": 5,
@@ -484,7 +494,7 @@
   "googleads.g.doubleclick.net": 16,
   "login-ds.dotomi.com": 25,
   "dynamic.criteo.com": 20,
-  "www.wag-static.com": 216,
+  "www.wag-static.com": 218,
   "js.adsrvr.org": 19,
   "sslwidget.criteo.com": 20,
   "media-us2.digital.nuance.com": 120,
@@ -496,14 +506,16 @@
   "www.cdn-net.com": 2,
   "six.cdn-net.com": 2,
   "prod.accdab.net": 2,
-  "cdn.glassboxcdn.com": 1
+  "cdn.glassboxcdn.com": 1,
+  "apps.bazaarvoice.com": 2,
+  "content.syndigo.com": 1
  },
  "formKindCounts": {
-  "generic": 579,
+  "generic": 581,
   "contact/lead": 13,
   "login/auth": 52,
   "search": 314,
-  "checkout/payment": 1
+  "checkout/payment": 2
  },
  "formActionHostCounts": {
   "go.walgreenshealth.com": 3,
@@ -12697,18 +12709,88 @@
     "password",
     "showPassword"
    ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "ntt-placeholder"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 4,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "rPower",
+    "rBasecurve",
+    "dia",
+    "color"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 4,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "lPower",
+    "lBasecurve",
+    "dia",
+    "color"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product",
+   "template": "store-detail",
+   "kind": "generic",
+   "fieldCount": 1,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "ntt-placeholder"
+   ]
+  },
+  {
+   "url": "https://www.walgreens.com/store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product",
+   "template": "store-detail",
+   "kind": "checkout/payment",
+   "fieldCount": 5,
+   "actionHost": null,
+   "method": "get",
+   "submitText": "",
+   "fields": [
+    "fulfillmentOptions",
+    "ff-pickup-cart-quantity-dropdown",
+    "ff-pickup-cart-quantity-dropdown",
+    "fulfillmentOptions",
+    "fulfillmentOptions"
+   ]
   }
  ],
  "journeyCapabilityCounts": {
-  "hasForm": 944,
-  "hasSearch": 892,
-  "hasLogin": 985,
-  "hasCart": 581,
-  "hasCheckout": 945,
-  "hasFilters": 946,
-  "hasTabs": 898,
-  "hasModal": 628,
-  "hasAccordion": 168,
+  "hasForm": 946,
+  "hasSearch": 894,
+  "hasLogin": 987,
+  "hasCart": 583,
+  "hasCheckout": 947,
+  "hasFilters": 948,
+  "hasTabs": 900,
+  "hasModal": 630,
+  "hasAccordion": 170,
   "hasChat": 53,
   "hasMap": 4,
   "hasVideo": 39,
@@ -12716,9 +12798,9 @@
  },
  "embedHosts": {
   "aefdeb1b8b9074dc1f42eeb8efd617fa.safeframe.googlesyndication.com": 1,
-  "walgreens.demdex.net": 7,
-  "www.google.com": 11,
-  "cm.g.doubleclick.net": 11,
+  "walgreens.demdex.net": 8,
+  "www.google.com": 12,
+  "cm.g.doubleclick.net": 12,
   "gum.criteo.com": 20,
   "13040738.fls.doubleclick.net": 12,
   "6ff85747804faa1010bc098253f116f7.safeframe.googlesyndication.com": 1,
@@ -12741,7 +12823,8 @@
   "7fe07b6565ea98473f985dd29af5e314.safeframe.googlesyndication.com": 1,
   "2b241425b0c8cc0cac0957e485be6eb1.safeframe.googlesyndication.com": 1,
   "e771b42962100a8c7e4ee7c5cdd9712c.safeframe.googlesyndication.com": 1,
-  "0866da8e8a88256abf2c4a41f3b2a447.safeframe.googlesyndication.com": 1
+  "0866da8e8a88256abf2c4a41f3b2a447.safeframe.googlesyndication.com": 1,
+  "cdce6b44a93737837d494916922191dd.safeframe.googlesyndication.com": 1
  },
  "tplBlock": {
   "home-page-content-template": {
@@ -12901,25 +12984,28 @@
    "spa:content:footer": 1
   },
   "store-detail": {
-   "spa:cart": 12,
-   "spa:header": 12,
-   "spa:account-auth": 12,
-   "spa:content:promo-banner": 12,
-   "spa:content:footer": 12,
-   "cmp-container": 3,
+   "spa:cart": 14,
+   "spa:header": 14,
+   "spa:account-auth": 14,
+   "spa:content:promo-banner": 14,
+   "spa:content:footer": 14,
+   "cmp-container": 5,
    "cmp-text": 3,
-   "spa:content:hero-banner": 1,
+   "spa:content:hero-banner": 3,
    "spa:content:quick-links": 1,
-   "spa:content:content-carousel": 6,
+   "spa:content:content-carousel": 8,
    "spa:product-filters": 5,
    "spa:product-listing": 3,
-   "spa:product-detail": 3,
+   "spa:product-detail": 5,
    "cmp-teaser": 2,
    "cmp-image": 2,
    "cmp-title": 2,
    "cmp-accordion": 2,
    "spa:content:rich-content": 2,
-   "spa:content:feature-tile": 2
+   "spa:content:feature-tile": 2,
+   "spa:fulfillment-cart": 2,
+   "spa:recommendations-carousel": 1,
+   "spa:testid:inner-div": 1
   },
   "store-locator": {
    "spa:cart": 3,

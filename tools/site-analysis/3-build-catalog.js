@@ -107,6 +107,15 @@ for (const v of Object.values(KB)) { if (v && v.id && v.name) KB_BY_ID[v.id] = v
     const kb = KB[m[1]]; const id = kb ? kb.id : m[1].replace(/^cmp-/, '');
     if (byId[id] && !(id === 'card')) (idVariations[id] = idVariations[id] || []).push({ name: m[2], pages: count, desc: `${m[2]} variation` });
   }
+  // SPA per-block variations (e.g. product-detail: standard / contact-lens) from
+  // spaVariationPageCounts ("blockId::variation"). Descriptions come from the KB.
+  const BV = TESTID.blockVariations || {};
+  for (const [k, count] of Object.entries(S.spaVariationPageCounts || {})) {
+    const [id, vname] = k.split('::');
+    if (!byId[id]) continue;
+    const def = (BV[id] || []).find(v => v.name === vname) || {};
+    (idVariations[id] = idVariations[id] || []).push({ name: vname, pages: count, desc: def.desc || (vname + ' variation') });
+  }
 
   // Resolve any raw block key (cmp-*, spa:*, content:*, fold) to its catalog id — same
   // rules as the main mapping loop — so template→block associations cover every block type.

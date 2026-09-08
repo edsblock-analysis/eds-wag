@@ -14,7 +14,7 @@ CONTENT.classRoots = CONTENT.classRoots || [];
 
 function extract(url, html, status) {
   const $ = cheerio.load(html);
-  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [], forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, unknownScriptHosts: [] };
+  const rec = { url, status, template: null, title: null, description: null, lang: null, blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], meta: {}, cards: {}, media: {}, scriptSrcs: [], forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, spaVariations: {}, unknownScriptHosts: [] };
 
   rec.template = $('meta[name="template"]').attr('content') || null;
   // Real-page vs stub test based on VISIBLE TEXT, not cmp-* count (React/SPA sites have
@@ -137,6 +137,17 @@ function extract(url, html, status) {
   }
   rec.meta.reactRoots = $('#root,#app,[data-reactroot],[data-testid]').length;
 
+  // ---- Per-block variation detection (e.g. PDP: standard vs contact-lens) ----
+  // For each present block that has variation rules, tag the matching variation(s)
+  // based on distinguishing testids on the page.
+  rec.spaVariations = {};
+  const BV = TESTID.blockVariations || {};
+  for (const blockId in BV) {
+    if (!rec.spaBlocks[blockId]) continue;
+    const matched = BV[blockId].filter(v => Object.keys(testidSeen).some(t => new RegExp(v.signal, 'i').test(t))).map(v => v.name);
+    if (matched.length) rec.spaVariations[blockId] = matched;
+  }
+
   // ---- Content-page & homepage block extraction (named component classes) ----
   // Hybrid sites render content/marketing blocks as semantic HTML with component
   // class roots (aemds-*, wag-*, retail*, quicklinkcard, glider) rather than testids.
@@ -220,7 +231,7 @@ function classifyForm($f, fields, action, url) {
       html = ''; status = rm.status || 0;
     } else { const r = await L.get(url); status = r.statusCode; html = r.body || ''; if (status === 200 && html.length > 500) fs.writeFileSync(htmlPath, html); }
     let rec;
-    const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, unknownScriptHosts: [] };
+    const empty = { blocks: {}, variations: {}, custom: {}, integrations: [], embeds: [], cards: {}, forms: [], journey: {}, genericBlocks: {}, spaBlocks: {}, spaVariations: {}, unknownScriptHosts: [] };
     try { rec = (status === 200 && html.length > 200) ? extract(url, html, status) : { url, status, error: 'non-200 or empty', ...empty }; }
     catch (e) { rec = { url, status, error: 'parse:' + e.message, ...empty }; }
     if (++done % 50 === 0) process.stderr.write(`  ...${done}/${urls.length}\n`);

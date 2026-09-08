@@ -2,7 +2,7 @@
 
 **Source site:** https://www.walgreens.com
 **Analysis date:** 2026-09-08
-**Method:** Every one of the 1181 URLs was fetched (HTTP 200: 1143) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
+**Method:** Every one of the 1183 URLs was fetched (HTTP 200: 1145) and its DOM parsed for components, variations, embeds and integrations. Interactive behavior was verified live with Playwright on representative pages of every template and interactive block. Findings are evidence-based, not extrapolated.
 
 > 1 URLs are content mirror/duplicate paths; 2 are non-English (es) variants — same templates/blocks, content only.
 
@@ -12,15 +12,15 @@
 
 | Metric | Value |
 |---|---|
-| Total URLs analyzed | **1181** |
+| Total URLs analyzed | **1183** |
 | Unique templates | **15** |
 | EDS blocks to develop | **37** |
-| Block variations | **43** |
+| Block variations | **44** |
 | EDS default content (not blocks) | 5 |
 | High / Medium / Low complexity | 17 / 8 / 12 |
-| Forms | 993 |
-| Third-party integrations | 24 |
-| Unrecognized 3rd-party hosts (review) | 26 |
+| Forms | 998 |
+| Third-party integrations | 25 |
+| Unrecognized 3rd-party hosts (review) | 28 |
 | Blocks needing agent review | 0 |
 
 ---
@@ -34,8 +34,8 @@
 | 3 | **Find care** (`find-care`) | 94 |
 | 4 | **Redirect / External Stub** (`redirect-stub`) | 71 |
 | 5 | **Account** (`account`) | 46 |
-| 6 | **Retail base template** (`retail-base-template`) | 22 |
-| 7 | **Store detail** (`store-detail`) | 21 |
+| 6 | **Store detail** (`store-detail`) | 23 |
+| 7 | **Retail base template** (`retail-base-template`) | 22 |
 | 8 | **Home page content template** (`home-page-content-template`) | 15 |
 | 9 | **Category Hub** (`category-hub`) | 11 |
 | 10 | **Rx checkout** (`rx-checkout`) | 7 |
@@ -53,11 +53,11 @@
 
 | Block | EDS name | Complexity | Pages | Variations |
 |---|---|---|---|---|
-| **Global Footer** | `footer` | Medium | 831 | default (831) |
-| **Account / Authentication** | `account-auth (app)` | High | 627 | default (627) |
-| **Cart** | `cart (commerce)` | High | 580 | default (580) |
-| **Global Header / Nav** | `header (app nav)` | High | 580 | default (580) |
-| **Promo Banner** | `promo-banner` | Low | 579 | default (579) |
+| **Global Footer** | `footer` | Medium | 833 | default (833) |
+| **Account / Authentication** | `account-auth (app)` | High | 629 | default (629) |
+| **Cart** | `cart (commerce)` | High | 582 | default (582) |
+| **Global Header / Nav** | `header (app nav)` | High | 582 | default (582) |
+| **Promo Banner** | `promo-banner` | Low | 581 | default (581) |
 | **Rich Content (AEM DS)** | `default content (rich text)` | Low | 343 | default (343) |
 | **Predictive Search** | `search` | High | 314 | default (314) |
 | **Social Media Links** | `social-media` | Low | 314 | default (314) |
@@ -65,28 +65,28 @@
 | **Breadcrumb** | `breadcrumb` | Low | 303 | default (303) |
 | **Scroll to Top** | `scroll-to-top` | Low | 299 | default (299) |
 | **Health/Wellness Article** | `article (default content)` | Low | 125 | default (125) |
-| **Content / Product Carousel** | `carousel` | Medium | 82 | default (82) |
+| **Content / Product Carousel** | `carousel` | Medium | 84 | default (84) |
 | **Live Chat / Click-to-Chat** | `live-chat (embed)` | Medium | 56 | default (56) |
 | **Login / Sign-in Form** | `form (auth)` | High | 47 | default (47) |
-| **Hero Banner** | `hero` | Medium | 43 | default (43) |
+| **Hero Banner** | `hero` | Medium | 45 | default (45) |
 | **Quick Links / Category Shortcuts** | `quick-links` | Low | 22 | default (22) |
 | **Article Listing + Pagination** | `article-list (paginate)` | High | 11 | inactive-page (11); active-page (11) |
 | **Explore (category tiles)** | `explore` | Low | 11 | default (11) |
 | **Carousel** | `carousel` | High | 11 | content (11) |
 | **Promo Blocks** | `promo-blocks` | Low | 10 | default (10) |
 | **Product Filters / Facets** | `product-filters (commerce)` | High | 9 | default (9) |
+| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 9 | contact-lens (1); standard (1) |
 | **Product Listing (PLP)** | `product-list-page (commerce)` | High | 7 | default (7) |
-| **Product Detail (PDP)** | `product-detail-page (commerce)` | High | 7 | default (7) |
 | **Background Container** | `section-metadata (background)` | Low | 7 | navy-blue (7) |
 | **Watch Videos (gallery)** | `watch-videos` | High | 7 | default (7) |
 | **Feature Tile / Teaser** | `teaser` | Low | 7 | default (7) |
+| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 6 | default (6) |
 | **Article / Content Body** | `default content (rich text + media)` | Low | 6 | default (6) |
 | **Editor's Pick / Featured Teaser** | `editors-pick (teaser)` | Medium | 6 | default (6) |
-| **Fulfillment & Add-to-Cart** | `product-fulfillment (commerce)` | High | 4 | default (4) |
 | **Video / Media Embed** | `embed (video)` | High | 4 | default (4) |
 | **Accordion** | `accordion` | Medium | 4 | default (4) |
+| **Recommendations / Merchandising Carousels** | `product-carousel (commerce)` | Medium | 3 | default (3) |
 | **Rx Refill (guest/express)** | `rx-refill (pharmacy app)` | High | 3 | default (3) |
-| **Recommendations / Merchandising Carousels** | `product-carousel (commerce)` | Medium | 2 | default (2) |
 | **Rx Transfer** | `rx-transfer (pharmacy app)` | High | 2 | default (2) |
 | **Store Locator** | `store-locator (app)` | High | 2 | default (2) |
 | **Order Pickup / On-my-way** | `order-pickup (app)` | High | 1 | default (1) |
@@ -148,10 +148,10 @@
 | Login / Sign-in Form | default | High |
 | Hero Banner | default | Medium |
 | Product Filters / Facets | default | High |
+| Product Detail (PDP) | contact-lens, standard | High |
 | Product Listing (PLP) | default | High |
-| Product Detail (PDP) | default | High |
-| Article / Content Body | default | Low |
 | Fulfillment & Add-to-Cart | default | High |
+| Article / Content Body | default | Low |
 
 ### Redirect / External Stub (`redirect-stub`) — 71 pages
 
@@ -177,17 +177,7 @@
 | Live Chat / Click-to-Chat | default | Medium |
 | Login / Sign-in Form | default | High |
 
-### Retail base template (`retail-base-template`) — 22 pages
-
-| Block | Variations | Complexity |
-|---|---|---|
-| Rich Content (AEM DS) | default | Low |
-| Predictive Search | default | High |
-| Social Media Links | default | Low |
-| Feature Tile / Teaser | default | Low |
-| Editor's Pick / Featured Teaser | default | Medium |
-
-### Store detail (`store-detail`) — 21 pages
+### Store detail (`store-detail`) — 23 pages
 
 | Block | Variations | Complexity |
 |---|---|---|
@@ -203,11 +193,23 @@
 | Hero Banner | default | Medium |
 | Quick Links / Category Shortcuts | default | Low |
 | Product Filters / Facets | default | High |
+| Product Detail (PDP) | contact-lens, standard | High |
 | Product Listing (PLP) | default | High |
-| Product Detail (PDP) | default | High |
 | Feature Tile / Teaser | default | Low |
+| Fulfillment & Add-to-Cart | default | High |
 | Editor's Pick / Featured Teaser | default | Medium |
 | Accordion | default | Medium |
+| Recommendations / Merchandising Carousels | default | Medium |
+
+### Retail base template (`retail-base-template`) — 22 pages
+
+| Block | Variations | Complexity |
+|---|---|---|
+| Rich Content (AEM DS) | default | Low |
+| Predictive Search | default | High |
+| Social Media Links | default | Low |
+| Feature Tile / Teaser | default | Low |
+| Editor's Pick / Featured Teaser | default | Medium |
 
 ### Home page content template (`home-page-content-template`) — 15 pages
 
@@ -303,8 +305,8 @@
 | Social Media Links | default | Low |
 | Content / Product Carousel | default | Medium |
 | Product Filters / Facets | default | High |
+| Product Detail (PDP) | contact-lens, standard | High |
 | Product Listing (PLP) | default | High |
-| Product Detail (PDP) | default | High |
 | Fulfillment & Add-to-Cart | default | High |
 
 ### Cart (`cart`) — 1 pages
@@ -334,8 +336,8 @@
 
 ### Global Footer (`footer`)
 
-- **Pages:** 831 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (831)
+- **Pages:** 833 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (833)
 
 - Multi-column link groups: Customer Service, myWalgreens, Company Info, Terms, Privacy & Security.
 - Product category directory ('View all products by') + photo products.
@@ -344,8 +346,8 @@
 
 ### Account / Authentication (`account-auth (app)`)
 
-- **Pages:** 627 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (627)
+- **Pages:** 629 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (629)
 
 - Sign in (email/password) and create-account.
 - Password reset and guest order-lookup (order number, last name, phone).
@@ -354,8 +356,8 @@
 
 ### Cart (`cart (commerce)`)
 
-- **Pages:** 580 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (580)
+- **Pages:** 582 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (582)
 
 - Line items with image, title, price, quantity controls.
 - Fulfillment per item; price/summary totals.
@@ -364,8 +366,8 @@
 
 ### Global Header / Nav (`header (app nav)`)
 
-- **Pages:** 580 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (580)
+- **Pages:** 582 · **Templates:** account, article, category-hub, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (582)
 
 - Mega-menu navigation across departments/categories.
 - Store & pickup-location selector reflecting the chosen store.
@@ -375,8 +377,8 @@
 
 ### Promo Banner (`promo-banner`)
 
-- **Pages:** 579 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
-- **Variations:** default (579)
+- **Pages:** 581 · **Templates:** account, article, find-care, home-page-content-template, pdp, plp, retail-content-template, rx-checkout, store-detail, store-locator
+- **Variations:** default (581)
 
 - Rotating promotional offer links above the header.
 
@@ -440,8 +442,8 @@
 
 ### Content / Product Carousel (`carousel`)
 
-- **Pages:** 82 · **Templates:** article, category-hub, find-care, home-page-content-template, pdp, redirect-stub, retail-content-template, store-detail
-- **Variations:** default (82)
+- **Pages:** 84 · **Templates:** article, category-hub, find-care, home-page-content-template, pdp, redirect-stub, retail-content-template, store-detail
+- **Variations:** default (84)
 
 - Horizontal carousel of cards with prev/next controls.
 - Each card links to a PDP/PLP/content page.
@@ -464,8 +466,8 @@
 
 ### Hero Banner (`hero`)
 
-- **Pages:** 43 · **Templates:** article, cart, find-care, home-page-content-template, redirect-stub, store-detail
-- **Variations:** default (43)
+- **Pages:** 45 · **Templates:** article, cart, find-care, home-page-content-template, redirect-stub, store-detail
+- **Variations:** default (45)
 
 - Background media + headline + CTA(s); may auto-rotate.
 
@@ -515,6 +517,15 @@
 - Price min/max with Apply.
 - Selecting facets refines the product grid; applied-filters chips can be cleared.
 
+### Product Detail (PDP) (`product-detail-page (commerce)`)
+
+- **Pages:** 9 · **Templates:** find-care, pdp, store-detail
+- **Variations:** contact-lens (1); standard (1)
+
+- STANDARD variation: gallery + title/brand + price + rating; specifications table (brand, product-type, FSA/HSA-eligible, size, UPC, item-code); fulfillment radios (pickup/same-day/shipping) with stock + ready-time messaging + store address; quantity dropdown; add-for-pickup / add-to-cart; coupons; reviews; save-to-shopping-list; check-other-stores; description show-more; more-to-explore carousel.
+- CONTACT-LENS variation: per-eye prescription selectors (right-eye-power, left-eye-power, and typically base curve / brand / quantity of boxes); product image tabs; add-to-cart. No fulfillment radios or specifications table — it is a vision-prescription configurator.
+- Both: add-to-cart updates the header cart count and opens the cart-confirmation overlay.
+
 ### Product Listing (PLP) (`product-list-page (commerce)`)
 
 - **Pages:** 7 · **Templates:** find-care, pdp, store-detail
@@ -525,17 +536,6 @@
 - Faceted filters (brand, price range, fulfillment) refine results.
 - Load-more / paginated navigation.
 - Each card links to its PDP; add-to-cart / add-to-fulfillment where applicable.
-
-### Product Detail (PDP) (`product-detail-page (commerce)`)
-
-- **Pages:** 7 · **Templates:** find-care, pdp, store-detail
-- **Variations:** default (7)
-
-- Product gallery + title + brand + price + rating.
-- Variant selection (color/size/undertone) updates price/availability.
-- Fulfillment options (pickup / shipping / same-day) and add-to-cart / add-to-fulfillment.
-- FSA-eligibility labelling; check-other-store availability.
-- Reviews.
 
 ### Background Container (`section-metadata (background)`)
 
@@ -558,6 +558,17 @@
 
 - Media + heading + copy + CTA promoting a page/offer.
 
+### Fulfillment & Add-to-Cart (`product-fulfillment (commerce)`)
+
+- **Pages:** 6 · **Templates:** find-care, pdp, store-detail
+- **Variations:** default (6)
+
+- Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.
+- Quantity dropdown.
+- Add-to-cart / add-for-pickup updates the cart + header count.
+- Check other stores for availability.
+- Pickup address/details reflect the selected store.
+
 ### Article / Content Body (`default content (rich text + media)`)
 
 - **Pages:** 6 · **Templates:** article, find-care
@@ -571,17 +582,6 @@
 - **Variations:** default (6)
 
 - Promotes curated item(s) with media, eyebrow, title, byline and link.
-
-### Fulfillment & Add-to-Cart (`product-fulfillment (commerce)`)
-
-- **Pages:** 4 · **Templates:** find-care, pdp
-- **Variations:** default (4)
-
-- Fulfillment radios: pickup, same-day delivery, shipping — each with stock/availability + ready-time messaging.
-- Quantity dropdown.
-- Add-to-cart / add-for-pickup updates the cart + header count.
-- Check other stores for availability.
-- Pickup address/details reflect the selected store.
 
 ### Video / Media Embed (`embed (video)`)
 
@@ -599,6 +599,15 @@
 - A list of headers that expand/collapse their panels on click.
 - May allow single or multiple open panels.
 
+### Recommendations / Merchandising Carousels (`product-carousel (commerce)`)
+
+- **Pages:** 3 · **Templates:** article, store-detail
+- **Variations:** default (3)
+
+- Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).
+- Category/brand shortcut sections.
+- Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon.
+
 ### Rx Refill (guest/express) (`rx-refill (pharmacy app)`)
 
 - **Pages:** 3 · **Templates:** rx-checkout
@@ -608,15 +617,6 @@
 - Select pickup store and pickup date/time.
 - Provide guest contact details; validation on all fields.
 - Submit refill to the pharmacy system with confirmation.
-
-### Recommendations / Merchandising Carousels (`product-carousel (commerce)`)
-
-- **Pages:** 2 · **Templates:** article
-- **Variations:** default (2)
-
-- Horizontal carousels of product/offer cards (buy-again, top sellers, highest rated, newest arrivals, recently viewed, coupons, sales offers).
-- Category/brand shortcut sections.
-- Prev/next scroll; each card links to a PDP/PLP or applies an offer/coupon.
 
 ### Rx Transfer (`rx-transfer (pharmacy app)`)
 
@@ -761,6 +761,12 @@
 - [ ] Setting a price range + Apply narrows by price.
 - [ ] Clearing a facet restores results.
 
+### Product Detail (PDP)
+
+- [ ] STANDARD: PDP shows title/price/gallery + specs; fulfillment options selectable; add-to-cart updates the cart.
+- [ ] CONTACT-LENS: left & right eye power (and box quantity) are selectable and required before add-to-cart; adding the configured prescription updates the cart.
+- [ ] The correct variation renders per product type (vision products → contact-lens; all others → standard).
+
 ### Product Listing (PLP)
 
 - [ ] Results render as product cards with price and rating.
@@ -768,13 +774,6 @@
 - [ ] Applying a filter/price range narrows results.
 - [ ] Load-more / next page appends or advances results.
 - [ ] A card navigates to its PDP.
-
-### Product Detail (PDP)
-
-- [ ] PDP shows title, price and gallery.
-- [ ] Selecting a variant updates the selection/price.
-- [ ] Add-to-cart adds the item and updates the cart.
-- [ ] Fulfillment options are selectable.
 
 ### Background Container
 
@@ -788,6 +787,13 @@
 
 - [ ] Tile renders media + heading; CTA navigates.
 
+### Fulfillment & Add-to-Cart
+
+- [ ] Selecting a fulfillment option updates availability messaging.
+- [ ] Choosing quantity + add-to-cart adds the item and updates the cart count.
+- [ ] Check-other-stores surfaces alternative stores.
+- [ ] Out-of-stock options are disabled/messaged.
+
 ### Article / Content Body
 
 - [ ] Content renders with correct heading hierarchy and working links.
@@ -795,13 +801,6 @@
 ### Editor's Pick / Featured Teaser
 
 - [ ] The teaser shows the curated item with media and links to it.
-
-### Fulfillment & Add-to-Cart
-
-- [ ] Selecting a fulfillment option updates availability messaging.
-- [ ] Choosing quantity + add-to-cart adds the item and updates the cart count.
-- [ ] Check-other-stores surfaces alternative stores.
-- [ ] Out-of-stock options are disabled/messaged.
 
 ### Video / Media Embed
 
@@ -813,18 +812,18 @@
 - [ ] Clicking a header expands its panel; clicking again collapses it.
 - [ ] Keyboard and ARIA disclosure semantics work.
 
+### Recommendations / Merchandising Carousels
+
+- [ ] Each carousel renders its product/offer cards.
+- [ ] Prev/next scrolls the rail.
+- [ ] A card navigates to the target PDP/PLP or clips a coupon.
+
 ### Rx Refill (guest/express)
 
 - [ ] Invalid Rx number shows validation.
 - [ ] A store + date can be selected.
 - [ ] Submitting a valid refill shows a confirmation.
 - [ ] Guest flow works without sign-in.
-
-### Recommendations / Merchandising Carousels
-
-- [ ] Each carousel renders its product/offer cards.
-- [ ] Prev/next scrolls the rail.
-- [ ] A card navigates to the target PDP/PLP or clips a coupon.
 
 ### Rx Transfer
 
@@ -851,15 +850,15 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Capability | Pages |
 |---|---|
-| Login / account | 985 |
-| Filtering | 946 |
-| Checkout / buy | 945 |
-| Forms | 944 |
-| Tabs | 898 |
-| Search | 892 |
-| Modal / popup | 628 |
-| Cart | 581 |
-| Accordion / flip | 168 |
+| Login / account | 987 |
+| Filtering | 948 |
+| Checkout / buy | 947 |
+| Forms | 946 |
+| Tabs | 900 |
+| Search | 894 |
+| Modal / popup | 630 |
+| Cart | 583 |
+| Accordion / flip | 170 |
 | Live chat | 53 |
 | Video | 39 |
 | Pagination / load-more | 32 |
@@ -871,7 +870,7 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 ## 8. Forms
 
-993 form instance(s) found. Kinds: generic (579), contact/lead (13), login/auth (52), search (314), checkout/payment (1).
+998 form instance(s) found. Kinds: generic (581), contact/lead (13), login/auth (52), search (314), checkout/payment (2).
 
 | Page | Kind | Fields | Method | Posts to |
 |---|---|---|---|---|
@@ -1868,6 +1867,11 @@ Capabilities detected across the site (page counts). These indicate the interact
 | /youraccount/health_history.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/personal_information.jsp | login/auth | 3 | get | (js-handled) |
 | /youraccount/security_information.jsp | login/auth | 3 | get | (js-handled) |
+| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 1 | get | (js-handled) |
+| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 4 | get | (js-handled) |
+| /store/c/acuvue-oasys-hydraluxe-90pk-acuvue-oasys-1-day-90-pack/ID=prod6312311-product | generic | 4 | get | (js-handled) |
+| /store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product | generic | 1 | get | (js-handled) |
+| /store/c/walgreens-advanced-moisturizing-cream-fragrance-free/ID=300397738-product | checkout/payment | 5 | get | (js-handled) |
 
 ---
 
@@ -1877,12 +1881,13 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Adobe Launch/DTM (tag mgmt) | 976 |
-| Adobe Analytics (AppMeasurement) | 943 |
-| Google Analytics / GA4 | 624 |
-| Adobe Helix RUM | 379 |
+| Adobe Launch/DTM (tag mgmt) | 978 |
+| Adobe Analytics (AppMeasurement) | 945 |
+| Google Analytics / GA4 | 626 |
+| Adobe Helix RUM | 381 |
 | Adobe Client Data Layer | 361 |
 | Google Tag Manager | 21 |
+| Amplitude | 1 |
 
 **Chat/Support**
 
@@ -1894,14 +1899,14 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| OneTrust (consent) | 922 |
-| TrustArc (consent) | 589 |
+| OneTrust (consent) | 924 |
+| TrustArc (consent) | 591 |
 
 **Fonts**
 
 | Integration | Pages |
 |---|---|
-| Google Fonts | 642 |
+| Google Fonts | 644 |
 
 **Forms/CRM**
 
@@ -1913,7 +1918,7 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Google Maps | 616 |
+| Google Maps | 618 |
 
 **Marketing/Pixel**
 
@@ -1935,36 +1940,36 @@ Capabilities detected across the site (page counts). These indicate the interact
 
 | Integration | Pages |
 |---|---|
-| Adobe Target (A/B) | 956 |
-| Monetate | 952 |
+| Adobe Target (A/B) | 958 |
+| Monetate | 954 |
 
 **Reviews/UGC**
 
 | Integration | Pages |
 |---|---|
-| Bazaarvoice (ratings/reviews) | 1 |
+| Bazaarvoice (ratings/reviews) | 3 |
 
 **Security/Bot**
 
 | Integration | Pages |
 |---|---|
-| reCAPTCHA / hCaptcha | 12 |
+| reCAPTCHA / hCaptcha | 13 |
 
 **Survey/Feedback**
 
 | Integration | Pages |
 |---|---|
-| Medallia (feedback) | 941 |
+| Medallia (feedback) | 943 |
 | Qualtrics (survey) | 24 |
 
 **⚠︎ Unrecognized third-party hosts (need agent review — could be complex integrations):**
 
 | Host | Pages |
 |---|---|
-| resources.digital-cloud-west.medallia.com | 941 |
-| cdn.branch.io | 741 |
-| s2.go-mpulse.net | 688 |
-| www.wag-static.com | 216 |
+| resources.digital-cloud-west.medallia.com | 943 |
+| cdn.branch.io | 743 |
+| s2.go-mpulse.net | 690 |
+| www.wag-static.com | 218 |
 | dok.js-cdn.dynatrace.com | 164 |
 | media-us2.digital.nuance.com | 120 |
 | se.monetate.net | 115 |
@@ -1975,8 +1980,8 @@ Capabilities detected across the site (page counts). These indicate the interact
 | js.adsrvr.org | 19 |
 | www.mczbf.com | 17 |
 | googleads.g.doubleclick.net | 16 |
+| securepubads.g.doubleclick.net | 13 |
 | mihvea1f.micpn.com | 13 |
-| securepubads.g.doubleclick.net | 12 |
 | unpkg.com | 7 |
 | track.coherentpath.com | 5 |
 | bat.bing.com | 5 |
@@ -1984,9 +1989,11 @@ Capabilities detected across the site (page counts). These indicate the interact
 | www.cdn-net.com | 2 |
 | six.cdn-net.com | 2 |
 | prod.accdab.net | 2 |
+| apps.bazaarvoice.com | 2 |
 | connect.facebook.net | 1 |
 | wag-dwa-api-prod.przone.net | 1 |
 | cdn.glassboxcdn.com | 1 |
+| content.syndigo.com | 1 |
 
 ---
 
@@ -2002,8 +2009,8 @@ Capabilities detected across the site (page counts). These indicate the interact
 | **Article Listing + Pagination** | High | Client-side paginated grid: numbered pages, prev/next bound states, jump-to-page, no reload; data-driven from a category index. |
 | **Carousel** | High | Horizontal scroller with prev/next, disabled bound states, optional 'see all', responsive item counts. |
 | **Product Filters / Facets** | High | Faceted refinement rail for PLP: brand, price min/max apply, color/undertone (beauty), fulfillment. Client-side state synced to the results grid and often the URL. |
+| **Product Detail (PDP)** | High | Product page with TWO distinct variations that differ materially in DOM & functionality (verified live): (1) STANDARD retail PDP — gallery, specifications table, fulfillment radios (pickup/same-day/shipping) with stock+ready messaging, quantity, add-for-pickup, coupons, reviews, save-to-list, check-other-stores; (2) CONTACT-LENS / VISION PDP — per-eye prescription configurator (left/right eye power, base curve, box quantity), image tabs, simple add-to-cart, NO fulfillment radios/specs table. Each is a separate authoring/dev configuration. Commerce — Adobe Commerce PDP block(s) in EDS. |
 | **Product Listing (PLP)** | High | Search/browse results grid of product cards with sort, faceted filters, item count, pagination / load-more. Commerce — product data from a catalog API. In EDS this is an Adobe Commerce PLP block. |
-| **Product Detail (PDP)** | High | Product page: gallery, title/brand, price, variant selection (size/color/undertone), fulfillment (pickup/ship/same-day), add-to-cart, reviews, FSA eligibility. Commerce — Adobe Commerce PDP block in EDS. |
 | **Watch Videos (gallery)** | High | Gallery of video cards each launching a player; combines a card grid with the video embed lifecycle. |
 | **Fulfillment & Add-to-Cart** | High | PDP fulfillment selector + add-to-cart: pickup / same-day-delivery / shipping radio options with per-option stock, ready-time and store availability, quantity dropdown, 'add for pickup' / 'add to cart', and check-other-stores. Session + inventory/pricing APIs. |
 | **Video / Media Embed** | High | Multiple providers (Scene7/Dynamic Media, YouTube, Vimeo, Spotify) with poster/lazy-load; may include transcript pairing and commerce links. |
