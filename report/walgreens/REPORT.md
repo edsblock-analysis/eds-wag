@@ -6,6 +6,8 @@
 
 > 1 URLs are content mirror/duplicate paths; 2 are non-English (es) variants — same templates/blocks, content only.
 
+> ⚠️ **Scope:** The public site is analyzed in full. **My Account, checkout and other authenticated/logged-in journeys were assessed at a high level only** — automated crawling of them is blocked by **Akamai bot protection + login-gating**. A **detailed analysis of My Account, checkout and the authenticated flow must still be performed manually** in a logged-in session. High-level findings are in §12 below.
+
 ---
 
 ## 1. Executive Summary
