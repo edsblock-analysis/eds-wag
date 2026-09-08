@@ -25,6 +25,25 @@
 
 ---
 
+## 1a. Current Tech Stack
+
+Inferred from detected components + third-party integrations on the live site.
+
+| Category | Technology | Evidence |
+|---|---|---|
+| CMS / Components | **Adobe Experience Manager (AEM) — WCM Core Components** | cmp-* component classes, <meta name=template>: blank-page-template, page-content, article-page |
+| Target platform | **Adobe Edge Delivery Services (EDS)** | this analysis maps blocks/templates for EDS migration |
+| Tag management | **Adobe Launch / DTM** | assets.adobedtm.com |
+| Analytics | **Adobe Client Data Layer** | adobe-client-data-layer |
+| Personalization / A-B | **Adobe Target** | target / tt.omtrdc |
+| Consent / privacy | **OneTrust** | cookielaw.org / geolocation.onetrust.com |
+| Consent / privacy | **TrustArc** | trustarc/truste |
+| Monitoring (RUM) | **Adobe Helix RUM** | rum.hlx.page |
+| Media / DAM | **Adobe Scene7 / Dynamic Media** | s7viewers / scene7.com |
+| Media / video | **YouTube embed, Spotify embed** | embedded players |
+
+---
+
 ## 2. Templates
 
 | # | Template | Pages |

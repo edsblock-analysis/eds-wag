@@ -23,6 +23,29 @@
 
 ---
 
+## 1a. Current Tech Stack
+
+Inferred from detected components + third-party integrations on the live site.
+
+| Category | Technology | Evidence |
+|---|---|---|
+| CMS / Components | **Adobe Experience Manager (AEM) — WCM Core Components** | cmp-* component classes, <meta name=template>: page-content, page-case-studies, page-contact, page-insight |
+| Target platform | **Adobe Edge Delivery Services (EDS)** | this analysis maps blocks/templates for EDS migration |
+| Tag management | **Adobe Launch / DTM** | assets.adobedtm.com |
+| Analytics | **Adobe Analytics** | AppMeasurement / smetrics |
+| Analytics | **Google Analytics / GA4** | gtag/analytics.js |
+| Tag management | **Google Tag Manager** | googletagmanager.com |
+| Personalization / A-B | **Adobe Target** | target / tt.omtrdc |
+| Personalization / A-B | **Monetate** | monetate |
+| Consent / privacy | **OneTrust** | cookielaw.org / geolocation.onetrust.com |
+| Consent / privacy | **TrustArc** | trustarc/truste |
+| Monitoring (RUM) | **Adobe Helix RUM** | rum.hlx.page |
+| Forms / CRM | **Salesforce Web-to-Lead (form), HubSpot (form/CRM)** | form endpoints |
+| Maps / location | **Google Maps** | store locator / maps |
+| Fonts | **Typekit / Adobe Fonts, Google Fonts** | web fonts |
+
+---
+
 ## 2. Templates
 
 | # | Template | Pages |
