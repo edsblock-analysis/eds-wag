@@ -1,7 +1,9 @@
 # My Account evidence artifacts
 
-The **My Account & Checkout analysis** is now consolidated into the main report suite:
-`report/walgreens/reports/myaccount.html` (source: `report/walgreens/data/myaccount.md`).
+The **My Account & Checkout analysis** is consolidated into the main report —
+it is **§12 "My Account & Authenticated / Checkout Flows"** in:
+- `report/walgreens/REPORT.md`
+- `report/walgreens/reports/full-report.html` (source: `report/walgreens/data/myaccount.md`)
 
 This folder keeps the raw evidence captured during that analysis:
 - `routes.json` — rendered account/checkout shells, overlays, forms
